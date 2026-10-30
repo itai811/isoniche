@@ -21,7 +21,7 @@ License: GPL-3
 Encoding: UTF-8
 Depends: R (>= 4.1.0)
 Imports: stats, graphics, tibble
-Suggests: glmmTMB, testthat (>= 3.0.0), knitr, rmarkdown
+Suggests: glmmTMB, testthat (>= 3.1.5), knitr, rmarkdown
 Config/testthat/edition: 3
 Roxygen: list(markdown = TRUE)
 URL: https://github.com/itai811/isoniche

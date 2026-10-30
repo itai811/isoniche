@@ -54,6 +54,10 @@ iai <- function(isodars, abundances = NULL, weights = NULL, scaled = TRUE,
                 plot = FALSE, method = "gini") {
   method <- match.arg(method, "gini")
   scaled <- isTRUE(as.logical(scaled))
+  if (!is.null(abundances) &&
+      (!is.numeric(abundances) || !all(is.finite(abundances)) || any(abundances < 0))) {
+    stop("'abundances' must be NULL or finite, non-negative numbers.", call. = FALSE)
+  }
   kind <- if (inherits(isodars, "isodar_line")) "ndim" else
     if (inherits(isodars, "isodars_pairwise")) "pairwise" else NA
   if (is.na(kind)) {

@@ -39,6 +39,10 @@ These change results relative to 1.0.0.
   pairwise isodar equations, constrained to the total; habitats predicted
   negative are set to 0 and the rest are re-solved.
 * `isoderr(output = "CI")` returns percentile bootstrap intervals.
+* `iai()` gives an informative error when `abundances` contains `NA`,
+  non-finite or negative values.
+* Unit tests cover the paper's reference values, a simulation with a known
+  answer, each bug fix above, input validation and the latent method.
 
 # isoniche 1.0.0
 
