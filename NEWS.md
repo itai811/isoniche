@@ -1,6 +1,7 @@
 # isoniche 1.1.0
 
-New maintainer: Itai Granot. Author order is now Granot, Dubiner, Belmaker.
+New maintainer: Itai Granot. Author order is now Granot, Dubiner, Belmaker;
+Itai Granot and Shahar Dubiner contributed equally.
 
 ## Bug fixes
 

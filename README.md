@@ -67,7 +67,7 @@ n-dimensional isodar, which is now a line. Results can differ from 1.0.0; see
 
 Granot, I., Dubiner, S. & Belmaker, J. Why abundance-based indices of niche
 breadth are biased, and what can be done to improve them. *Ecology Letters*
-(in revision).
+(in revision). Itai Granot and Shahar Dubiner contributed equally.
 
 ## License
 

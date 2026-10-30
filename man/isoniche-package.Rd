@@ -17,11 +17,11 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Itai Granot \email{itai811@gmail.com}
+\strong{Maintainer}: Itai Granot \email{itai811@gmail.com} (Contributed equally with Shahar Dubiner)
 
 Authors:
 \itemize{
-  \item Shahar Dubiner \email{dubiner@mail.tau.ac.il} (\href{https://orcid.org/0000-0003-1771-0087}{ORCID})
+  \item Shahar Dubiner \email{dubiner@mail.tau.ac.il} (\href{https://orcid.org/0000-0003-1771-0087}{ORCID}) (Contributed equally with Itai Granot)
   \item Jonathan Belmaker
 }
 
