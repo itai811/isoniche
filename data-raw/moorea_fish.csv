@@ -1,0 +1,2664 @@
+barrier_reef,fringing_reef,outer_slope,Site,Species,n_sites,zeros
+0,1,0,Afareaitu,Abudefduf septemfasciatus,10,1
+8,7,0,Aroa,Abudefduf septemfasciatus,10,1
+1,6,0,Gendron,Abudefduf septemfasciatus,10,1
+2,0,0,Haapiti,Abudefduf septemfasciatus,10,1
+0,5,0,Maatea,Abudefduf septemfasciatus,10,1
+1,4,0,Pihaena,Abudefduf septemfasciatus,10,1
+1,1,0,Taotaha,Abudefduf septemfasciatus,10,1
+0,1,0,Temae,Abudefduf septemfasciatus,10,1
+11,3,0,Tetaiuo,Abudefduf septemfasciatus,10,1
+2,12,0,Tiahura,Abudefduf septemfasciatus,10,1
+19,115,0,Afareaitu,Abudefduf sexfasciatus,11,0
+1,3,0,Aroa,Abudefduf sexfasciatus,11,0
+2,30,0,Entre 2 baies,Abudefduf sexfasciatus,11,0
+0,2,0,Gendron,Abudefduf sexfasciatus,11,0
+5,0,0,Haapiti,Abudefduf sexfasciatus,11,0
+0,28,0,Maatea,Abudefduf sexfasciatus,11,0
+0,106,0,Motu Ahi,Abudefduf sexfasciatus,11,0
+4,99,0,Pihaena,Abudefduf sexfasciatus,11,0
+2,44,0,Taotaha,Abudefduf sexfasciatus,11,0
+0,7,20,Temae,Abudefduf sexfasciatus,11,0
+4,72,158,Tiahura,Abudefduf sexfasciatus,11,0
+7,5,0,Aroa,Abudefduf sordidus,9,1
+0,5,0,Gendron,Abudefduf sordidus,9,1
+0,6,0,Maatea,Abudefduf sordidus,9,1
+0,1,0,Motu Ahi,Abudefduf sordidus,9,1
+2,1,0,Pihaena,Abudefduf sordidus,9,1
+0,1,0,Taotaha,Abudefduf sordidus,9,1
+0,1,0,Temae,Abudefduf sordidus,9,1
+5,0,0,Tetaiuo,Abudefduf sordidus,9,1
+2,8,0,Tiahura,Abudefduf sordidus,9,1
+0,0,1,Afareaitu,Acanthurus achilles,7,1
+0,0,2,Entre 2 baies,Acanthurus achilles,7,1
+0,0,1,Motu Ahi,Acanthurus achilles,7,1
+0,0,11,Nuarei,Acanthurus achilles,7,1
+0,0,5,Pihaena,Acanthurus achilles,7,1
+0,0,1,Temae,Acanthurus achilles,7,1
+0,0,1,Tiahura,Acanthurus achilles,7,1
+0,2,0,Aroa,Acanthurus guttatus,1,0
+0,0,1,Aroa,Acanthurus leucopareius,3,1
+0,0,5,Gendron,Acanthurus leucopareius,3,1
+0,6,0,Motu Ahi,Acanthurus leucopareius,3,1
+0,2,0,Afareaitu,Acanthurus lineatus,10,0
+1,0,0,Aroa,Acanthurus lineatus,10,0
+1,1,0,Entre 2 baies,Acanthurus lineatus,10,0
+1,0,0,Gendron,Acanthurus lineatus,10,0
+1,0,0,Motu Ahi,Acanthurus lineatus,10,0
+0,0,2,Nuarei,Acanthurus lineatus,10,0
+1,0,0,Pihaena,Acanthurus lineatus,10,0
+1,0,0,Taotaha,Acanthurus lineatus,10,0
+3,0,0,Tetaiuo,Acanthurus lineatus,10,0
+0,1,0,Tiahura,Acanthurus lineatus,10,0
+0,0,2,Nuarei,Acanthurus mata,1,0
+7,0,77,Afareaitu,Acanthurus nigricans,13,0
+15,2,64,Aroa,Acanthurus nigricans,13,0
+1,3,18,Entre 2 baies,Acanthurus nigricans,13,0
+0,0,4,Gendron,Acanthurus nigricans,13,0
+1,0,0,Haapiti,Acanthurus nigricans,13,0
+5,0,59,Maatea,Acanthurus nigricans,13,0
+0,0,113,Motu Ahi,Acanthurus nigricans,13,0
+2,0,322,Nuarei,Acanthurus nigricans,13,0
+0,0,536,Pihaena,Acanthurus nigricans,13,0
+2,0,34,Taotaha,Acanthurus nigricans,13,0
+1,0,385,Temae,Acanthurus nigricans,13,0
+0,0,23,Tetaiuo,Acanthurus nigricans,13,0
+0,0,198,Tiahura,Acanthurus nigricans,13,0
+0,0,7,Afareaitu,Acanthurus nigricauda,11,0
+0,3,41,Aroa,Acanthurus nigricauda,11,0
+0,0,7,Entre 2 baies,Acanthurus nigricauda,11,0
+0,0,2,Gendron,Acanthurus nigricauda,11,0
+0,0,9,Haapiti,Acanthurus nigricauda,11,0
+0,0,5,Maatea,Acanthurus nigricauda,11,0
+0,4,1,Motu Ahi,Acanthurus nigricauda,11,0
+4,0,0,Nuarei,Acanthurus nigricauda,11,0
+0,9,3,Pihaena,Acanthurus nigricauda,11,0
+0,0,5,Taotaha,Acanthurus nigricauda,11,0
+1,0,5,Tiahura,Acanthurus nigricauda,11,0
+186,88,608,Afareaitu,Acanthurus nigrofuscus,13,0
+176,122,296,Aroa,Acanthurus nigrofuscus,13,0
+210,195,138,Entre 2 baies,Acanthurus nigrofuscus,13,0
+28,22,221,Gendron,Acanthurus nigrofuscus,13,0
+145,74,261,Haapiti,Acanthurus nigrofuscus,13,0
+47,240,329,Maatea,Acanthurus nigrofuscus,13,0
+91,108,240,Motu Ahi,Acanthurus nigrofuscus,13,0
+38,0,170,Nuarei,Acanthurus nigrofuscus,13,0
+73,138,118,Pihaena,Acanthurus nigrofuscus,13,0
+180,101,252,Taotaha,Acanthurus nigrofuscus,13,0
+41,16,120,Temae,Acanthurus nigrofuscus,13,0
+63,133,181,Tetaiuo,Acanthurus nigrofuscus,13,0
+204,128,232,Tiahura,Acanthurus nigrofuscus,13,0
+0,0,53,Afareaitu,Acanthurus nigroris,13,0
+0,0,9,Aroa,Acanthurus nigroris,13,0
+0,0,16,Entre 2 baies,Acanthurus nigroris,13,0
+0,0,34,Gendron,Acanthurus nigroris,13,0
+0,0,206,Haapiti,Acanthurus nigroris,13,0
+0,0,217,Maatea,Acanthurus nigroris,13,0
+0,5,205,Motu Ahi,Acanthurus nigroris,13,0
+0,0,70,Nuarei,Acanthurus nigroris,13,0
+0,2,0,Pihaena,Acanthurus nigroris,13,0
+0,0,161,Taotaha,Acanthurus nigroris,13,0
+1,0,5,Temae,Acanthurus nigroris,13,0
+0,0,45,Tetaiuo,Acanthurus nigroris,13,0
+0,0,12,Tiahura,Acanthurus nigroris,13,0
+0,0,2,Maatea,Acanthurus nubilus,1,0
+0,2,19,Afareaitu,Acanthurus olivaceus,13,0
+0,0,192,Aroa,Acanthurus olivaceus,13,0
+0,0,30,Entre 2 baies,Acanthurus olivaceus,13,0
+2,0,138,Gendron,Acanthurus olivaceus,13,0
+0,0,104,Haapiti,Acanthurus olivaceus,13,0
+1,0,119,Maatea,Acanthurus olivaceus,13,0
+0,4,64,Motu Ahi,Acanthurus olivaceus,13,0
+0,2,63,Nuarei,Acanthurus olivaceus,13,0
+0,0,48,Pihaena,Acanthurus olivaceus,13,0
+0,0,192,Taotaha,Acanthurus olivaceus,13,0
+0,0,1,Temae,Acanthurus olivaceus,13,0
+0,0,154,Tetaiuo,Acanthurus olivaceus,13,0
+0,0,18,Tiahura,Acanthurus olivaceus,13,0
+0,0,10,Afareaitu,Acanthurus pyroferus,13,0
+0,0,29,Aroa,Acanthurus pyroferus,13,0
+0,0,13,Entre 2 baies,Acanthurus pyroferus,13,0
+1,0,7,Gendron,Acanthurus pyroferus,13,0
+2,0,0,Haapiti,Acanthurus pyroferus,13,0
+2,6,20,Maatea,Acanthurus pyroferus,13,0
+1,3,20,Motu Ahi,Acanthurus pyroferus,13,0
+2,0,30,Nuarei,Acanthurus pyroferus,13,0
+1,4,2,Pihaena,Acanthurus pyroferus,13,0
+1,0,0,Taotaha,Acanthurus pyroferus,13,0
+6,0,60,Temae,Acanthurus pyroferus,13,0
+1,2,31,Tetaiuo,Acanthurus pyroferus,13,0
+1,1,17,Tiahura,Acanthurus pyroferus,13,0
+0,0,15,Afareaitu,Acanthurus thompsoni,8,1
+0,0,7,Aroa,Acanthurus thompsoni,8,1
+0,0,16,Entre 2 baies,Acanthurus thompsoni,8,1
+0,0,59,Nuarei,Acanthurus thompsoni,8,1
+0,0,38,Pihaena,Acanthurus thompsoni,8,1
+0,0,84,Temae,Acanthurus thompsoni,8,1
+0,0,10,Tetaiuo,Acanthurus thompsoni,8,1
+0,0,22,Tiahura,Acanthurus thompsoni,8,1
+774,103,0,Afareaitu,Acanthurus triostegus,13,0
+35,334,47,Aroa,Acanthurus triostegus,13,0
+100,1,6,Entre 2 baies,Acanthurus triostegus,13,0
+19,27,0,Gendron,Acanthurus triostegus,13,0
+1,4,39,Haapiti,Acanthurus triostegus,13,0
+10,8,0,Maatea,Acanthurus triostegus,13,0
+38,130,3,Motu Ahi,Acanthurus triostegus,13,0
+4,18,8,Nuarei,Acanthurus triostegus,13,0
+11,114,0,Pihaena,Acanthurus triostegus,13,0
+10,13,33,Taotaha,Acanthurus triostegus,13,0
+1,46,50,Temae,Acanthurus triostegus,13,0
+21,16,7,Tetaiuo,Acanthurus triostegus,13,0
+10,55,33,Tiahura,Acanthurus triostegus,13,0
+0,1,0,Tetaiuo,Acanthurus xanthopterus,1,0
+1,0,0,Nuarei,Aluterus scriptus,2,1
+0,0,2,Tiahura,Aluterus scriptus,2,1
+0,0,5,Afareaitu,Amanses scopas,13,1
+0,0,5,Aroa,Amanses scopas,13,1
+0,0,1,Entre 2 baies,Amanses scopas,13,1
+0,0,6,Gendron,Amanses scopas,13,1
+0,0,5,Haapiti,Amanses scopas,13,1
+0,0,6,Maatea,Amanses scopas,13,1
+0,0,20,Motu Ahi,Amanses scopas,13,1
+0,0,8,Nuarei,Amanses scopas,13,1
+0,0,4,Pihaena,Amanses scopas,13,1
+0,0,7,Taotaha,Amanses scopas,13,1
+0,0,17,Temae,Amanses scopas,13,1
+0,0,15,Tetaiuo,Amanses scopas,13,1
+0,0,5,Tiahura,Amanses scopas,13,1
+0,0,2,Afareaitu,Amblycirrhitus bimacula,10,1
+0,0,2,Entre 2 baies,Amblycirrhitus bimacula,10,1
+0,0,3,Gendron,Amblycirrhitus bimacula,10,1
+0,0,3,Haapiti,Amblycirrhitus bimacula,10,1
+0,0,2,Maatea,Amblycirrhitus bimacula,10,1
+0,0,1,Motu Ahi,Amblycirrhitus bimacula,10,1
+0,0,1,Pihaena,Amblycirrhitus bimacula,10,1
+0,0,2,Taotaha,Amblycirrhitus bimacula,10,1
+0,0,1,Temae,Amblycirrhitus bimacula,10,1
+0,0,1,Tetaiuo,Amblycirrhitus bimacula,10,1
+2,0,0,Motu Ahi,Amblygobius phalaena,1,0
+0,2,0,Aroa,Amphiprion chrysopterus,6,0
+0,5,4,Gendron,Amphiprion chrysopterus,6,0
+5,0,1,Maatea,Amphiprion chrysopterus,6,0
+0,0,1,Motu Ahi,Amphiprion chrysopterus,6,0
+0,0,1,Taotaha,Amphiprion chrysopterus,6,0
+0,1,2,Tetaiuo,Amphiprion chrysopterus,6,0
+1,0,15,Afareaitu,Anampses caeruleopunctatus,12,0
+0,1,15,Aroa,Anampses caeruleopunctatus,12,0
+0,0,3,Entre 2 baies,Anampses caeruleopunctatus,12,0
+0,0,8,Gendron,Anampses caeruleopunctatus,12,0
+0,0,8,Haapiti,Anampses caeruleopunctatus,12,0
+0,0,6,Maatea,Anampses caeruleopunctatus,12,0
+0,0,3,Motu Ahi,Anampses caeruleopunctatus,12,0
+1,0,4,Nuarei,Anampses caeruleopunctatus,12,0
+0,0,8,Pihaena,Anampses caeruleopunctatus,12,0
+0,0,6,Taotaha,Anampses caeruleopunctatus,12,0
+0,0,8,Temae,Anampses caeruleopunctatus,12,0
+0,0,6,Tiahura,Anampses caeruleopunctatus,12,0
+1,0,0,Afareaitu,Anampses melanurus,11,1
+0,0,12,Aroa,Anampses melanurus,11,1
+0,0,3,Entre 2 baies,Anampses melanurus,11,1
+0,0,3,Gendron,Anampses melanurus,11,1
+1,0,6,Haapiti,Anampses melanurus,11,1
+0,0,4,Nuarei,Anampses melanurus,11,1
+0,0,1,Pihaena,Anampses melanurus,11,1
+1,0,2,Taotaha,Anampses melanurus,11,1
+2,0,9,Temae,Anampses melanurus,11,1
+0,0,1,Tetaiuo,Anampses melanurus,11,1
+0,0,5,Tiahura,Anampses melanurus,11,1
+3,0,0,Afareaitu,Anampses meleagrides,7,1
+0,1,0,Aroa,Anampses meleagrides,7,1
+1,0,0,Gendron,Anampses meleagrides,7,1
+1,0,0,Haapiti,Anampses meleagrides,7,1
+0,1,0,Pihaena,Anampses meleagrides,7,1
+3,0,0,Taotaha,Anampses meleagrides,7,1
+1,0,0,Tetaiuo,Anampses meleagrides,7,1
+2,0,7,Afareaitu,Anampses twistii,8,0
+0,1,0,Aroa,Anampses twistii,8,0
+2,0,2,Entre 2 baies,Anampses twistii,8,0
+2,1,0,Haapiti,Anampses twistii,8,0
+0,2,0,Maatea,Anampses twistii,8,0
+0,0,9,Pihaena,Anampses twistii,8,0
+0,0,4,Temae,Anampses twistii,8,0
+0,0,3,Tiahura,Anampses twistii,8,0
+0,0,10,Afareaitu,Aphareus furca,12,1
+0,0,11,Aroa,Aphareus furca,12,1
+0,0,13,Entre 2 baies,Aphareus furca,12,1
+0,0,4,Gendron,Aphareus furca,12,1
+0,0,3,Maatea,Aphareus furca,12,1
+0,0,11,Motu Ahi,Aphareus furca,12,1
+0,0,38,Nuarei,Aphareus furca,12,1
+0,0,15,Pihaena,Aphareus furca,12,1
+0,0,1,Taotaha,Aphareus furca,12,1
+0,0,19,Temae,Aphareus furca,12,1
+0,0,13,Tetaiuo,Aphareus furca,12,1
+0,0,33,Tiahura,Aphareus furca,12,1
+0,12,0,Nuarei,Apogon novemfasciatus,1,0
+0,0,1,Gendron,Aprion virescens,2,1
+0,0,1,Tiahura,Aprion virescens,2,1
+0,0,1,Nuarei,Arothron hispidus,1,0
+0,1,0,Afareaitu,Arothron meleagris,12,0
+2,0,0,Aroa,Arothron meleagris,12,0
+0,0,1,Entre 2 baies,Arothron meleagris,12,0
+1,0,0,Gendron,Arothron meleagris,12,0
+2,0,0,Haapiti,Arothron meleagris,12,0
+0,0,1,Maatea,Arothron meleagris,12,0
+0,0,2,Nuarei,Arothron meleagris,12,0
+0,0,1,Pihaena,Arothron meleagris,12,0
+0,1,0,Taotaha,Arothron meleagris,12,0
+0,0,1,Temae,Arothron meleagris,12,0
+0,1,2,Tetaiuo,Arothron meleagris,12,0
+0,0,1,Tiahura,Arothron meleagris,12,0
+0,1,0,Maatea,Aspidontus taeniatus,2,1
+0,1,0,Tetaiuo,Aspidontus taeniatus,2,1
+1,0,0,Aroa,Asterropteryx semipunctata,7,1
+0,2,0,Gendron,Asterropteryx semipunctata,7,1
+0,1,0,Motu Ahi,Asterropteryx semipunctata,7,1
+0,1,0,Nuarei,Asterropteryx semipunctata,7,1
+1,0,0,Pihaena,Asterropteryx semipunctata,7,1
+0,1,0,Taotaha,Asterropteryx semipunctata,7,1
+0,1,0,Temae,Asterropteryx semipunctata,7,1
+0,0,2,Afareaitu,Atrosalarias fuscus,10,1
+0,0,2,Entre 2 baies,Atrosalarias fuscus,10,1
+0,0,6,Gendron,Atrosalarias fuscus,10,1
+0,0,8,Haapiti,Atrosalarias fuscus,10,1
+0,0,11,Maatea,Atrosalarias fuscus,10,1
+0,0,5,Motu Ahi,Atrosalarias fuscus,10,1
+0,0,1,Nuarei,Atrosalarias fuscus,10,1
+0,0,1,Pihaena,Atrosalarias fuscus,10,1
+0,0,6,Taotaha,Atrosalarias fuscus,10,1
+0,0,8,Tetaiuo,Atrosalarias fuscus,10,1
+14,5,5,Entre 2 baies,Aulostomus chinensis,11,0
+0,0,2,Gendron,Aulostomus chinensis,11,0
+0,1,0,Haapiti,Aulostomus chinensis,11,0
+0,5,0,Maatea,Aulostomus chinensis,11,0
+1,6,0,Motu Ahi,Aulostomus chinensis,11,0
+0,0,2,Nuarei,Aulostomus chinensis,11,0
+1,0,7,Pihaena,Aulostomus chinensis,11,0
+3,0,0,Taotaha,Aulostomus chinensis,11,0
+2,0,3,Temae,Aulostomus chinensis,11,0
+1,2,0,Tetaiuo,Aulostomus chinensis,11,0
+2,18,8,Tiahura,Aulostomus chinensis,11,0
+2,0,34,Afareaitu,Balistapus undulatus,13,0
+16,22,72,Aroa,Balistapus undulatus,13,0
+4,5,88,Entre 2 baies,Balistapus undulatus,13,0
+3,3,52,Gendron,Balistapus undulatus,13,0
+12,4,46,Haapiti,Balistapus undulatus,13,0
+1,5,37,Maatea,Balistapus undulatus,13,0
+3,3,57,Motu Ahi,Balistapus undulatus,13,0
+14,1,47,Nuarei,Balistapus undulatus,13,0
+4,3,56,Pihaena,Balistapus undulatus,13,0
+9,3,23,Taotaha,Balistapus undulatus,13,0
+11,0,60,Temae,Balistapus undulatus,13,0
+10,5,61,Tetaiuo,Balistapus undulatus,13,0
+45,11,119,Tiahura,Balistapus undulatus,13,0
+0,0,5,Afareaitu,Balistoides viridescens,10,1
+0,0,1,Aroa,Balistoides viridescens,10,1
+0,0,1,Entre 2 baies,Balistoides viridescens,10,1
+0,0,2,Gendron,Balistoides viridescens,10,1
+0,0,3,Motu Ahi,Balistoides viridescens,10,1
+0,0,5,Nuarei,Balistoides viridescens,10,1
+0,0,1,Taotaha,Balistoides viridescens,10,1
+0,0,2,Temae,Balistoides viridescens,10,1
+0,0,2,Tetaiuo,Balistoides viridescens,10,1
+0,0,1,Tiahura,Balistoides viridescens,10,1
+0,0,3,Afareaitu,Bodianus axillaris,7,1
+0,0,1,Aroa,Bodianus axillaris,7,1
+0,0,1,Entre 2 baies,Bodianus axillaris,7,1
+0,0,1,Nuarei,Bodianus axillaris,7,1
+0,0,3,Pihaena,Bodianus axillaris,7,1
+0,0,1,Temae,Bodianus axillaris,7,1
+0,0,1,Tiahura,Bodianus axillaris,7,1
+0,0,1,Aroa,Bothus mancus,7,0
+0,1,0,Entre 2 baies,Bothus mancus,7,0
+1,0,0,Gendron,Bothus mancus,7,0
+1,0,0,Maatea,Bothus mancus,7,0
+1,0,0,Motu Ahi,Bothus mancus,7,0
+0,1,0,Temae,Bothus mancus,7,0
+0,0,1,Tetaiuo,Bothus mancus,7,0
+0,0,1,Aroa,Bothus pantherinus,4,1
+0,1,0,Nuarei,Bothus pantherinus,4,1
+0,1,0,Temae,Bothus pantherinus,4,1
+0,0,1,Tiahura,Bothus pantherinus,4,1
+1,1,0,Aroa,Callionymus simplicicornis,4,1
+0,2,0,Nuarei,Callionymus simplicicornis,4,1
+1,0,0,Pihaena,Callionymus simplicicornis,4,1
+0,1,0,Tiahura,Callionymus simplicicornis,4,1
+0,0,1,Afareaitu,Calotomus carolinus,7,0
+3,1,0,Aroa,Calotomus carolinus,7,0
+0,2,0,Gendron,Calotomus carolinus,7,0
+0,0,9,Maatea,Calotomus carolinus,7,0
+2,0,0,Motu Ahi,Calotomus carolinus,7,0
+1,0,0,Tetaiuo,Calotomus carolinus,7,0
+0,0,1,Tiahura,Calotomus carolinus,7,0
+0,0,1,Afareaitu,Cantherhines dumerilii,12,1
+0,0,1,Aroa,Cantherhines dumerilii,12,1
+0,0,2,Entre 2 baies,Cantherhines dumerilii,12,1
+0,0,2,Gendron,Cantherhines dumerilii,12,1
+0,0,2,Haapiti,Cantherhines dumerilii,12,1
+0,0,2,Motu Ahi,Cantherhines dumerilii,12,1
+0,0,5,Nuarei,Cantherhines dumerilii,12,1
+0,0,2,Pihaena,Cantherhines dumerilii,12,1
+0,0,2,Taotaha,Cantherhines dumerilii,12,1
+0,0,2,Temae,Cantherhines dumerilii,12,1
+0,1,2,Tetaiuo,Cantherhines dumerilii,12,1
+0,0,2,Tiahura,Cantherhines dumerilii,12,1
+0,0,33,Afareaitu,Cantherhines pardalis,13,1
+0,0,25,Aroa,Cantherhines pardalis,13,1
+0,0,20,Entre 2 baies,Cantherhines pardalis,13,1
+0,0,50,Gendron,Cantherhines pardalis,13,1
+0,0,33,Haapiti,Cantherhines pardalis,13,1
+0,1,32,Maatea,Cantherhines pardalis,13,1
+0,0,36,Motu Ahi,Cantherhines pardalis,13,1
+0,0,26,Nuarei,Cantherhines pardalis,13,1
+0,0,13,Pihaena,Cantherhines pardalis,13,1
+0,0,49,Taotaha,Cantherhines pardalis,13,1
+0,0,19,Temae,Cantherhines pardalis,13,1
+0,0,32,Tetaiuo,Cantherhines pardalis,13,1
+0,0,18,Tiahura,Cantherhines pardalis,13,1
+1,0,0,Entre 2 baies,Cantherhines sandwichiensis,1,0
+5,9,1,Afareaitu,Canthigaster amboinensis,13,0
+6,9,1,Aroa,Canthigaster amboinensis,13,0
+1,12,0,Entre 2 baies,Canthigaster amboinensis,13,0
+0,2,0,Gendron,Canthigaster amboinensis,13,0
+5,0,0,Haapiti,Canthigaster amboinensis,13,0
+3,10,0,Maatea,Canthigaster amboinensis,13,0
+1,1,0,Motu Ahi,Canthigaster amboinensis,13,0
+3,0,0,Nuarei,Canthigaster amboinensis,13,0
+8,20,1,Pihaena,Canthigaster amboinensis,13,0
+3,0,0,Taotaha,Canthigaster amboinensis,13,0
+7,0,3,Temae,Canthigaster amboinensis,13,0
+4,0,0,Tetaiuo,Canthigaster amboinensis,13,0
+3,4,3,Tiahura,Canthigaster amboinensis,13,0
+1,14,1,Afareaitu,Canthigaster bennetti,12,0
+1,0,0,Aroa,Canthigaster bennetti,12,0
+0,4,0,Entre 2 baies,Canthigaster bennetti,12,0
+0,2,0,Gendron,Canthigaster bennetti,12,0
+1,4,0,Haapiti,Canthigaster bennetti,12,0
+3,2,0,Maatea,Canthigaster bennetti,12,0
+3,29,1,Motu Ahi,Canthigaster bennetti,12,0
+1,0,0,Nuarei,Canthigaster bennetti,12,0
+2,5,0,Pihaena,Canthigaster bennetti,12,0
+2,0,0,Taotaha,Canthigaster bennetti,12,0
+2,6,4,Temae,Canthigaster bennetti,12,0
+1,1,0,Tiahura,Canthigaster bennetti,12,0
+1,0,0,Afareaitu,Canthigaster janthinoptera,8,0
+0,2,0,Aroa,Canthigaster janthinoptera,8,0
+4,0,0,Haapiti,Canthigaster janthinoptera,8,0
+2,2,0,Maatea,Canthigaster janthinoptera,8,0
+3,0,0,Motu Ahi,Canthigaster janthinoptera,8,0
+0,6,2,Pihaena,Canthigaster janthinoptera,8,0
+1,0,0,Temae,Canthigaster janthinoptera,8,0
+0,0,1,Tiahura,Canthigaster janthinoptera,8,0
+18,16,3,Afareaitu,Canthigaster solandri,13,0
+19,18,4,Aroa,Canthigaster solandri,13,0
+14,10,22,Entre 2 baies,Canthigaster solandri,13,0
+1,4,2,Gendron,Canthigaster solandri,13,0
+26,0,0,Haapiti,Canthigaster solandri,13,0
+20,9,15,Maatea,Canthigaster solandri,13,0
+7,15,8,Motu Ahi,Canthigaster solandri,13,0
+7,0,7,Nuarei,Canthigaster solandri,13,0
+16,19,44,Pihaena,Canthigaster solandri,13,0
+10,6,3,Taotaha,Canthigaster solandri,13,0
+9,1,11,Temae,Canthigaster solandri,13,0
+6,1,2,Tetaiuo,Canthigaster solandri,13,0
+21,11,13,Tiahura,Canthigaster solandri,13,0
+0,1,0,Afareaitu,Canthigaster valentini,9,0
+1,0,0,Entre 2 baies,Canthigaster valentini,9,0
+1,0,0,Gendron,Canthigaster valentini,9,0
+0,1,0,Motu Ahi,Canthigaster valentini,9,0
+1,0,0,Nuarei,Canthigaster valentini,9,0
+0,1,2,Pihaena,Canthigaster valentini,9,0
+1,0,0,Taotaha,Canthigaster valentini,9,0
+2,0,0,Tetaiuo,Canthigaster valentini,9,0
+0,2,0,Tiahura,Canthigaster valentini,9,0
+0,0,673,Afareaitu,Caracanthus maculatus,13,1
+2,0,321,Aroa,Caracanthus maculatus,13,1
+2,0,370,Entre 2 baies,Caracanthus maculatus,13,1
+0,0,485,Gendron,Caracanthus maculatus,13,1
+4,0,254,Haapiti,Caracanthus maculatus,13,1
+1,0,549,Maatea,Caracanthus maculatus,13,1
+0,0,853,Motu Ahi,Caracanthus maculatus,13,1
+0,0,503,Nuarei,Caracanthus maculatus,13,1
+1,0,209,Pihaena,Caracanthus maculatus,13,1
+1,0,381,Taotaha,Caracanthus maculatus,13,1
+4,0,615,Temae,Caracanthus maculatus,13,1
+1,0,545,Tetaiuo,Caracanthus maculatus,13,1
+2,0,388,Tiahura,Caracanthus maculatus,13,1
+0,0,22,Afareaitu,Caracanthus unipinna,12,1
+0,0,8,Entre 2 baies,Caracanthus unipinna,12,1
+0,0,2,Gendron,Caracanthus unipinna,12,1
+0,0,6,Haapiti,Caracanthus unipinna,12,1
+0,0,7,Maatea,Caracanthus unipinna,12,1
+0,0,13,Motu Ahi,Caracanthus unipinna,12,1
+0,0,8,Nuarei,Caracanthus unipinna,12,1
+0,0,20,Pihaena,Caracanthus unipinna,12,1
+0,0,12,Taotaha,Caracanthus unipinna,12,1
+0,0,5,Temae,Caracanthus unipinna,12,1
+0,0,1,Tetaiuo,Caracanthus unipinna,12,1
+0,0,10,Tiahura,Caracanthus unipinna,12,1
+0,3,0,Pihaena,Carangoides ferdau,1,0
+0,0,1,Maatea,Caranx ignobilis,1,0
+0,0,6,Entre 2 baies,Caranx melampygus,10,0
+0,1,5,Gendron,Caranx melampygus,10,0
+0,0,4,Maatea,Caranx melampygus,10,0
+0,0,1,Motu Ahi,Caranx melampygus,10,0
+3,7,6,Nuarei,Caranx melampygus,10,0
+0,2,1,Pihaena,Caranx melampygus,10,0
+1,0,6,Taotaha,Caranx melampygus,10,0
+0,4,21,Temae,Caranx melampygus,10,0
+0,0,9,Tetaiuo,Caranx melampygus,10,0
+0,0,3,Tiahura,Caranx melampygus,10,0
+0,3,0,Afareaitu,Caranx sexfasciatus,2,1
+0,0,1,Maatea,Caranx sexfasciatus,2,1
+0,0,5,Gendron,Carcharhinus amblyrhynchos,3,1
+0,0,1,Motu Ahi,Carcharhinus amblyrhynchos,3,1
+0,0,1,Nuarei,Carcharhinus amblyrhynchos,3,1
+1,0,0,Afareaitu,Carcharhinus melanopterus,11,0
+2,0,2,Entre 2 baies,Carcharhinus melanopterus,11,0
+0,0,9,Gendron,Carcharhinus melanopterus,11,0
+0,0,1,Haapiti,Carcharhinus melanopterus,11,0
+0,1,2,Maatea,Carcharhinus melanopterus,11,0
+1,0,5,Motu Ahi,Carcharhinus melanopterus,11,0
+0,0,1,Nuarei,Carcharhinus melanopterus,11,0
+0,0,2,Pihaena,Carcharhinus melanopterus,11,0
+1,0,1,Temae,Carcharhinus melanopterus,11,0
+3,1,9,Tetaiuo,Carcharhinus melanopterus,11,0
+1,0,8,Tiahura,Carcharhinus melanopterus,11,0
+0,0,85,Afareaitu,Centropyge bispinosa,12,0
+0,1,128,Aroa,Centropyge bispinosa,12,0
+2,22,242,Entre 2 baies,Centropyge bispinosa,12,0
+0,0,4,Gendron,Centropyge bispinosa,12,0
+4,0,16,Maatea,Centropyge bispinosa,12,0
+0,0,44,Motu Ahi,Centropyge bispinosa,12,0
+3,0,18,Nuarei,Centropyge bispinosa,12,0
+4,0,108,Pihaena,Centropyge bispinosa,12,0
+0,0,3,Taotaha,Centropyge bispinosa,12,0
+1,0,83,Temae,Centropyge bispinosa,12,0
+0,0,2,Tetaiuo,Centropyge bispinosa,12,0
+0,0,140,Tiahura,Centropyge bispinosa,12,0
+0,0,1,Afareaitu,Centropyge flavicauda,3,1
+0,0,5,Gendron,Centropyge flavicauda,3,1
+0,0,5,Tetaiuo,Centropyge flavicauda,3,1
+77,50,238,Afareaitu,Centropyge flavissima,13,0
+57,46,231,Aroa,Centropyge flavissima,13,0
+71,88,255,Entre 2 baies,Centropyge flavissima,13,0
+41,43,285,Gendron,Centropyge flavissima,13,0
+109,40,321,Haapiti,Centropyge flavissima,13,0
+56,80,382,Maatea,Centropyge flavissima,13,0
+64,83,233,Motu Ahi,Centropyge flavissima,13,0
+63,4,356,Nuarei,Centropyge flavissima,13,0
+56,57,173,Pihaena,Centropyge flavissima,13,0
+74,25,324,Taotaha,Centropyge flavissima,13,0
+68,2,301,Temae,Centropyge flavissima,13,0
+86,42,413,Tetaiuo,Centropyge flavissima,13,0
+57,74,315,Tiahura,Centropyge flavissima,13,0
+0,0,2,Entre 2 baies,Centropyge heraldi,7,1
+0,0,22,Gendron,Centropyge heraldi,7,1
+0,0,47,Haapiti,Centropyge heraldi,7,1
+0,0,112,Maatea,Centropyge heraldi,7,1
+0,0,10,Taotaha,Centropyge heraldi,7,1
+0,0,6,Tetaiuo,Centropyge heraldi,7,1
+0,0,3,Tiahura,Centropyge heraldi,7,1
+0,0,171,Afareaitu,Centropyge loriculus,13,1
+0,0,9,Aroa,Centropyge loriculus,13,1
+0,0,58,Entre 2 baies,Centropyge loriculus,13,1
+0,0,50,Gendron,Centropyge loriculus,13,1
+0,0,11,Haapiti,Centropyge loriculus,13,1
+0,0,364,Maatea,Centropyge loriculus,13,1
+0,0,128,Motu Ahi,Centropyge loriculus,13,1
+0,0,395,Nuarei,Centropyge loriculus,13,1
+0,0,58,Pihaena,Centropyge loriculus,13,1
+0,0,122,Taotaha,Centropyge loriculus,13,1
+0,0,236,Temae,Centropyge loriculus,13,1
+0,0,274,Tetaiuo,Centropyge loriculus,13,1
+0,0,246,Tiahura,Centropyge loriculus,13,1
+0,0,6,Afareaitu,Centropyge multicolor,4,1
+0,0,3,Motu Ahi,Centropyge multicolor,4,1
+0,0,1,Temae,Centropyge multicolor,4,1
+0,0,8,Tiahura,Centropyge multicolor,4,1
+4,0,61,Afareaitu,Cephalopholis argus,13,0
+6,2,68,Aroa,Cephalopholis argus,13,0
+5,7,126,Entre 2 baies,Cephalopholis argus,13,0
+6,0,45,Gendron,Cephalopholis argus,13,0
+6,1,68,Haapiti,Cephalopholis argus,13,0
+10,1,121,Maatea,Cephalopholis argus,13,0
+14,11,162,Motu Ahi,Cephalopholis argus,13,0
+10,0,97,Nuarei,Cephalopholis argus,13,0
+6,1,94,Pihaena,Cephalopholis argus,13,0
+2,1,92,Taotaha,Cephalopholis argus,13,0
+5,0,101,Temae,Cephalopholis argus,13,0
+5,0,99,Tetaiuo,Cephalopholis argus,13,0
+0,0,138,Tiahura,Cephalopholis argus,13,0
+0,0,2,Pihaena,Cephalopholis leopardus,1,0
+0,0,1,Gendron,Cephalopholis sexmaculata,3,1
+0,0,1,Maatea,Cephalopholis sexmaculata,3,1
+0,0,1,Pihaena,Cephalopholis sexmaculata,3,1
+0,0,69,Afareaitu,Cephalopholis urodeta,13,1
+0,0,90,Aroa,Cephalopholis urodeta,13,1
+0,0,72,Entre 2 baies,Cephalopholis urodeta,13,1
+0,0,94,Gendron,Cephalopholis urodeta,13,1
+0,0,36,Haapiti,Cephalopholis urodeta,13,1
+0,0,95,Maatea,Cephalopholis urodeta,13,1
+0,0,51,Motu Ahi,Cephalopholis urodeta,13,1
+0,0,115,Nuarei,Cephalopholis urodeta,13,1
+0,0,41,Pihaena,Cephalopholis urodeta,13,1
+0,0,83,Taotaha,Cephalopholis urodeta,13,1
+0,0,106,Temae,Cephalopholis urodeta,13,1
+0,0,165,Tetaiuo,Cephalopholis urodeta,13,1
+0,1,166,Tiahura,Cephalopholis urodeta,13,1
+0,0,1,Entre 2 baies,Cetoscarus ocellatus,1,0
+3,8,0,Afareaitu,Chaetodon auriga,13,0
+1,2,2,Aroa,Chaetodon auriga,13,0
+1,0,2,Entre 2 baies,Chaetodon auriga,13,0
+2,15,1,Gendron,Chaetodon auriga,13,0
+3,12,0,Haapiti,Chaetodon auriga,13,0
+5,4,0,Maatea,Chaetodon auriga,13,0
+3,18,0,Motu Ahi,Chaetodon auriga,13,0
+6,3,1,Nuarei,Chaetodon auriga,13,0
+2,1,2,Pihaena,Chaetodon auriga,13,0
+4,12,1,Taotaha,Chaetodon auriga,13,0
+2,6,2,Temae,Chaetodon auriga,13,0
+1,9,1,Tetaiuo,Chaetodon auriga,13,0
+2,34,0,Tiahura,Chaetodon auriga,13,0
+0,0,1,Entre 2 baies,Chaetodon bennetti,3,1
+0,0,1,Pihaena,Chaetodon bennetti,3,1
+0,0,2,Taotaha,Chaetodon bennetti,3,1
+30,111,0,Afareaitu,Chaetodon citrinellus,13,0
+79,47,1,Aroa,Chaetodon citrinellus,13,0
+109,64,0,Entre 2 baies,Chaetodon citrinellus,13,0
+67,52,3,Gendron,Chaetodon citrinellus,13,0
+56,35,5,Haapiti,Chaetodon citrinellus,13,0
+60,78,0,Maatea,Chaetodon citrinellus,13,0
+50,158,0,Motu Ahi,Chaetodon citrinellus,13,0
+54,16,0,Nuarei,Chaetodon citrinellus,13,0
+42,69,2,Pihaena,Chaetodon citrinellus,13,0
+91,43,0,Taotaha,Chaetodon citrinellus,13,0
+68,20,0,Temae,Chaetodon citrinellus,13,0
+77,33,0,Tetaiuo,Chaetodon citrinellus,13,0
+74,56,0,Tiahura,Chaetodon citrinellus,13,0
+0,0,5,Afareaitu,Chaetodon ephippium,13,0
+2,0,1,Aroa,Chaetodon ephippium,13,0
+1,1,4,Entre 2 baies,Chaetodon ephippium,13,0
+0,0,1,Gendron,Chaetodon ephippium,13,0
+0,2,0,Haapiti,Chaetodon ephippium,13,0
+0,1,0,Maatea,Chaetodon ephippium,13,0
+0,4,0,Motu Ahi,Chaetodon ephippium,13,0
+0,0,2,Nuarei,Chaetodon ephippium,13,0
+0,0,3,Pihaena,Chaetodon ephippium,13,0
+1,3,7,Taotaha,Chaetodon ephippium,13,0
+0,0,3,Temae,Chaetodon ephippium,13,0
+2,3,2,Tetaiuo,Chaetodon ephippium,13,0
+0,9,2,Tiahura,Chaetodon ephippium,13,0
+2,0,0,Taotaha,Chaetodon lineolatus,1,0
+9,5,13,Afareaitu,Chaetodon lunula,13,0
+4,7,2,Aroa,Chaetodon lunula,13,0
+15,13,2,Entre 2 baies,Chaetodon lunula,13,0
+1,6,1,Gendron,Chaetodon lunula,13,0
+3,11,3,Haapiti,Chaetodon lunula,13,0
+3,18,5,Maatea,Chaetodon lunula,13,0
+2,1,2,Motu Ahi,Chaetodon lunula,13,0
+5,0,9,Nuarei,Chaetodon lunula,13,0
+0,8,3,Pihaena,Chaetodon lunula,13,0
+3,12,0,Taotaha,Chaetodon lunula,13,0
+9,2,0,Temae,Chaetodon lunula,13,0
+1,7,0,Tetaiuo,Chaetodon lunula,13,0
+9,38,3,Tiahura,Chaetodon lunula,13,0
+36,6,0,Afareaitu,Chaetodon lunulatus,13,0
+7,3,5,Aroa,Chaetodon lunulatus,13,0
+36,40,0,Entre 2 baies,Chaetodon lunulatus,13,0
+4,6,0,Gendron,Chaetodon lunulatus,13,0
+25,44,0,Haapiti,Chaetodon lunulatus,13,0
+11,53,0,Maatea,Chaetodon lunulatus,13,0
+18,59,0,Motu Ahi,Chaetodon lunulatus,13,0
+44,0,2,Nuarei,Chaetodon lunulatus,13,0
+2,19,4,Pihaena,Chaetodon lunulatus,13,0
+31,14,0,Taotaha,Chaetodon lunulatus,13,0
+72,5,2,Temae,Chaetodon lunulatus,13,0
+19,31,0,Tetaiuo,Chaetodon lunulatus,13,0
+43,63,7,Tiahura,Chaetodon lunulatus,13,0
+1,0,1,Maatea,Chaetodon mertensii,3,0
+0,1,0,Taotaha,Chaetodon mertensii,3,0
+1,0,0,Temae,Chaetodon mertensii,3,0
+13,0,12,Afareaitu,Chaetodon ornatissimus,13,0
+15,19,28,Aroa,Chaetodon ornatissimus,13,0
+25,19,30,Entre 2 baies,Chaetodon ornatissimus,13,0
+2,0,18,Gendron,Chaetodon ornatissimus,13,0
+4,3,6,Haapiti,Chaetodon ornatissimus,13,0
+5,19,27,Maatea,Chaetodon ornatissimus,13,0
+6,22,25,Motu Ahi,Chaetodon ornatissimus,13,0
+6,0,24,Nuarei,Chaetodon ornatissimus,13,0
+1,14,36,Pihaena,Chaetodon ornatissimus,13,0
+10,6,30,Taotaha,Chaetodon ornatissimus,13,0
+13,1,18,Temae,Chaetodon ornatissimus,13,0
+8,1,20,Tetaiuo,Chaetodon ornatissimus,13,0
+28,51,27,Tiahura,Chaetodon ornatissimus,13,0
+0,1,262,Afareaitu,Chaetodon pelewensis,13,0
+1,0,114,Aroa,Chaetodon pelewensis,13,0
+0,2,198,Entre 2 baies,Chaetodon pelewensis,13,0
+0,0,134,Gendron,Chaetodon pelewensis,13,0
+3,1,158,Haapiti,Chaetodon pelewensis,13,0
+0,1,293,Maatea,Chaetodon pelewensis,13,0
+4,5,270,Motu Ahi,Chaetodon pelewensis,13,0
+2,0,207,Nuarei,Chaetodon pelewensis,13,0
+0,2,188,Pihaena,Chaetodon pelewensis,13,0
+0,0,127,Taotaha,Chaetodon pelewensis,13,0
+2,0,155,Temae,Chaetodon pelewensis,13,0
+0,0,187,Tetaiuo,Chaetodon pelewensis,13,0
+0,0,220,Tiahura,Chaetodon pelewensis,13,0
+0,0,60,Afareaitu,Chaetodon quadrimaculatus,13,1
+0,0,10,Aroa,Chaetodon quadrimaculatus,13,1
+0,0,41,Entre 2 baies,Chaetodon quadrimaculatus,13,1
+0,0,70,Gendron,Chaetodon quadrimaculatus,13,1
+0,0,53,Haapiti,Chaetodon quadrimaculatus,13,1
+0,0,58,Maatea,Chaetodon quadrimaculatus,13,1
+0,1,52,Motu Ahi,Chaetodon quadrimaculatus,13,1
+0,0,47,Nuarei,Chaetodon quadrimaculatus,13,1
+0,0,1,Pihaena,Chaetodon quadrimaculatus,13,1
+0,2,76,Taotaha,Chaetodon quadrimaculatus,13,1
+0,0,12,Temae,Chaetodon quadrimaculatus,13,1
+0,0,44,Tetaiuo,Chaetodon quadrimaculatus,13,1
+0,1,38,Tiahura,Chaetodon quadrimaculatus,13,1
+14,2,110,Afareaitu,Chaetodon reticulatus,13,0
+9,12,66,Aroa,Chaetodon reticulatus,13,0
+4,14,72,Entre 2 baies,Chaetodon reticulatus,13,0
+0,0,39,Gendron,Chaetodon reticulatus,13,0
+4,0,38,Haapiti,Chaetodon reticulatus,13,0
+3,3,97,Maatea,Chaetodon reticulatus,13,0
+11,3,81,Motu Ahi,Chaetodon reticulatus,13,0
+1,0,144,Nuarei,Chaetodon reticulatus,13,0
+2,3,110,Pihaena,Chaetodon reticulatus,13,0
+2,5,68,Taotaha,Chaetodon reticulatus,13,0
+3,0,114,Temae,Chaetodon reticulatus,13,0
+2,1,84,Tetaiuo,Chaetodon reticulatus,13,0
+22,21,126,Tiahura,Chaetodon reticulatus,13,0
+0,3,0,Motu Ahi,Chaetodon trichrous,1,0
+0,2,4,Afareaitu,Chaetodon trifascialis,12,0
+6,10,3,Entre 2 baies,Chaetodon trifascialis,12,0
+3,0,3,Gendron,Chaetodon trifascialis,12,0
+7,16,0,Haapiti,Chaetodon trifascialis,12,0
+1,1,0,Maatea,Chaetodon trifascialis,12,0
+1,0,4,Motu Ahi,Chaetodon trifascialis,12,0
+26,3,2,Nuarei,Chaetodon trifascialis,12,0
+2,0,5,Pihaena,Chaetodon trifascialis,12,0
+1,27,0,Taotaha,Chaetodon trifascialis,12,0
+18,5,7,Temae,Chaetodon trifascialis,12,0
+1,14,1,Tetaiuo,Chaetodon trifascialis,12,0
+13,7,1,Tiahura,Chaetodon trifascialis,12,0
+4,3,2,Afareaitu,Chaetodon ulietensis,12,0
+0,4,0,Entre 2 baies,Chaetodon ulietensis,12,0
+0,1,0,Gendron,Chaetodon ulietensis,12,0
+7,4,0,Haapiti,Chaetodon ulietensis,12,0
+8,18,0,Maatea,Chaetodon ulietensis,12,0
+4,11,1,Motu Ahi,Chaetodon ulietensis,12,0
+9,0,3,Nuarei,Chaetodon ulietensis,12,0
+0,2,0,Pihaena,Chaetodon ulietensis,12,0
+4,8,0,Taotaha,Chaetodon ulietensis,12,0
+33,0,34,Temae,Chaetodon ulietensis,12,0
+0,0,2,Tetaiuo,Chaetodon ulietensis,12,0
+6,29,4,Tiahura,Chaetodon ulietensis,12,0
+2,3,15,Afareaitu,Chaetodon unimaculatus,13,0
+5,2,2,Aroa,Chaetodon unimaculatus,13,0
+38,1,15,Entre 2 baies,Chaetodon unimaculatus,13,0
+8,9,25,Gendron,Chaetodon unimaculatus,13,0
+19,15,20,Haapiti,Chaetodon unimaculatus,13,0
+3,2,7,Maatea,Chaetodon unimaculatus,13,0
+14,200,30,Motu Ahi,Chaetodon unimaculatus,13,0
+28,14,11,Nuarei,Chaetodon unimaculatus,13,0
+2,6,10,Pihaena,Chaetodon unimaculatus,13,0
+18,62,53,Taotaha,Chaetodon unimaculatus,13,0
+49,3,15,Temae,Chaetodon unimaculatus,13,0
+18,24,14,Tetaiuo,Chaetodon unimaculatus,13,0
+18,27,32,Tiahura,Chaetodon unimaculatus,13,0
+20,16,0,Afareaitu,Chaetodon vagabundus,13,0
+17,20,10,Aroa,Chaetodon vagabundus,13,0
+12,13,4,Entre 2 baies,Chaetodon vagabundus,13,0
+6,20,1,Gendron,Chaetodon vagabundus,13,0
+15,10,0,Haapiti,Chaetodon vagabundus,13,0
+15,6,3,Maatea,Chaetodon vagabundus,13,0
+15,4,3,Motu Ahi,Chaetodon vagabundus,13,0
+17,8,1,Nuarei,Chaetodon vagabundus,13,0
+28,10,3,Pihaena,Chaetodon vagabundus,13,0
+17,20,2,Taotaha,Chaetodon vagabundus,13,0
+14,19,4,Temae,Chaetodon vagabundus,13,0
+2,13,1,Tetaiuo,Chaetodon vagabundus,13,0
+4,20,0,Tiahura,Chaetodon vagabundus,13,0
+0,0,2,Nuarei,Chanos chanos,2,1
+0,0,1,Temae,Chanos chanos,2,1
+8,5,3,Afareaitu,Cheilinus chlorourus,13,0
+7,1,5,Aroa,Cheilinus chlorourus,13,0
+12,17,1,Entre 2 baies,Cheilinus chlorourus,13,0
+3,16,1,Gendron,Cheilinus chlorourus,13,0
+3,11,1,Haapiti,Cheilinus chlorourus,13,0
+1,11,2,Maatea,Cheilinus chlorourus,13,0
+12,8,2,Motu Ahi,Cheilinus chlorourus,13,0
+5,3,2,Nuarei,Cheilinus chlorourus,13,0
+20,12,0,Pihaena,Cheilinus chlorourus,13,0
+2,15,0,Taotaha,Cheilinus chlorourus,13,0
+12,0,5,Temae,Cheilinus chlorourus,13,0
+6,13,1,Tetaiuo,Cheilinus chlorourus,13,0
+11,8,0,Tiahura,Cheilinus chlorourus,13,0
+0,0,15,Afareaitu,Cheilinus oxycephalus,13,0
+0,0,16,Aroa,Cheilinus oxycephalus,13,0
+0,0,3,Entre 2 baies,Cheilinus oxycephalus,13,0
+0,0,3,Gendron,Cheilinus oxycephalus,13,0
+1,0,5,Haapiti,Cheilinus oxycephalus,13,0
+0,0,18,Maatea,Cheilinus oxycephalus,13,0
+0,0,5,Motu Ahi,Cheilinus oxycephalus,13,0
+0,0,24,Nuarei,Cheilinus oxycephalus,13,0
+0,0,16,Pihaena,Cheilinus oxycephalus,13,0
+0,0,5,Taotaha,Cheilinus oxycephalus,13,0
+0,0,66,Temae,Cheilinus oxycephalus,13,0
+0,0,5,Tetaiuo,Cheilinus oxycephalus,13,0
+0,1,23,Tiahura,Cheilinus oxycephalus,13,0
+2,3,7,Afareaitu,Cheilinus trilobatus,13,0
+4,4,15,Aroa,Cheilinus trilobatus,13,0
+5,7,6,Entre 2 baies,Cheilinus trilobatus,13,0
+3,1,1,Gendron,Cheilinus trilobatus,13,0
+0,2,6,Haapiti,Cheilinus trilobatus,13,0
+1,3,7,Maatea,Cheilinus trilobatus,13,0
+3,4,2,Motu Ahi,Cheilinus trilobatus,13,0
+7,0,9,Nuarei,Cheilinus trilobatus,13,0
+6,2,0,Pihaena,Cheilinus trilobatus,13,0
+6,7,1,Taotaha,Cheilinus trilobatus,13,0
+2,0,15,Temae,Cheilinus trilobatus,13,0
+1,6,2,Tetaiuo,Cheilinus trilobatus,13,0
+1,3,3,Tiahura,Cheilinus trilobatus,13,0
+0,0,1,Afareaitu,Cheilinus undulatus,8,1
+0,0,1,Aroa,Cheilinus undulatus,8,1
+0,0,2,Gendron,Cheilinus undulatus,8,1
+0,2,0,Haapiti,Cheilinus undulatus,8,1
+0,0,2,Maatea,Cheilinus undulatus,8,1
+0,0,1,Nuarei,Cheilinus undulatus,8,1
+0,0,1,Taotaha,Cheilinus undulatus,8,1
+0,0,1,Temae,Cheilinus undulatus,8,1
+1,1,0,Afareaitu,Cheilio inermis,7,0
+1,0,1,Aroa,Cheilio inermis,7,0
+1,1,0,Entre 2 baies,Cheilio inermis,7,0
+3,0,0,Haapiti,Cheilio inermis,7,0
+1,0,0,Motu Ahi,Cheilio inermis,7,0
+0,0,1,Nuarei,Cheilio inermis,7,0
+0,1,0,Tiahura,Cheilio inermis,7,0
+1,0,0,Entre 2 baies,Cheilodipterus macrodon,1,0
+2,8,0,Afareaitu,Cheilodipterus quinquelineatus,12,0
+2,7,0,Aroa,Cheilodipterus quinquelineatus,12,0
+10,4,0,Entre 2 baies,Cheilodipterus quinquelineatus,12,0
+7,1,1,Gendron,Cheilodipterus quinquelineatus,12,0
+5,3,0,Haapiti,Cheilodipterus quinquelineatus,12,0
+6,0,0,Maatea,Cheilodipterus quinquelineatus,12,0
+28,10,0,Motu Ahi,Cheilodipterus quinquelineatus,12,0
+4,3,0,Nuarei,Cheilodipterus quinquelineatus,12,0
+17,6,0,Pihaena,Cheilodipterus quinquelineatus,12,0
+3,0,0,Taotaha,Cheilodipterus quinquelineatus,12,0
+1,5,0,Temae,Cheilodipterus quinquelineatus,12,0
+2,3,1,Tetaiuo,Cheilodipterus quinquelineatus,12,0
+0,0,1,Haapiti,Chlorurus frontalis,6,1
+0,0,1,Maatea,Chlorurus frontalis,6,1
+0,0,4,Nuarei,Chlorurus frontalis,6,1
+0,0,1,Pihaena,Chlorurus frontalis,6,1
+0,0,2,Taotaha,Chlorurus frontalis,6,1
+0,0,2,Tetaiuo,Chlorurus frontalis,6,1
+0,0,21,Afareaitu,Chlorurus microrhinos,5,1
+0,0,1,Gendron,Chlorurus microrhinos,5,1
+0,0,18,Nuarei,Chlorurus microrhinos,5,1
+0,0,22,Temae,Chlorurus microrhinos,5,1
+0,0,3,Tiahura,Chlorurus microrhinos,5,1
+103,144,485,Afareaitu,Chlorurus sordidus,13,0
+142,203,370,Aroa,Chlorurus sordidus,13,0
+343,218,323,Entre 2 baies,Chlorurus sordidus,13,0
+65,319,888,Gendron,Chlorurus sordidus,13,0
+251,165,333,Haapiti,Chlorurus sordidus,13,0
+76,133,456,Maatea,Chlorurus sordidus,13,0
+169,114,616,Motu Ahi,Chlorurus sordidus,13,0
+160,3,443,Nuarei,Chlorurus sordidus,13,0
+315,314,256,Pihaena,Chlorurus sordidus,13,0
+330,306,588,Taotaha,Chlorurus sordidus,13,0
+135,117,366,Temae,Chlorurus sordidus,13,0
+279,216,615,Tetaiuo,Chlorurus sordidus,13,0
+132,308,505,Tiahura,Chlorurus sordidus,13,0
+0,0,486,Afareaitu,Chromis acares,13,1
+0,0,498,Aroa,Chromis acares,13,1
+0,0,514,Entre 2 baies,Chromis acares,13,1
+0,0,185,Gendron,Chromis acares,13,1
+0,0,335,Haapiti,Chromis acares,13,1
+0,0,512,Maatea,Chromis acares,13,1
+0,0,1124,Motu Ahi,Chromis acares,13,1
+0,0,1517,Nuarei,Chromis acares,13,1
+0,0,353,Pihaena,Chromis acares,13,1
+0,0,1400,Taotaha,Chromis acares,13,1
+0,0,2465,Temae,Chromis acares,13,1
+0,0,1377,Tetaiuo,Chromis acares,13,1
+0,0,1573,Tiahura,Chromis acares,13,1
+1,0,10,Afareaitu,Chromis agilis,10,1
+0,0,5,Aroa,Chromis agilis,10,1
+0,0,8,Entre 2 baies,Chromis agilis,10,1
+0,0,9,Maatea,Chromis agilis,10,1
+0,0,3,Motu Ahi,Chromis agilis,10,1
+0,0,53,Nuarei,Chromis agilis,10,1
+0,0,17,Pihaena,Chromis agilis,10,1
+0,0,98,Temae,Chromis agilis,10,1
+0,0,5,Tetaiuo,Chromis agilis,10,1
+0,0,98,Tiahura,Chromis agilis,10,1
+0,3,0,Aroa,Chromis atripectoralis,12,0
+12,3,0,Entre 2 baies,Chromis atripectoralis,12,0
+112,0,0,Gendron,Chromis atripectoralis,12,0
+31,17,0,Haapiti,Chromis atripectoralis,12,0
+13,4,0,Maatea,Chromis atripectoralis,12,0
+0,1,0,Motu Ahi,Chromis atripectoralis,12,0
+2,0,0,Nuarei,Chromis atripectoralis,12,0
+0,0,1,Pihaena,Chromis atripectoralis,12,0
+116,4,0,Taotaha,Chromis atripectoralis,12,0
+45,0,0,Temae,Chromis atripectoralis,12,0
+2,23,0,Tetaiuo,Chromis atripectoralis,12,0
+6,8,0,Tiahura,Chromis atripectoralis,12,0
+6,0,262,Afareaitu,Chromis iomelas,12,0
+0,0,525,Aroa,Chromis iomelas,12,0
+1,3,1152,Entre 2 baies,Chromis iomelas,12,0
+0,0,26,Gendron,Chromis iomelas,12,0
+1,0,0,Haapiti,Chromis iomelas,12,0
+0,0,410,Maatea,Chromis iomelas,12,0
+2,1,480,Motu Ahi,Chromis iomelas,12,0
+0,0,1689,Nuarei,Chromis iomelas,12,0
+1,0,1162,Pihaena,Chromis iomelas,12,0
+0,0,2619,Temae,Chromis iomelas,12,0
+0,0,5,Tetaiuo,Chromis iomelas,12,0
+0,0,1470,Tiahura,Chromis iomelas,12,0
+22,6,98,Afareaitu,Chromis margaritifer,13,0
+17,3,182,Aroa,Chromis margaritifer,13,0
+11,9,169,Entre 2 baies,Chromis margaritifer,13,0
+1,0,25,Gendron,Chromis margaritifer,13,0
+13,0,1,Haapiti,Chromis margaritifer,13,0
+1,0,19,Maatea,Chromis margaritifer,13,0
+24,68,99,Motu Ahi,Chromis margaritifer,13,0
+6,0,29,Nuarei,Chromis margaritifer,13,0
+18,0,98,Pihaena,Chromis margaritifer,13,0
+20,2,26,Taotaha,Chromis margaritifer,13,0
+1,0,3,Temae,Chromis margaritifer,13,0
+12,0,87,Tetaiuo,Chromis margaritifer,13,0
+0,0,452,Tiahura,Chromis margaritifer,13,0
+0,0,2148,Afareaitu,Chromis vanderbilti,13,1
+0,0,3485,Aroa,Chromis vanderbilti,13,1
+0,0,3168,Entre 2 baies,Chromis vanderbilti,13,1
+0,0,6515,Gendron,Chromis vanderbilti,13,1
+0,0,5492,Haapiti,Chromis vanderbilti,13,1
+0,0,3362,Maatea,Chromis vanderbilti,13,1
+0,0,3370,Motu Ahi,Chromis vanderbilti,13,1
+0,0,5057,Nuarei,Chromis vanderbilti,13,1
+0,0,1315,Pihaena,Chromis vanderbilti,13,1
+0,0,6818,Taotaha,Chromis vanderbilti,13,1
+0,0,3811,Temae,Chromis vanderbilti,13,1
+0,0,7868,Tetaiuo,Chromis vanderbilti,13,1
+0,0,5820,Tiahura,Chromis vanderbilti,13,1
+1,0,0,Afareaitu,Chromis viridis,13,1
+43,2,0,Aroa,Chromis viridis,13,1
+169,388,0,Entre 2 baies,Chromis viridis,13,1
+267,109,0,Gendron,Chromis viridis,13,1
+791,506,0,Haapiti,Chromis viridis,13,1
+51,47,0,Maatea,Chromis viridis,13,1
+80,0,0,Motu Ahi,Chromis viridis,13,1
+323,10,0,Nuarei,Chromis viridis,13,1
+14,1,0,Pihaena,Chromis viridis,13,1
+537,11,0,Taotaha,Chromis viridis,13,1
+356,87,0,Temae,Chromis viridis,13,1
+1769,491,0,Tetaiuo,Chromis viridis,13,1
+216,724,0,Tiahura,Chromis viridis,13,1
+0,0,19,Afareaitu,Chromis xanthura,10,1
+0,0,60,Aroa,Chromis xanthura,10,1
+0,0,129,Entre 2 baies,Chromis xanthura,10,1
+0,0,10,Maatea,Chromis xanthura,10,1
+0,0,68,Motu Ahi,Chromis xanthura,10,1
+0,0,161,Nuarei,Chromis xanthura,10,1
+0,0,217,Pihaena,Chromis xanthura,10,1
+0,0,5,Taotaha,Chromis xanthura,10,1
+0,0,512,Temae,Chromis xanthura,10,1
+0,0,377,Tiahura,Chromis xanthura,10,1
+0,1,0,Aroa,Chrysiptera glauca,4,1
+2,0,0,Gendron,Chrysiptera glauca,4,1
+1,0,0,Maatea,Chrysiptera glauca,4,1
+0,2,0,Temae,Chrysiptera glauca,4,1
+179,49,0,Afareaitu,Chrysiptera leucopoma,13,0
+320,62,38,Aroa,Chrysiptera leucopoma,13,0
+99,48,6,Entre 2 baies,Chrysiptera leucopoma,13,0
+77,3,6,Gendron,Chrysiptera leucopoma,13,0
+65,10,11,Haapiti,Chrysiptera leucopoma,13,0
+264,36,0,Maatea,Chrysiptera leucopoma,13,0
+78,145,0,Motu Ahi,Chrysiptera leucopoma,13,0
+6,3,0,Nuarei,Chrysiptera leucopoma,13,0
+42,70,0,Pihaena,Chrysiptera leucopoma,13,0
+19,45,0,Taotaha,Chrysiptera leucopoma,13,0
+20,0,0,Temae,Chrysiptera leucopoma,13,0
+46,16,2,Tetaiuo,Chrysiptera leucopoma,13,0
+98,50,0,Tiahura,Chrysiptera leucopoma,13,0
+0,0,44,Afareaitu,Cirrhilabrus exquisitus,13,1
+0,0,52,Aroa,Cirrhilabrus exquisitus,13,1
+0,0,38,Entre 2 baies,Cirrhilabrus exquisitus,13,1
+0,0,134,Gendron,Cirrhilabrus exquisitus,13,1
+0,0,36,Haapiti,Cirrhilabrus exquisitus,13,1
+0,0,46,Maatea,Cirrhilabrus exquisitus,13,1
+0,0,38,Motu Ahi,Cirrhilabrus exquisitus,13,1
+0,0,18,Nuarei,Cirrhilabrus exquisitus,13,1
+0,0,10,Pihaena,Cirrhilabrus exquisitus,13,1
+0,0,12,Taotaha,Cirrhilabrus exquisitus,13,1
+0,0,18,Temae,Cirrhilabrus exquisitus,13,1
+0,0,59,Tetaiuo,Cirrhilabrus exquisitus,13,1
+0,0,37,Tiahura,Cirrhilabrus exquisitus,13,1
+0,0,537,Afareaitu,Cirrhilabrus scottorum,13,1
+0,0,435,Aroa,Cirrhilabrus scottorum,13,1
+0,0,424,Entre 2 baies,Cirrhilabrus scottorum,13,1
+0,0,675,Gendron,Cirrhilabrus scottorum,13,1
+0,0,621,Haapiti,Cirrhilabrus scottorum,13,1
+0,0,1007,Maatea,Cirrhilabrus scottorum,13,1
+0,0,936,Motu Ahi,Cirrhilabrus scottorum,13,1
+0,0,316,Nuarei,Cirrhilabrus scottorum,13,1
+0,0,113,Pihaena,Cirrhilabrus scottorum,13,1
+0,0,418,Taotaha,Cirrhilabrus scottorum,13,1
+0,0,206,Temae,Cirrhilabrus scottorum,13,1
+0,0,208,Tetaiuo,Cirrhilabrus scottorum,13,1
+0,0,406,Tiahura,Cirrhilabrus scottorum,13,1
+0,0,1,Motu Ahi,Cirrhitichthys oxycephalus,5,1
+0,0,1,Nuarei,Cirrhitichthys oxycephalus,5,1
+0,0,1,Taotaha,Cirrhitichthys oxycephalus,5,1
+0,0,1,Temae,Cirrhitichthys oxycephalus,5,1
+0,0,1,Tiahura,Cirrhitichthys oxycephalus,5,1
+0,0,1,Gendron,Cirrhitops hubbardi,1,0
+1,0,0,Taotaha,Cirrhitus pinnulatus,2,1
+2,0,0,Tiahura,Cirrhitus pinnulatus,2,1
+1,1,19,Afareaitu,Cirripectes variolosus,13,0
+0,0,10,Aroa,Cirripectes variolosus,13,0
+0,0,6,Entre 2 baies,Cirripectes variolosus,13,0
+0,0,34,Gendron,Cirripectes variolosus,13,0
+0,0,33,Haapiti,Cirripectes variolosus,13,0
+0,0,29,Maatea,Cirripectes variolosus,13,0
+0,0,37,Motu Ahi,Cirripectes variolosus,13,0
+0,0,13,Nuarei,Cirripectes variolosus,13,0
+0,0,12,Pihaena,Cirripectes variolosus,13,0
+0,0,40,Taotaha,Cirripectes variolosus,13,0
+0,0,1,Temae,Cirripectes variolosus,13,0
+0,0,40,Tetaiuo,Cirripectes variolosus,13,0
+0,0,22,Tiahura,Cirripectes variolosus,13,0
+2,3,2,Afareaitu,Coris aygula,13,0
+9,4,15,Aroa,Coris aygula,13,0
+3,1,9,Entre 2 baies,Coris aygula,13,0
+1,0,5,Gendron,Coris aygula,13,0
+4,1,5,Haapiti,Coris aygula,13,0
+2,5,1,Maatea,Coris aygula,13,0
+1,2,1,Motu Ahi,Coris aygula,13,0
+3,0,17,Nuarei,Coris aygula,13,0
+3,3,2,Pihaena,Coris aygula,13,0
+2,0,2,Taotaha,Coris aygula,13,0
+0,0,6,Temae,Coris aygula,13,0
+9,5,3,Tetaiuo,Coris aygula,13,0
+1,1,5,Tiahura,Coris aygula,13,0
+10,3,13,Afareaitu,Coris gaimard,13,0
+8,4,30,Aroa,Coris gaimard,13,0
+1,1,24,Entre 2 baies,Coris gaimard,13,0
+3,2,70,Gendron,Coris gaimard,13,0
+3,0,36,Haapiti,Coris gaimard,13,0
+5,0,37,Maatea,Coris gaimard,13,0
+7,0,25,Motu Ahi,Coris gaimard,13,0
+0,0,19,Nuarei,Coris gaimard,13,0
+0,3,3,Pihaena,Coris gaimard,13,0
+5,1,31,Taotaha,Coris gaimard,13,0
+1,0,23,Temae,Coris gaimard,13,0
+2,4,43,Tetaiuo,Coris gaimard,13,0
+3,0,11,Tiahura,Coris gaimard,13,0
+1,0,0,Taotaha,Coryphopterus duospilus,1,0
+4,0,0,Afareaitu,Coryphopterus neophytus,11,1
+0,1,0,Aroa,Coryphopterus neophytus,11,1
+2,0,0,Entre 2 baies,Coryphopterus neophytus,11,1
+3,8,0,Gendron,Coryphopterus neophytus,11,1
+1,4,0,Haapiti,Coryphopterus neophytus,11,1
+1,1,0,Motu Ahi,Coryphopterus neophytus,11,1
+7,2,0,Nuarei,Coryphopterus neophytus,11,1
+2,3,0,Taotaha,Coryphopterus neophytus,11,1
+1,1,0,Temae,Coryphopterus neophytus,11,1
+4,0,0,Tetaiuo,Coryphopterus neophytus,11,1
+1,0,0,Tiahura,Coryphopterus neophytus,11,1
+0,14,0,Afareaitu,Corythoichthys flavofasciatus,7,1
+2,29,0,Aroa,Corythoichthys flavofasciatus,7,1
+0,21,0,Entre 2 baies,Corythoichthys flavofasciatus,7,1
+2,0,0,Haapiti,Corythoichthys flavofasciatus,7,1
+0,24,0,Maatea,Corythoichthys flavofasciatus,7,1
+0,11,0,Motu Ahi,Corythoichthys flavofasciatus,7,1
+2,30,0,Pihaena,Corythoichthys flavofasciatus,7,1
+2,0,0,Pihaena,Crenimugil crenilabis,3,1
+0,13,0,Temae,Crenimugil crenilabis,3,1
+0,90,0,Tiahura,Crenimugil crenilabis,3,1
+5,13,3,Afareaitu,Ctenochaetus binotatus,11,0
+1,1,17,Aroa,Ctenochaetus binotatus,11,0
+2,1,3,Entre 2 baies,Ctenochaetus binotatus,11,0
+0,0,1,Gendron,Ctenochaetus binotatus,11,0
+0,2,1,Haapiti,Ctenochaetus binotatus,11,0
+6,4,32,Maatea,Ctenochaetus binotatus,11,0
+2,65,12,Motu Ahi,Ctenochaetus binotatus,11,0
+1,0,1,Nuarei,Ctenochaetus binotatus,11,0
+2,2,5,Pihaena,Ctenochaetus binotatus,11,0
+2,3,2,Temae,Ctenochaetus binotatus,11,0
+4,0,6,Tiahura,Ctenochaetus binotatus,11,0
+0,0,207,Afareaitu,Ctenochaetus flavicauda,13,1
+2,0,211,Aroa,Ctenochaetus flavicauda,13,1
+0,0,186,Entre 2 baies,Ctenochaetus flavicauda,13,1
+0,0,42,Gendron,Ctenochaetus flavicauda,13,1
+0,0,16,Haapiti,Ctenochaetus flavicauda,13,1
+0,0,328,Maatea,Ctenochaetus flavicauda,13,1
+0,0,244,Motu Ahi,Ctenochaetus flavicauda,13,1
+0,0,339,Nuarei,Ctenochaetus flavicauda,13,1
+0,0,77,Pihaena,Ctenochaetus flavicauda,13,1
+0,0,41,Taotaha,Ctenochaetus flavicauda,13,1
+0,0,514,Temae,Ctenochaetus flavicauda,13,1
+0,0,128,Tetaiuo,Ctenochaetus flavicauda,13,1
+0,0,136,Tiahura,Ctenochaetus flavicauda,13,1
+0,0,1,Afareaitu,Ctenochaetus hawaiiensis,7,1
+0,0,2,Entre 2 baies,Ctenochaetus hawaiiensis,7,1
+0,0,4,Gendron,Ctenochaetus hawaiiensis,7,1
+0,0,1,Maatea,Ctenochaetus hawaiiensis,7,1
+0,0,16,Nuarei,Ctenochaetus hawaiiensis,7,1
+0,0,4,Taotaha,Ctenochaetus hawaiiensis,7,1
+0,0,1,Tetaiuo,Ctenochaetus hawaiiensis,7,1
+810,445,971,Afareaitu,Ctenochaetus striatus,13,0
+696,466,953,Aroa,Ctenochaetus striatus,13,0
+1174,889,1039,Entre 2 baies,Ctenochaetus striatus,13,0
+164,871,315,Gendron,Ctenochaetus striatus,13,0
+2385,910,444,Haapiti,Ctenochaetus striatus,13,0
+184,1424,496,Maatea,Ctenochaetus striatus,13,0
+395,788,751,Motu Ahi,Ctenochaetus striatus,13,0
+348,7,1400,Nuarei,Ctenochaetus striatus,13,0
+531,739,1417,Pihaena,Ctenochaetus striatus,13,0
+422,332,446,Taotaha,Ctenochaetus striatus,13,0
+326,168,1476,Temae,Ctenochaetus striatus,13,0
+2108,346,444,Tetaiuo,Ctenochaetus striatus,13,0
+1241,954,1045,Tiahura,Ctenochaetus striatus,13,0
+1,0,0,Afareaitu,Ctenogobiops feroculus,10,1
+3,2,0,Aroa,Ctenogobiops feroculus,10,1
+2,0,0,Gendron,Ctenogobiops feroculus,10,1
+1,2,0,Haapiti,Ctenogobiops feroculus,10,1
+11,0,0,Maatea,Ctenogobiops feroculus,10,1
+3,0,0,Motu Ahi,Ctenogobiops feroculus,10,1
+1,11,0,Nuarei,Ctenogobiops feroculus,10,1
+8,0,0,Pihaena,Ctenogobiops feroculus,10,1
+0,5,0,Temae,Ctenogobiops feroculus,10,1
+2,5,0,Tetaiuo,Ctenogobiops feroculus,10,1
+3,3,0,Afareaitu,Dascyllus aruanus,13,1
+1,65,0,Aroa,Dascyllus aruanus,13,1
+1,143,0,Entre 2 baies,Dascyllus aruanus,13,1
+158,443,0,Gendron,Dascyllus aruanus,13,1
+217,162,0,Haapiti,Dascyllus aruanus,13,1
+201,0,0,Maatea,Dascyllus aruanus,13,1
+10,10,0,Motu Ahi,Dascyllus aruanus,13,1
+46,40,0,Nuarei,Dascyllus aruanus,13,1
+10,0,0,Pihaena,Dascyllus aruanus,13,1
+194,94,0,Taotaha,Dascyllus aruanus,13,1
+6,303,0,Temae,Dascyllus aruanus,13,1
+134,522,0,Tetaiuo,Dascyllus aruanus,13,1
+27,467,0,Tiahura,Dascyllus aruanus,13,1
+1,0,444,Afareaitu,Dascyllus flavicaudus,13,0
+2,4,127,Aroa,Dascyllus flavicaudus,13,0
+29,38,95,Entre 2 baies,Dascyllus flavicaudus,13,0
+5,12,11,Gendron,Dascyllus flavicaudus,13,0
+8,2,1,Haapiti,Dascyllus flavicaudus,13,0
+13,7,249,Maatea,Dascyllus flavicaudus,13,0
+10,36,247,Motu Ahi,Dascyllus flavicaudus,13,0
+0,30,249,Nuarei,Dascyllus flavicaudus,13,0
+4,2,218,Pihaena,Dascyllus flavicaudus,13,0
+140,2,0,Taotaha,Dascyllus flavicaudus,13,0
+13,25,235,Temae,Dascyllus flavicaudus,13,0
+63,1,12,Tetaiuo,Dascyllus flavicaudus,13,0
+3,7,241,Tiahura,Dascyllus flavicaudus,13,0
+0,0,20,Afareaitu,Dascyllus reticulatus,7,1
+0,0,35,Maatea,Dascyllus reticulatus,7,1
+0,0,9,Motu Ahi,Dascyllus reticulatus,7,1
+0,0,13,Pihaena,Dascyllus reticulatus,7,1
+32,0,0,Taotaha,Dascyllus reticulatus,7,1
+0,0,14,Temae,Dascyllus reticulatus,7,1
+0,0,40,Tiahura,Dascyllus reticulatus,7,1
+3,0,31,Afareaitu,Dascyllus trimaculatus,12,0
+0,32,16,Aroa,Dascyllus trimaculatus,12,0
+1,3,2,Entre 2 baies,Dascyllus trimaculatus,12,0
+0,38,12,Gendron,Dascyllus trimaculatus,12,0
+0,6,0,Haapiti,Dascyllus trimaculatus,12,0
+73,0,14,Maatea,Dascyllus trimaculatus,12,0
+18,0,16,Motu Ahi,Dascyllus trimaculatus,12,0
+0,36,15,Nuarei,Dascyllus trimaculatus,12,0
+26,24,26,Taotaha,Dascyllus trimaculatus,12,0
+0,94,18,Temae,Dascyllus trimaculatus,12,0
+0,36,30,Tetaiuo,Dascyllus trimaculatus,12,0
+9,18,64,Tiahura,Dascyllus trimaculatus,12,0
+0,1,0,Afareaitu,Decapterus macarellus,1,0
+0,0,1,Maatea,Dendrochirus biocellatus,1,0
+0,1,0,Afareaitu,Diodon hystrix,7,0
+0,0,1,Entre 2 baies,Diodon hystrix,7,0
+1,0,0,Haapiti,Diodon hystrix,7,0
+1,0,0,Maatea,Diodon hystrix,7,0
+1,0,0,Motu Ahi,Diodon hystrix,7,0
+1,0,0,Tetaiuo,Diodon hystrix,7,0
+1,3,0,Tiahura,Diodon hystrix,7,0
+0,0,2,Entre 2 baies,Echeneis naucrates,2,1
+0,0,1,Tetaiuo,Echeneis naucrates,2,1
+1,0,1,Gendron,Echidna nebulosa,5,0
+0,1,0,Haapiti,Echidna nebulosa,5,0
+1,0,1,Pihaena,Echidna nebulosa,5,0
+0,1,0,Temae,Echidna nebulosa,5,0
+1,0,0,Tiahura,Echidna nebulosa,5,0
+4,0,22,Afareaitu,Epibulus insidiator,13,0
+1,0,15,Aroa,Epibulus insidiator,13,0
+3,19,54,Entre 2 baies,Epibulus insidiator,13,0
+0,2,6,Gendron,Epibulus insidiator,13,0
+2,4,2,Haapiti,Epibulus insidiator,13,0
+0,3,14,Maatea,Epibulus insidiator,13,0
+1,1,10,Motu Ahi,Epibulus insidiator,13,0
+4,0,81,Nuarei,Epibulus insidiator,13,0
+1,1,47,Pihaena,Epibulus insidiator,13,0
+7,4,4,Taotaha,Epibulus insidiator,13,0
+7,0,77,Temae,Epibulus insidiator,13,0
+7,11,17,Tetaiuo,Epibulus insidiator,13,0
+4,17,56,Tiahura,Epibulus insidiator,13,0
+0,0,2,Entre 2 baies,Epinephelus fasciatus,9,1
+0,0,1,Gendron,Epinephelus fasciatus,9,1
+0,0,6,Maatea,Epinephelus fasciatus,9,1
+0,0,2,Motu Ahi,Epinephelus fasciatus,9,1
+0,0,8,Nuarei,Epinephelus fasciatus,9,1
+0,0,4,Pihaena,Epinephelus fasciatus,9,1
+0,0,1,Taotaha,Epinephelus fasciatus,9,1
+0,0,1,Temae,Epinephelus fasciatus,9,1
+0,0,10,Tetaiuo,Epinephelus fasciatus,9,1
+1,2,2,Afareaitu,Epinephelus hexagonatus,13,0
+4,1,1,Aroa,Epinephelus hexagonatus,13,0
+0,4,1,Entre 2 baies,Epinephelus hexagonatus,13,0
+1,1,5,Gendron,Epinephelus hexagonatus,13,0
+3,0,1,Haapiti,Epinephelus hexagonatus,13,0
+0,2,7,Maatea,Epinephelus hexagonatus,13,0
+3,10,6,Motu Ahi,Epinephelus hexagonatus,13,0
+2,0,4,Nuarei,Epinephelus hexagonatus,13,0
+2,2,5,Pihaena,Epinephelus hexagonatus,13,0
+4,0,10,Taotaha,Epinephelus hexagonatus,13,0
+3,1,15,Temae,Epinephelus hexagonatus,13,0
+1,5,1,Tetaiuo,Epinephelus hexagonatus,13,0
+2,1,1,Tiahura,Epinephelus hexagonatus,13,0
+6,3,0,Afareaitu,Epinephelus merra,13,1
+11,1,0,Aroa,Epinephelus merra,13,1
+7,18,0,Entre 2 baies,Epinephelus merra,13,1
+8,7,0,Gendron,Epinephelus merra,13,1
+13,5,0,Haapiti,Epinephelus merra,13,1
+8,6,0,Maatea,Epinephelus merra,13,1
+3,5,0,Motu Ahi,Epinephelus merra,13,1
+8,3,0,Nuarei,Epinephelus merra,13,1
+9,5,0,Pihaena,Epinephelus merra,13,1
+4,3,0,Taotaha,Epinephelus merra,13,1
+12,2,0,Temae,Epinephelus merra,13,1
+14,4,0,Tetaiuo,Epinephelus merra,13,1
+10,1,0,Tiahura,Epinephelus merra,13,1
+1,1,0,Haapiti,Epinephelus tauvina,3,0
+0,1,0,Maatea,Epinephelus tauvina,3,0
+0,0,1,Nuarei,Epinephelus tauvina,3,0
+0,6,0,Aroa,Eviota afelei,4,1
+1,0,0,Entre 2 baies,Eviota afelei,4,1
+1,1,0,Maatea,Eviota afelei,4,1
+0,1,0,Pihaena,Eviota afelei,4,1
+5,0,0,Nuarei,Eviota prasites,1,0
+0,0,8,Afareaitu,Exallias brevis,13,1
+0,0,3,Aroa,Exallias brevis,13,1
+0,0,3,Entre 2 baies,Exallias brevis,13,1
+0,0,5,Gendron,Exallias brevis,13,1
+0,0,4,Haapiti,Exallias brevis,13,1
+0,0,4,Maatea,Exallias brevis,13,1
+0,0,6,Motu Ahi,Exallias brevis,13,1
+0,0,2,Nuarei,Exallias brevis,13,1
+0,0,2,Pihaena,Exallias brevis,13,1
+0,0,3,Taotaha,Exallias brevis,13,1
+0,0,1,Temae,Exallias brevis,13,1
+0,0,9,Tetaiuo,Exallias brevis,13,1
+0,0,4,Tiahura,Exallias brevis,13,1
+1,21,0,Afareaitu,Fistularia commersonii,13,0
+1,2,0,Aroa,Fistularia commersonii,13,0
+1,3,0,Entre 2 baies,Fistularia commersonii,13,0
+2,6,0,Gendron,Fistularia commersonii,13,0
+1,1,0,Haapiti,Fistularia commersonii,13,0
+3,1,0,Maatea,Fistularia commersonii,13,0
+0,16,0,Motu Ahi,Fistularia commersonii,13,0
+4,2,1,Nuarei,Fistularia commersonii,13,0
+1,12,0,Pihaena,Fistularia commersonii,13,0
+0,0,9,Taotaha,Fistularia commersonii,13,0
+3,8,3,Temae,Fistularia commersonii,13,0
+0,2,0,Tetaiuo,Fistularia commersonii,13,0
+0,15,2,Tiahura,Fistularia commersonii,13,0
+6,0,12,Afareaitu,Forcipiger flavissimus,13,0
+0,0,11,Aroa,Forcipiger flavissimus,13,0
+2,12,11,Entre 2 baies,Forcipiger flavissimus,13,0
+0,0,9,Gendron,Forcipiger flavissimus,13,0
+0,0,1,Haapiti,Forcipiger flavissimus,13,0
+3,19,5,Maatea,Forcipiger flavissimus,13,0
+1,11,12,Motu Ahi,Forcipiger flavissimus,13,0
+2,0,23,Nuarei,Forcipiger flavissimus,13,0
+0,3,12,Pihaena,Forcipiger flavissimus,13,0
+1,0,5,Taotaha,Forcipiger flavissimus,13,0
+7,2,13,Temae,Forcipiger flavissimus,13,0
+2,1,11,Tetaiuo,Forcipiger flavissimus,13,0
+2,12,16,Tiahura,Forcipiger flavissimus,13,0
+11,0,8,Afareaitu,Forcipiger longirostris,13,0
+0,0,3,Aroa,Forcipiger longirostris,13,0
+0,3,8,Entre 2 baies,Forcipiger longirostris,13,0
+0,0,1,Gendron,Forcipiger longirostris,13,0
+2,0,1,Haapiti,Forcipiger longirostris,13,0
+0,3,0,Maatea,Forcipiger longirostris,13,0
+1,0,5,Motu Ahi,Forcipiger longirostris,13,0
+0,0,7,Nuarei,Forcipiger longirostris,13,0
+0,5,9,Pihaena,Forcipiger longirostris,13,0
+1,0,3,Taotaha,Forcipiger longirostris,13,0
+1,0,22,Temae,Forcipiger longirostris,13,0
+0,0,3,Tetaiuo,Forcipiger longirostris,13,0
+1,6,3,Tiahura,Forcipiger longirostris,13,0
+0,0,27,Afareaitu,Gnathanodon speciosus,3,1
+1,0,0,Entre 2 baies,Gnathanodon speciosus,3,1
+0,0,1,Gendron,Gnathanodon speciosus,3,1
+11,0,93,Afareaitu,Gnathodentex aureolineatus,13,0
+13,21,0,Aroa,Gnathodentex aureolineatus,13,0
+3,31,0,Entre 2 baies,Gnathodentex aureolineatus,13,0
+6,0,0,Gendron,Gnathodentex aureolineatus,13,0
+12,4,0,Haapiti,Gnathodentex aureolineatus,13,0
+0,46,0,Maatea,Gnathodentex aureolineatus,13,0
+23,0,85,Motu Ahi,Gnathodentex aureolineatus,13,0
+5,0,264,Nuarei,Gnathodentex aureolineatus,13,0
+26,32,30,Pihaena,Gnathodentex aureolineatus,13,0
+14,47,0,Taotaha,Gnathodentex aureolineatus,13,0
+36,0,112,Temae,Gnathodentex aureolineatus,13,0
+27,61,6,Tetaiuo,Gnathodentex aureolineatus,13,0
+5,4,41,Tiahura,Gnathodentex aureolineatus,13,0
+2,0,0,Afareaitu,Gnatholepis anjerensis,13,1
+8,15,0,Aroa,Gnatholepis anjerensis,13,1
+6,0,0,Entre 2 baies,Gnatholepis anjerensis,13,1
+15,11,0,Gendron,Gnatholepis anjerensis,13,1
+17,6,0,Haapiti,Gnatholepis anjerensis,13,1
+10,3,0,Maatea,Gnatholepis anjerensis,13,1
+9,5,0,Motu Ahi,Gnatholepis anjerensis,13,1
+10,12,0,Nuarei,Gnatholepis anjerensis,13,1
+8,1,0,Pihaena,Gnatholepis anjerensis,13,1
+9,3,0,Taotaha,Gnatholepis anjerensis,13,1
+11,12,0,Temae,Gnatholepis anjerensis,13,1
+12,9,0,Tetaiuo,Gnatholepis anjerensis,13,1
+2,26,0,Tiahura,Gnatholepis anjerensis,13,1
+1,2,0,Entre 2 baies,Gnatholepis cauerensis,10,1
+7,3,0,Gendron,Gnatholepis cauerensis,10,1
+0,2,0,Haapiti,Gnatholepis cauerensis,10,1
+1,1,0,Maatea,Gnatholepis cauerensis,10,1
+4,2,0,Motu Ahi,Gnatholepis cauerensis,10,1
+5,4,0,Nuarei,Gnatholepis cauerensis,10,1
+0,13,0,Pihaena,Gnatholepis cauerensis,10,1
+3,0,0,Taotaha,Gnatholepis cauerensis,10,1
+3,1,0,Tetaiuo,Gnatholepis cauerensis,10,1
+0,1,0,Tiahura,Gnatholepis cauerensis,10,1
+52,19,144,Afareaitu,Gomphosus varius,13,0
+31,28,94,Aroa,Gomphosus varius,13,0
+26,7,112,Entre 2 baies,Gomphosus varius,13,0
+7,5,73,Gendron,Gomphosus varius,13,0
+89,9,43,Haapiti,Gomphosus varius,13,0
+23,27,106,Maatea,Gomphosus varius,13,0
+31,22,143,Motu Ahi,Gomphosus varius,13,0
+37,0,171,Nuarei,Gomphosus varius,13,0
+9,6,106,Pihaena,Gomphosus varius,13,0
+46,12,75,Taotaha,Gomphosus varius,13,0
+53,6,118,Temae,Gomphosus varius,13,0
+48,6,133,Tetaiuo,Gomphosus varius,13,0
+50,29,147,Tiahura,Gomphosus varius,13,0
+0,0,1,Aroa,Grammistes sexlineatus,3,1
+1,0,0,Gendron,Grammistes sexlineatus,3,1
+1,0,0,Nuarei,Grammistes sexlineatus,3,1
+0,0,4,Nuarei,Gymnosarda unicolor,1,0
+0,0,1,Maatea,Gymnothorax flavimarginatus,3,1
+0,0,1,Motu Ahi,Gymnothorax flavimarginatus,3,1
+0,0,1,Temae,Gymnothorax flavimarginatus,3,1
+0,1,1,Aroa,Gymnothorax javanicus,11,0
+1,0,2,Entre 2 baies,Gymnothorax javanicus,11,0
+1,0,1,Gendron,Gymnothorax javanicus,11,0
+0,1,2,Haapiti,Gymnothorax javanicus,11,0
+0,0,4,Maatea,Gymnothorax javanicus,11,0
+1,0,1,Motu Ahi,Gymnothorax javanicus,11,0
+0,1,2,Pihaena,Gymnothorax javanicus,11,0
+2,1,2,Taotaha,Gymnothorax javanicus,11,0
+1,1,0,Temae,Gymnothorax javanicus,11,0
+0,2,3,Tetaiuo,Gymnothorax javanicus,11,0
+1,1,1,Tiahura,Gymnothorax javanicus,11,0
+0,0,2,Afareaitu,Gymnothorax meleagris,10,0
+1,0,5,Aroa,Gymnothorax meleagris,10,0
+1,1,2,Entre 2 baies,Gymnothorax meleagris,10,0
+0,0,2,Haapiti,Gymnothorax meleagris,10,0
+0,0,1,Maatea,Gymnothorax meleagris,10,0
+2,2,2,Motu Ahi,Gymnothorax meleagris,10,0
+0,0,4,Taotaha,Gymnothorax meleagris,10,0
+0,0,1,Temae,Gymnothorax meleagris,10,0
+0,0,2,Tetaiuo,Gymnothorax meleagris,10,0
+0,0,1,Tiahura,Gymnothorax meleagris,10,0
+0,1,0,Pihaena,Gymnothorax undulatus,1,0
+3,0,182,Afareaitu,Halichoeres claudia,13,0
+3,4,219,Aroa,Halichoeres claudia,13,0
+2,2,119,Entre 2 baies,Halichoeres claudia,13,0
+1,5,339,Gendron,Halichoeres claudia,13,0
+9,0,235,Haapiti,Halichoeres claudia,13,0
+4,4,352,Maatea,Halichoeres claudia,13,0
+3,0,171,Motu Ahi,Halichoeres claudia,13,0
+0,0,191,Nuarei,Halichoeres claudia,13,0
+0,0,47,Pihaena,Halichoeres claudia,13,0
+4,0,264,Taotaha,Halichoeres claudia,13,0
+1,0,157,Temae,Halichoeres claudia,13,0
+3,0,282,Tetaiuo,Halichoeres claudia,13,0
+1,0,98,Tiahura,Halichoeres claudia,13,0
+74,2,10,Afareaitu,Halichoeres hortulanus,13,0
+48,43,37,Aroa,Halichoeres hortulanus,13,0
+47,4,5,Entre 2 baies,Halichoeres hortulanus,13,0
+3,5,2,Gendron,Halichoeres hortulanus,13,0
+65,4,0,Haapiti,Halichoeres hortulanus,13,0
+39,8,9,Maatea,Halichoeres hortulanus,13,0
+51,10,10,Motu Ahi,Halichoeres hortulanus,13,0
+27,0,35,Nuarei,Halichoeres hortulanus,13,0
+31,15,15,Pihaena,Halichoeres hortulanus,13,0
+47,6,1,Taotaha,Halichoeres hortulanus,13,0
+27,1,43,Temae,Halichoeres hortulanus,13,0
+45,3,1,Tetaiuo,Halichoeres hortulanus,13,0
+63,12,11,Tiahura,Halichoeres hortulanus,13,0
+0,1,0,Afareaitu,Halichoeres margaritaceus,11,0
+1,0,29,Aroa,Halichoeres margaritaceus,11,0
+1,0,14,Entre 2 baies,Halichoeres margaritaceus,11,0
+1,0,8,Gendron,Halichoeres margaritaceus,11,0
+0,0,24,Haapiti,Halichoeres margaritaceus,11,0
+0,0,1,Maatea,Halichoeres margaritaceus,11,0
+6,8,0,Motu Ahi,Halichoeres margaritaceus,11,0
+2,0,7,Pihaena,Halichoeres margaritaceus,11,0
+6,3,1,Taotaha,Halichoeres margaritaceus,11,0
+0,1,0,Tetaiuo,Halichoeres margaritaceus,11,0
+10,0,5,Tiahura,Halichoeres margaritaceus,11,0
+14,4,0,Afareaitu,Halichoeres marginatus,13,0
+11,14,18,Aroa,Halichoeres marginatus,13,0
+5,0,10,Entre 2 baies,Halichoeres marginatus,13,0
+0,0,5,Gendron,Halichoeres marginatus,13,0
+6,0,1,Haapiti,Halichoeres marginatus,13,0
+0,12,3,Maatea,Halichoeres marginatus,13,0
+5,0,6,Motu Ahi,Halichoeres marginatus,13,0
+3,0,0,Nuarei,Halichoeres marginatus,13,0
+3,13,6,Pihaena,Halichoeres marginatus,13,0
+6,1,10,Taotaha,Halichoeres marginatus,13,0
+2,0,3,Temae,Halichoeres marginatus,13,0
+5,2,4,Tetaiuo,Halichoeres marginatus,13,0
+6,1,7,Tiahura,Halichoeres marginatus,13,0
+104,138,0,Afareaitu,Halichoeres trimaculatus,13,0
+215,77,0,Aroa,Halichoeres trimaculatus,13,0
+93,101,0,Entre 2 baies,Halichoeres trimaculatus,13,0
+265,274,3,Gendron,Halichoeres trimaculatus,13,0
+118,129,0,Haapiti,Halichoeres trimaculatus,13,0
+289,81,0,Maatea,Halichoeres trimaculatus,13,0
+122,129,0,Motu Ahi,Halichoeres trimaculatus,13,0
+72,93,0,Nuarei,Halichoeres trimaculatus,13,0
+218,163,0,Pihaena,Halichoeres trimaculatus,13,0
+98,146,0,Taotaha,Halichoeres trimaculatus,13,0
+78,77,0,Temae,Halichoeres trimaculatus,13,0
+122,193,0,Tetaiuo,Halichoeres trimaculatus,13,0
+86,43,1,Tiahura,Halichoeres trimaculatus,13,0
+0,0,9,Afareaitu,Hemigymnus fasciatus,12,0
+0,0,5,Aroa,Hemigymnus fasciatus,12,0
+0,2,5,Entre 2 baies,Hemigymnus fasciatus,12,0
+0,0,2,Gendron,Hemigymnus fasciatus,12,0
+0,0,12,Maatea,Hemigymnus fasciatus,12,0
+0,0,9,Motu Ahi,Hemigymnus fasciatus,12,0
+0,0,21,Nuarei,Hemigymnus fasciatus,12,0
+0,0,12,Pihaena,Hemigymnus fasciatus,12,0
+0,0,8,Taotaha,Hemigymnus fasciatus,12,0
+0,0,23,Temae,Hemigymnus fasciatus,12,0
+0,0,6,Tetaiuo,Hemigymnus fasciatus,12,0
+3,0,31,Tiahura,Hemigymnus fasciatus,12,0
+0,7,0,Nuarei,Hemiramphus depauperatus,1,0
+0,0,2,Aroa,Hemitaurichthys polylepis,3,1
+0,0,18,Pihaena,Hemitaurichthys polylepis,3,1
+0,0,13,Tiahura,Hemitaurichthys polylepis,3,1
+0,0,7,Motu Ahi,Heniochus acuminatus,1,0
+14,5,3,Afareaitu,Heniochus chrysostomus,13,0
+2,14,0,Aroa,Heniochus chrysostomus,13,0
+13,6,0,Entre 2 baies,Heniochus chrysostomus,13,0
+7,2,0,Gendron,Heniochus chrysostomus,13,0
+5,6,0,Haapiti,Heniochus chrysostomus,13,0
+9,22,0,Maatea,Heniochus chrysostomus,13,0
+6,12,0,Motu Ahi,Heniochus chrysostomus,13,0
+16,0,1,Nuarei,Heniochus chrysostomus,13,0
+5,5,11,Pihaena,Heniochus chrysostomus,13,0
+25,14,0,Taotaha,Heniochus chrysostomus,13,0
+26,4,1,Temae,Heniochus chrysostomus,13,0
+11,8,1,Tetaiuo,Heniochus chrysostomus,13,0
+20,68,2,Tiahura,Heniochus chrysostomus,13,0
+2,0,0,Entre 2 baies,Heniochus monoceros,4,1
+2,0,0,Maatea,Heniochus monoceros,4,1
+4,0,0,Taotaha,Heniochus monoceros,4,1
+1,0,0,Temae,Heniochus monoceros,4,1
+1,0,0,Haapiti,Himantura fai,4,1
+0,1,0,Nuarei,Himantura fai,4,1
+0,1,0,Tetaiuo,Himantura fai,4,1
+1,0,0,Tiahura,Himantura fai,4,1
+0,0,1,Afareaitu,Hologymnosus annulatus,11,1
+0,0,8,Aroa,Hologymnosus annulatus,11,1
+0,0,4,Entre 2 baies,Hologymnosus annulatus,11,1
+0,0,2,Gendron,Hologymnosus annulatus,11,1
+0,0,1,Maatea,Hologymnosus annulatus,11,1
+0,0,1,Motu Ahi,Hologymnosus annulatus,11,1
+0,0,3,Nuarei,Hologymnosus annulatus,11,1
+0,0,5,Taotaha,Hologymnosus annulatus,11,1
+0,0,5,Temae,Hologymnosus annulatus,11,1
+0,0,4,Tetaiuo,Hologymnosus annulatus,11,1
+0,0,1,Tiahura,Hologymnosus annulatus,11,1
+0,1,0,Taotaha,Iniistius pavo,2,1
+0,2,0,Tiahura,Iniistius pavo,2,1
+0,1,0,Taotaha,Istiblennius edentulus,1,0
+0,0,1,Pihaena,Kyphosus vaigiensis,1,0
+0,0,2,Entre 2 baies,Labre sp Ray_ jaune,1,0
+4,1,15,Afareaitu,Labroides bicolor,13,0
+4,7,10,Aroa,Labroides bicolor,13,0
+5,12,14,Entre 2 baies,Labroides bicolor,13,0
+0,0,1,Gendron,Labroides bicolor,13,0
+2,3,0,Haapiti,Labroides bicolor,13,0
+1,5,6,Maatea,Labroides bicolor,13,0
+2,2,15,Motu Ahi,Labroides bicolor,13,0
+4,0,28,Nuarei,Labroides bicolor,13,0
+4,2,14,Pihaena,Labroides bicolor,13,0
+8,3,3,Taotaha,Labroides bicolor,13,0
+2,1,21,Temae,Labroides bicolor,13,0
+2,5,3,Tetaiuo,Labroides bicolor,13,0
+6,12,29,Tiahura,Labroides bicolor,13,0
+10,14,27,Afareaitu,Labroides dimidiatus,13,0
+10,14,27,Aroa,Labroides dimidiatus,13,0
+20,16,34,Entre 2 baies,Labroides dimidiatus,13,0
+3,1,45,Gendron,Labroides dimidiatus,13,0
+10,4,30,Haapiti,Labroides dimidiatus,13,0
+3,5,61,Maatea,Labroides dimidiatus,13,0
+6,12,21,Motu Ahi,Labroides dimidiatus,13,0
+6,0,77,Nuarei,Labroides dimidiatus,13,0
+18,5,33,Pihaena,Labroides dimidiatus,13,0
+8,4,37,Taotaha,Labroides dimidiatus,13,0
+5,1,47,Temae,Labroides dimidiatus,13,0
+8,4,45,Tetaiuo,Labroides dimidiatus,13,0
+11,36,24,Tiahura,Labroides dimidiatus,13,0
+0,0,24,Afareaitu,Labroides rubrolabiatus,13,1
+0,0,16,Aroa,Labroides rubrolabiatus,13,1
+0,0,13,Entre 2 baies,Labroides rubrolabiatus,13,1
+0,0,7,Gendron,Labroides rubrolabiatus,13,1
+0,0,4,Haapiti,Labroides rubrolabiatus,13,1
+0,0,33,Maatea,Labroides rubrolabiatus,13,1
+0,0,62,Motu Ahi,Labroides rubrolabiatus,13,1
+0,0,56,Nuarei,Labroides rubrolabiatus,13,1
+0,0,30,Pihaena,Labroides rubrolabiatus,13,1
+0,0,30,Taotaha,Labroides rubrolabiatus,13,1
+0,0,47,Temae,Labroides rubrolabiatus,13,1
+0,0,31,Tetaiuo,Labroides rubrolabiatus,13,1
+0,0,26,Tiahura,Labroides rubrolabiatus,13,1
+0,0,1,Temae,Labropsis polynesica,1,0
+0,1,0,Nuarei,Lactoria cornuta,1,0
+0,0,16,Afareaitu,Lepidozygus tapeinosoma,12,1
+0,0,209,Aroa,Lepidozygus tapeinosoma,12,1
+0,0,171,Gendron,Lepidozygus tapeinosoma,12,1
+0,0,13,Haapiti,Lepidozygus tapeinosoma,12,1
+0,0,957,Maatea,Lepidozygus tapeinosoma,12,1
+0,0,1054,Motu Ahi,Lepidozygus tapeinosoma,12,1
+0,0,743,Nuarei,Lepidozygus tapeinosoma,12,1
+0,0,47,Pihaena,Lepidozygus tapeinosoma,12,1
+0,0,295,Taotaha,Lepidozygus tapeinosoma,12,1
+0,0,34,Temae,Lepidozygus tapeinosoma,12,1
+0,0,2088,Tetaiuo,Lepidozygus tapeinosoma,12,1
+0,0,247,Tiahura,Lepidozygus tapeinosoma,12,1
+0,0,8,Maatea,Leptoscarus vaigiensis,1,0
+0,0,2,Pihaena,Lethrinus microdon,2,1
+0,0,1,Taotaha,Lethrinus microdon,2,1
+0,0,1,Afareaitu,Lethrinus olivaceus,8,1
+0,0,2,Aroa,Lethrinus olivaceus,8,1
+0,0,4,Gendron,Lethrinus olivaceus,8,1
+0,0,1,Maatea,Lethrinus olivaceus,8,1
+0,0,1,Motu Ahi,Lethrinus olivaceus,8,1
+0,0,4,Nuarei,Lethrinus olivaceus,8,1
+0,0,9,Tetaiuo,Lethrinus olivaceus,8,1
+0,0,1,Tiahura,Lethrinus olivaceus,8,1
+0,0,1,Afareaitu,Lethrinus xanthochilus,10,1
+0,0,1,Aroa,Lethrinus xanthochilus,10,1
+0,0,1,Entre 2 baies,Lethrinus xanthochilus,10,1
+0,0,3,Gendron,Lethrinus xanthochilus,10,1
+0,0,1,Maatea,Lethrinus xanthochilus,10,1
+0,0,5,Nuarei,Lethrinus xanthochilus,10,1
+0,0,2,Pihaena,Lethrinus xanthochilus,10,1
+0,0,4,Taotaha,Lethrinus xanthochilus,10,1
+0,0,8,Temae,Lethrinus xanthochilus,10,1
+0,0,8,Tetaiuo,Lethrinus xanthochilus,10,1
+0,1,0,Tetaiuo,Liza vaigiensis,2,1
+0,64,0,Tiahura,Liza vaigiensis,2,1
+0,0,3,Afareaitu,Lutjanus bohar,8,1
+0,0,1,Aroa,Lutjanus bohar,8,1
+0,0,2,Entre 2 baies,Lutjanus bohar,8,1
+0,0,8,Maatea,Lutjanus bohar,8,1
+0,0,3,Motu Ahi,Lutjanus bohar,8,1
+0,0,2,Nuarei,Lutjanus bohar,8,1
+0,0,2,Temae,Lutjanus bohar,8,1
+0,0,4,Tiahura,Lutjanus bohar,8,1
+4,7,0,Afareaitu,Lutjanus fulvus,12,0
+7,7,0,Aroa,Lutjanus fulvus,12,0
+0,2,0,Entre 2 baies,Lutjanus fulvus,12,0
+4,3,0,Gendron,Lutjanus fulvus,12,0
+5,3,0,Haapiti,Lutjanus fulvus,12,0
+6,24,0,Maatea,Lutjanus fulvus,12,0
+7,0,0,Motu Ahi,Lutjanus fulvus,12,0
+4,5,6,Pihaena,Lutjanus fulvus,12,0
+4,1,0,Taotaha,Lutjanus fulvus,12,0
+2,5,0,Temae,Lutjanus fulvus,12,0
+9,4,0,Tetaiuo,Lutjanus fulvus,12,0
+2,20,6,Tiahura,Lutjanus fulvus,12,0
+0,0,2,Nuarei,Lutjanus gibbus,2,1
+0,0,1,Pihaena,Lutjanus gibbus,2,1
+0,27,0,Maatea,Lutjanus kasmira,4,1
+0,1,0,Motu Ahi,Lutjanus kasmira,4,1
+0,0,4,Nuarei,Lutjanus kasmira,4,1
+0,0,1,Tiahura,Lutjanus kasmira,4,1
+0,3,0,Aroa,Lutjanus monostigma,2,1
+0,1,0,Tiahura,Lutjanus monostigma,2,1
+0,0,29,Afareaitu,Macropharyngodon meleagris,13,1
+0,0,112,Aroa,Macropharyngodon meleagris,13,1
+0,0,65,Entre 2 baies,Macropharyngodon meleagris,13,1
+0,0,141,Gendron,Macropharyngodon meleagris,13,1
+0,0,91,Haapiti,Macropharyngodon meleagris,13,1
+0,0,94,Maatea,Macropharyngodon meleagris,13,1
+0,0,35,Motu Ahi,Macropharyngodon meleagris,13,1
+0,0,5,Nuarei,Macropharyngodon meleagris,13,1
+0,0,12,Pihaena,Macropharyngodon meleagris,13,1
+0,0,103,Taotaha,Macropharyngodon meleagris,13,1
+0,0,9,Temae,Macropharyngodon meleagris,13,1
+0,0,105,Tetaiuo,Macropharyngodon meleagris,13,1
+0,0,23,Tiahura,Macropharyngodon meleagris,13,1
+0,0,10,Afareaitu,Melichthys niger,13,1
+0,0,7,Aroa,Melichthys niger,13,1
+1,0,0,Entre 2 baies,Melichthys niger,13,1
+0,0,76,Gendron,Melichthys niger,13,1
+0,0,240,Haapiti,Melichthys niger,13,1
+0,0,50,Maatea,Melichthys niger,13,1
+0,0,58,Motu Ahi,Melichthys niger,13,1
+0,0,34,Nuarei,Melichthys niger,13,1
+0,0,2,Pihaena,Melichthys niger,13,1
+0,0,239,Taotaha,Melichthys niger,13,1
+0,0,17,Temae,Melichthys niger,13,1
+0,0,204,Tetaiuo,Melichthys niger,13,1
+0,0,24,Tiahura,Melichthys niger,13,1
+5,0,51,Afareaitu,Melichthys vidua,13,0
+5,2,73,Aroa,Melichthys vidua,13,0
+0,0,46,Entre 2 baies,Melichthys vidua,13,0
+0,0,91,Gendron,Melichthys vidua,13,0
+3,0,62,Haapiti,Melichthys vidua,13,0
+1,0,84,Maatea,Melichthys vidua,13,0
+6,0,68,Motu Ahi,Melichthys vidua,13,0
+4,0,79,Nuarei,Melichthys vidua,13,0
+0,1,38,Pihaena,Melichthys vidua,13,0
+0,0,84,Taotaha,Melichthys vidua,13,0
+1,0,58,Temae,Melichthys vidua,13,0
+0,0,123,Tetaiuo,Melichthys vidua,13,0
+3,2,105,Tiahura,Melichthys vidua,13,0
+1,13,0,Afareaitu,Monotaxis grandoculis,13,0
+0,4,1,Aroa,Monotaxis grandoculis,13,0
+3,9,2,Entre 2 baies,Monotaxis grandoculis,13,0
+3,8,0,Gendron,Monotaxis grandoculis,13,0
+7,13,0,Haapiti,Monotaxis grandoculis,13,0
+12,18,2,Maatea,Monotaxis grandoculis,13,0
+14,11,3,Motu Ahi,Monotaxis grandoculis,13,0
+9,0,19,Nuarei,Monotaxis grandoculis,13,0
+6,10,5,Pihaena,Monotaxis grandoculis,13,0
+16,1,0,Taotaha,Monotaxis grandoculis,13,0
+4,2,3,Temae,Monotaxis grandoculis,13,0
+8,8,1,Tetaiuo,Monotaxis grandoculis,13,0
+1,2,4,Tiahura,Monotaxis grandoculis,13,0
+70,468,0,Afareaitu,Mulloidichthys flavolineatus,13,1
+21,158,0,Aroa,Mulloidichthys flavolineatus,13,1
+40,552,0,Entre 2 baies,Mulloidichthys flavolineatus,13,1
+7,162,0,Gendron,Mulloidichthys flavolineatus,13,1
+5,44,0,Haapiti,Mulloidichthys flavolineatus,13,1
+1,450,0,Maatea,Mulloidichthys flavolineatus,13,1
+34,2,0,Motu Ahi,Mulloidichthys flavolineatus,13,1
+114,2,0,Nuarei,Mulloidichthys flavolineatus,13,1
+40,52,0,Pihaena,Mulloidichthys flavolineatus,13,1
+21,55,0,Taotaha,Mulloidichthys flavolineatus,13,1
+164,82,0,Temae,Mulloidichthys flavolineatus,13,1
+76,103,0,Tetaiuo,Mulloidichthys flavolineatus,13,1
+34,94,0,Tiahura,Mulloidichthys flavolineatus,13,1
+9,43,0,Afareaitu,Mulloidichthys vanicolensis,12,1
+4,22,0,Aroa,Mulloidichthys vanicolensis,12,1
+3,90,0,Entre 2 baies,Mulloidichthys vanicolensis,12,1
+0,6,0,Gendron,Mulloidichthys vanicolensis,12,1
+1,10,0,Haapiti,Mulloidichthys vanicolensis,12,1
+2,324,0,Maatea,Mulloidichthys vanicolensis,12,1
+10,0,0,Motu Ahi,Mulloidichthys vanicolensis,12,1
+39,0,0,Nuarei,Mulloidichthys vanicolensis,12,1
+11,16,0,Taotaha,Mulloidichthys vanicolensis,12,1
+55,4,0,Temae,Mulloidichthys vanicolensis,12,1
+34,48,0,Tetaiuo,Mulloidichthys vanicolensis,12,1
+9,53,0,Tiahura,Mulloidichthys vanicolensis,12,1
+0,2,0,Aroa,Myripristis adusta,9,1
+0,6,0,Entre 2 baies,Myripristis adusta,9,1
+1,5,0,Haapiti,Myripristis adusta,9,1
+0,3,0,Maatea,Myripristis adusta,9,1
+0,1,0,Motu Ahi,Myripristis adusta,9,1
+0,1,0,Taotaha,Myripristis adusta,9,1
+2,1,0,Temae,Myripristis adusta,9,1
+4,0,0,Tetaiuo,Myripristis adusta,9,1
+2,80,0,Tiahura,Myripristis adusta,9,1
+0,1,0,Aroa,Myripristis amaena,9,0
+6,20,0,Entre 2 baies,Myripristis amaena,9,0
+4,8,0,Haapiti,Myripristis amaena,9,0
+0,3,0,Maatea,Myripristis amaena,9,0
+0,0,1,Pihaena,Myripristis amaena,9,0
+1,2,0,Taotaha,Myripristis amaena,9,0
+5,0,0,Temae,Myripristis amaena,9,0
+3,2,0,Tetaiuo,Myripristis amaena,9,0
+8,15,0,Tiahura,Myripristis amaena,9,0
+0,2,0,Aroa,Myripristis berndti,9,0
+0,12,0,Entre 2 baies,Myripristis berndti,9,0
+1,0,0,Haapiti,Myripristis berndti,9,0
+3,0,1,Nuarei,Myripristis berndti,9,0
+0,0,12,Pihaena,Myripristis berndti,9,0
+0,2,0,Taotaha,Myripristis berndti,9,0
+0,1,9,Temae,Myripristis berndti,9,0
+1,0,0,Tetaiuo,Myripristis berndti,9,0
+0,13,18,Tiahura,Myripristis berndti,9,0
+0,0,1,Afareaitu,Myripristis kuntee,10,0
+0,2,0,Aroa,Myripristis kuntee,10,0
+0,22,0,Entre 2 baies,Myripristis kuntee,10,0
+0,6,0,Haapiti,Myripristis kuntee,10,0
+0,15,0,Maatea,Myripristis kuntee,10,0
+0,1,6,Pihaena,Myripristis kuntee,10,0
+1,4,0,Taotaha,Myripristis kuntee,10,0
+5,8,4,Temae,Myripristis kuntee,10,0
+2,0,0,Tetaiuo,Myripristis kuntee,10,0
+1,6,14,Tiahura,Myripristis kuntee,10,0
+2,5,0,Aroa,Myripristis murdjan,11,1
+1,52,0,Entre 2 baies,Myripristis murdjan,11,1
+0,3,0,Gendron,Myripristis murdjan,11,1
+0,18,0,Haapiti,Myripristis murdjan,11,1
+0,3,0,Maatea,Myripristis murdjan,11,1
+1,0,0,Nuarei,Myripristis murdjan,11,1
+1,2,0,Pihaena,Myripristis murdjan,11,1
+1,3,0,Taotaha,Myripristis murdjan,11,1
+2,0,0,Temae,Myripristis murdjan,11,1
+3,0,0,Tetaiuo,Myripristis murdjan,11,1
+7,22,0,Tiahura,Myripristis murdjan,11,1
+2,0,0,Aroa,Myripristis violacea,8,1
+0,3,0,Entre 2 baies,Myripristis violacea,8,1
+0,2,0,Haapiti,Myripristis violacea,8,1
+0,1,0,Maatea,Myripristis violacea,8,1
+2,0,0,Motu Ahi,Myripristis violacea,8,1
+0,2,0,Pihaena,Myripristis violacea,8,1
+2,2,0,Taotaha,Myripristis violacea,8,1
+18,36,0,Tiahura,Myripristis violacea,8,1
+0,1,0,Afareaitu,Naso annulatus,1,0
+0,0,4,Afareaitu,Naso brevirostris,6,1
+0,0,7,Entre 2 baies,Naso brevirostris,6,1
+0,0,13,Motu Ahi,Naso brevirostris,6,1
+0,0,17,Nuarei,Naso brevirostris,6,1
+0,0,2,Pihaena,Naso brevirostris,6,1
+0,0,5,Temae,Naso brevirostris,6,1
+0,0,25,Afareaitu,Naso hexacanthus,6,1
+0,1,1,Motu Ahi,Naso hexacanthus,6,1
+0,0,1,Nuarei,Naso hexacanthus,6,1
+0,0,3,Pihaena,Naso hexacanthus,6,1
+0,0,10,Temae,Naso hexacanthus,6,1
+0,0,1,Tiahura,Naso hexacanthus,6,1
+2,29,149,Afareaitu,Naso lituratus,13,0
+8,2,126,Aroa,Naso lituratus,13,0
+6,19,147,Entre 2 baies,Naso lituratus,13,0
+0,5,57,Gendron,Naso lituratus,13,0
+0,11,81,Haapiti,Naso lituratus,13,0
+0,8,78,Maatea,Naso lituratus,13,0
+0,13,191,Motu Ahi,Naso lituratus,13,0
+0,2,248,Nuarei,Naso lituratus,13,0
+8,13,62,Pihaena,Naso lituratus,13,0
+10,10,135,Taotaha,Naso lituratus,13,0
+1,1,411,Temae,Naso lituratus,13,0
+3,13,92,Tetaiuo,Naso lituratus,13,0
+7,18,163,Tiahura,Naso lituratus,13,0
+0,1,1,Afareaitu,Naso unicornis,10,0
+0,14,0,Entre 2 baies,Naso unicornis,10,0
+0,2,0,Gendron,Naso unicornis,10,0
+0,1,6,Maatea,Naso unicornis,10,0
+0,10,2,Motu Ahi,Naso unicornis,10,0
+0,1,5,Nuarei,Naso unicornis,10,0
+1,13,8,Pihaena,Naso unicornis,10,0
+0,2,0,Temae,Naso unicornis,10,0
+0,0,2,Tetaiuo,Naso unicornis,10,0
+0,2,0,Tiahura,Naso unicornis,10,0
+0,0,1,Pihaena,Naso vlamingii,3,1
+0,0,3,Temae,Naso vlamingii,3,1
+0,0,1,Tiahura,Naso vlamingii,3,1
+1,0,0,Entre 2 baies,Nebrius ferrugineus,1,0
+0,0,1,Entre 2 baies,Negaprion acutidens,2,1
+0,0,1,Tetaiuo,Negaprion acutidens,2,1
+0,0,113,Afareaitu,Nemateleotris magnifica,13,1
+0,0,30,Aroa,Nemateleotris magnifica,13,1
+0,0,47,Entre 2 baies,Nemateleotris magnifica,13,1
+0,0,73,Gendron,Nemateleotris magnifica,13,1
+0,0,34,Haapiti,Nemateleotris magnifica,13,1
+0,0,25,Maatea,Nemateleotris magnifica,13,1
+0,0,75,Motu Ahi,Nemateleotris magnifica,13,1
+0,0,17,Nuarei,Nemateleotris magnifica,13,1
+0,0,10,Pihaena,Nemateleotris magnifica,13,1
+0,0,27,Taotaha,Nemateleotris magnifica,13,1
+0,0,11,Temae,Nemateleotris magnifica,13,1
+0,0,65,Tetaiuo,Nemateleotris magnifica,13,1
+0,0,20,Tiahura,Nemateleotris magnifica,13,1
+0,0,837,Afareaitu,Neocirrhites armatus,13,1
+0,0,475,Aroa,Neocirrhites armatus,13,1
+0,0,468,Entre 2 baies,Neocirrhites armatus,13,1
+0,0,655,Gendron,Neocirrhites armatus,13,1
+0,0,476,Haapiti,Neocirrhites armatus,13,1
+2,0,774,Maatea,Neocirrhites armatus,13,1
+1,0,1158,Motu Ahi,Neocirrhites armatus,13,1
+0,0,562,Nuarei,Neocirrhites armatus,13,1
+0,0,281,Pihaena,Neocirrhites armatus,13,1
+0,0,682,Taotaha,Neocirrhites armatus,13,1
+4,0,556,Temae,Neocirrhites armatus,13,1
+0,0,787,Tetaiuo,Neocirrhites armatus,13,1
+0,0,478,Tiahura,Neocirrhites armatus,13,1
+1,0,0,Gendron,Neoniphon argenteus,5,1
+1,0,0,Motu Ahi,Neoniphon argenteus,5,1
+0,3,0,Nuarei,Neoniphon argenteus,5,1
+0,1,0,Tetaiuo,Neoniphon argenteus,5,1
+3,1,0,Tiahura,Neoniphon argenteus,5,1
+0,2,0,Temae,Neoniphon opercularis,1,0
+2,0,0,Afareaitu,Neoniphon sammara,13,0
+3,12,0,Aroa,Neoniphon sammara,13,0
+3,2,0,Entre 2 baies,Neoniphon sammara,13,0
+0,9,0,Gendron,Neoniphon sammara,13,0
+4,3,0,Haapiti,Neoniphon sammara,13,0
+0,1,0,Maatea,Neoniphon sammara,13,0
+8,1,0,Motu Ahi,Neoniphon sammara,13,0
+3,0,0,Nuarei,Neoniphon sammara,13,0
+0,2,3,Pihaena,Neoniphon sammara,13,0
+19,15,0,Taotaha,Neoniphon sammara,13,0
+1,1,0,Temae,Neoniphon sammara,13,0
+8,2,0,Tetaiuo,Neoniphon sammara,13,0
+10,19,0,Tiahura,Neoniphon sammara,13,0
+0,1,4,Afareaitu,Novaculichthys taeniourus,12,0
+1,1,3,Aroa,Novaculichthys taeniourus,12,0
+0,0,2,Entre 2 baies,Novaculichthys taeniourus,12,0
+0,0,12,Gendron,Novaculichthys taeniourus,12,0
+0,0,9,Maatea,Novaculichthys taeniourus,12,0
+0,0,12,Motu Ahi,Novaculichthys taeniourus,12,0
+0,0,2,Nuarei,Novaculichthys taeniourus,12,0
+0,0,4,Pihaena,Novaculichthys taeniourus,12,0
+0,0,1,Taotaha,Novaculichthys taeniourus,12,0
+0,1,5,Temae,Novaculichthys taeniourus,12,0
+0,0,5,Tetaiuo,Novaculichthys taeniourus,12,0
+0,0,3,Tiahura,Novaculichthys taeniourus,12,0
+0,0,443,Afareaitu,Odonus niger,12,1
+0,0,29,Aroa,Odonus niger,12,1
+0,0,354,Entre 2 baies,Odonus niger,12,1
+0,0,185,Gendron,Odonus niger,12,1
+0,0,10,Haapiti,Odonus niger,12,1
+0,0,310,Maatea,Odonus niger,12,1
+0,0,443,Motu Ahi,Odonus niger,12,1
+0,0,73,Nuarei,Odonus niger,12,1
+0,0,5,Pihaena,Odonus niger,12,1
+0,0,279,Taotaha,Odonus niger,12,1
+0,0,43,Tetaiuo,Odonus niger,12,1
+0,0,112,Tiahura,Odonus niger,12,1
+4,0,4,Aroa,Ostorhinchus angustatus,9,0
+0,0,4,Entre 2 baies,Ostorhinchus angustatus,9,0
+0,0,1,Gendron,Ostorhinchus angustatus,9,0
+0,0,1,Haapiti,Ostorhinchus angustatus,9,0
+0,0,2,Maatea,Ostorhinchus angustatus,9,0
+0,1,0,Pihaena,Ostorhinchus angustatus,9,0
+0,4,0,Temae,Ostorhinchus angustatus,9,0
+0,0,3,Tetaiuo,Ostorhinchus angustatus,9,0
+0,1,0,Tiahura,Ostorhinchus angustatus,9,0
+5,11,0,Afareaitu,Ostorhinchus nigrofasciatus,12,0
+0,2,0,Aroa,Ostorhinchus nigrofasciatus,12,0
+1,2,0,Gendron,Ostorhinchus nigrofasciatus,12,0
+3,1,0,Haapiti,Ostorhinchus nigrofasciatus,12,0
+16,4,1,Maatea,Ostorhinchus nigrofasciatus,12,0
+13,3,0,Motu Ahi,Ostorhinchus nigrofasciatus,12,0
+3,5,0,Nuarei,Ostorhinchus nigrofasciatus,12,0
+10,0,0,Pihaena,Ostorhinchus nigrofasciatus,12,0
+0,0,1,Taotaha,Ostorhinchus nigrofasciatus,12,0
+2,2,0,Temae,Ostorhinchus nigrofasciatus,12,0
+2,3,1,Tetaiuo,Ostorhinchus nigrofasciatus,12,0
+1,0,0,Tiahura,Ostorhinchus nigrofasciatus,12,0
+1,2,0,Afareaitu,Ostracion cubicus,13,1
+1,2,0,Aroa,Ostracion cubicus,13,1
+2,3,0,Entre 2 baies,Ostracion cubicus,13,1
+2,2,0,Gendron,Ostracion cubicus,13,1
+3,2,0,Haapiti,Ostracion cubicus,13,1
+0,2,0,Maatea,Ostracion cubicus,13,1
+0,2,0,Motu Ahi,Ostracion cubicus,13,1
+5,0,0,Nuarei,Ostracion cubicus,13,1
+1,0,0,Pihaena,Ostracion cubicus,13,1
+2,4,0,Taotaha,Ostracion cubicus,13,1
+4,0,0,Temae,Ostracion cubicus,13,1
+4,1,0,Tetaiuo,Ostracion cubicus,13,1
+0,3,0,Tiahura,Ostracion cubicus,13,1
+3,2,2,Afareaitu,Ostracion meleagris,13,0
+3,3,2,Aroa,Ostracion meleagris,13,0
+3,5,4,Entre 2 baies,Ostracion meleagris,13,0
+1,2,2,Gendron,Ostracion meleagris,13,0
+3,2,0,Haapiti,Ostracion meleagris,13,0
+0,1,0,Maatea,Ostracion meleagris,13,0
+0,0,6,Motu Ahi,Ostracion meleagris,13,0
+0,1,1,Nuarei,Ostracion meleagris,13,0
+8,1,11,Pihaena,Ostracion meleagris,13,0
+3,4,0,Taotaha,Ostracion meleagris,13,0
+1,0,1,Temae,Ostracion meleagris,13,0
+2,4,6,Tetaiuo,Ostracion meleagris,13,0
+1,6,6,Tiahura,Ostracion meleagris,13,0
+0,0,6,Afareaitu,Oxycheilinus unifasciatus,13,1
+0,0,10,Aroa,Oxycheilinus unifasciatus,13,1
+0,0,13,Entre 2 baies,Oxycheilinus unifasciatus,13,1
+0,0,2,Gendron,Oxycheilinus unifasciatus,13,1
+0,0,1,Haapiti,Oxycheilinus unifasciatus,13,1
+0,0,7,Maatea,Oxycheilinus unifasciatus,13,1
+0,0,8,Motu Ahi,Oxycheilinus unifasciatus,13,1
+0,0,9,Nuarei,Oxycheilinus unifasciatus,13,1
+0,0,6,Pihaena,Oxycheilinus unifasciatus,13,1
+0,0,7,Taotaha,Oxycheilinus unifasciatus,13,1
+0,0,12,Temae,Oxycheilinus unifasciatus,13,1
+0,0,1,Tetaiuo,Oxycheilinus unifasciatus,13,1
+0,0,6,Tiahura,Oxycheilinus unifasciatus,13,1
+1,0,291,Afareaitu,Paracirrhites arcatus,13,0
+19,4,217,Aroa,Paracirrhites arcatus,13,0
+10,1,283,Entre 2 baies,Paracirrhites arcatus,13,0
+0,0,466,Gendron,Paracirrhites arcatus,13,0
+8,0,343,Haapiti,Paracirrhites arcatus,13,0
+10,3,412,Maatea,Paracirrhites arcatus,13,0
+6,3,313,Motu Ahi,Paracirrhites arcatus,13,0
+0,0,303,Nuarei,Paracirrhites arcatus,13,0
+5,0,237,Pihaena,Paracirrhites arcatus,13,0
+8,0,459,Taotaha,Paracirrhites arcatus,13,0
+6,1,255,Temae,Paracirrhites arcatus,13,0
+3,0,413,Tetaiuo,Paracirrhites arcatus,13,0
+14,11,357,Tiahura,Paracirrhites arcatus,13,0
+0,0,14,Afareaitu,Paracirrhites forsteri,13,1
+1,0,5,Aroa,Paracirrhites forsteri,13,1
+0,0,8,Entre 2 baies,Paracirrhites forsteri,13,1
+0,0,15,Gendron,Paracirrhites forsteri,13,1
+0,0,5,Haapiti,Paracirrhites forsteri,13,1
+0,0,22,Maatea,Paracirrhites forsteri,13,1
+0,0,12,Motu Ahi,Paracirrhites forsteri,13,1
+0,0,12,Nuarei,Paracirrhites forsteri,13,1
+0,0,12,Pihaena,Paracirrhites forsteri,13,1
+0,0,18,Taotaha,Paracirrhites forsteri,13,1
+0,0,6,Temae,Paracirrhites forsteri,13,1
+0,0,17,Tetaiuo,Paracirrhites forsteri,13,1
+0,0,13,Tiahura,Paracirrhites forsteri,13,1
+0,0,9,Afareaitu,Paracirrhites hemistictus,12,1
+0,0,2,Aroa,Paracirrhites hemistictus,12,1
+0,0,6,Entre 2 baies,Paracirrhites hemistictus,12,1
+0,0,4,Gendron,Paracirrhites hemistictus,12,1
+1,0,13,Maatea,Paracirrhites hemistictus,12,1
+0,0,9,Motu Ahi,Paracirrhites hemistictus,12,1
+0,0,12,Nuarei,Paracirrhites hemistictus,12,1
+0,0,3,Pihaena,Paracirrhites hemistictus,12,1
+1,0,1,Taotaha,Paracirrhites hemistictus,12,1
+0,0,4,Temae,Paracirrhites hemistictus,12,1
+0,0,11,Tetaiuo,Paracirrhites hemistictus,12,1
+0,0,23,Tiahura,Paracirrhites hemistictus,12,1
+19,22,1,Afareaitu,Parapercis millepunctata,13,0
+25,13,11,Aroa,Parapercis millepunctata,13,0
+4,4,2,Entre 2 baies,Parapercis millepunctata,13,0
+12,5,5,Gendron,Parapercis millepunctata,13,0
+8,1,5,Haapiti,Parapercis millepunctata,13,0
+38,5,0,Maatea,Parapercis millepunctata,13,0
+19,18,1,Motu Ahi,Parapercis millepunctata,13,0
+6,3,0,Nuarei,Parapercis millepunctata,13,0
+7,5,2,Pihaena,Parapercis millepunctata,13,0
+5,1,0,Taotaha,Parapercis millepunctata,13,0
+1,0,1,Temae,Parapercis millepunctata,13,0
+8,2,0,Tetaiuo,Parapercis millepunctata,13,0
+2,1,2,Tiahura,Parapercis millepunctata,13,0
+0,2,0,Afareaitu,Parupeneus barberinus,10,1
+2,0,0,Aroa,Parupeneus barberinus,10,1
+0,2,0,Entre 2 baies,Parupeneus barberinus,10,1
+0,2,0,Gendron,Parupeneus barberinus,10,1
+0,1,0,Haapiti,Parupeneus barberinus,10,1
+0,9,0,Motu Ahi,Parupeneus barberinus,10,1
+2,2,0,Nuarei,Parupeneus barberinus,10,1
+3,2,0,Pihaena,Parupeneus barberinus,10,1
+0,1,0,Taotaha,Parupeneus barberinus,10,1
+0,3,0,Temae,Parupeneus barberinus,10,1
+0,1,0,Afareaitu,Parupeneus ciliatus,1,0
+1,4,16,Afareaitu,Parupeneus cyclostomus,13,0
+3,1,8,Aroa,Parupeneus cyclostomus,13,0
+1,2,8,Entre 2 baies,Parupeneus cyclostomus,13,0
+1,1,1,Gendron,Parupeneus cyclostomus,13,0
+1,2,6,Haapiti,Parupeneus cyclostomus,13,0
+1,7,3,Maatea,Parupeneus cyclostomus,13,0
+2,4,3,Motu Ahi,Parupeneus cyclostomus,13,0
+1,0,14,Nuarei,Parupeneus cyclostomus,13,0
+3,5,5,Pihaena,Parupeneus cyclostomus,13,0
+6,1,8,Taotaha,Parupeneus cyclostomus,13,0
+3,0,14,Temae,Parupeneus cyclostomus,13,0
+4,2,4,Tetaiuo,Parupeneus cyclostomus,13,0
+1,1,8,Tiahura,Parupeneus cyclostomus,13,0
+3,3,13,Afareaitu,Parupeneus insularis,12,0
+8,2,5,Aroa,Parupeneus insularis,12,0
+0,0,9,Gendron,Parupeneus insularis,12,0
+0,1,13,Haapiti,Parupeneus insularis,12,0
+2,3,5,Maatea,Parupeneus insularis,12,0
+2,1,7,Motu Ahi,Parupeneus insularis,12,0
+0,0,21,Nuarei,Parupeneus insularis,12,0
+0,1,8,Pihaena,Parupeneus insularis,12,0
+0,3,5,Taotaha,Parupeneus insularis,12,0
+0,0,17,Temae,Parupeneus insularis,12,0
+0,0,11,Tetaiuo,Parupeneus insularis,12,0
+2,1,19,Tiahura,Parupeneus insularis,12,0
+27,100,102,Afareaitu,Parupeneus multifasciatus,13,0
+17,22,94,Aroa,Parupeneus multifasciatus,13,0
+12,57,59,Entre 2 baies,Parupeneus multifasciatus,13,0
+8,20,59,Gendron,Parupeneus multifasciatus,13,0
+14,52,123,Haapiti,Parupeneus multifasciatus,13,0
+32,77,269,Maatea,Parupeneus multifasciatus,13,0
+22,288,79,Motu Ahi,Parupeneus multifasciatus,13,0
+14,3,57,Nuarei,Parupeneus multifasciatus,13,0
+15,36,37,Pihaena,Parupeneus multifasciatus,13,0
+13,19,87,Taotaha,Parupeneus multifasciatus,13,0
+25,26,52,Temae,Parupeneus multifasciatus,13,0
+19,21,72,Tetaiuo,Parupeneus multifasciatus,13,0
+22,75,76,Tiahura,Parupeneus multifasciatus,13,0
+2,0,0,Maatea,Parupeneus pleurostigma,2,1
+0,1,0,Motu Ahi,Parupeneus pleurostigma,2,1
+0,0,1,Afareaitu,Pervagor aspricaudus,3,1
+0,0,1,Tetaiuo,Pervagor aspricaudus,3,1
+0,0,1,Tiahura,Pervagor aspricaudus,3,1
+0,2,0,Temae,Petroscirtes xestus,1,0
+4,3,8,Afareaitu,Plagiotremus tapeinosoma,13,0
+7,6,65,Aroa,Plagiotremus tapeinosoma,13,0
+1,0,39,Entre 2 baies,Plagiotremus tapeinosoma,13,0
+2,1,65,Gendron,Plagiotremus tapeinosoma,13,0
+8,3,20,Haapiti,Plagiotremus tapeinosoma,13,0
+9,1,167,Maatea,Plagiotremus tapeinosoma,13,0
+6,39,20,Motu Ahi,Plagiotremus tapeinosoma,13,0
+7,0,10,Nuarei,Plagiotremus tapeinosoma,13,0
+2,2,9,Pihaena,Plagiotremus tapeinosoma,13,0
+9,0,36,Taotaha,Plagiotremus tapeinosoma,13,0
+3,0,20,Temae,Plagiotremus tapeinosoma,13,0
+8,0,123,Tetaiuo,Plagiotremus tapeinosoma,13,0
+16,0,45,Tiahura,Plagiotremus tapeinosoma,13,0
+0,1,0,Pihaena,Platax orbicularis,3,0
+1,0,0,Tetaiuo,Platax orbicularis,3,0
+0,0,1,Tiahura,Platax orbicularis,3,0
+1,0,0,Nuarei,Platybelone argalus,1,0
+0,0,2,Afareaitu,Plectroglyphidodon dickii,11,1
+0,0,4,Aroa,Plectroglyphidodon dickii,11,1
+0,0,3,Entre 2 baies,Plectroglyphidodon dickii,11,1
+0,0,10,Gendron,Plectroglyphidodon dickii,11,1
+0,0,2,Haapiti,Plectroglyphidodon dickii,11,1
+0,0,2,Maatea,Plectroglyphidodon dickii,11,1
+0,0,3,Motu Ahi,Plectroglyphidodon dickii,11,1
+0,0,4,Nuarei,Plectroglyphidodon dickii,11,1
+0,0,5,Taotaha,Plectroglyphidodon dickii,11,1
+0,1,3,Tetaiuo,Plectroglyphidodon dickii,11,1
+0,0,5,Tiahura,Plectroglyphidodon dickii,11,1
+0,0,6,Afareaitu,Plectroglyphidodon flaviventris,4,1
+0,0,1,Maatea,Plectroglyphidodon flaviventris,4,1
+0,0,1,Motu Ahi,Plectroglyphidodon flaviventris,4,1
+0,0,1,Temae,Plectroglyphidodon flaviventris,4,1
+0,0,443,Afareaitu,Plectroglyphidodon johnstonianus,13,0
+0,0,286,Aroa,Plectroglyphidodon johnstonianus,13,0
+0,0,247,Entre 2 baies,Plectroglyphidodon johnstonianus,13,0
+0,0,310,Gendron,Plectroglyphidodon johnstonianus,13,0
+0,0,234,Haapiti,Plectroglyphidodon johnstonianus,13,0
+1,0,396,Maatea,Plectroglyphidodon johnstonianus,13,0
+0,8,519,Motu Ahi,Plectroglyphidodon johnstonianus,13,0
+0,0,390,Nuarei,Plectroglyphidodon johnstonianus,13,0
+0,0,202,Pihaena,Plectroglyphidodon johnstonianus,13,0
+0,0,293,Taotaha,Plectroglyphidodon johnstonianus,13,0
+0,0,296,Temae,Plectroglyphidodon johnstonianus,13,0
+0,0,433,Tetaiuo,Plectroglyphidodon johnstonianus,13,0
+0,0,305,Tiahura,Plectroglyphidodon johnstonianus,13,0
+0,2,117,Afareaitu,Plectroglyphidodon lacrymatus,13,0
+0,0,187,Aroa,Plectroglyphidodon lacrymatus,13,0
+2,1,258,Entre 2 baies,Plectroglyphidodon lacrymatus,13,0
+0,0,13,Gendron,Plectroglyphidodon lacrymatus,13,0
+0,0,4,Haapiti,Plectroglyphidodon lacrymatus,13,0
+0,2,66,Maatea,Plectroglyphidodon lacrymatus,13,0
+0,2,147,Motu Ahi,Plectroglyphidodon lacrymatus,13,0
+0,0,308,Nuarei,Plectroglyphidodon lacrymatus,13,0
+0,0,443,Pihaena,Plectroglyphidodon lacrymatus,13,0
+3,0,11,Taotaha,Plectroglyphidodon lacrymatus,13,0
+0,0,706,Temae,Plectroglyphidodon lacrymatus,13,0
+0,0,39,Tetaiuo,Plectroglyphidodon lacrymatus,13,0
+0,0,329,Tiahura,Plectroglyphidodon lacrymatus,13,0
+0,1,0,Motu Ahi,Plectroglyphidodon phoenixensis,2,1
+0,2,0,Temae,Plectroglyphidodon phoenixensis,2,1
+0,1,0,Entre 2 baies,Pomacanthus imperator,4,1
+0,0,1,Nuarei,Pomacanthus imperator,4,1
+0,1,1,Pihaena,Pomacanthus imperator,4,1
+0,0,3,Tiahura,Pomacanthus imperator,4,1
+39,37,0,Afareaitu,Pomacentrus pavo,13,1
+35,256,0,Aroa,Pomacentrus pavo,13,1
+11,137,0,Entre 2 baies,Pomacentrus pavo,13,1
+107,34,0,Gendron,Pomacentrus pavo,13,1
+25,9,0,Haapiti,Pomacentrus pavo,13,1
+344,174,0,Maatea,Pomacentrus pavo,13,1
+21,212,0,Motu Ahi,Pomacentrus pavo,13,1
+31,96,0,Nuarei,Pomacentrus pavo,13,1
+259,40,0,Pihaena,Pomacentrus pavo,13,1
+12,19,0,Taotaha,Pomacentrus pavo,13,1
+2,41,0,Temae,Pomacentrus pavo,13,1
+53,69,0,Tetaiuo,Pomacentrus pavo,13,1
+5,25,0,Tiahura,Pomacentrus pavo,13,1
+0,1,0,Aroa,Pomacentrus sp,2,1
+0,3,0,Gendron,Pomacentrus sp,2,1
+4,1,393,Afareaitu,Pomachromis fuscidorsalis,13,0
+0,0,543,Aroa,Pomachromis fuscidorsalis,13,0
+0,0,417,Entre 2 baies,Pomachromis fuscidorsalis,13,0
+0,0,141,Gendron,Pomachromis fuscidorsalis,13,0
+0,0,591,Haapiti,Pomachromis fuscidorsalis,13,0
+0,0,543,Maatea,Pomachromis fuscidorsalis,13,0
+0,1,306,Motu Ahi,Pomachromis fuscidorsalis,13,0
+0,0,3,Nuarei,Pomachromis fuscidorsalis,13,0
+0,0,188,Pihaena,Pomachromis fuscidorsalis,13,0
+0,0,151,Taotaha,Pomachromis fuscidorsalis,13,0
+0,0,79,Temae,Pomachromis fuscidorsalis,13,0
+0,0,38,Tetaiuo,Pomachromis fuscidorsalis,13,0
+0,0,133,Tiahura,Pomachromis fuscidorsalis,13,0
+0,1,0,Aroa,Pristiapogon exostigma,4,1
+0,1,0,Gendron,Pristiapogon exostigma,4,1
+0,1,0,Haapiti,Pristiapogon exostigma,4,1
+0,5,0,Nuarei,Pristiapogon exostigma,4,1
+0,9,0,Afareaitu,Pristiapogon fraenatus,7,1
+20,0,0,Gendron,Pristiapogon fraenatus,7,1
+1,4,0,Haapiti,Pristiapogon fraenatus,7,1
+0,1,0,Nuarei,Pristiapogon fraenatus,7,1
+4,0,0,Pihaena,Pristiapogon fraenatus,7,1
+0,3,0,Temae,Pristiapogon fraenatus,7,1
+0,1,0,Tetaiuo,Pristiapogon fraenatus,7,1
+0,1,0,Afareaitu,Pristiapogon kallopterus,8,1
+0,2,0,Aroa,Pristiapogon kallopterus,8,1
+1,0,0,Gendron,Pristiapogon kallopterus,8,1
+4,3,0,Maatea,Pristiapogon kallopterus,8,1
+0,1,0,Motu Ahi,Pristiapogon kallopterus,8,1
+0,1,0,Temae,Pristiapogon kallopterus,8,1
+1,1,0,Tetaiuo,Pristiapogon kallopterus,8,1
+0,1,0,Tiahura,Pristiapogon kallopterus,8,1
+0,0,4,Entre 2 baies,Pseudanthias mooreanus,6,1
+0,0,50,Gendron,Pseudanthias mooreanus,6,1
+0,0,535,Maatea,Pseudanthias mooreanus,6,1
+0,0,19,Motu Ahi,Pseudanthias mooreanus,6,1
+0,0,96,Tetaiuo,Pseudanthias mooreanus,6,1
+0,0,86,Tiahura,Pseudanthias mooreanus,6,1
+0,0,2,Afareaitu,Pseudanthias olivaceus,8,1
+0,0,19,Entre 2 baies,Pseudanthias olivaceus,8,1
+0,0,1,Maatea,Pseudanthias olivaceus,8,1
+0,0,15,Nuarei,Pseudanthias olivaceus,8,1
+0,0,37,Pihaena,Pseudanthias olivaceus,8,1
+0,0,48,Temae,Pseudanthias olivaceus,8,1
+0,0,52,Tetaiuo,Pseudanthias olivaceus,8,1
+0,0,85,Tiahura,Pseudanthias olivaceus,8,1
+0,0,26,Entre 2 baies,Pseudanthias pascalus,6,1
+0,0,210,Maatea,Pseudanthias pascalus,6,1
+0,0,15,Nuarei,Pseudanthias pascalus,6,1
+0,0,137,Pihaena,Pseudanthias pascalus,6,1
+0,0,91,Temae,Pseudanthias pascalus,6,1
+0,0,2,Tiahura,Pseudanthias pascalus,6,1
+0,0,6,Afareaitu,Pseudobalistes flavimarginatus,4,1
+0,0,1,Gendron,Pseudobalistes flavimarginatus,4,1
+0,0,1,Haapiti,Pseudobalistes flavimarginatus,4,1
+0,0,1,Motu Ahi,Pseudobalistes flavimarginatus,4,1
+0,0,4,Entre 2 baies,Pseudocheilinus evanidus,5,1
+0,0,1,Motu Ahi,Pseudocheilinus evanidus,5,1
+0,0,4,Temae,Pseudocheilinus evanidus,5,1
+0,0,1,Tetaiuo,Pseudocheilinus evanidus,5,1
+0,0,1,Tiahura,Pseudocheilinus evanidus,5,1
+0,1,99,Afareaitu,Pseudocheilinus hexataenia,13,0
+10,12,463,Aroa,Pseudocheilinus hexataenia,13,0
+17,2,571,Entre 2 baies,Pseudocheilinus hexataenia,13,0
+8,16,123,Gendron,Pseudocheilinus hexataenia,13,0
+44,8,45,Haapiti,Pseudocheilinus hexataenia,13,0
+15,1,35,Maatea,Pseudocheilinus hexataenia,13,0
+9,10,125,Motu Ahi,Pseudocheilinus hexataenia,13,0
+11,0,196,Nuarei,Pseudocheilinus hexataenia,13,0
+11,1,350,Pihaena,Pseudocheilinus hexataenia,13,0
+17,7,45,Taotaha,Pseudocheilinus hexataenia,13,0
+5,1,319,Temae,Pseudocheilinus hexataenia,13,0
+18,10,94,Tetaiuo,Pseudocheilinus hexataenia,13,0
+28,7,284,Tiahura,Pseudocheilinus hexataenia,13,0
+0,0,2,Afareaitu,Pseudocheilinus octotaenia,12,1
+0,0,11,Aroa,Pseudocheilinus octotaenia,12,1
+0,0,12,Entre 2 baies,Pseudocheilinus octotaenia,12,1
+0,0,10,Gendron,Pseudocheilinus octotaenia,12,1
+0,0,1,Haapiti,Pseudocheilinus octotaenia,12,1
+0,0,18,Maatea,Pseudocheilinus octotaenia,12,1
+0,0,1,Motu Ahi,Pseudocheilinus octotaenia,12,1
+0,0,7,Nuarei,Pseudocheilinus octotaenia,12,1
+0,0,23,Pihaena,Pseudocheilinus octotaenia,12,1
+0,0,9,Temae,Pseudocheilinus octotaenia,12,1
+0,0,22,Tetaiuo,Pseudocheilinus octotaenia,12,1
+0,0,49,Tiahura,Pseudocheilinus octotaenia,12,1
+0,0,206,Afareaitu,Pseudocheilinus tetrataenia,13,1
+0,0,45,Aroa,Pseudocheilinus tetrataenia,13,1
+0,0,44,Entre 2 baies,Pseudocheilinus tetrataenia,13,1
+0,0,307,Gendron,Pseudocheilinus tetrataenia,13,1
+0,0,152,Haapiti,Pseudocheilinus tetrataenia,13,1
+0,0,249,Maatea,Pseudocheilinus tetrataenia,13,1
+0,0,199,Motu Ahi,Pseudocheilinus tetrataenia,13,1
+0,0,235,Nuarei,Pseudocheilinus tetrataenia,13,1
+0,0,129,Pihaena,Pseudocheilinus tetrataenia,13,1
+0,0,199,Taotaha,Pseudocheilinus tetrataenia,13,1
+0,0,167,Temae,Pseudocheilinus tetrataenia,13,1
+0,0,454,Tetaiuo,Pseudocheilinus tetrataenia,13,1
+0,0,240,Tiahura,Pseudocheilinus tetrataenia,13,1
+0,0,3,Temae,Pseudocoris aurantiofasciata,1,0
+0,0,1,Aroa,Pseudodax moluccanus,6,1
+0,0,1,Maatea,Pseudodax moluccanus,6,1
+0,0,4,Nuarei,Pseudodax moluccanus,6,1
+0,0,11,Temae,Pseudodax moluccanus,6,1
+0,0,1,Tetaiuo,Pseudodax moluccanus,6,1
+0,0,1,Tiahura,Pseudodax moluccanus,6,1
+0,0,18,Afareaitu,Pseudojuloides atavai,12,1
+1,0,2,Aroa,Pseudojuloides atavai,12,1
+0,0,8,Entre 2 baies,Pseudojuloides atavai,12,1
+0,0,13,Gendron,Pseudojuloides atavai,12,1
+0,0,2,Haapiti,Pseudojuloides atavai,12,1
+0,0,14,Maatea,Pseudojuloides atavai,12,1
+0,0,16,Motu Ahi,Pseudojuloides atavai,12,1
+0,0,23,Nuarei,Pseudojuloides atavai,12,1
+0,0,11,Taotaha,Pseudojuloides atavai,12,1
+0,0,33,Temae,Pseudojuloides atavai,12,1
+0,0,6,Tetaiuo,Pseudojuloides atavai,12,1
+0,0,14,Tiahura,Pseudojuloides atavai,12,1
+0,0,1,Afareaitu,Pseudojuloides cerasinus,3,1
+0,0,1,Maatea,Pseudojuloides cerasinus,3,1
+0,0,1,Taotaha,Pseudojuloides cerasinus,3,1
+0,0,8,Aroa,Ptereleotris evides,4,1
+0,0,6,Entre 2 baies,Ptereleotris evides,4,1
+0,2,0,Motu Ahi,Ptereleotris evides,4,1
+0,0,14,Tiahura,Ptereleotris evides,4,1
+0,2,0,Motu Ahi,Ptereleotris microlepis,1,0
+0,0,5,Entre 2 baies,Ptereleotris zebra,2,1
+0,0,15,Tiahura,Ptereleotris zebra,2,1
+0,0,120,Afareaitu,Pterocaesio tile,6,1
+0,0,2,Gendron,Pterocaesio tile,6,1
+0,0,150,Maatea,Pterocaesio tile,6,1
+0,0,100,Motu Ahi,Pterocaesio tile,6,1
+0,0,20,Nuarei,Pterocaesio tile,6,1
+0,0,15,Pihaena,Pterocaesio tile,6,1
+0,1,0,Aroa,Pterois antennata,5,1
+0,1,0,Maatea,Pterois antennata,5,1
+0,1,0,Motu Ahi,Pterois antennata,5,1
+2,0,0,Pihaena,Pterois antennata,5,1
+1,0,0,Temae,Pterois antennata,5,1
+1,0,0,Afareaitu,Pterois radiata,2,1
+0,5,0,Motu Ahi,Pterois radiata,2,1
+2,0,10,Afareaitu,Pygoplites diacanthus,8,0
+0,0,19,Entre 2 baies,Pygoplites diacanthus,8,0
+0,3,0,Maatea,Pygoplites diacanthus,8,0
+0,0,6,Motu Ahi,Pygoplites diacanthus,8,0
+0,0,7,Nuarei,Pygoplites diacanthus,8,0
+0,1,16,Pihaena,Pygoplites diacanthus,8,0
+0,0,8,Temae,Pygoplites diacanthus,8,0
+0,2,0,Tiahura,Pygoplites diacanthus,8,0
+2,3,0,Afareaitu,Rhinecanthus aculeatus,13,1
+2,1,0,Aroa,Rhinecanthus aculeatus,13,1
+0,4,0,Entre 2 baies,Rhinecanthus aculeatus,13,1
+2,10,0,Gendron,Rhinecanthus aculeatus,13,1
+3,2,0,Haapiti,Rhinecanthus aculeatus,13,1
+3,5,0,Maatea,Rhinecanthus aculeatus,13,1
+6,14,0,Motu Ahi,Rhinecanthus aculeatus,13,1
+1,30,0,Nuarei,Rhinecanthus aculeatus,13,1
+2,5,0,Pihaena,Rhinecanthus aculeatus,13,1
+2,1,0,Taotaha,Rhinecanthus aculeatus,13,1
+0,37,0,Temae,Rhinecanthus aculeatus,13,1
+5,2,0,Tetaiuo,Rhinecanthus aculeatus,13,1
+0,3,0,Tiahura,Rhinecanthus aculeatus,13,1
+0,0,4,Aroa,Rhinecanthus lunula,7,1
+0,0,3,Gendron,Rhinecanthus lunula,7,1
+0,0,4,Haapiti,Rhinecanthus lunula,7,1
+0,0,1,Maatea,Rhinecanthus lunula,7,1
+0,0,2,Taotaha,Rhinecanthus lunula,7,1
+0,0,4,Tetaiuo,Rhinecanthus lunula,7,1
+0,0,1,Tiahura,Rhinecanthus lunula,7,1
+0,0,2,Afareaitu,Rhinecanthus rectangulus,6,1
+2,0,2,Aroa,Rhinecanthus rectangulus,6,1
+0,0,3,Gendron,Rhinecanthus rectangulus,6,1
+0,0,10,Haapiti,Rhinecanthus rectangulus,6,1
+0,0,2,Taotaha,Rhinecanthus rectangulus,6,1
+1,0,1,Tetaiuo,Rhinecanthus rectangulus,6,1
+3,0,2,Afareaitu,Sargocentron caudimaculatum,7,1
+1,0,0,Aroa,Sargocentron caudimaculatum,7,1
+4,0,1,Maatea,Sargocentron caudimaculatum,7,1
+0,0,3,Nuarei,Sargocentron caudimaculatum,7,1
+0,0,1,Pihaena,Sargocentron caudimaculatum,7,1
+0,0,3,Temae,Sargocentron caudimaculatum,7,1
+0,0,2,Tiahura,Sargocentron caudimaculatum,7,1
+3,0,0,Afareaitu,Sargocentron diadema,11,1
+0,1,0,Aroa,Sargocentron diadema,11,1
+1,0,0,Entre 2 baies,Sargocentron diadema,11,1
+1,1,0,Gendron,Sargocentron diadema,11,1
+5,1,0,Haapiti,Sargocentron diadema,11,1
+2,0,0,Motu Ahi,Sargocentron diadema,11,1
+1,0,0,Nuarei,Sargocentron diadema,11,1
+4,0,0,Pihaena,Sargocentron diadema,11,1
+2,2,0,Taotaha,Sargocentron diadema,11,1
+1,2,0,Tetaiuo,Sargocentron diadema,11,1
+1,1,0,Tiahura,Sargocentron diadema,11,1
+9,1,3,Afareaitu,Sargocentron microstoma,13,0
+17,26,2,Aroa,Sargocentron microstoma,13,0
+4,2,9,Entre 2 baies,Sargocentron microstoma,13,0
+0,2,0,Gendron,Sargocentron microstoma,13,0
+11,6,0,Haapiti,Sargocentron microstoma,13,0
+3,4,0,Maatea,Sargocentron microstoma,13,0
+8,1,0,Motu Ahi,Sargocentron microstoma,13,0
+2,0,30,Nuarei,Sargocentron microstoma,13,0
+0,3,13,Pihaena,Sargocentron microstoma,13,0
+7,3,0,Taotaha,Sargocentron microstoma,13,0
+3,2,81,Temae,Sargocentron microstoma,13,0
+6,3,0,Tetaiuo,Sargocentron microstoma,13,0
+5,5,32,Tiahura,Sargocentron microstoma,13,0
+1,0,0,Afareaitu,Sargocentron spiniferum,12,0
+0,1,0,Aroa,Sargocentron spiniferum,12,0
+4,1,0,Entre 2 baies,Sargocentron spiniferum,12,0
+1,0,0,Gendron,Sargocentron spiniferum,12,0
+0,2,0,Haapiti,Sargocentron spiniferum,12,0
+0,2,0,Maatea,Sargocentron spiniferum,12,0
+2,1,0,Nuarei,Sargocentron spiniferum,12,0
+0,0,1,Pihaena,Sargocentron spiniferum,12,0
+3,0,0,Taotaha,Sargocentron spiniferum,12,0
+2,0,0,Temae,Sargocentron spiniferum,12,0
+0,3,0,Tetaiuo,Sargocentron spiniferum,12,0
+1,4,0,Tiahura,Sargocentron spiniferum,12,0
+0,0,2,Afareaitu,Sargocentron tiere,7,1
+0,0,2,Entre 2 baies,Sargocentron tiere,7,1
+0,0,2,Nuarei,Sargocentron tiere,7,1
+0,0,15,Pihaena,Sargocentron tiere,7,1
+0,0,1,Taotaha,Sargocentron tiere,7,1
+0,0,20,Temae,Sargocentron tiere,7,1
+0,0,4,Tiahura,Sargocentron tiere,7,1
+0,1,0,Pihaena,Sargocentron tiereoides,1,0
+0,1,0,Afareaitu,Saurida gracilis,9,0
+4,6,0,Aroa,Saurida gracilis,9,0
+1,2,0,Entre 2 baies,Saurida gracilis,9,0
+0,1,0,Gendron,Saurida gracilis,9,0
+5,0,0,Maatea,Saurida gracilis,9,0
+1,0,0,Motu Ahi,Saurida gracilis,9,0
+1,0,0,Temae,Saurida gracilis,9,0
+1,0,1,Tetaiuo,Saurida gracilis,9,0
+1,0,1,Tiahura,Saurida gracilis,9,0
+0,1,0,Afareaitu,Scarus altipinnis,13,0
+1,0,1,Aroa,Scarus altipinnis,13,0
+2,4,0,Entre 2 baies,Scarus altipinnis,13,0
+0,4,1,Gendron,Scarus altipinnis,13,0
+26,22,2,Haapiti,Scarus altipinnis,13,0
+1,13,1,Maatea,Scarus altipinnis,13,0
+21,6,1,Motu Ahi,Scarus altipinnis,13,0
+16,0,0,Nuarei,Scarus altipinnis,13,0
+13,2,0,Pihaena,Scarus altipinnis,13,0
+11,1,0,Taotaha,Scarus altipinnis,13,0
+18,0,1,Temae,Scarus altipinnis,13,0
+5,25,1,Tetaiuo,Scarus altipinnis,13,0
+10,10,19,Tiahura,Scarus altipinnis,13,0
+0,0,1,Gendron,Scarus chameleon,2,1
+0,0,1,Temae,Scarus chameleon,2,1
+0,0,1,Maatea,Scarus festivus,1,0
+0,0,1,Afareaitu,Scarus forsteni,13,1
+0,0,1,Aroa,Scarus forsteni,13,1
+0,0,3,Entre 2 baies,Scarus forsteni,13,1
+0,0,9,Gendron,Scarus forsteni,13,1
+0,0,3,Haapiti,Scarus forsteni,13,1
+0,0,5,Maatea,Scarus forsteni,13,1
+0,0,30,Motu Ahi,Scarus forsteni,13,1
+0,0,36,Nuarei,Scarus forsteni,13,1
+0,0,1,Pihaena,Scarus forsteni,13,1
+0,0,27,Taotaha,Scarus forsteni,13,1
+0,0,22,Temae,Scarus forsteni,13,1
+0,0,26,Tetaiuo,Scarus forsteni,13,1
+0,0,8,Tiahura,Scarus forsteni,13,1
+0,0,8,Afareaitu,Scarus frenatus,11,0
+0,0,1,Aroa,Scarus frenatus,11,0
+0,2,3,Entre 2 baies,Scarus frenatus,11,0
+0,0,1,Gendron,Scarus frenatus,11,0
+0,0,1,Maatea,Scarus frenatus,11,0
+0,0,1,Motu Ahi,Scarus frenatus,11,0
+0,0,7,Nuarei,Scarus frenatus,11,0
+0,0,1,Pihaena,Scarus frenatus,11,0
+0,0,1,Temae,Scarus frenatus,11,0
+0,0,3,Tetaiuo,Scarus frenatus,11,0
+1,0,17,Tiahura,Scarus frenatus,11,0
+0,0,1,Afareaitu,Scarus ghobban,8,1
+0,0,1,Aroa,Scarus ghobban,8,1
+0,0,3,Maatea,Scarus ghobban,8,1
+0,0,2,Motu Ahi,Scarus ghobban,8,1
+0,0,5,Nuarei,Scarus ghobban,8,1
+0,0,1,Temae,Scarus ghobban,8,1
+0,0,2,Tetaiuo,Scarus ghobban,8,1
+0,0,4,Tiahura,Scarus ghobban,8,1
+1,0,2,Afareaitu,Scarus globiceps,13,0
+0,0,7,Aroa,Scarus globiceps,13,0
+0,0,1,Entre 2 baies,Scarus globiceps,13,0
+0,0,36,Gendron,Scarus globiceps,13,0
+0,0,10,Haapiti,Scarus globiceps,13,0
+0,0,1,Maatea,Scarus globiceps,13,0
+0,0,8,Motu Ahi,Scarus globiceps,13,0
+0,0,38,Nuarei,Scarus globiceps,13,0
+0,0,7,Pihaena,Scarus globiceps,13,0
+0,0,18,Taotaha,Scarus globiceps,13,0
+0,0,2,Temae,Scarus globiceps,13,0
+0,0,16,Tetaiuo,Scarus globiceps,13,0
+1,1,22,Tiahura,Scarus globiceps,13,0
+0,0,2,Taotaha,Scarus longipinnis,2,1
+1,0,0,Tiahura,Scarus longipinnis,2,1
+2,0,2,Afareaitu,Scarus niger,12,0
+0,0,2,Aroa,Scarus niger,12,0
+0,1,0,Entre 2 baies,Scarus niger,12,0
+2,1,0,Haapiti,Scarus niger,12,0
+0,0,15,Maatea,Scarus niger,12,0
+1,0,6,Motu Ahi,Scarus niger,12,0
+1,0,1,Nuarei,Scarus niger,12,0
+0,0,2,Pihaena,Scarus niger,12,0
+6,0,5,Taotaha,Scarus niger,12,0
+0,0,1,Temae,Scarus niger,12,0
+1,0,4,Tetaiuo,Scarus niger,12,0
+1,1,8,Tiahura,Scarus niger,12,0
+3,1,11,Afareaitu,Scarus oviceps,13,0
+13,7,38,Aroa,Scarus oviceps,13,0
+11,22,26,Entre 2 baies,Scarus oviceps,13,0
+2,51,34,Gendron,Scarus oviceps,13,0
+2,3,2,Haapiti,Scarus oviceps,13,0
+0,12,2,Maatea,Scarus oviceps,13,0
+1,0,33,Motu Ahi,Scarus oviceps,13,0
+36,0,42,Nuarei,Scarus oviceps,13,0
+11,10,21,Pihaena,Scarus oviceps,13,0
+4,18,19,Taotaha,Scarus oviceps,13,0
+22,2,62,Temae,Scarus oviceps,13,0
+12,37,84,Tetaiuo,Scarus oviceps,13,0
+23,99,67,Tiahura,Scarus oviceps,13,0
+115,246,546,Afareaitu,Scarus psittacus,13,0
+166,129,366,Aroa,Scarus psittacus,13,0
+281,571,290,Entre 2 baies,Scarus psittacus,13,0
+155,192,655,Gendron,Scarus psittacus,13,0
+379,88,217,Haapiti,Scarus psittacus,13,0
+48,281,160,Maatea,Scarus psittacus,13,0
+55,160,566,Motu Ahi,Scarus psittacus,13,0
+173,4,469,Nuarei,Scarus psittacus,13,0
+139,290,220,Pihaena,Scarus psittacus,13,0
+303,335,478,Taotaha,Scarus psittacus,13,0
+178,126,229,Temae,Scarus psittacus,13,0
+294,287,551,Tetaiuo,Scarus psittacus,13,0
+77,238,284,Tiahura,Scarus psittacus,13,0
+2,0,13,Afareaitu,Scarus rubroviolaceus,12,1
+0,0,15,Aroa,Scarus rubroviolaceus,12,1
+0,0,3,Entre 2 baies,Scarus rubroviolaceus,12,1
+0,0,14,Gendron,Scarus rubroviolaceus,12,1
+0,0,4,Maatea,Scarus rubroviolaceus,12,1
+0,0,36,Motu Ahi,Scarus rubroviolaceus,12,1
+0,0,19,Nuarei,Scarus rubroviolaceus,12,1
+0,0,11,Pihaena,Scarus rubroviolaceus,12,1
+0,0,24,Taotaha,Scarus rubroviolaceus,12,1
+0,0,8,Temae,Scarus rubroviolaceus,12,1
+0,0,28,Tetaiuo,Scarus rubroviolaceus,12,1
+0,0,11,Tiahura,Scarus rubroviolaceus,12,1
+93,238,1,Afareaitu,Scarus schlegeli,13,0
+186,140,0,Aroa,Scarus schlegeli,13,0
+254,386,1,Entre 2 baies,Scarus schlegeli,13,0
+84,121,0,Gendron,Scarus schlegeli,13,0
+125,88,0,Haapiti,Scarus schlegeli,13,0
+20,61,3,Maatea,Scarus schlegeli,13,0
+25,67,1,Motu Ahi,Scarus schlegeli,13,0
+44,1,3,Nuarei,Scarus schlegeli,13,0
+188,209,1,Pihaena,Scarus schlegeli,13,0
+163,249,3,Taotaha,Scarus schlegeli,13,0
+112,166,0,Temae,Scarus schlegeli,13,0
+234,95,3,Tetaiuo,Scarus schlegeli,13,0
+69,83,3,Tiahura,Scarus schlegeli,13,0
+0,0,1,Haapiti,Scomberoides lysan,5,1
+0,0,1,Motu Ahi,Scomberoides lysan,5,1
+0,0,1,Nuarei,Scomberoides lysan,5,1
+0,0,5,Pihaena,Scomberoides lysan,5,1
+0,0,2,Tiahura,Scomberoides lysan,5,1
+0,0,1,Afareaitu,Scorpaenopsis diabolus,3,0
+1,0,0,Aroa,Scorpaenopsis diabolus,3,0
+0,2,0,Motu Ahi,Scorpaenopsis diabolus,3,0
+1,0,0,Maatea,Scorpaenopsis macrochir,1,0
+0,0,2,Afareaitu,Sebastapistes tinkhami,8,1
+0,0,1,Aroa,Sebastapistes tinkhami,8,1
+0,0,4,Gendron,Sebastapistes tinkhami,8,1
+0,0,6,Haapiti,Sebastapistes tinkhami,8,1
+0,0,23,Maatea,Sebastapistes tinkhami,8,1
+0,0,28,Taotaha,Sebastapistes tinkhami,8,1
+0,0,3,Tetaiuo,Sebastapistes tinkhami,8,1
+0,0,3,Tiahura,Sebastapistes tinkhami,8,1
+0,0,2,Nuarei,Selar crumenophthalmus,1,0
+4,350,0,Afareaitu,Siganus argenteus,13,0
+1,0,0,Aroa,Siganus argenteus,13,0
+0,6,1,Entre 2 baies,Siganus argenteus,13,0
+0,11,2,Gendron,Siganus argenteus,13,0
+0,4,12,Haapiti,Siganus argenteus,13,0
+1,4,15,Maatea,Siganus argenteus,13,0
+8,135,3,Motu Ahi,Siganus argenteus,13,0
+0,0,18,Nuarei,Siganus argenteus,13,0
+0,3,0,Pihaena,Siganus argenteus,13,0
+0,13,0,Taotaha,Siganus argenteus,13,0
+0,29,3,Temae,Siganus argenteus,13,0
+0,2,2,Tetaiuo,Siganus argenteus,13,0
+0,2,3,Tiahura,Siganus argenteus,13,0
+10,61,0,Afareaitu,Siganus spinus,11,1
+0,10,0,Entre 2 baies,Siganus spinus,11,1
+0,4,0,Gendron,Siganus spinus,11,1
+0,4,0,Haapiti,Siganus spinus,11,1
+0,5,0,Maatea,Siganus spinus,11,1
+0,20,0,Motu Ahi,Siganus spinus,11,1
+20,38,0,Pihaena,Siganus spinus,11,1
+0,1,0,Taotaha,Siganus spinus,11,1
+0,20,0,Temae,Siganus spinus,11,1
+2,7,0,Tetaiuo,Siganus spinus,11,1
+0,1,0,Tiahura,Siganus spinus,11,1
+0,0,2,Motu Ahi,Sphyraena barracuda,3,1
+0,0,1,Nuarei,Sphyraena barracuda,3,1
+0,0,1,Tetaiuo,Sphyraena barracuda,3,1
+1,11,0,Aroa,Stegastes albifasciatus,12,1
+3,0,0,Entre 2 baies,Stegastes albifasciatus,12,1
+6,6,0,Gendron,Stegastes albifasciatus,12,1
+2,4,0,Haapiti,Stegastes albifasciatus,12,1
+3,2,0,Maatea,Stegastes albifasciatus,12,1
+2,107,0,Motu Ahi,Stegastes albifasciatus,12,1
+5,0,0,Nuarei,Stegastes albifasciatus,12,1
+0,9,0,Pihaena,Stegastes albifasciatus,12,1
+0,8,0,Taotaha,Stegastes albifasciatus,12,1
+0,2,0,Temae,Stegastes albifasciatus,12,1
+0,1,0,Tetaiuo,Stegastes albifasciatus,12,1
+0,1,0,Tiahura,Stegastes albifasciatus,12,1
+0,0,36,Afareaitu,Stegastes fasciolatus,13,1
+0,0,220,Aroa,Stegastes fasciolatus,13,1
+0,0,183,Entre 2 baies,Stegastes fasciolatus,13,1
+0,0,245,Gendron,Stegastes fasciolatus,13,1
+0,0,297,Haapiti,Stegastes fasciolatus,13,1
+0,0,66,Maatea,Stegastes fasciolatus,13,1
+0,1,97,Motu Ahi,Stegastes fasciolatus,13,1
+0,0,26,Nuarei,Stegastes fasciolatus,13,1
+0,0,199,Pihaena,Stegastes fasciolatus,13,1
+0,0,369,Taotaha,Stegastes fasciolatus,13,1
+0,0,8,Temae,Stegastes fasciolatus,13,1
+0,0,494,Tetaiuo,Stegastes fasciolatus,13,1
+0,0,210,Tiahura,Stegastes fasciolatus,13,1
+68,117,0,Afareaitu,Stegastes nigricans,13,0
+234,882,0,Aroa,Stegastes nigricans,13,0
+1521,2246,0,Entre 2 baies,Stegastes nigricans,13,0
+256,1066,0,Gendron,Stegastes nigricans,13,0
+390,608,0,Haapiti,Stegastes nigricans,13,0
+76,1768,0,Maatea,Stegastes nigricans,13,0
+100,893,0,Motu Ahi,Stegastes nigricans,13,0
+931,12,6,Nuarei,Stegastes nigricans,13,0
+86,305,2,Pihaena,Stegastes nigricans,13,0
+560,1520,0,Taotaha,Stegastes nigricans,13,0
+976,298,0,Temae,Stegastes nigricans,13,0
+670,2199,0,Tetaiuo,Stegastes nigricans,13,0
+579,3313,0,Tiahura,Stegastes nigricans,13,0
+0,1,0,Aroa,Stegastes punctatus,8,1
+0,18,0,Entre 2 baies,Stegastes punctatus,8,1
+0,21,0,Gendron,Stegastes punctatus,8,1
+34,0,0,Nuarei,Stegastes punctatus,8,1
+0,1,0,Pihaena,Stegastes punctatus,8,1
+61,1,0,Temae,Stegastes punctatus,8,1
+1,30,0,Tetaiuo,Stegastes punctatus,8,1
+0,54,0,Tiahura,Stegastes punctatus,8,1
+36,67,45,Afareaitu,Stethojulis bandanensis,13,0
+103,24,57,Aroa,Stethojulis bandanensis,13,0
+41,56,22,Entre 2 baies,Stethojulis bandanensis,13,0
+26,31,56,Gendron,Stethojulis bandanensis,13,0
+19,16,55,Haapiti,Stethojulis bandanensis,13,0
+29,37,64,Maatea,Stethojulis bandanensis,13,0
+24,52,36,Motu Ahi,Stethojulis bandanensis,13,0
+19,2,18,Nuarei,Stethojulis bandanensis,13,0
+34,44,16,Pihaena,Stethojulis bandanensis,13,0
+24,39,40,Taotaha,Stethojulis bandanensis,13,0
+13,25,15,Temae,Stethojulis bandanensis,13,0
+15,41,31,Tetaiuo,Stethojulis bandanensis,13,0
+24,40,30,Tiahura,Stethojulis bandanensis,13,0
+0,0,1,Afareaitu,Stethojulis strigiventer,10,1
+0,0,10,Aroa,Stethojulis strigiventer,10,1
+0,0,7,Entre 2 baies,Stethojulis strigiventer,10,1
+0,0,6,Gendron,Stethojulis strigiventer,10,1
+2,0,9,Haapiti,Stethojulis strigiventer,10,1
+0,0,19,Maatea,Stethojulis strigiventer,10,1
+0,0,6,Motu Ahi,Stethojulis strigiventer,10,1
+0,0,9,Taotaha,Stethojulis strigiventer,10,1
+0,0,7,Tetaiuo,Stethojulis strigiventer,10,1
+0,0,7,Tiahura,Stethojulis strigiventer,10,1
+20,0,77,Afareaitu,Sufflamen bursa,13,0
+1,0,62,Aroa,Sufflamen bursa,13,0
+0,2,36,Entre 2 baies,Sufflamen bursa,13,0
+0,0,116,Gendron,Sufflamen bursa,13,0
+0,0,103,Haapiti,Sufflamen bursa,13,0
+0,0,99,Maatea,Sufflamen bursa,13,0
+0,10,78,Motu Ahi,Sufflamen bursa,13,0
+0,0,82,Nuarei,Sufflamen bursa,13,0
+0,0,43,Pihaena,Sufflamen bursa,13,0
+0,0,96,Taotaha,Sufflamen bursa,13,0
+1,0,52,Temae,Sufflamen bursa,13,0
+0,0,95,Tetaiuo,Sufflamen bursa,13,0
+0,0,60,Tiahura,Sufflamen bursa,13,0
+0,0,2,Pihaena,Sufflamen fraenatus,1,0
+0,1,0,Tiahura,Synanceia verrucosa,1,0
+1,0,0,Motu Ahi,Synodus binotatus,2,1
+1,0,0,Pihaena,Synodus binotatus,2,1
+0,0,1,Afareaitu,Synodus dermatogenys,1,0
+3,0,0,Afareaitu,Synodus variegatus,9,1
+3,0,0,Aroa,Synodus variegatus,9,1
+1,0,0,Entre 2 baies,Synodus variegatus,9,1
+4,0,0,Gendron,Synodus variegatus,9,1
+2,0,0,Maatea,Synodus variegatus,9,1
+5,0,0,Motu Ahi,Synodus variegatus,9,1
+0,0,2,Pihaena,Synodus variegatus,9,1
+1,0,0,Temae,Synodus variegatus,9,1
+1,0,0,Tetaiuo,Synodus variegatus,9,1
+0,1,0,Motu Ahi,Taenianotus triacanthus,1,0
+8,8,1,Afareaitu,Thalassoma amblycephalum,12,0
+261,107,38,Aroa,Thalassoma amblycephalum,12,0
+2,0,83,Entre 2 baies,Thalassoma amblycephalum,12,0
+0,1,20,Gendron,Thalassoma amblycephalum,12,0
+39,0,100,Haapiti,Thalassoma amblycephalum,12,0
+1,3,19,Maatea,Thalassoma amblycephalum,12,0
+5,2,2,Motu Ahi,Thalassoma amblycephalum,12,0
+22,6,14,Pihaena,Thalassoma amblycephalum,12,0
+6,0,45,Taotaha,Thalassoma amblycephalum,12,0
+0,0,1,Temae,Thalassoma amblycephalum,12,0
+8,1,0,Tetaiuo,Thalassoma amblycephalum,12,0
+19,10,120,Tiahura,Thalassoma amblycephalum,12,0
+352,194,0,Afareaitu,Thalassoma hardwicke,13,0
+284,370,0,Aroa,Thalassoma hardwicke,13,0
+385,421,1,Entre 2 baies,Thalassoma hardwicke,13,0
+123,105,0,Gendron,Thalassoma hardwicke,13,0
+512,90,0,Haapiti,Thalassoma hardwicke,13,0
+131,322,0,Maatea,Thalassoma hardwicke,13,0
+222,293,0,Motu Ahi,Thalassoma hardwicke,13,0
+192,5,0,Nuarei,Thalassoma hardwicke,13,0
+156,119,0,Pihaena,Thalassoma hardwicke,13,0
+300,148,0,Taotaha,Thalassoma hardwicke,13,0
+385,35,1,Temae,Thalassoma hardwicke,13,0
+307,98,0,Tetaiuo,Thalassoma hardwicke,13,0
+410,374,0,Tiahura,Thalassoma hardwicke,13,0
+9,0,108,Afareaitu,Thalassoma lutescens,13,0
+4,1,19,Aroa,Thalassoma lutescens,13,0
+0,0,18,Entre 2 baies,Thalassoma lutescens,13,0
+1,0,10,Gendron,Thalassoma lutescens,13,0
+0,0,21,Haapiti,Thalassoma lutescens,13,0
+11,2,125,Maatea,Thalassoma lutescens,13,0
+7,7,65,Motu Ahi,Thalassoma lutescens,13,0
+0,0,40,Nuarei,Thalassoma lutescens,13,0
+0,1,18,Pihaena,Thalassoma lutescens,13,0
+0,0,25,Taotaha,Thalassoma lutescens,13,0
+1,0,19,Temae,Thalassoma lutescens,13,0
+0,0,20,Tetaiuo,Thalassoma lutescens,13,0
+0,0,29,Tiahura,Thalassoma lutescens,13,0
+1,0,0,Afareaitu,Thalassoma purpureum,5,0
+1,3,0,Aroa,Thalassoma purpureum,5,0
+1,0,0,Gendron,Thalassoma purpureum,5,0
+1,0,0,Maatea,Thalassoma purpureum,5,0
+0,0,6,Temae,Thalassoma purpureum,5,0
+9,4,206,Afareaitu,Thalassoma quinquevittatum,13,0
+15,1,251,Aroa,Thalassoma quinquevittatum,13,0
+0,0,244,Entre 2 baies,Thalassoma quinquevittatum,13,0
+1,0,570,Gendron,Thalassoma quinquevittatum,13,0
+2,0,802,Haapiti,Thalassoma quinquevittatum,13,0
+46,10,270,Maatea,Thalassoma quinquevittatum,13,0
+2,0,265,Motu Ahi,Thalassoma quinquevittatum,13,0
+0,0,115,Nuarei,Thalassoma quinquevittatum,13,0
+5,2,56,Pihaena,Thalassoma quinquevittatum,13,0
+1,0,642,Taotaha,Thalassoma quinquevittatum,13,0
+0,0,66,Temae,Thalassoma quinquevittatum,13,0
+1,0,443,Tetaiuo,Thalassoma quinquevittatum,13,0
+2,0,198,Tiahura,Thalassoma quinquevittatum,13,0
+2,0,0,Afareaitu,Thalassoma trilobatum,3,0
+0,1,0,Maatea,Thalassoma trilobatum,3,0
+0,0,2,Taotaha,Thalassoma trilobatum,3,0
+0,0,1,Motu Ahi,Triaenodon obesus,1,0
+0,19,0,Afareaitu,Valenciennea strigata,11,0
+13,2,7,Aroa,Valenciennea strigata,11,0
+3,0,0,Entre 2 baies,Valenciennea strigata,11,0
+39,3,0,Gendron,Valenciennea strigata,11,0
+3,1,2,Haapiti,Valenciennea strigata,11,0
+38,2,0,Maatea,Valenciennea strigata,11,0
+1,14,0,Motu Ahi,Valenciennea strigata,11,0
+2,2,0,Nuarei,Valenciennea strigata,11,0
+4,2,0,Pihaena,Valenciennea strigata,11,0
+13,3,2,Taotaha,Valenciennea strigata,11,0
+7,4,2,Tetaiuo,Valenciennea strigata,11,0
+0,1,0,Temae,Vanderhorstia ornatissima,1,0
+0,0,2,Afareaitu,Variola louti,8,1
+0,0,2,Gendron,Variola louti,8,1
+0,0,3,Haapiti,Variola louti,8,1
+0,0,3,Motu Ahi,Variola louti,8,1
+0,0,3,Nuarei,Variola louti,8,1
+0,0,5,Taotaha,Variola louti,8,1
+0,0,1,Temae,Variola louti,8,1
+0,0,2,Tetaiuo,Variola louti,8,1
+6,3,13,Afareaitu,Zanclus cornutus,13,0
+8,1,12,Aroa,Zanclus cornutus,13,0
+1,9,22,Entre 2 baies,Zanclus cornutus,13,0
+2,0,10,Gendron,Zanclus cornutus,13,0
+1,1,3,Haapiti,Zanclus cornutus,13,0
+0,13,13,Maatea,Zanclus cornutus,13,0
+7,0,11,Motu Ahi,Zanclus cornutus,13,0
+0,0,15,Nuarei,Zanclus cornutus,13,0
+2,5,13,Pihaena,Zanclus cornutus,13,0
+3,5,9,Taotaha,Zanclus cornutus,13,0
+4,0,12,Temae,Zanclus cornutus,13,0
+1,2,9,Tetaiuo,Zanclus cornutus,13,0
+5,36,14,Tiahura,Zanclus cornutus,13,0
+0,0,1,Motu Ahi,Zebrasoma rostratum,4,1
+0,0,1,Pihaena,Zebrasoma rostratum,4,1
+0,0,3,Temae,Zebrasoma rostratum,4,1
+0,0,1,Tiahura,Zebrasoma rostratum,4,1
+80,7,182,Afareaitu,Zebrasoma scopas,13,0
+4,26,124,Aroa,Zebrasoma scopas,13,0
+63,476,278,Entre 2 baies,Zebrasoma scopas,13,0
+3,15,96,Gendron,Zebrasoma scopas,13,0
+17,58,9,Haapiti,Zebrasoma scopas,13,0
+13,363,93,Maatea,Zebrasoma scopas,13,0
+12,44,150,Motu Ahi,Zebrasoma scopas,13,0
+43,0,203,Nuarei,Zebrasoma scopas,13,0
+12,47,92,Pihaena,Zebrasoma scopas,13,0
+8,7,97,Taotaha,Zebrasoma scopas,13,0
+68,3,201,Temae,Zebrasoma scopas,13,0
+7,44,128,Tetaiuo,Zebrasoma scopas,13,0
+43,198,182,Tiahura,Zebrasoma scopas,13,0
+0,0,4,Afareaitu,Zebrasoma veliferum,12,0
+0,0,13,Aroa,Zebrasoma veliferum,12,0
+5,1,0,Entre 2 baies,Zebrasoma veliferum,12,0
+0,0,3,Gendron,Zebrasoma veliferum,12,0
+0,1,0,Maatea,Zebrasoma veliferum,12,0
+0,1,2,Motu Ahi,Zebrasoma veliferum,12,0
+0,0,14,Nuarei,Zebrasoma veliferum,12,0
+1,0,5,Pihaena,Zebrasoma veliferum,12,0
+1,1,4,Taotaha,Zebrasoma veliferum,12,0
+0,1,11,Temae,Zebrasoma veliferum,12,0
+3,2,4,Tetaiuo,Zebrasoma veliferum,12,0
+4,2,10,Tiahura,Zebrasoma veliferum,12,0

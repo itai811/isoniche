@@ -1,0 +1,27 @@
+Package: isoniche
+Type: Package
+Title: Isodar-Adjusted, Abundance-Independent Niche Breadth
+Version: 1.1.0
+Authors@R: c(
+    person("Itai", "Granot", email = "itai811@gmail.com", role = c("aut", "cre")),
+    person("Shahar", "Dubiner", email = "dubiner@mail.tau.ac.il", role = "aut",
+           comment = c(ORCID = "0000-0003-1771-0087")),
+    person("Jonathan", "Belmaker", role = "aut"))
+Description: Estimates habitat niche breadth corrected for the effects of
+    abundance, using isodars (the relationships between a species' densities in
+    pairs of habitats under density-dependent habitat selection). Fits pairwise
+    and n-dimensional isodars, including data where sites lack some habitats,
+    and computes the isodar-adjusted inequality (IAI) at any total abundance,
+    with density-independent and density-dependent niche breadth, bootstrap
+    confidence intervals and diagnostics. Method described in Granot, Dubiner and
+    Belmaker (in revision, Ecology Letters).
+License: GPL-3
+Encoding: UTF-8
+Depends: R (>= 4.1.0)
+Imports: stats, graphics, tibble
+Suggests: glmmTMB, testthat (>= 3.0.0), knitr, rmarkdown
+Config/testthat/edition: 3
+Roxygen: list(markdown = TRUE)
+URL: https://github.com/itai811/isoniche
+BugReports: https://github.com/itai811/isoniche/issues
+RoxygenNote: 7.3.2
