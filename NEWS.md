@@ -27,6 +27,20 @@ These change results relative to 1.0.0.
 
 ## New features
 
+* Habitats a species never uses are handled. `fit_isodars()` (and
+  `isoderr()`) gain `absent = "auto"`, which declares a habitat absent when
+  the species has no more than `absent_max_count` (default 0) records in it
+  across at least `absent_min_sites` (default 5) sites where it was present
+  in another habitat. Absent habitats are excluded from the isodar fit, fixed
+  at 0, and counted as 0 in the inequality, so they lower niche breadth.
+  Previously such habitats broke the fit and `iai()` returned `NA`. Habitats
+  with no records but fewer informative sites give a warning and are kept.
+  Use `absent = "none"` for the old behaviour or name habitats directly.
+  `isoderr()` decides the absent set once, on the full data. Results for
+  species that use every habitat are unchanged.
+* Scaled niche breadth is kept within [0, 1] (rounding error could give
+  values such as -1e-16).
+
 * New `pairwise_niche()` summarises pairwise isodars into niche breadth
   indices (paper, Appendix S1): the mean intercept and mean slope, and the
   inverse root-mean-square deviations of slopes from 1 and of intercepts from

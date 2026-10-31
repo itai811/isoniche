@@ -60,9 +60,13 @@ an n-dimensional isodar (a line), the allocation is the single point at
 which the line reaches the total; negative habitats are set to zero.
 
 \strong{Density-independent niche breadth} (\code{abundances = NULL}) is evaluated at
-the smallest total (searched over integers) at which every habitat holds at
-least \code{min_occupancy} individuals. If no total up to \code{max_search} achieves
-this, a single row with \code{NA} is returned.
+the smallest total (searched over integers) at which every used habitat
+holds at least \code{min_occupancy} individuals. If no total up to \code{max_search}
+achieves this, a single row with \code{NA} is returned.
+
+\strong{Absent habitats} (see \code{\link[=fit_isodars]{fit_isodars()}}) are fixed at 0 and count as 0 in
+the inequality, so they lower niche breadth; with a single used habitat,
+niche breadth is 0.
 
 \strong{Density-dependent niche breadth} is the value at a high total abundance,
 supplied through \code{abundances}.

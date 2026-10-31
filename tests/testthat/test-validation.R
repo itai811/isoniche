@@ -33,7 +33,7 @@ test_that("pairs without enough shared sites are skipped with a warning", {
 
 test_that("ndim_method = 'pca' needs enough complete sites", {
   d <- wide[1:3]
-  d$c[2:5] <- NA
+  d$c <- c(1, NA, NA, NA, NA)
   expect_error(fit_isodars(d, hab_cols = c("a", "b", "c"), dim = "ndim",
                            ndim_method = "pca"), "complete sites")
 })

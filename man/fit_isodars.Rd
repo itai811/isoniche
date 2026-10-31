@@ -10,7 +10,10 @@ fit_isodars(
   n_habitats = NULL,
   dim = c("pairwise", "ndim"),
   flip_intercept = TRUE,
-  ndim_method = c("auto", "pca", "latent")
+  ndim_method = c("auto", "pca", "latent"),
+  absent = "auto",
+  absent_max_count = 0,
+  absent_min_sites = 5
 )
 }
 \arguments{
@@ -30,15 +33,24 @@ intercept and positive slope is expressed in the reverse direction
 (habitats swapped), so that intercepts are non-negative.}
 
 \item{ndim_method}{\code{"auto"}, \code{"pca"} or \code{"latent"}; see Details.}
+
+\item{absent}{Habitats the species does not use: \code{"auto"} (detected from
+the data, see Details), \code{"none"}, or a character vector of habitat names
+(\code{character(0)} is the same as \code{"none"}).}
+
+\item{absent_max_count, absent_min_sites}{Thresholds for \code{absent = "auto"};
+see Details.}
 }
 \value{
 For \code{dim = "pairwise"}, a tibble of class \code{isodars_pairwise} with
-one row per habitat pair: \code{habitat_x}, \code{habitat_y}, \code{intercept}, \code{slope},
-\code{sd} (SD of perpendicular residuals), \code{n_sites}, and \code{flipped} (whether
-the habitats were swapped). For \code{dim = "ndim"}, a tibble of class
-\code{isodar_line} with one row per habitat: \code{habitat}, \code{mean}, \code{direction};
-attributes \code{var_explained} (share of variance along the line, \code{"pca"}
-only), \code{eigenvalues}, \code{n_sites} and \code{ndim_method}.
+one row per pair of used habitats: \code{habitat_x}, \code{habitat_y}, \code{intercept},
+\code{slope}, \code{sd} (SD of perpendicular residuals), \code{n_sites}, and \code{flipped}
+(whether the habitats were swapped). For \code{dim = "ndim"}, a tibble of class
+\code{isodar_line} with one row per habitat: \code{habitat}, \code{mean}, \code{direction}
+(both 0 for absent habitats); attributes \code{var_explained} (share of
+variance along the line, \code{"pca"} only), \code{eigenvalues}, \code{n_sites} and
+\code{ndim_method}. Both have attributes \code{habitats} (all habitats), \code{absent}
+and \code{undersampled}.
 }
 \description{
 Fits isodars to abundances (or densities) recorded in two or more habitats
@@ -71,6 +83,23 @@ recorded habitats, as a one-factor model,
 position of site \eqn{s} along the isodar (requires \pkg{glmmTMB}).
 \code{ndim_method = "auto"} uses \code{"pca"} when every site is complete and
 \code{"latent"} otherwise.
+
+\strong{Absent habitats.} A habitat that the species never uses carries no
+information about habitat selection, and an isodar cannot be fitted to it.
+Such a habitat is excluded from the fit and fixed at 0 abundance; \code{\link[=iai]{iai()}}
+still counts it, as 0, in the inequality, so it lowers niche breadth. With
+\code{absent = "auto"} a habitat is declared absent if the species was recorded
+in it no more than \code{absent_max_count} times in total (in the units of
+\code{data}), and the habitat was sampled at no fewer than \code{absent_min_sites}
+sites where the species was present in another habitat. A habitat with
+(almost) no records but fewer such sites is \emph{undersampled}: it is kept in
+the fit, with a warning, because its zeros may reflect too little sampling
+rather than avoidance. A habitat used at low density and abandoned at high
+density is not absent; it is fitted, and \code{\link[=iai]{iai()}} clips it to 0 at totals
+where the isodars predict negative abundance.
+
+Absent habitats lower niche breadth, so species should be compared over the
+same set of habitats, namely the habitats available to them.
 }
 \examples{
 set.seed(1)

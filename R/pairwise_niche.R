@@ -65,7 +65,9 @@ pairwise_niche <- function(isodars, weights = NULL, log_slope = FALSE) {
     stop("pairwise_niche() needs pairwise isodars (dim = \"pairwise\").",
          call. = FALSE)
   }
-  if (nrow(isodars) == 0) stop("'isodars' has no rows.", call. = FALSE)
+  if (nrow(isodars) == 0) {
+    stop("'isodars' has no rows (fewer than two habitats used?).", call. = FALSE)
+  }
   log_slope <- isTRUE(as.logical(log_slope))
   iso <- orient_isodars(isodars)
   a <- iso$intercept

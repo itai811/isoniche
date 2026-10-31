@@ -18,7 +18,10 @@ isoderr(
   min_occupancy = 1,
   max_search = 10000,
   seed = NULL,
-  ndim_method = "auto"
+  ndim_method = "auto",
+  absent = "auto",
+  absent_max_count = 0,
+  absent_min_sites = 5
 )
 }
 \arguments{
@@ -59,6 +62,13 @@ density-independent value.}
 \item{seed}{Optional random-number seed.}
 
 \item{ndim_method}{\code{"auto"}, \code{"pca"} or \code{"latent"}; see Details.}
+
+\item{absent}{Habitats the species does not use: \code{"auto"} (detected from
+the data, see Details), \code{"none"}, or a character vector of habitat names
+(\code{character(0)} is the same as \code{"none"}).}
+
+\item{absent_max_count, absent_min_sites}{Thresholds for \code{absent = "auto"};
+see Details.}
 }
 \value{
 A tibble with \code{total_abundance}, \code{niche_breadth} (estimate from the
@@ -67,7 +77,9 @@ full data), \code{uncertainty} (SD/SE) or \code{lower} and \code{upper} (CI), an
 }
 \description{
 Resamples sites with replacement (keeping all habitats of a site together),
-refits the isodars and recomputes the IAI for each resample.
+refits the isodars and recomputes the IAI for each resample. Absent
+habitats are identified once, on the full data, and kept fixed in every
+resample.
 }
 \examples{
 set.seed(1)

@@ -31,6 +31,23 @@
 #' `ndim_method = "auto"` uses `"pca"` when every site is complete and
 #' `"latent"` otherwise.
 #'
+#' **Absent habitats.** A habitat that the species never uses carries no
+#' information about habitat selection, and an isodar cannot be fitted to it.
+#' Such a habitat is excluded from the fit and fixed at 0 abundance; [iai()]
+#' still counts it, as 0, in the inequality, so it lowers niche breadth. With
+#' `absent = "auto"` a habitat is declared absent if the species was recorded
+#' in it no more than `absent_max_count` times in total (in the units of
+#' `data`), and the habitat was sampled at no fewer than `absent_min_sites`
+#' sites where the species was present in another habitat. A habitat with
+#' (almost) no records but fewer such sites is *undersampled*: it is kept in
+#' the fit, with a warning, because its zeros may reflect too little sampling
+#' rather than avoidance. A habitat used at low density and abandoned at high
+#' density is not absent; it is fitted, and [iai()] clips it to 0 at totals
+#' where the isodars predict negative abundance.
+#'
+#' Absent habitats lower niche breadth, so species should be compared over the
+#' same set of habitats, namely the habitats available to them.
+#'
 #' @param data A data frame with one row per site and one numeric column per
 #'   habitat. `NA` marks a habitat that is absent from, or was not sampled at, a
 #'   site.
@@ -42,14 +59,21 @@
 #'   intercept and positive slope is expressed in the reverse direction
 #'   (habitats swapped), so that intercepts are non-negative.
 #' @param ndim_method `"auto"`, `"pca"` or `"latent"`; see Details.
+#' @param absent Habitats the species does not use: `"auto"` (detected from
+#'   the data, see Details), `"none"`, or a character vector of habitat names
+#'   (`character(0)` is the same as `"none"`).
+#' @param absent_max_count,absent_min_sites Thresholds for `absent = "auto"`;
+#'   see Details.
 #'
 #' @return For `dim = "pairwise"`, a tibble of class `isodars_pairwise` with
-#'   one row per habitat pair: `habitat_x`, `habitat_y`, `intercept`, `slope`,
-#'   `sd` (SD of perpendicular residuals), `n_sites`, and `flipped` (whether
-#'   the habitats were swapped). For `dim = "ndim"`, a tibble of class
-#'   `isodar_line` with one row per habitat: `habitat`, `mean`, `direction`;
-#'   attributes `var_explained` (share of variance along the line, `"pca"`
-#'   only), `eigenvalues`, `n_sites` and `ndim_method`.
+#'   one row per pair of used habitats: `habitat_x`, `habitat_y`, `intercept`,
+#'   `slope`, `sd` (SD of perpendicular residuals), `n_sites`, and `flipped`
+#'   (whether the habitats were swapped). For `dim = "ndim"`, a tibble of class
+#'   `isodar_line` with one row per habitat: `habitat`, `mean`, `direction`
+#'   (both 0 for absent habitats); attributes `var_explained` (share of
+#'   variance along the line, `"pca"` only), `eigenvalues`, `n_sites` and
+#'   `ndim_method`. Both have attributes `habitats` (all habitats), `absent`
+#'   and `undersampled`.
 #'
 #' @references Morris, D.W. (1988). Habitat-dependent population regulation
 #'   and community structure. *Evolutionary Ecology*, 2, 253–269.
@@ -62,18 +86,106 @@
 #' @export
 fit_isodars <- function(data, hab_cols = NULL, n_habitats = NULL,
                         dim = c("pairwise", "ndim"), flip_intercept = TRUE,
-                        ndim_method = c("auto", "pca", "latent")) {
+                        ndim_method = c("auto", "pca", "latent"),
+                        absent = "auto", absent_max_count = 0,
+                        absent_min_sites = 5) {
   dim <- match.arg(dim)
   ndim_method <- match.arg(ndim_method)
   X <- habitat_matrix(data, hab_cols, n_habitats)
-  if (dim == "pairwise") {
-    fit_pairwise(X, flip_intercept)
-  } else {
-    fit_line(X, ndim_method)
+  habs <- colnames(X)
+  ab <- find_absent(X, absent, absent_max_count, absent_min_sites)
+  if (length(ab$undersampled) > 0) {
+    warning("Habitat(s) with no records but too few informative sites to be ",
+            "declared absent (kept in the fit): ",
+            paste(ab$undersampled, collapse = ", "), ".", call. = FALSE)
   }
+  used <- setdiff(habs, ab$absent)
+  if (length(used) == 0) stop("Every habitat is absent.", call. = FALSE)
+  Xu <- X[, used, drop = FALSE]
+  res <- if (length(used) == 1) {
+    single_habitat_fit(Xu, dim)
+  } else if (dim == "pairwise") {
+    fit_pairwise(Xu, flip_intercept)
+  } else {
+    fit_line(Xu, ndim_method)
+  }
+  if (dim == "ndim" && length(ab$absent) > 0) {
+    # absent habitats sit at 0 and do not move along the line
+    keep <- attributes(res)[c("var_explained", "eigenvalues", "n_sites",
+                              "ndim_method")]
+    full <- tibble::tibble(habitat = habs, mean = 0, direction = 0)
+    full$mean[match(used, habs)] <- res$mean
+    full$direction[match(used, habs)] <- res$direction
+    res <- full
+    attributes(res)[names(keep)] <- keep
+    class(res) <- c("isodar_line", class(full))
+  }
+  attr(res, "habitats") <- habs
+  attr(res, "absent") <- ab$absent
+  attr(res, "undersampled") <- ab$undersampled
+  res
 }
 
 # --- helpers ----------------------------------------------------------------
+
+# Habitats never used by the species (fixed at 0), and habitats with no
+# records but too few informative sites to tell
+find_absent <- function(X, absent = "auto", max_count = 0, min_sites = 5) {
+  habs <- colnames(X)
+  if (is.character(absent) && length(absent) == 1 && absent %in% c("auto", "none")) {
+    if (absent == "none") return(list(absent = character(0), undersampled = character(0)))
+  } else if (is.character(absent)) {
+    bad <- setdiff(absent, habs)
+    if (length(bad) > 0) {
+      stop("'absent' habitat(s) not among the habitats: ",
+           paste(bad, collapse = ", "), call. = FALSE)
+    }
+    return(list(absent = habs[habs %in% absent], undersampled = character(0)))
+  } else {
+    stop("'absent' must be \"auto\", \"none\" or a character vector of habitats.",
+         call. = FALSE)
+  }
+  if (!is.numeric(max_count) || length(max_count) != 1 || max_count < 0 ||
+      !is.numeric(min_sites) || length(min_sites) != 1 || min_sites < 1) {
+    stop("'absent_max_count' must be >= 0 and 'absent_min_sites' >= 1.",
+         call. = FALSE)
+  }
+  absent <- undersampled <- character(0)
+  for (h in seq_along(habs)) {
+    total <- sum(X[, h], na.rm = TRUE)
+    if (total > max_count) next
+    others <- X[, -h, drop = FALSE]
+    present_elsewhere <- rowSums(others > 0, na.rm = TRUE) > 0
+    informative <- sum(!is.na(X[, h]) & present_elsewhere)
+    if (informative >= min_sites) {
+      absent <- c(absent, habs[h])
+    } else if (informative > 0) {
+      undersampled <- c(undersampled, habs[h])
+    }
+  }
+  list(absent = absent, undersampled = undersampled)
+}
+
+# Only one used habitat: no isodar, every individual is in that habitat
+single_habitat_fit <- function(X, dim) {
+  h <- colnames(X)
+  if (dim == "pairwise") {
+    res <- tibble::tibble(habitat_x = character(0), habitat_y = character(0),
+                          intercept = numeric(0), slope = numeric(0),
+                          sd = numeric(0), n_sites = integer(0),
+                          flipped = logical(0))
+    class(res) <- c("isodars_pairwise", class(res))
+  } else {
+    res <- tibble::tibble(habitat = h, mean = mean(X[, 1], na.rm = TRUE),
+                          direction = 1)
+    attr(res, "var_explained") <- NA_real_
+    attr(res, "eigenvalues") <- NA_real_
+    attr(res, "n_sites") <- sum(!is.na(X[, 1]))
+    attr(res, "ndim_method") <- "single habitat"
+    class(res) <- c("isodar_line", class(res))
+  }
+  res
+}
 
 habitat_matrix <- function(data, hab_cols, n_habitats) {
   if (!is.data.frame(data)) stop("'data' must be a data frame.", call. = FALSE)
@@ -212,5 +324,7 @@ print.isodar_line <- function(x, ...) {
       "| sites:", attr(x, "n_sites"), "\n")
   ve <- attr(x, "var_explained")
   if (!is.null(ve) && is.finite(ve)) cat("Variance along the line:", round(ve, 3), "\n")
+  ab <- attr(x, "absent")
+  if (length(ab) > 0) cat("Absent habitats (fixed at 0):", paste(ab, collapse = ", "), "\n")
   NextMethod()
 }

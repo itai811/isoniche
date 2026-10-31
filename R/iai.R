@@ -15,9 +15,13 @@
 #' which the line reaches the total; negative habitats are set to zero.
 #'
 #' **Density-independent niche breadth** (`abundances = NULL`) is evaluated at
-#' the smallest total (searched over integers) at which every habitat holds at
-#' least `min_occupancy` individuals. If no total up to `max_search` achieves
-#' this, a single row with `NA` is returned.
+#' the smallest total (searched over integers) at which every used habitat
+#' holds at least `min_occupancy` individuals. If no total up to `max_search`
+#' achieves this, a single row with `NA` is returned.
+#'
+#' **Absent habitats** (see [fit_isodars()]) are fixed at 0 and count as 0 in
+#' the inequality, so they lower niche breadth; with a single used habitat,
+#' niche breadth is 0.
 #'
 #' **Density-dependent niche breadth** is the value at a high total abundance,
 #' supplied through `abundances`.
@@ -73,19 +77,27 @@ iai <- function(isodars, abundances = NULL, weights = NULL, scaled = TRUE,
     line_allocator(isodars)
   habitats <- attr(alloc, "habitats")
   H <- length(habitats)
+  absent <- attr(isodars, "absent")
+  used <- !habitats %in% absent
+  absent_note <- if (any(!used)) {
+    paste0("absent habitat(s) fixed at 0: ", paste(habitats[!used], collapse = ", "))
+  } else ""
 
-  note <- ""
   if (is.null(abundances)) {
     first_ok <- NA_real_
     for (Total in seq_len(max_search)) {
       x <- alloc(Total)
-      if (all(is.finite(x)) && all(x >= min_occupancy - 1e-9)) { first_ok <- Total; break }
+      if (all(is.finite(x)) && all(x[used] >= min_occupancy - 1e-9)) {
+        first_ok <- Total
+        break
+      }
     }
     if (is.na(first_ok)) {
+      note <- paste0("no total up to ", max_search, " occupies all ",
+                     if (any(!used)) "used " else "", "habitats")
       out <- tibble::as_tibble(c(list(total_abundance = NA_real_, niche_breadth = NA_real_),
                                  stats::setNames(as.list(rep(NA_real_, H)), habitats),
-                                 list(note = paste0("no total up to ", max_search,
-                                                    " occupies all habitats"))))
+                                 list(note = note)))
       return(out)
     }
     abundances <- first_ok
@@ -93,10 +105,12 @@ iai <- function(isodars, abundances = NULL, weights = NULL, scaled = TRUE,
   rows <- lapply(as.numeric(abundances), function(Total) {
     x <- alloc(Total)
     nb <- 1 - gini(x)
-    if (scaled) nb <- (nb - 1 / H) * H / (H - 1)
+    if (scaled) nb <- min(max((nb - 1 / H) * H / (H - 1), 0), 1) # rounding
+    note <- if (any(x[used] == 0)) "habitat(s) at zero" else ""
+    note <- paste(c(note, absent_note)[c(note, absent_note) != ""], collapse = "; ")
     c(list(total_abundance = Total, niche_breadth = nb),
       stats::setNames(as.list(x), habitats),
-      list(note = if (any(x == 0)) "habitat(s) at zero" else ""))
+      list(note = note))
   })
   out <- tibble::as_tibble(do.call(rbind.data.frame, rows))
   if (plot && nrow(out) > 1) {
@@ -154,8 +168,10 @@ pairwise_allocator <- function(isodars, weights = NULL) {
     })
     s[seq_len(m)]
   }
+  # absent habitats are fixed at 0
+  start <- which(!habs %in% attr(isodars, "absent"))
   f <- function(Total) {
-    free <- seq_len(H)
+    free <- start
     x <- numeric(H)
     for (iter in seq_len(H)) {
       xf <- solve_free(Total, free)
