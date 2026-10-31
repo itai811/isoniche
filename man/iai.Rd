@@ -77,5 +77,5 @@ ln <- fit_isodars(sim, hab_cols = c("hab1", "hab2", "hab3"), dim = "ndim")
 iai(ln, abundances = 500)
 }
 \seealso{
-\code{\link[=fit_isodars]{fit_isodars()}}, \code{\link[=isoderr]{isoderr()}}
+\code{\link[=fit_isodars]{fit_isodars()}}, \code{\link[=isoderr]{isoderr()}}, \code{\link[=pairwise_niche]{pairwise_niche()}}
 }

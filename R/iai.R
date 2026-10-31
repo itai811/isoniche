@@ -39,7 +39,7 @@
 #'
 #' @return A tibble with `total_abundance`, `niche_breadth`, one column per
 #'   habitat (predicted abundance), and `note`.
-#' @seealso [fit_isodars()], [isoderr()]
+#' @seealso [fit_isodars()], [isoderr()], [pairwise_niche()]
 #' @examples
 #' set.seed(1)
 #' sim <- simulate_isodars(1.5, 1.5, 5, 5, noise = 1, n = 30)

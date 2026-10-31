@@ -27,6 +27,11 @@ These change results relative to 1.0.0.
 
 ## New features
 
+* New `pairwise_niche()` summarises pairwise isodars into niche breadth
+  indices (paper, Appendix S1): the mean intercept and mean slope, and the
+  inverse root-mean-square deviations of slopes from 1 and of intercepts from
+  0, with optional weights (`"1/var"` or numeric) and an option to measure
+  slope deviations on the log scale (`log_slope = TRUE`).
 * Pairwise isodars use every site where both habitats of a pair were recorded,
   so sites that lack some habitats still contribute.
 * `fit_isodars(dim = "ndim", ndim_method = "latent")` estimates the line from
