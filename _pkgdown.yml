@@ -24,6 +24,7 @@ reference:
   contents:
   - niche_breadth
   - summary.niche_breadth
+  - plot.niche_breadth
   - iai_curve
   - plot.iai_curve
 - title: Prepare your data
