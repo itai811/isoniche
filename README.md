@@ -69,6 +69,9 @@ plot(iai_curve(nb, n_boot = 99, seed = 1))
 
 ## Learn more
 
+Documentation website: <https://itai811.github.io/isoniche/>
+
+
 * `vignette("isoniche")`: get started, a complete analysis;
 * `vignette("data-preparation")`: data formats, sampling effort, choosing
   habitats, absent habitats, grouping sites;
