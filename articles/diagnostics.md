@@ -55,7 +55,7 @@ summary(nb)
 #>                             -> DD niche breadth is extrapolated; interpret with care
 #>   few_pair_sites         5  a pair of used habitats shares fewer than min_pair_sites sites
 #>                             -> use dim = "ndim" with ndim_method = "latent", or group sites
-#>   reversal             137  habitats change rank along the niche breadth curve
+#>   reversal             136  habitats change rank along the niche breadth curve
 #>                             -> informational: compare species at a stated abundance (see iai_curve())
 #>   abandoned            113  a used habitat is abandoned at high density
 #>                             -> informational: the habitat counts for DI but not for DD niche breadth
