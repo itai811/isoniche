@@ -203,7 +203,7 @@ plot.iai_curve <- function(x, species = NULL, x_axis = c("log_abundance", "relat
                            abundances = NULL, crossings = FALSE, legend = TRUE,
                            col = NULL, ...) {
   x_axis <- match.arg(x_axis)
-  sp_of <- function(d) if (is.null(d$species)) rep("", nrow(d)) else d$species
+  sp_of <- function(d) if ("species" %in% names(d)) d[["species"]] else rep("", nrow(d))
   pts <- attr(x, "points")
   rv <- attr(x, "reversals")
   cr <- attr(x, "crossings")
