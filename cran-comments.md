@@ -17,7 +17,6 @@ remains an author.
 * GitHub Actions: macOS (R release), Windows (R release), Ubuntu (R devel,
   release and oldrel-1)
 * win-builder: R-devel, R-release and R-oldrelease
-* macOS builder (mac.r-project.org)
 
 ## R CMD check results
 
