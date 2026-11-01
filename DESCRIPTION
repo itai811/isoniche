@@ -4,7 +4,8 @@ Title: Isodar-Adjusted, Abundance-Independent Niche Breadth
 Version: 1.1.0
 Authors@R: c(
     person("Itai", "Granot", email = "itai811@gmail.com", role = c("aut", "cre"),
-           comment = "Contributed equally with Shahar Dubiner"),
+           comment = c(ORCID = "0000-0002-2168-3440",
+                       "Contributed equally with Shahar Dubiner")),
     person("Shahar", "Dubiner", email = "dubiner@mail.tau.ac.il", role = "aut",
            comment = c(ORCID = "0000-0003-1771-0087",
                        "Contributed equally with Itai Granot")),
