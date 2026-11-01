@@ -193,7 +193,11 @@ curve_crossings <- function(curves) {
 #'   (`"log_abundance"` only).
 #' @param crossings If `TRUE`, marks the totals where two species' curves
 #'   cross (open circles; `"log_abundance"` only).
-#' @param legend If `TRUE`, adds a legend (up to 12 species).
+#' @param legend `TRUE` (default) adds a legend (up to 12 species) in a
+#'   corner free of curves and bands, or above the plot if there is none; a
+#'   position such as `"topleft"` or `"bottomright"` (see
+#'   [graphics::legend()]), or `"outside"` (above the plot), places it there;
+#'   `FALSE` omits it.
 #' @param col Colours, one per species (default: the current palette).
 #' @param ... Passed to [graphics::plot()].
 #' @return `x`, invisibly.
@@ -258,9 +262,32 @@ plot.iai_curve <- function(x, species = NULL, x_axis = c("log_abundance", "relat
     cr <- cr[cr$species_1 %in% all_sp & cr$species_2 %in% all_sp, ]
     graphics::points(cr$total_abundance, cr$niche_breadth, pch = 1, cex = 1.6)
   }
-  if (legend && length(all_sp) <= 12 && any(nzchar(all_sp))) {
-    graphics::legend("topleft", legend = all_sp, col = col, lwd = 2, bty = "n",
-                     cex = 0.8)
+  pos <- if (is.character(legend)) legend else if (isTRUE(legend)) {
+    lx <- log10(rep(x[[xvar]][keep], 3))
+    ly <- c(x$niche_breadth[keep], x$lower[keep], x$upper[keep])
+    emptiest_corner(lx, ly, log10(c(xr[1], dash[2])), ylim)
+  } else NULL
+  if (!is.null(pos) && length(all_sp) <= 12 && any(nzchar(all_sp))) {
+    if (identical(pos, "outside")) {
+      graphics::legend("bottom", legend = all_sp, col = col, lwd = 2, bty = "n",
+                       cex = 0.8, ncol = min(3, length(all_sp)), inset = c(0, 1),
+                       xpd = TRUE)
+    } else {
+      graphics::legend(pos, legend = all_sp, col = col, lwd = 2, bty = "n",
+                       cex = 0.8)
+    }
   }
   invisible(x)
+}
+
+# Corner of the plot without curve or band points (for the legend);
+# "outside" (above the plot) when every corner has some
+emptiest_corner <- function(x, y, xlim, ylim) {
+  ok <- is.finite(x) & is.finite(y)
+  u <- (x[ok] - xlim[1]) / diff(xlim)
+  v <- (y[ok] - ylim[1]) / diff(ylim)
+  corners <- c("topleft", "topright", "bottomleft", "bottomright")
+  n <- c(sum(u < 0.45 & v > 0.6), sum(u > 0.55 & v > 0.6),
+         sum(u < 0.45 & v < 0.4), sum(u > 0.55 & v < 0.4))
+  if (min(n) > 0) "outside" else corners[which.min(n)]
 }

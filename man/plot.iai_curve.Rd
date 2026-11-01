@@ -30,7 +30,11 @@ value is then at 1).}
 \item{crossings}{If \code{TRUE}, marks the totals where two species' curves
 cross (open circles; \code{"log_abundance"} only).}
 
-\item{legend}{If \code{TRUE}, adds a legend (up to 12 species).}
+\item{legend}{\code{TRUE} (default) adds a legend (up to 12 species) in a
+corner free of curves and bands, or above the plot if there is none; a
+position such as \code{"topleft"} or \code{"bottomright"} (see
+\code{\link[graphics:legend]{graphics::legend()}}), or \code{"outside"} (above the plot), places it there;
+\code{FALSE} omits it.}
 
 \item{col}{Colours, one per species (default: the current palette).}
 

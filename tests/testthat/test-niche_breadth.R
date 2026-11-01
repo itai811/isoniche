@@ -140,3 +140,28 @@ test_that("wide data, a single species and argument checks", {
   expect_equal(niche_breadth(fits, n_boot = 0)$nb_di,
                nb_long(moorea_long(ref_species), n_boot = 0)$nb_di)
 })
+
+test_that("summary() counts flags and explains them", {
+  nb <- niche_breadth(moorea_long(ref_species), species = "species",
+                      site = "site", habitat = "habitat",
+                      abundance = "abundance", n_boot = 0, seed = 1)
+  s <- summary(nb)
+  expect_s3_class(s, "summary.niche_breadth")
+  expect_equal(s$n_species, 3)
+  expect_equal(s$n_estimated, 3)
+  fl <- as.data.frame(nb)[grep("^flag_", names(nb))]
+  for (i in seq_len(nrow(s$flags))) {
+    expect_equal(s$flags$n[i], sum(fl[[paste0("flag_", s$flags$flag[i])]]))
+  }
+  expect_true(all(nzchar(s$flags$advice)))
+  ok <- rowSums(fl[paste0("flag_", setdiff(flag_names, c("abandoned", "reversal")))]) == 0
+  expect_setequal(s$clean, nb$species[ok])
+  expect_equal(s$estimates["nb_di", "median"], stats::median(nb$nb_di))
+  expect_output(print(s), "Flags raised")
+  expect_output(print(nb), "see summary()", fixed = TRUE)
+})
+
+test_that("every flag has an explanation", {
+  expect_setequal(flag_info$flag, flag_names)
+  expect_true(all(nzchar(flag_info$meaning) & nzchar(flag_info$advice)))
+})

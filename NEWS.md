@@ -53,9 +53,21 @@ These change results relative to 1.0.0.
 * `simulate_isodars()` simulates any number of habitats (`slopes`,
   `intercepts`), optional missing habitats (`p_missing`) and long-format
   output; the three-habitat default gives the same numbers as before.
+  * `community_to_long()` converts a community matrix (samples x species) and
+    a table of sample attributes into the long format, pooling samples from
+    the same site and habitat and summing their effort.
+  * `summary()` of a `niche_breadth()` result counts the species with
+    estimates and without warning flags, gives quartiles of the estimates
+    and, for each flag raised, how many species raised it, what it means and
+    what to do about it.
+  * The legend of `plot(<iai_curve>)` goes to a corner free of curves and
+    bands, or above the plot, or where `legend` says (e.g.
+    `legend = "bottomright"`).
 * New data set `moorea_fish`: reef fishes of Moorea in three habitats (the
   paper's Table S2).
-* New vignette, `vignette("isoniche")`, and `citation("isoniche")`.
+* New vignettes: `vignette("isoniche")` (get started),
+  `vignette("data-preparation")`, `vignette("diagnostics")` and
+  `vignette("method")`; `citation("isoniche")`; a pkgdown website.
 * Habitats a species never uses are handled. `fit_isodars()` (and
   `isoderr()`) gain `absent = "auto"`, which declares a habitat absent when
   the species has no more than `absent_max_count` (default 0) records in it

@@ -459,14 +459,145 @@ tls_intercepts <- function(x, y) {
 #' @export
 print.niche_breadth <- function(x, ...) {
   NextMethod()
-  if ("flags" %in% names(x)) {
-    # abandoned habitats and reversals are informational
-    warn <- paste0("flag_", setdiff(flag_names, c("abandoned", "reversal")))
-    fl <- as.matrix(as.data.frame(x)[intersect(warn, names(x))])
+  # abandoned habitats and reversals are informational
+  warn <- intersect(paste0("flag_", setdiff(flag_names, c("abandoned", "reversal"))),
+                    names(x))
+  if (length(warn) > 0) {
+    fl <- as.matrix(as.data.frame(x)[warn])
     n <- sum(rowSums(fl, na.rm = TRUE) > 0)
     unit <- if ("species" %in% names(x)) " species" else ""
     cat(n, unit, " flagged (not counting abandoned habitats or reversals); ",
-        "see $flags\n", sep = "")
+        "see summary()\n", sep = "")
+  }
+  invisible(x)
+}
+
+# What each flag means and what to do about it (used by summary())
+flag_info <- data.frame(
+  flag = flag_names,
+  type = c("data", "data", "data", "extrapolation", "extrapolation", "info",
+           "info", "fit", "fit", "fit", "uncertainty", "data", "fit", "fit"),
+  meaning = c(
+    "fewer sites than min_sites",
+    "a pair of used habitats shares fewer than min_pair_sites sites",
+    "small counts per site, or mostly zeros",
+    "spillover abundance outside the range of observed site totals",
+    "the data do not reach the abundances that determine DD niche breadth",
+    "a used habitat is abandoned at high density",
+    "habitats change rank along the niche breadth curve",
+    "a line does not describe the data well, or the pairwise isodars disagree",
+    "habitats are not connected through shared sites",
+    "isodar intercepts do not differ from sampling noise",
+    "many bootstrap replicates failed, or a confidence interval is very wide",
+    "zeros in a habitat sampled at too few sites to call it absent",
+    "no total abundance occupies every used habitat",
+    "isodars could not be fitted"
+  ),
+  advice = c(
+    "group nearby sites (group_sites()) or treat as unreliable",
+    "use dim = \"ndim\" with ndim_method = \"latent\", or group sites",
+    "group sites, or report as unreliable; estimates rest on few individuals",
+    "DI niche breadth is extrapolated; interpret with care",
+    "DD niche breadth is extrapolated; interpret with care",
+    "informational: the habitat counts for DI but not for DD niche breadth",
+    "informational: compare species at a stated abundance (see iai_curve())",
+    "check the isodars (fit_isodars()); try the other method",
+    "add sites that sample habitats together, or drop a habitat",
+    "DI and DD niche breadth cannot be told apart; report one value",
+    "increase n_boot; if still wide, the data cannot resolve niche breadth",
+    "sample more sites, or name absent habitats with 'absent'",
+    "check the isodars; the least-favoured habitat may never fill",
+    "see the 'note' column"
+  ),
+  stringsAsFactors = FALSE
+)
+
+#' Summarise niche breadth results and their diagnostics
+#'
+#' Summarises a [niche_breadth()] result: how many species have estimates,
+#' the range of niche breadth values, and for each diagnostic flag how many
+#' species raised it, what it means and what to do about it.
+#'
+#' @param object The output of [niche_breadth()].
+#' @param x The output of `summary()`.
+#' @param ... Ignored.
+#' @return An object of class `summary.niche_breadth`: a list with
+#'   `n_species`, `n_estimated` (species with DI and DD niche breadth),
+#'   `n_clean` (estimated species with no warning flags), `clean` (their
+#'   names, or row numbers without a `species` column), `estimates` (quartiles
+#'   of `nb_di`, `spillover_abundance` and `nb_dd`), `flags` (a data frame
+#'   with `flag`, `type`, `n`, `meaning` and `advice`, for the flags raised)
+#'   and `settings`. Flags of type `"info"` (abandoned habitats, preference
+#'   reversals) describe the species and are not warnings.
+#' @seealso [niche_breadth()], `vignette("diagnostics")`
+#' @examples
+#' three <- moorea_fish[moorea_fish$species %in% c("Acanthurus nigrofuscus",
+#'   "Scarus schlegeli", "Siganus argenteus"), ]
+#' nb <- niche_breadth(three, species = "species", site = "site",
+#'                     habitat = "habitat", abundance = "abundance",
+#'                     n_boot = 0, seed = 1)
+#' summary(nb)
+#' @export
+summary.niche_breadth <- function(object, ...) {
+  x <- as.data.frame(object)
+  fl <- intersect(paste0("flag_", flag_names), names(x))
+  counts <- vapply(fl, function(f) sum(x[[f]], na.rm = TRUE), numeric(1))
+  info <- flag_info[match(sub("^flag_", "", fl), flag_info$flag), ]
+  info$n <- as.integer(counts)
+  info <- info[info$n > 0, c("flag", "type", "n", "meaning", "advice")]
+  info <- info[order(info$type == "info", -info$n), ]
+  rownames(info) <- NULL
+  warn <- fl[!sub("^flag_", "", fl) %in% flag_info$flag[flag_info$type == "info"]]
+  estimated <- is.finite(x$nb_di) & is.finite(x$nb_dd)
+  clean <- estimated & rowSums(as.matrix(x[warn]), na.rm = TRUE) == 0
+  ids <- if ("species" %in% names(x)) x$species else seq_len(nrow(x))
+  q <- function(v) {
+    v <- v[is.finite(v)]
+    if (length(v) == 0) return(rep(NA_real_, 5))
+    stats::quantile(v, c(0, 0.25, 0.5, 0.75, 1), names = FALSE)
+  }
+  est <- rbind(nb_di = q(x$nb_di), spillover_abundance = q(x$spillover_abundance),
+               nb_dd = q(x$nb_dd))
+  colnames(est) <- c("min", "q25", "median", "q75", "max")
+  out <- list(n_species = nrow(x), n_estimated = sum(estimated),
+              n_clean = sum(clean), clean = ids[clean], estimates = est,
+              flags = info, settings = attr(object, "settings"),
+              species_given = "species" %in% names(x))
+  class(out) <- "summary.niche_breadth"
+  out
+}
+
+#' @rdname summary.niche_breadth
+#' @export
+print.summary.niche_breadth <- function(x, ...) {
+  unit <- if (x$species_given) " species" else " data set(s)"
+  st <- x$settings
+  dd <- if (is.null(st)) "" else if (identical(st$dependent_at, "asymptote")) {
+    "asymptote"
+  } else format(st$dependent_at)
+  cat("Niche breadth for ", x$n_species, unit, "\n", sep = "")
+  if (!is.null(st)) {
+    cat("  DD niche breadth at: ", dd, "; bootstrap replicates: ", st$n_boot,
+        "\n", sep = "")
+  }
+  cat("  with DI and DD estimates: ", x$n_estimated, "\n", sep = "")
+  cat("  without warning flags:    ", x$n_clean, "\n\n", sep = "")
+  if (x$n_estimated > 0) {
+    cat("Estimates (quartiles):\n")
+    print(round(x$estimates, 3))
+    cat("\n")
+  }
+  if (nrow(x$flags) == 0) {
+    cat("No flags raised.\n")
+  } else {
+    cat("Flags raised (species):\n")
+    for (i in seq_len(nrow(x$flags))) {
+      f <- x$flags[i, ]
+      cat(sprintf("  %-19s %4d  %s\n", f$flag, f$n, f$meaning))
+      cat(sprintf("  %-19s       -> %s\n", "", f$advice))
+    }
+    cat("\nSee vignette(\"diagnostics\") for details. Thresholds are set with",
+        "niche_breadth(diagnostics = ).\n")
   }
   invisible(x)
 }

@@ -53,3 +53,24 @@ test_that("bootstrap bands and plots work", {
   expect_error(iai_curve(fits$fit[[1]], n_boot = 5), "need the data")
   expect_error(iai_curve(fits, totals = -1), "totals")
 })
+
+test_that("the legend goes to the emptiest corner or where asked", {
+  # points along the top left: the legend should avoid that corner
+  expect_equal(emptiest_corner(c(0, 0.1, 0.2, 1), c(1, 0.9, 0.95, 0.5),
+                               c(0, 1), c(0, 1)), "topright")
+  expect_equal(emptiest_corner(c(0, 0.1, 0.9, 1), c(0.9, 0.95, 0.9, 0.95),
+                               c(0, 1), c(0, 1)), "bottomleft")
+  # every corner occupied: above the plot
+  expect_equal(emptiest_corner(c(0, 1, 0, 1), c(1, 1, 0, 0), c(0, 1), c(0, 1)),
+               "outside")
+  fit <- fit_isodars(moorea_long(ref_species), species = "species",
+                     site = "site", habitat = "habitat",
+                     abundance = "abundance", dim = "ndim")
+  cv <- iai_curve(fit)
+  grDevices::pdf(NULL)
+  on.exit(grDevices::dev.off())
+  expect_invisible(plot(cv, legend = "bottomright"))
+  expect_invisible(plot(cv, x_axis = "relative"))
+  expect_invisible(plot(cv, legend = FALSE))
+  expect_invisible(plot(cv, legend = "outside"))
+})

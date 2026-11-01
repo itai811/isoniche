@@ -4,9 +4,44 @@
 \name{isoniche-package}
 \alias{isoniche}
 \alias{isoniche-package}
-\title{isoniche: Isodar-Adjusted, Abundance-Independent Niche Breadth}
+\title{isoniche: abundance-independent habitat niche breadth}
 \description{
-Estimates habitat niche breadth corrected for the effects of abundance, using isodars (the relationships between a species' densities in pairs of habitats under density-dependent habitat selection). Fits pairwise and n-dimensional isodars, including data where sites lack some habitats, and computes the isodar-adjusted inequality (IAI) at any total abundance, with density-independent and density-dependent niche breadth, bootstrap confidence intervals and diagnostics. Method described in Granot, Dubiner and Belmaker (in revision, Ecology Letters).
+Estimates the habitat niche breadth of species from counts in several
+habitats, corrected for abundance with isodars (Granot, Dubiner & Belmaker
+2026). For each species it reports density-independent (DI) niche breadth,
+how widely the species uses habitats when rare; density-dependent (DD)
+niche breadth, how widely it uses them when abundant; and the curve of
+niche breadth against abundance between the two.
+}
+\section{A typical analysis}{
+
+\enumerate{
+\item Put the data in long format, one row per species x site x habitat
+(\code{\link[=community_to_long]{community_to_long()}} converts a community matrix).
+\item Check sampling coverage with \code{\link[=check_coverage]{check_coverage()}}; group nearby sites with
+\code{\link[=group_sites]{group_sites()}} if sites are small or incomplete.
+\item Estimate niche breadth with \code{\link[=niche_breadth]{niche_breadth()}} and check the diagnostics
+with \code{summary()}.
+\item Plot niche breadth against abundance with \code{\link[=iai_curve]{iai_curve()}} and
+\code{\link[=plot.iai_curve]{plot.iai_curve()}}.
+}
+
+Start with \code{vignette("isoniche")}; see also \code{vignette("data-preparation")},
+\code{vignette("diagnostics")} and \code{vignette("method")}.
+}
+
+\section{Lower-level functions}{
+
+\code{\link[=fit_isodars]{fit_isodars()}} fits pairwise or n-dimensional isodars; \code{\link[=iai]{iai()}} computes
+niche breadth from fitted isodars at given total abundances; \code{\link[=isoderr]{isoderr()}}
+bootstraps it for one species; \code{\link[=pairwise_niche]{pairwise_niche()}} gives indices from the
+isodar parameters; \code{\link[=simulate_isodars]{simulate_isodars()}} simulates data from known isodars.
+}
+
+\references{
+Granot, I., Dubiner, S. & Belmaker, J. (2026). Why
+abundance-based indices of niche breadth are biased, and what can be done
+to improve them. \emph{Ecology Letters} (in revision).
 }
 \seealso{
 Useful links:

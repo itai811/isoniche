@@ -1,0 +1,48 @@
+url: https://itai811.github.io/isoniche/
+
+template:
+  bootstrap: 5
+
+navbar:
+  structure:
+    left: [intro, reference, articles, news]
+    right: [search, github]
+
+articles:
+- title: Using isoniche
+  navbar: ~
+  contents:
+  - data-preparation
+  - diagnostics
+- title: Background
+  contents:
+  - method
+
+reference:
+- title: Analyse your data
+  desc: Estimate niche breadth for one or many species, from long-format data.
+  contents:
+  - niche_breadth
+  - summary.niche_breadth
+  - iai_curve
+  - plot.iai_curve
+- title: Prepare your data
+  contents:
+  - community_to_long
+  - check_coverage
+  - group_sites
+  - radius_sensitivity
+- title: Isodars and lower-level tools
+  desc: Fit isodars and compute niche breadth for one species.
+  contents:
+  - fit_isodars
+  - iai
+  - isoderr
+  - pairwise_niche
+- title: Data and simulation
+  contents:
+  - moorea_fish
+  - simulate_isodars
+- title: Package
+  contents:
+  - isoniche-package
