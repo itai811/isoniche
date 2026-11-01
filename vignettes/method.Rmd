@@ -163,14 +163,34 @@ plot(curve, x_axis = "relative")
 
 ## Indices from isodar parameters (Appendix S1)
 
-`pairwise_niche()` summarises the pairwise isodars directly: the mean
-intercept and slope, and the inverse root-mean-square deviations of slopes
-from 1 and of intercepts from 0. The intercept index is in abundance units,
-so it depends on effort.
+`pairwise_niche()` summarises the pairwise isodars directly. An isodar can
+be written with either habitat on the x-axis, so the indices are built to
+give the same answer either way: slopes enter as $(\log b)^2$, because
+$\log(1/b) = -\log b$, and intercepts as the perpendicular distance of the
+isodar from the origin, $d = |a| / \sqrt{1 + b^2}$. The indices are the
+inverse root-mean-square deviations from no preference,
+$1 / \sqrt{\sum w (\log b)^2 / \sum w}$ for slopes and
+$1 / \sqrt{\sum w d^2 / \sum w}$ for intercepts, and the weighted means of
+$|\log b|$ and $d$. The intercept index is in abundance units, so it
+depends on effort; the slope index does not.
 
 ```{r appendix}
-pairwise_niche(pw$fit[[1]], weights = "1/var")
+pn <- pairwise_niche(pw$fit[[1]], weights = "1/var")
+pn
 ```
+
+The isodars of three habitats should agree with each other: going round
+the cycle A to B to C and back to A, the slopes multiply to 1. `$cycles`
+gives this product for every set of three habitats, and flags it when it
+departs from 1 by more than a factor of `exp(cycle_tolerance)` (default
+1.5):
+
+```{r cycles}
+pn$cycles
+```
+
+The earlier, orientation-dependent indices (mean intercept and slope,
+deviations $(b - 1)^2$ and $a^2$) are available with `scale = "linear"`.
 
 ## Simulating data
 

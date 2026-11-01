@@ -54,8 +54,10 @@ gives a rarefaction-like curve of niche breadth against abundance.
 \strong{Allocation.} For pairwise isodars, the predicted abundances are those that
 minimise the (optionally weighted) sum of squared deviations from all
 pairwise isodar equations, \eqn{y - b x = a}, subject to summing to the
-total. This constrained least-squares problem is solved directly; habitats
-predicted to be negative are set to zero and the rest are solved again. For
+total, with no habitat below zero. This constrained least-squares problem
+is solved exactly: if some habitats would be negative, the solution keeps
+the best set of habitats at zero (an active-set method, which can bring
+back a habitat dropped in an earlier step). For
 an n-dimensional isodar (a line), the allocation is the single point at
 which the line reaches the total; negative habitats are set to zero and
 the others rescaled in proportion to reach the total (so a clipped

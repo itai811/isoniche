@@ -89,10 +89,19 @@ These change results relative to 1.0.0.
 * Scaled niche breadth is kept within [0, 1] (rounding error could give
   values such as -1e-16).
 * New `pairwise_niche()` summarises pairwise isodars into niche breadth
-  indices (paper, Appendix S1): the mean intercept and mean slope, and the
-  inverse root-mean-square deviations of slopes from 1 and of intercepts from
-  0, with optional weights (`"1/var"` or numeric) and an option to measure
-  slope deviations on the log scale (`log_slope = TRUE`).
+  indices (paper, revised Appendix S1). By default (`scale = "log"`) the
+  indices do not depend on which habitat of each pair is on the x-axis:
+  slope deviations are `log(b)^2` and intercept deviations use the
+  perpendicular distance of the isodar from the origin,
+  `abs(a) / sqrt(1 + b^2)`; it returns the inverse root-mean-square
+  deviations and the weighted means of `abs(log(b))` and of that distance,
+  with optional weights (`"1/var"`, the inverse perpendicular residual
+  variance, or numeric). Isodars with non-positive slopes are left out of
+  the slope indices with a warning. `$cycles` checks consistency: the
+  product of the slopes around each cycle of three habitats, which should be
+  1, flagged beyond `cycle_tolerance`. `scale = "linear"` gives the earlier
+  indices (mean intercept and slope, deviations `(b - 1)^2` and `a^2`);
+  `log_slope` is a deprecated alias.
 * Pairwise isodars use every site where both habitats of a pair were recorded,
   so sites that lack some habitats still contribute.
 * `fit_isodars(dim = "ndim", ndim_method = "latent")` estimates the line from
@@ -102,8 +111,14 @@ These change results relative to 1.0.0.
   complete and `"latent"` otherwise.
 * `fit_isodars()` returns classed tibbles (`isodars_pairwise`, `isodar_line`).
 * `iai()` allocates abundance among habitats by weighted least squares on the
-  pairwise isodar equations, constrained to the total; habitats predicted
-  negative are set to 0 and the rest are re-solved. When the isodars do not
+  pairwise isodar equations, constrained to the total and to non-negative
+  abundances, solved exactly by an active-set method. (Setting negative
+  habitats to 0 and re-solving, as first implemented, could miss the optimum
+  when a habitat dropped early should have been kept. For the 325 species of
+  `moorea_fish`, no density-independent value or spillover abundance
+  changes, and no value in the paper's reference table; density-dependent
+  niche breadth rises slightly for 3 species at the asymptote, by at most
+  0.014, and for 1 species at a total of 1000, by 0.002.) When the isodars do not
   determine the allocation (for example, a habitat without records was
   kept), `iai()` says so instead of failing with "singular matrix".
 * `isoderr(output = "CI")` returns percentile bootstrap intervals.

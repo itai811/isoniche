@@ -9,8 +9,10 @@
 #' **Allocation.** For pairwise isodars, the predicted abundances are those that
 #' minimise the (optionally weighted) sum of squared deviations from all
 #' pairwise isodar equations, \eqn{y - b x = a}, subject to summing to the
-#' total. This constrained least-squares problem is solved directly; habitats
-#' predicted to be negative are set to zero and the rest are solved again. For
+#' total, with no habitat below zero. This constrained least-squares problem
+#' is solved exactly: if some habitats would be negative, the solution keeps
+#' the best set of habitats at zero (an active-set method, which can bring
+#' back a habitat dropped in an earlier step). For
 #' an n-dimensional isodar (a line), the allocation is the single point at
 #' which the line reaches the total; negative habitats are set to zero and
 #' the others rescaled in proportion to reach the total (so a clipped
@@ -178,7 +180,44 @@ solve_free <- function(sys, Total, free) {
            "or use dim = \"ndim\".", call. = FALSE)
     })
   })
-  s[seq_len(m)]
+  out <- s[seq_len(m)]
+  # Lagrange multiplier of the sum constraint: gradient = -lambda on free habitats
+  attr(out, "lambda") <- s[m + 1]
+  out
+}
+
+# Exact constrained least-squares allocation (x >= 0, sum = Total) by a
+# primal active-set method, started from a feasible allocation x
+refine_allocation <- function(sys, Total, x) {
+  H <- length(x)
+  Q <- crossprod(sys$A, sys$A * sys$w)
+  r <- crossprod(sys$A, sys$b * sys$w)
+  candidates <- sys$start
+  free <- candidates[x[candidates] > 0]
+  tol <- 1e-10 * max(1, Total)
+  for (iter in seq_len(10 * H + 10)) {
+    if (length(free) == 0) break
+    xs <- numeric(H)
+    xs[free] <- solve_free(sys, Total, free)
+    if (all(xs[free] >= -tol)) {
+      x <- pmax(xs, 0)
+      lambda <- attr(solve_free(sys, Total, free), "lambda")
+      g <- as.vector(2 * (Q %*% x - r))
+      # a habitat held at 0 should be freed if that lowers the objective
+      out <- setdiff(candidates, free)
+      viol <- g[out] + lambda
+      if (length(out) == 0 || all(viol >= -1e-9 * max(1, abs(lambda)))) break
+      free <- sort(c(free, out[which.min(viol)]))
+    } else {
+      # step towards the free solution until a habitat reaches 0
+      neg <- free[xs[free] < 0]
+      alpha <- min(x[neg] / (x[neg] - xs[neg]))
+      x <- x + alpha * (xs - x)
+      x[abs(x) < tol] <- 0
+      free <- free[x[free] > 0]
+    }
+  }
+  pmax(x, 0)
 }
 
 # Constrained least-squares allocation from pairwise isodars
@@ -189,13 +228,17 @@ pairwise_allocator <- function(isodars, weights = NULL) {
   f <- function(Total) {
     free <- sys$start
     x <- numeric(H)
+    clipped <- FALSE
     for (iter in seq_len(H)) {
       xf <- solve_free(sys, Total, free)
       if (all(xf >= 0) || length(free) == 1) { x[free] <- pmax(xf, 0); break }
+      clipped <- TRUE
       free <- free[xf >= 0]
       if (length(free) == 0) break
     }
     if (sum(x) > 0) x <- x * Total / sum(x)
+    # dropping habitats can overshoot: move to the exact optimum
+    if (clipped && Total > 0 && sum(x) > 0) x <- refine_allocation(sys, Total, x)
     stats::setNames(x, habs)
   }
   attr(f, "habitats") <- habs

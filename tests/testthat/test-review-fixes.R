@@ -102,6 +102,24 @@ test_that("a seed gives per-species results and restores the RNG state", {
   expect_identical(.Random.seed, before)
 })
 
+test_that("pairwise allocation is the exact constrained optimum", {
+  d <- moorea_long("Chaetodon ulietensis")
+  f <- fit_isodars(d, site = "site", habitat = "habitat",
+                   abundance = "abundance")$fit[[1]]
+  x <- iai(f, abundances = 5, weights = "1/var")
+  # dropping both negative habitats at once gave 0 / 5 / 0
+  expect_equal(c(x$barrier_reef, x$fringing_reef, x$outer_slope),
+               c(1.916, 3.084, 0), tolerance = 1e-3)
+  # no other non-negative allocation summing to 5 fits better
+  sys <- pairwise_system(f, "1/var")
+  obj <- function(v) sum(sys$w * (sys$A %*% v - sys$b)^2)
+  best <- obj(unlist(x[c("barrier_reef", "fringing_reef", "outer_slope")]))
+  grid <- expand.grid(p = seq(0, 1, 0.01), q = seq(0, 1, 0.01))
+  grid <- grid[grid$p + grid$q <= 1, ]
+  vals <- apply(grid, 1, function(g) obj(5 * c(g[1], g[2], 1 - g[1] - g[2])))
+  expect_true(best <= min(vals) + 1e-8)
+})
+
 test_that("a missing column names the argument", {
   expect_error(
     check_coverage(moorea_fish, species = "species", site = "site",
