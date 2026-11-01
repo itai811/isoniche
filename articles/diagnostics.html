@@ -105,8 +105,8 @@ each flag and what to do about it.</p>
 <span><span class="co">#&gt;                             -&gt; see the 'note' column</span></span>
 <span><span class="co">#&gt;   undersampled          97  zeros in a habitat sampled at too few sites to call it absent</span></span>
 <span><span class="co">#&gt;                             -&gt; sample more sites, or name absent habitats with 'absent'</span></span>
-<span><span class="co">#&gt;   intercept_noise       94  isodar intercepts do not differ from sampling noise</span></span>
-<span><span class="co">#&gt;                             -&gt; DI and DD niche breadth cannot be told apart; report one value</span></span>
+<span><span class="co">#&gt;   intercept_noise       96  isodar intercepts do not differ from sampling noise</span></span>
+<span><span class="co">#&gt;                             -&gt; no evidence that niche breadth changes with abundance; report DD niche breadth</span></span>
 <span><span class="co">#&gt;   poor_fit              90  a line does not describe the data well, or the pairwise isodars disagree</span></span>
 <span><span class="co">#&gt;                             -&gt; check the isodars (fit_isodars()); try the other method</span></span>
 <span><span class="co">#&gt;   low_abundance         85  small counts per site, or mostly zeros</span></span>
@@ -119,7 +119,7 @@ each flag and what to do about it.</p>
 <span><span class="co">#&gt;                             -&gt; DD niche breadth is extrapolated; interpret with care</span></span>
 <span><span class="co">#&gt;   few_pair_sites         5  a pair of used habitats shares fewer than min_pair_sites sites</span></span>
 <span><span class="co">#&gt;                             -&gt; use dim = "ndim" with ndim_method = "latent", or group sites</span></span>
-<span><span class="co">#&gt;   reversal             136  habitats change rank along the niche breadth curve</span></span>
+<span><span class="co">#&gt;   reversal             133  habitats change rank along the niche breadth curve</span></span>
 <span><span class="co">#&gt;                             -&gt; informational: compare species at a stated abundance (see iai_curve())</span></span>
 <span><span class="co">#&gt;   abandoned            113  a used habitat is abandoned at high density</span></span>
 <span><span class="co">#&gt;                             -&gt; informational: the habitat counts for DI but not for DD niche breadth</span></span>
@@ -193,8 +193,13 @@ other method (<code>dim = "ndim"</code> or
 least-favoured habitat is predicted never to fill.</li>
 <li>
 <strong><code>intercept_noise</code></strong>: the isodar intercepts
-do not differ from those expected by sampling alone (see below). DI and
-DD niche breadth then cannot be told apart; report a single value.</li>
+do not differ from those expected by sampling alone (see below). The
+data then give no evidence that niche breadth changes with abundance:
+with zero intercepts, the isodars pass through the origin and DI and DD
+niche breadth are equal. Report a single value, DD niche breadth, which
+rests on the slopes only and is the better estimated. With few sites the
+test has little power, so this flag does not show that the intercepts
+are zero.</li>
 </ul>
 </div>
 <div class="section level3">
@@ -262,17 +267,18 @@ smallest Holm-corrected p-value; the species is flagged when it exceeds
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 64 × 4</span></span></span>
 <span><span class="co">#&gt;    species                       nb_di   nb_dd intercept_p</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Acanthurus lineatus        <span style="color: #BB0000;">NA</span>       0.067<span style="text-decoration: underline;">5</span>       1     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Acanthurus nigroris        <span style="color: #BB0000;">NA</span>       0.005<span style="text-decoration: underline;">33</span>      0.256 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Anampses caeruleopunctatus  0.053<span style="text-decoration: underline;">7</span>  0.053<span style="text-decoration: underline;">7</span>       1     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Anampses melanurus          0.051<span style="text-decoration: underline;">9</span>  0.037<span style="text-decoration: underline;">9</span>       0.52  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Arothron meleagris          0.243   0.209        0.154 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Aulostomus chinensis        0.909   0.552        0.06  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Cantherhines dumerilii     <span style="color: #BB0000;">NA</span>       0            0.061<span style="text-decoration: underline;">1</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Cantherhines pardalis       0.001<span style="text-decoration: underline;">57</span> 0.001<span style="text-decoration: underline;">52</span>      0.839 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Canthigaster bennetti       0.213   0.126        0.09  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Caracanthus maculatus       0.288   0            0.22  </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 54 more rows</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Acanthurus lineatus        <span style="color: #BB0000;">NA</span>       0.067<span style="text-decoration: underline;">5</span>        1    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Acanthurus nigroris        <span style="color: #BB0000;">NA</span>       0.005<span style="text-decoration: underline;">33</span>       0.24 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Acanthurus olivaceus       <span style="color: #BB0000;">NA</span>       0.001<span style="text-decoration: underline;">27</span>       0.15 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Anampses caeruleopunctatus  0.053<span style="text-decoration: underline;">7</span>  0.053<span style="text-decoration: underline;">7</span>        0.746</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Anampses melanurus          0.051<span style="text-decoration: underline;">9</span>  0.037<span style="text-decoration: underline;">9</span>        0.49 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Arothron meleagris          0.243   0.209         0.155</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Cantherhines dumerilii     <span style="color: #BB0000;">NA</span>       0             0.172</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Cantherhines pardalis       0.001<span style="text-decoration: underline;">57</span> 0.001<span style="text-decoration: underline;">52</span>       0.887</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Canthigaster bennetti       0.213   0.126         0.06 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Caracanthus maculatus       0.288   0             0.15 </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 54 more rows</span></span></span>
+<span><span class="co">#&gt; Abundances are per site (equal effort in every site and habitat).</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="looking-at-a-flagged-species">Looking at a flagged species<a class="anchor" aria-label="anchor" href="#looking-at-a-flagged-species"></a>
@@ -286,6 +292,7 @@ isodars and curve:</p>
 <span><span class="co">#&gt;   nb_di nb_dd var_explained flags             </span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 0.468 0.365            <span style="color: #BB0000;">NA</span> reversal, poor_fit</span></span>
+<span><span class="co">#&gt; Abundances are per site (equal effort in every site and habitat).</span></span>
 <span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fit_isodars.html">fit_isodars</a></span><span class="op">(</span><span class="va">moorea_fish</span><span class="op">[</span><span class="va">moorea_fish</span><span class="op">$</span><span class="va">species</span> <span class="op">==</span> <span class="va">sp</span>, <span class="op">]</span>, site <span class="op">=</span> <span class="st">"site"</span>,</span>
 <span>                   habitat <span class="op">=</span> <span class="st">"habitat"</span>, abundance <span class="op">=</span> <span class="st">"abundance"</span><span class="op">)</span></span>
 <span><span class="va">fit</span><span class="op">$</span><span class="va">fit</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>

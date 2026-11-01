@@ -5,7 +5,9 @@ Plots the curves from
 one line per species with bootstrap bands (dotted), a point at each
 species' density-independent value (at its own spillover abundance), the
 asymptote (density-dependent value) as a short horizontal dash at the
-right, and preference reversals (crosses).
+right, and preference reversals (crosses). Beyond the largest total
+observed at any site of a species, the curve is drawn as a thinner line:
+there it extrapolates the fitted isodars.
 
 ## Usage
 

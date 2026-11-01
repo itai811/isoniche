@@ -109,16 +109,25 @@ ignored when <code>fit</code> is a <code>niche_breadth</code> result.</p></dd>
 <code>total_abundance</code>, <code>relative_abundance</code> (total / \(T_0\)),
 <code>niche_breadth</code>, and <code>lower</code> and <code>upper</code> (bootstrap band; <code>NA</code> without
 bootstrap). Attributes: <code>"points"</code> (per species: <code>spillover_abundance</code>,
-<code>nb_di</code>, <code>nb_dd</code> at the asymptote), <code>"reversals"</code> (preference reversals
+<code>nb_di</code>, <code>nb_dd</code> at the asymptote, and <code>max_observed</code>, the largest
+site total in the data), <code>"reversals"</code> (preference reversals
 within the range) and <code>"crossings"</code> (<code>species_1</code>, <code>species_2</code>,
 <code>total_abundance</code>, <code>niche_breadth</code>).</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>By default each species' curve runs from its spillover abundance
-\(T_0\) to \(1000 T_0\) (see <code><a href="niche_breadth.html">niche_breadth()</a></code>). <code>totals</code> sets a common
-range instead. Totals are in individuals per reference effort (see
-<code><a href="fit_isodars.html">fit_isodars()</a></code>).</p>
+\(T_0\) to \(1000 T_0\) (see <code><a href="niche_breadth.html">niche_breadth()</a></code>), usually far beyond
+the abundances observed; the plot draws the part beyond the largest
+observed site total as a thinner line. <code>totals</code> sets a common range
+instead; totals below a species' \(T_0\) are allowed (some used habitat
+then holds less than one individual), so curves, reversals and crossings
+can lie below \(T_0\). Totals are in individuals per reference effort
+(see <code><a href="fit_isodars.html">fit_isodars()</a></code>).</p>
+<p>The bands are pointwise percentile intervals at each fixed total. They
+differ from the intervals of <code>nb_di</code> in <code><a href="niche_breadth.html">niche_breadth()</a></code>, where the
+spillover abundance is re-estimated in every bootstrap replicate; report
+those for density-independent niche breadth.</p>
 <p>Where the curves of two species cross, their ranking by niche breadth
 depends on the abundance at which they are compared. These rank reversals
 are returned in attribute <code>"crossings"</code>, using the totals where both curves

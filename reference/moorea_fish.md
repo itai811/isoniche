@@ -39,6 +39,7 @@ A tibble with one row per species x site x habitat:
 Fishes" in BioTIME 2.0: Dornelas, M., Antão, L. H., Bates, A. E. et al.
 (2025). BioTIME 2.0: expanding and improving a database of biodiversity
 time series. *Global Ecology and Biogeography*, 34(5), e70003.
+[doi:10.1111/geb.70003](https://doi.org/10.1111/geb.70003)
 
 ## Examples
 

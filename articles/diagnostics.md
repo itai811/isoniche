@@ -41,8 +41,8 @@ summary(nb)
 #>                             -> see the 'note' column
 #>   undersampled          97  zeros in a habitat sampled at too few sites to call it absent
 #>                             -> sample more sites, or name absent habitats with 'absent'
-#>   intercept_noise       94  isodar intercepts do not differ from sampling noise
-#>                             -> DI and DD niche breadth cannot be told apart; report one value
+#>   intercept_noise       96  isodar intercepts do not differ from sampling noise
+#>                             -> no evidence that niche breadth changes with abundance; report DD niche breadth
 #>   poor_fit              90  a line does not describe the data well, or the pairwise isodars disagree
 #>                             -> check the isodars (fit_isodars()); try the other method
 #>   low_abundance         85  small counts per site, or mostly zeros
@@ -55,7 +55,7 @@ summary(nb)
 #>                             -> DD niche breadth is extrapolated; interpret with care
 #>   few_pair_sites         5  a pair of used habitats shares fewer than min_pair_sites sites
 #>                             -> use dim = "ndim" with ndim_method = "latent", or group sites
-#>   reversal             136  habitats change rank along the niche breadth curve
+#>   reversal             133  habitats change rank along the niche breadth curve
 #>                             -> informational: compare species at a stated abundance (see iai_curve())
 #>   abandoned            113  a used habitat is abandoned at high density
 #>                             -> informational: the habitat counts for DI but not for DD niche breadth
@@ -112,8 +112,12 @@ the defaults are given below.
   in every used habitat: the least-favoured habitat is predicted never
   to fill.
 - **`intercept_noise`**: the isodar intercepts do not differ from those
-  expected by sampling alone (see below). DI and DD niche breadth then
-  cannot be told apart; report a single value.
+  expected by sampling alone (see below). The data then give no evidence
+  that niche breadth changes with abundance: with zero intercepts, the
+  isodars pass through the origin and DI and DD niche breadth are equal.
+  Report a single value, DD niche breadth, which rests on the slopes
+  only and is the better estimated. With few sites the test has little
+  power, so this flag does not show that the intercepts are zero.
 
 ### Extrapolation
 
@@ -164,17 +168,18 @@ noisy[c("species", "nb_di", "nb_dd", "intercept_p")]
 #> # A tibble: 64 × 4
 #>    species                       nb_di   nb_dd intercept_p
 #>    <chr>                         <dbl>   <dbl>       <dbl>
-#>  1 Acanthurus lineatus        NA       0.0675       1     
-#>  2 Acanthurus nigroris        NA       0.00533      0.256 
-#>  3 Anampses caeruleopunctatus  0.0537  0.0537       1     
-#>  4 Anampses melanurus          0.0519  0.0379       0.52  
-#>  5 Arothron meleagris          0.243   0.209        0.154 
-#>  6 Aulostomus chinensis        0.909   0.552        0.06  
-#>  7 Cantherhines dumerilii     NA       0            0.0611
-#>  8 Cantherhines pardalis       0.00157 0.00152      0.839 
-#>  9 Canthigaster bennetti       0.213   0.126        0.09  
-#> 10 Caracanthus maculatus       0.288   0            0.22  
+#>  1 Acanthurus lineatus        NA       0.0675        1    
+#>  2 Acanthurus nigroris        NA       0.00533       0.24 
+#>  3 Acanthurus olivaceus       NA       0.00127       0.15 
+#>  4 Anampses caeruleopunctatus  0.0537  0.0537        0.746
+#>  5 Anampses melanurus          0.0519  0.0379        0.49 
+#>  6 Arothron meleagris          0.243   0.209         0.155
+#>  7 Cantherhines dumerilii     NA       0             0.172
+#>  8 Cantherhines pardalis       0.00157 0.00152       0.887
+#>  9 Canthigaster bennetti       0.213   0.126         0.06 
+#> 10 Caracanthus maculatus       0.288   0             0.15 
 #> # ℹ 54 more rows
+#> Abundances are per site (equal effort in every site and habitat).
 ```
 
 ## Looking at a flagged species
@@ -190,6 +195,7 @@ nb[nb$species == sp, c("nb_di", "nb_dd", "var_explained", "flags")]
 #>   nb_di nb_dd var_explained flags             
 #>   <dbl> <dbl>         <dbl> <chr>             
 #> 1 0.468 0.365            NA reversal, poor_fit
+#> Abundances are per site (equal effort in every site and habitat).
 fit <- fit_isodars(moorea_fish[moorea_fish$species == sp, ], site = "site",
                    habitat = "habitat", abundance = "abundance")
 fit$fit[[1]]

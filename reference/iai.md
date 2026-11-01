@@ -76,11 +76,14 @@ A tibble with `total_abundance`, `niche_breadth`, one column per habitat
 **Allocation.** For pairwise isodars, the predicted abundances are those
 that minimise the (optionally weighted) sum of squared deviations from
 all pairwise isodar equations, \\y - b x = a\\, subject to summing to
-the total. This constrained least-squares problem is solved directly;
-habitats predicted to be negative are set to zero and the rest are
-solved again. For an n-dimensional isodar (a line), the allocation is
-the single point at which the line reaches the total; negative habitats
-are set to zero.
+the total, with no habitat below zero. This constrained least-squares
+problem is solved exactly: if some habitats would be negative, the
+solution keeps the best set of habitats at zero (an active-set method,
+which can bring back a habitat dropped in an earlier step). For an
+n-dimensional isodar (a line), the allocation is the single point at
+which the line reaches the total; negative habitats are set to zero and
+the others rescaled in proportion to reach the total (so a clipped
+allocation is no longer on the line).
 
 **Density-independent niche breadth** (`abundances = NULL`) is evaluated
 at the smallest total (searched over integers) at which every used

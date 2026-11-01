@@ -208,8 +208,16 @@ you compare, and report it.</p>
 <span><span class="co">#&gt; 2                2 0.2742806                  51 0.6369444</span></span></code></pre></div>
 <p>With <code>reference_effort = 2</code>, abundances are counted per
 two sampling units, so “one individual” in the least-favoured habitat is
-reached later along the isodars: the spillover abundance roughly doubles
-and DI niche breadth changes, while DD niche breadth is unchanged.</p>
+a different point along the isodars: the spillover abundance and DI
+niche breadth change (here the spillover abundance almost doubles, but
+the direction and size of the change depend on the isodars), while DD
+niche breadth is unchanged.</p>
+<p>The default <code>reference_effort</code>, the median effort of the
+pooled site x habitat cells, depends on how many samples happened to be
+pooled. Set it to a natural unit instead, for example the area of one
+standard transect, and use the same value for every species you compare.
+The unit is printed with the results of
+<code><a href="../reference/niche_breadth.html">niche_breadth()</a></code>.</p>
 </div>
 <div class="section level2">
 <h2 id="replicates-sites-or-surveys">Replicates: sites or surveys<a class="anchor" aria-label="anchor" href="#replicates-sites-or-surveys"></a>
@@ -264,6 +272,11 @@ species is flagged.</li>
 (<code>absent = "none"</code>) or replaced by naming the absent habitats
 (<code>absent = "outer_slope"</code>), in <code><a href="../reference/niche_breadth.html">niche_breadth()</a></code>
 and <code><a href="../reference/fit_isodars.html">fit_isodars()</a></code>.</p>
+<p>With the default <code>absent_max_count = 0</code>, a single
+individual recorded in a habitat makes it used. That one record can move
+the spillover abundance a long way (the species must now reach one
+individual in that habitat), so if a few stray individuals should not
+count, raise <code>absent_max_count</code>.</p>
 <p>A habitat used at low abundance but predicted to be empty at high
 abundance is <em>not</em> absent: it counts for DI niche breadth and is
 listed in the <code>abandoned</code> column of
@@ -279,7 +292,11 @@ habitats of a pair were sampled. The n-dimensional isodar
 through a one-factor model (<code>ndim_method = "latent"</code>, needs
 the <strong>glmmTMB</strong> package); with
 <code>ndim_method = "auto"</code> it is chosen whenever some sites are
-incomplete.</p>
+incomplete. Neither is preferred in general; when many sites are
+incomplete, fitting both and comparing them is a useful check.
+<code>n_sites</code> in the results counts the sites where the species
+was recorded; the latent fit uses those with at least two sampled
+habitats.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">inc</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/simulate_isodars.html">simulate_isodars</a></span><span class="op">(</span>slopes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.5</span>, <span class="fl">1</span>, <span class="fl">0.8</span><span class="op">)</span>, intercepts <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">0</span>, <span class="fl">2</span><span class="op">)</span>,</span>
@@ -301,7 +318,8 @@ incomplete.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 5</span></span></span>
 <span><span class="co">#&gt;   method        n_sites nb_di nb_dd flags                     </span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> line (latent)      60 0.721 0.887 di_extrapolation, reversal</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> line (latent)      60 0.721 0.887 di_extrapolation, reversal</span></span>
+<span><span class="co">#&gt; Abundances are per site (equal effort in every site and habitat).</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="grouping-nearby-sites">Grouping nearby sites<a class="anchor" aria-label="anchor" href="#grouping-nearby-sites"></a>
@@ -373,7 +391,8 @@ sampled), with the habitat columns named in <code>hab_cols</code>:</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 2</span></span></span>
 <span><span class="co">#&gt;   nb_di nb_dd</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 0.381 0.738</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 0.381 0.738</span></span>
+<span><span class="co">#&gt; Abundances are per site (equal effort in every site and habitat).</span></span></code></pre></div>
 <p>The lower-level functions <code><a href="../reference/iai.html">iai()</a></code> and
 <code><a href="../reference/isoderr.html">isoderr()</a></code> work on fitted isodars of one species in this
 format; see their help pages.</p>

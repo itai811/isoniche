@@ -9,6 +9,8 @@ Estimate niche breadth for one or many species, from long-format data.
 - [`summary(`*`<niche_breadth>`*`)`](https://itai811.github.io/isoniche/reference/summary.niche_breadth.md)
   [`print(`*`<summary.niche_breadth>`*`)`](https://itai811.github.io/isoniche/reference/summary.niche_breadth.md)
   : Summarise niche breadth results and their diagnostics
+- [`plot(`*`<niche_breadth>`*`)`](https://itai811.github.io/isoniche/reference/plot.niche_breadth.md)
+  : Plot niche breadth against abundance
 - [`iai_curve()`](https://itai811.github.io/isoniche/reference/iai_curve.md)
   : Niche breadth as a function of total abundance
 - [`plot(`*`<iai_curve>`*`)`](https://itai811.github.io/isoniche/reference/plot.iai_curve.md)

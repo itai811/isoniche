@@ -33,7 +33,6 @@ These change results relative to 1.0.0.
 ### New features
 
 - A new user-facing layer works on one or many species at once:
-
   - [`fit_isodars()`](https://itai811.github.io/isoniche/reference/fit_isodars.md)
     accepts long-format data (one row per species x site x habitat,
     columns named by `species`, `site`, `habitat`, `abundance` and
@@ -46,18 +45,34 @@ These change results relative to 1.0.0.
     niche breadth with site-bootstrap confidence intervals, the
     spillover abundance (the total at which the least-favoured used
     habitat reaches one individual), preference-reversal abundances,
-    abandoned habitats and diagnostic flags as columns, printed as one
-    summary line. Density-dependent niche breadth is by default the
-    limit at infinite abundance (`dependent_at = "asymptote"`), computed
-    directly. The flags include a test of whether isodar intercepts
-    differ from sampling noise (multinomial null model, as in the
-    paper).
+    abandoned habitats and diagnostic flags as columns. Printing it
+    gives one summary line and the unit of abundance. Density-dependent
+    niche breadth is by default the limit at infinite abundance
+    (`dependent_at = "asymptote"`), computed directly. The flags include
+    a test of whether isodar intercepts differ from sampling noise
+    (multinomial null model, as in the paper). With `seed`, each species
+    gets its own random streams, and the user’s random-number state is
+    restored afterwards.
+  - [`summary()`](https://rdrr.io/r/base/summary.html) of a
+    [`niche_breadth()`](https://itai811.github.io/isoniche/reference/niche_breadth.md)
+    result counts the species with estimates and without warning flags,
+    gives quartiles of the estimates and, for each flag raised, how many
+    species raised it, what it means and what to do about it.
   - [`iai_curve()`](https://itai811.github.io/isoniche/reference/iai_curve.md)
     and its [`plot()`](https://rdrr.io/r/graphics/plot.default.html)
     method give niche breadth as a function of total abundance, with
     bootstrap bands, each species’ density-independent value and
     asymptote, preference reversals, and the totals at which two
-    species’ curves cross.
+    species’ curves cross. The curve is drawn thinner beyond the largest
+    observed site total, the x-axis gives the unit of abundance, and the
+    legend avoids the curves.
+    [`plot()`](https://rdrr.io/r/graphics/plot.default.html) of a
+    [`niche_breadth()`](https://itai811.github.io/isoniche/reference/niche_breadth.md)
+    result plots its curves.
+  - [`community_to_long()`](https://itai811.github.io/isoniche/reference/community_to_long.md)
+    converts a community matrix (samples x species) and a table of
+    sample attributes into the long format, pooling samples from the
+    same site and habitat and summing their effort.
   - [`check_coverage()`](https://itai811.github.io/isoniche/reference/check_coverage.md)
     summarises sampling coverage per species and habitat;
     [`group_sites()`](https://itai811.github.io/isoniche/reference/group_sites.md)
@@ -65,28 +80,17 @@ These change results relative to 1.0.0.
     summing counts and efforts);
     [`radius_sensitivity()`](https://itai811.github.io/isoniche/reference/radius_sensitivity.md)
     shows how results change with the grouping radius.
-
+  - [`fit_isodars()`](https://itai811.github.io/isoniche/reference/fit_isodars.md)
+    and
+    [`niche_breadth()`](https://itai811.github.io/isoniche/reference/niche_breadth.md)
+    warn when the data have an effort column that is not used, and
+    `reference_effort` without an `effort` column is an error.
 - [`simulate_isodars()`](https://itai811.github.io/isoniche/reference/simulate_isodars.md)
   simulates any number of habitats (`slopes`, `intercepts`), optional
   missing habitats (`p_missing`) and long-format output; the
   three-habitat default gives the same numbers as before.
-
-  - [`community_to_long()`](https://itai811.github.io/isoniche/reference/community_to_long.md)
-    converts a community matrix (samples x species) and a table of
-    sample attributes into the long format, pooling samples from the
-    same site and habitat and summing their effort.
-  - [`summary()`](https://rdrr.io/r/base/summary.html) of a
-    [`niche_breadth()`](https://itai811.github.io/isoniche/reference/niche_breadth.md)
-    result counts the species with estimates and without warning flags,
-    gives quartiles of the estimates and, for each flag raised, how many
-    species raised it, what it means and what to do about it.
-  - The legend of `plot(<iai_curve>)` goes to a corner free of curves
-    and bands, or above the plot, or where `legend` says (e.g.
-    `legend = "bottomright"`).
-
 - New data set `moorea_fish`: reef fishes of Moorea in three habitats
   (the paper’s Table S2).
-
 - New vignettes:
   [`vignette("isoniche")`](https://itai811.github.io/isoniche/articles/isoniche.md)
   (get started),
@@ -95,7 +99,6 @@ These change results relative to 1.0.0.
   and
   [`vignette("method")`](https://itai811.github.io/isoniche/articles/method.md);
   `citation("isoniche")`; a pkgdown website.
-
 - Habitats a species never uses are handled.
   [`fit_isodars()`](https://itai811.github.io/isoniche/reference/fit_isodars.md)
   (and
@@ -114,41 +117,51 @@ These change results relative to 1.0.0.
   [`isoderr()`](https://itai811.github.io/isoniche/reference/isoderr.md)
   decides the absent set once, on the full data. Results for species
   that use every habitat are unchanged.
-
 - Scaled niche breadth is kept within \[0, 1\] (rounding error could
   give values such as -1e-16).
-
 - New
   [`pairwise_niche()`](https://itai811.github.io/isoniche/reference/pairwise_niche.md)
-  summarises pairwise isodars into niche breadth indices (paper,
-  Appendix S1): the mean intercept and mean slope, and the inverse
-  root-mean-square deviations of slopes from 1 and of intercepts from 0,
-  with optional weights (`"1/var"` or numeric) and an option to measure
-  slope deviations on the log scale (`log_slope = TRUE`).
-
+  summarises pairwise isodars into niche breadth indices (paper, revised
+  Appendix S1). By default (`scale = "log"`) the indices do not depend
+  on which habitat of each pair is on the x-axis: slope deviations are
+  `log(b)^2` and intercept deviations use the perpendicular distance of
+  the isodar from the origin, `abs(a) / sqrt(1 + b^2)`; it returns the
+  inverse root-mean-square deviations and the weighted means of
+  `abs(log(b))` and of that distance, with optional weights (`"1/var"`,
+  the inverse perpendicular residual variance, or numeric). Isodars with
+  non-positive slopes are left out of the slope indices with a warning.
+  `$cycles` checks consistency: the product of the slopes around each
+  cycle of three habitats, which should be 1, flagged beyond
+  `cycle_tolerance`. `scale = "linear"` gives the earlier indices (mean
+  intercept and slope, deviations `(b - 1)^2` and `a^2`); `log_slope` is
+  a deprecated alias.
 - Pairwise isodars use every site where both habitats of a pair were
   recorded, so sites that lack some habitats still contribute.
-
 - `fit_isodars(dim = "ndim", ndim_method = "latent")` estimates the line
   from incomplete sites (every site with at least two habitats) as a
   one-factor model fitted with glmmTMB, and checks that the habitats are
   connected through shared sites. `ndim_method = "auto"` picks `"pca"`
   when all sites are complete and `"latent"` otherwise.
-
 - [`fit_isodars()`](https://itai811.github.io/isoniche/reference/fit_isodars.md)
   returns classed tibbles (`isodars_pairwise`, `isodar_line`).
-
 - [`iai()`](https://itai811.github.io/isoniche/reference/iai.md)
   allocates abundance among habitats by weighted least squares on the
-  pairwise isodar equations, constrained to the total; habitats
-  predicted negative are set to 0 and the rest are re-solved.
-
+  pairwise isodar equations, constrained to the total and to
+  non-negative abundances, solved exactly by an active-set method.
+  (Setting negative habitats to 0 and re-solving, as first implemented,
+  could miss the optimum when a habitat dropped early should have been
+  kept. For the 325 species of `moorea_fish`, no density-independent
+  value or spillover abundance changes, and no value in the paper’s
+  reference table; density-dependent niche breadth rises slightly for 3
+  species at the asymptote, by at most 0.014, and for 1 species at a
+  total of 1000, by 0.002.) When the isodars do not determine the
+  allocation (for example, a habitat without records was kept),
+  [`iai()`](https://itai811.github.io/isoniche/reference/iai.md) says so
+  instead of failing with “singular matrix”.
 - `isoderr(output = "CI")` returns percentile bootstrap intervals.
-
 - [`iai()`](https://itai811.github.io/isoniche/reference/iai.md) gives
   an informative error when `abundances` contains `NA`, non-finite or
   negative values.
-
 - Unit tests cover the paper’s reference values, a simulation with a
   known answer, each bug fix above, input validation and the latent
   method.

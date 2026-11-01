@@ -61,6 +61,8 @@ them. *Ecology Letters* (in revision).
 
 Useful links:
 
+- <https://itai811.github.io/isoniche/>
+
 - <https://github.com/itai811/isoniche>
 
 - Report bugs at <https://github.com/itai811/isoniche/issues>
@@ -76,4 +78,4 @@ Authors:
   ([ORCID](https://orcid.org/0000-0003-1771-0087)) (Contributed equally
   with Itai Granot)
 
-- Jonathan Belmaker
+- Jonathan Belmaker ([ORCID](https://orcid.org/0000-0002-5618-7359))

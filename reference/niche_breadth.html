@@ -131,7 +131,10 @@ or <code>NULL</code>; see <code><a href="iai.html">iai()</a></code>.</p></dd>
 
 
 <dt id="arg-seed">seed<a class="anchor" aria-label="anchor" href="#arg-seed"></a></dt>
-<dd><p>Optional random-number seed (bootstrap and null model).</p></dd>
+<dd><p>Optional random-number seed (bootstrap and null model). Each
+species then gets its own random streams, so its results do not depend on
+<code>n_boot</code> or on the other species; your random-number state is restored
+afterwards.</p></dd>
 
 
 <dt id="arg-max-search">max_search<a class="anchor" aria-label="anchor" href="#arg-max-search"></a></dt>
@@ -170,14 +173,16 @@ proportional to the direction of the isodar line (or follows the pairwise
 slopes) and intercepts no longer matter; it is computed directly. A number
 gives the value at that total, and <code>"max_observed"</code> the value at the
 largest site total in the data.</p>
-<p><strong>The curve between them.</strong> While no habitat changes rank or is abandoned,
-the allocation is linear in \(T\), so niche breadth follows
+<p><strong>The curve between them.</strong> If no two habitats change rank and no habitat
+is abandoned anywhere above \(T_0\) (no <code>reversal</code> or <code>abandoned</code> flag),
+niche breadth follows
 $$NB(T) = NB_{DD} + (NB_{DI} - NB_{DD}) T_0 / T,$$
-and is halfway between the two values at \(T = 2 T_0\). Where the
-predicted abundances of two habitats cross, the ranking of habitats
-changes and the curve can be non-monotonic; these preference-reversal
-abundances are returned in <code>reversals</code> (totals from \(T_0\) upward) and
-flagged. A habitat used at low density whose predicted abundance falls to
+and is halfway between the two values at \(T = 2 T_0\). Otherwise it
+has this form only piecewise, with different constants between
+successive reversals. Where the predicted abundances of two habitats
+cross, the ranking of habitats changes and the curve can be
+non-monotonic; these preference-reversal abundances are returned in
+<code>reversals</code> (totals from \(T_0\) upward) and flagged. A habitat used at low density whose predicted abundance falls to
 0 at high totals is listed in <code>abandoned</code> (it still counts for DI niche
 breadth). Use <code><a href="iai_curve.html">iai_curve()</a></code> to compute and plot whole curves.</p>
 <p><strong>Bootstrap.</strong> Whole sites are resampled with replacement and the isodars
@@ -244,9 +249,9 @@ the habitats available to them.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 35</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   species       method n_sites nb_di nb_di_lower nb_di_upper spillover_abundance</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Acanthurus n… pairw…      13 0.468      0.067<span style="text-decoration: underline;">1</span>       0.499                 133</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> Scarus schle… pairw…      13 0.143      0.046<span style="text-decoration: underline;">2</span>       0.718                  30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> Siganus arge… pairw…      13 0.159      0.045<span style="text-decoration: underline;">0</span>       0.561                  42</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Acanthurus n… pairw…      13 0.468      0.066<span style="text-decoration: underline;">8</span>       0.511                 133</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> Scarus schle… pairw…      13 0.143      0.051<span style="text-decoration: underline;">0</span>       0.574                  30</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> Siganus arge… pairw…      13 0.159      0.050<span style="text-decoration: underline;">4</span>       0.626                  42</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 28 more variables: spillover_lower &lt;dbl&gt;, spillover_upper &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   nb_dd &lt;dbl&gt;, nb_dd_lower &lt;dbl&gt;, nb_dd_upper &lt;dbl&gt;, dependent_at &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   var_explained &lt;dbl&gt;, intercept_p &lt;dbl&gt;, absent &lt;chr&gt;, abandoned &lt;chr&gt;,</span></span>
@@ -255,6 +260,7 @@ the habitats available to them.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   flag_di_extrapolation &lt;lgl&gt;, flag_dd_extrapolation &lt;lgl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   flag_abandoned &lt;lgl&gt;, flag_reversal &lt;lgl&gt;, flag_poor_fit &lt;lgl&gt;, …</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3 species flagged (not counting abandoned habitats or reversals); see summary()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Abundances are per site (equal effort in every site and habitat).</span>
 <span class="r-in"><span><span class="va">nb</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"species"</span>, <span class="st">"nb_di"</span>, <span class="st">"spillover_abundance"</span>, <span class="st">"nb_dd"</span>, <span class="st">"flags"</span><span class="op">)</span><span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   species                nb_di spillover_abundance  nb_dd flags                 </span>
@@ -262,6 +268,7 @@ the habitats available to them.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Acanthurus nigrofuscus 0.468                 133 0.365  reversal, poor_fit, u…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> Scarus schlegeli       0.143                  30 0.399  abandoned, reversal, …</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> Siganus argenteus      0.159                  42 0.010<span style="text-decoration: underline;">2</span> abandoned, reversal, …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Abundances are per site (equal effort in every site and habitat).</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

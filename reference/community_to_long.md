@@ -50,6 +50,12 @@ A tibble with columns `species`, the site and habitat columns (named as
 in `samples`), `abundance`, `effort` (named as in `samples`, or
 `"effort"` = number of samples) and any `keep` columns, ready for
 `niche_breadth(x, species = "species", site = ..., habitat = ..., abundance = "abundance", effort = ...)`.
+Pass the effort column as `effort`: without it, every pooled site x
+habitat counts as equal effort
+([`fit_isodars()`](https://itai811.github.io/isoniche/reference/fit_isodars.md)
+and
+[`niche_breadth()`](https://itai811.github.io/isoniche/reference/niche_breadth.md)
+warn when it is left out).
 
 ## Details
 

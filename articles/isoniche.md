@@ -96,9 +96,14 @@ community_to_long(comm, samples, site = "site", habitat = "habitat")
 #> 9 sp_c    south reef            9      1
 ```
 
-Several samples from the same site and habitat are pooled; see
-[`vignette("data-preparation")`](https://itai811.github.io/isoniche/articles/data-preparation.md)
-for sampling effort and other formats.
+Several samples from the same site and habitat are pooled, and their
+effort (here the number of samples) is summed into an `effort` column.
+If samples differ in effort, for example in transect area, give that
+column to
+[`community_to_long()`](https://itai811.github.io/isoniche/reference/community_to_long.md)
+and pass it on as `effort =` to the functions below; set
+`reference_effort` to a natural unit such as one standard transect. See
+[`vignette("data-preparation")`](https://itai811.github.io/isoniche/articles/data-preparation.md).
 
 ## 2. Check coverage
 
@@ -155,18 +160,18 @@ nb
 #> # A tibble: 12 × 35
 #>    species      method n_sites nb_di nb_di_lower nb_di_upper spillover_abundance
 #>    <chr>        <chr>    <int> <dbl>       <dbl>       <dbl>               <dbl>
-#>  1 Balistapus … pairw…      13 0.115      0.0885       0.554                  36
-#>  2 Chaetodon o… pairw…      13 0.335      0.173        0.509                  27
-#>  3 Chaetodon u… pairw…      12 0.534      0.382        0.799                  14
-#>  4 Ctenochaetu… pairw…      11 0.543      0.303        0.924                  11
-#>  5 Dascyllus f… pairw…      13 0.211      0.0611       0.510                  60
-#>  6 Forcipiger … pairw…      13 0.687      0.0552       0.877                   5
-#>  7 Halichoeres… pairw…      13 0.692      0.408        0.780                  10
-#>  8 Heniochus c… pairw…      13 0.337      0.149        0.614                  14
-#>  9 Parupeneus … pairw…      13 0.225      0.181        0.558                  89
-#> 10 Sargocentro… pairw…      13 0.609      0.491        0.770                  13
-#> 11 Scarus schl… pairw…      13 0.143      0.0508       0.518                  30
-#> 12 Zebrasoma s… pairw…      13 0.181      0.102        0.430                 150
+#>  1 Balistapus … pairw…      13 0.115      0.0933       0.547                  36
+#>  2 Chaetodon o… pairw…      13 0.335      0.200        0.457                  27
+#>  3 Chaetodon u… pairw…      12 0.534      0.338        0.784                  14
+#>  4 Ctenochaetu… pairw…      11 0.543      0.332        0.957                  11
+#>  5 Dascyllus f… pairw…      13 0.211      0.0730       0.489                  60
+#>  6 Forcipiger … pairw…      13 0.687      0.0930       0.937                   5
+#>  7 Halichoeres… pairw…      13 0.692      0.480        0.764                  10
+#>  8 Heniochus c… pairw…      13 0.337      0.133        0.596                  14
+#>  9 Parupeneus … pairw…      13 0.225      0.174        0.551                  89
+#> 10 Sargocentro… pairw…      13 0.609      0.508        0.787                  13
+#> 11 Scarus schl… pairw…      13 0.143      0.0573       0.625                  30
+#> 12 Zebrasoma s… pairw…      13 0.181      0.117        0.396                 150
 #> # ℹ 28 more variables: spillover_lower <dbl>, spillover_upper <dbl>,
 #> #   nb_dd <dbl>, nb_dd_lower <dbl>, nb_dd_upper <dbl>, dependent_at <dbl>,
 #> #   var_explained <dbl>, intercept_p <dbl>, absent <chr>, abandoned <chr>,
@@ -174,7 +179,8 @@ nb
 #> #   flag_few_pair_sites <lgl>, flag_low_abundance <lgl>,
 #> #   flag_di_extrapolation <lgl>, flag_dd_extrapolation <lgl>,
 #> #   flag_abandoned <lgl>, flag_reversal <lgl>, flag_poor_fit <lgl>, …
-#> 5 species flagged (not counting abandoned habitats or reversals); see summary()
+#> 7 species flagged (not counting abandoned habitats or reversals); see summary()
+#> Abundances are per site (equal effort in every site and habitat).
 ```
 
 The result is a table with one row per species. The main columns:
@@ -195,31 +201,31 @@ res <- as.data.frame(nb[c("species", "nb_di", "nb_di_lower", "nb_di_upper",
 res[-1] <- round(res[-1], 2)
 res[order(-res$nb_di), ]
 #>                      species nb_di nb_di_lower nb_di_upper spillover_abundance
-#> 6    Forcipiger longirostris  0.69        0.06        0.88                   5
-#> 7     Halichoeres marginatus  0.69        0.41        0.78                  10
-#> 10   Sargocentron microstoma  0.61        0.49        0.77                  13
-#> 4     Ctenochaetus binotatus  0.54        0.30        0.92                  11
-#> 3       Chaetodon ulietensis  0.53        0.38        0.80                  14
-#> 8     Heniochus chrysostomus  0.34        0.15        0.61                  14
-#> 2     Chaetodon ornatissimus  0.33        0.17        0.51                  27
-#> 9  Parupeneus multifasciatus  0.23        0.18        0.56                  89
-#> 5      Dascyllus flavicaudus  0.21        0.06        0.51                  60
-#> 12          Zebrasoma scopas  0.18        0.10        0.43                 150
-#> 11          Scarus schlegeli  0.14        0.05        0.52                  30
+#> 6    Forcipiger longirostris  0.69        0.09        0.94                   5
+#> 7     Halichoeres marginatus  0.69        0.48        0.76                  10
+#> 10   Sargocentron microstoma  0.61        0.51        0.79                  13
+#> 4     Ctenochaetus binotatus  0.54        0.33        0.96                  11
+#> 3       Chaetodon ulietensis  0.53        0.34        0.78                  14
+#> 8     Heniochus chrysostomus  0.34        0.13        0.60                  14
+#> 2     Chaetodon ornatissimus  0.33        0.20        0.46                  27
+#> 9  Parupeneus multifasciatus  0.23        0.17        0.55                  89
+#> 5      Dascyllus flavicaudus  0.21        0.07        0.49                  60
+#> 12          Zebrasoma scopas  0.18        0.12        0.40                 150
+#> 11          Scarus schlegeli  0.14        0.06        0.62                  30
 #> 1       Balistapus undulatus  0.12        0.09        0.55                  36
 #>    nb_dd nb_dd_lower nb_dd_upper
-#> 6   0.08        0.00        0.55
-#> 7   0.62        0.00        0.86
-#> 10  0.00        0.00        0.35
-#> 4   0.11        0.00        0.34
-#> 3   0.48        0.00        0.50
-#> 8   0.11        0.00        0.41
-#> 2   0.64        0.31        0.88
-#> 9   0.28        0.03        0.51
-#> 5   0.01        0.00        0.07
-#> 12  0.22        0.00        0.48
-#> 11  0.40        0.24        0.48
-#> 1   0.40        0.02        0.55
+#> 6   0.08        0.00        0.58
+#> 7   0.62        0.00        0.84
+#> 10  0.00        0.00        0.19
+#> 4   0.11        0.00        0.45
+#> 3   0.48        0.00        0.49
+#> 8   0.11        0.00        0.25
+#> 2   0.64        0.29        0.89
+#> 9   0.28        0.01        0.54
+#> 5   0.01        0.00        0.06
+#> 12  0.22        0.00        0.43
+#> 11  0.40        0.30        0.49
+#> 1   0.40        0.02        0.56
 ```
 
 A species with high DI niche breadth uses several habitats even when
@@ -241,7 +247,7 @@ summary(nb)
 #> Niche breadth for 12 species
 #>   DD niche breadth at: asymptote; bootstrap replicates: 99
 #>   with DI and DD estimates: 12
-#>   without warning flags:    7
+#>   without warning flags:    5
 #> 
 #> Estimates (quartiles):
 #>                       min    q25 median    q75     max
@@ -250,8 +256,10 @@ summary(nb)
 #> nb_dd               0.000  0.100  0.249  0.424   0.637
 #> 
 #> Flags raised (species):
-#>   unstable_bootstrap     5  many bootstrap replicates failed, or a confidence interval is very wide
+#>   unstable_bootstrap     7  many bootstrap replicates failed, or a confidence interval is very wide
 #>                             -> increase n_boot; if still wide, the data cannot resolve niche breadth
+#>   intercept_noise        1  isodar intercepts do not differ from sampling noise
+#>                             -> no evidence that niche breadth changes with abundance; report DD niche breadth
 #>   reversal              12  habitats change rank along the niche breadth curve
 #>                             -> informational: compare species at a stated abundance (see iai_curve())
 #>   abandoned              6  a used habitat is abandoned at high density
@@ -277,7 +285,7 @@ To keep only species without warnings:
 s <- summary(nb)
 clean <- nb[nb$species %in% s$clean, ]
 nrow(clean)
-#> [1] 7
+#> [1] 5
 ```
 
 See

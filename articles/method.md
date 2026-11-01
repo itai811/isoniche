@@ -145,10 +145,11 @@ nb[c("species", "nb_di", "nb_di_lower", "nb_di_upper", "spillover_abundance",
 #> # A tibble: 3 × 8
 #>   species   nb_di nb_di_lower nb_di_upper spillover_abundance  nb_dd nb_dd_lower
 #>   <chr>     <dbl>       <dbl>       <dbl>               <dbl>  <dbl>       <dbl>
-#> 1 Acanthur… 0.468      0.0417       0.503                 133 0.365       0.0449
-#> 2 Scarus s… 0.143      0.0513       0.579                  30 0.399       0.225 
-#> 3 Siganus … 0.159      0.0450       0.590                  42 0.0102      0     
+#> 1 Acanthur… 0.468      0.0390       0.510                 133 0.365       0.0567
+#> 2 Scarus s… 0.143      0.0470       0.664                  30 0.399       0.198 
+#> 3 Siganus … 0.159      0.0479       0.651                  42 0.0102      0     
 #> # ℹ 1 more variable: nb_dd_upper <dbl>
+#> Abundances are per site (equal effort in every site and habitat).
 ```
 
 Intervals come from resampling whole sites with replacement and
@@ -158,15 +159,17 @@ largest observed site total (`dependent_at = "max_observed"`).
 
 ## The niche breadth curve
 
-Between $`T_0`$ and infinity, while no two habitats swap rank, the
-allocation is linear in $`T`$ and
+Above $`T_0`$, until a habitat is clipped to zero, the allocation is
+linear in $`T`$. If, in addition, no two habitats swap rank anywhere
+above $`T_0`$,
 ``` math
 NB(T) = NB_{DD} + (NB_{DI} - NB_{DD}) \frac{T_0}{T},
 ```
 so niche breadth is halfway between the two values at $`T = 2T_0`$.
 Where the predicted abundances of two habitats cross, the curve changes
-course; these *preference reversals* are reported, as are habitats used
-at low density and abandoned at high density:
+course (it keeps the form $`A + B/T`$, with new constants, between
+crossings); these *preference reversals* are reported, as are habitats
+used at low density and abandoned at high density:
 
 ``` r
 
@@ -199,21 +202,48 @@ plot(curve, x_axis = "relative")
 ## Indices from isodar parameters (Appendix S1)
 
 [`pairwise_niche()`](https://itai811.github.io/isoniche/reference/pairwise_niche.md)
-summarises the pairwise isodars directly: the mean intercept and slope,
-and the inverse root-mean-square deviations of slopes from 1 and of
-intercepts from 0. The intercept index is in abundance units, so it
-depends on effort.
+summarises the pairwise isodars directly. An isodar can be written with
+either habitat on the x-axis, so the indices are built to give the same
+answer either way: slopes enter as $`(\log b)^2`$, because
+$`\log(1/b) = -\log b`$, and intercepts as the perpendicular distance of
+the isodar from the origin, $`d = |a| / \sqrt{1 + b^2}`$. The indices
+are the inverse root-mean-square deviations from no preference,
+$`1 / \sqrt{\sum w (\log b)^2 / \sum w}`$ for slopes and
+$`1 / \sqrt{\sum w d^2 / \sum w}`$ for intercepts, and the weighted
+means of $`|\log b|`$ and $`d`$. The intercept index is in abundance
+units, so it depends on effort; the slope index does not.
 
 ``` r
 
-pairwise_niche(pw$fit[[1]], weights = "1/var")
-#> # A tibble: 1 × 6
-#>   mean_intercept mean_slope slope_niche_breadth intercept_niche_brea…¹ n_isodars
-#>            <dbl>      <dbl>               <dbl>                  <dbl>     <int>
-#> 1           49.1      0.377                1.41                 0.0168         3
-#> # ℹ abbreviated name: ¹​intercept_niche_breadth
-#> # ℹ 1 more variable: note <chr>
+pn <- pairwise_niche(pw$fit[[1]], weights = "1/var")
+pn
+#> Niche breadth from pairwise isodars (log scale)
+#> # A tibble: 1 × 7
+#>   mean_abs_log_slope mean_distance slope_niche_breadth intercept_niche_breadth
+#>                <dbl>         <dbl>               <dbl>                   <dbl>
+#> 1               1.18          39.6               0.640                  0.0188
+#> # ℹ 3 more variables: n_isodars <int>, n_slope <int>, note <chr>
+#> 1 cycle(s) of three habitats; 1 inconsistent (|log(product of slopes)| > 0.405); see $cycles
 ```
+
+The isodars of three habitats should agree with each other: going round
+the cycle A to B to C and back to A, the slopes multiply to 1. `$cycles`
+gives this product for every set of three habitats, and flags it when it
+departs from 1 by more than a factor of `exp(cycle_tolerance)` (default
+1.5):
+
+``` r
+
+pn$cycles
+#> # A tibble: 1 × 6
+#>   habitat_1    habitat_2     habitat_3   product log_product inconsistent
+#>   <chr>        <chr>         <chr>         <dbl>       <dbl> <lgl>       
+#> 1 barrier_reef fringing_reef outer_slope    3.21        1.17 TRUE
+```
+
+The earlier, orientation-dependent indices (mean intercept and slope,
+deviations $`(b - 1)^2`$ and $`a^2`$) are available with
+`scale = "linear"`.
 
 ## Simulating data
 
@@ -245,6 +275,7 @@ biogeographic null hypotheses for comparing rarefaction curves.
 Dornelas, M., Antão, L. H., Bates, A. E. et al. (2025). BioTIME 2.0:
 expanding and improving a database of biodiversity time series. *Global
 Ecology and Biogeography*, 34(5), e70003.
+<https://doi.org/10.1111/geb.70003>
 
 Fretwell, S. D. & Lucas, H. L. (1969). On territorial behavior and other
 factors influencing habitat distribution in birds. I. Theoretical

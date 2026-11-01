@@ -97,7 +97,9 @@ have one value per site.</p></dd>
     <p>A tibble with columns <code>species</code>, the site and habitat columns
 (named as in <code>samples</code>), <code>abundance</code>, <code>effort</code> (named as in <code>samples</code>, or
 <code>"effort"</code> = number of samples) and any <code>keep</code> columns, ready for
-<code>niche_breadth(x, species = "species", site = ..., habitat = ..., abundance = "abundance", effort = ...)</code>.</p>
+<code>niche_breadth(x, species = "species", site = ..., habitat = ..., abundance = "abundance", effort = ...)</code>. Pass the effort column as
+<code>effort</code>: without it, every pooled site x habitat counts as equal effort
+(<code><a href="fit_isodars.html">fit_isodars()</a></code> and <code><a href="niche_breadth.html">niche_breadth()</a></code> warn when it is left out).</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>

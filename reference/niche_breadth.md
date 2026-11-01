@@ -84,7 +84,10 @@ niche_breadth(
 
 - seed:
 
-  Optional random-number seed (bootstrap and null model).
+  Optional random-number seed (bootstrap and null model). Each species
+  then gets its own random streams, so its results do not depend on
+  `n_boot` or on the other species; your random-number state is restored
+  afterwards.
 
 - max_search:
 
@@ -129,15 +132,18 @@ pairwise slopes) and intercepts no longer matter; it is computed
 directly. A number gives the value at that total, and `"max_observed"`
 the value at the largest site total in the data.
 
-**The curve between them.** While no habitat changes rank or is
-abandoned, the allocation is linear in \\T\\, so niche breadth follows
-\$\$NB(T) = NB\_{DD} + (NB\_{DI} - NB\_{DD}) T_0 / T,\$\$ and is halfway
-between the two values at \\T = 2 T_0\\. Where the predicted abundances
-of two habitats cross, the ranking of habitats changes and the curve can
-be non-monotonic; these preference-reversal abundances are returned in
-`reversals` (totals from \\T_0\\ upward) and flagged. A habitat used at
-low density whose predicted abundance falls to 0 at high totals is
-listed in `abandoned` (it still counts for DI niche breadth). Use
+**The curve between them.** If no two habitats change rank and no
+habitat is abandoned anywhere above \\T_0\\ (no `reversal` or
+`abandoned` flag), niche breadth follows \$\$NB(T) = NB\_{DD} +
+(NB\_{DI} - NB\_{DD}) T_0 / T,\$\$ and is halfway between the two values
+at \\T = 2 T_0\\. Otherwise it has this form only piecewise, with
+different constants between successive reversals. Where the predicted
+abundances of two habitats cross, the ranking of habitats changes and
+the curve can be non-monotonic; these preference-reversal abundances are
+returned in `reversals` (totals from \\T_0\\ upward) and flagged. A
+habitat used at low density whose predicted abundance falls to 0 at high
+totals is listed in `abandoned` (it still counts for DI niche breadth).
+Use
 [`iai_curve()`](https://itai811.github.io/isoniche/reference/iai_curve.md)
 to compute and plot whole curves.
 
@@ -228,9 +234,9 @@ nb
 #> # A tibble: 3 × 35
 #>   species       method n_sites nb_di nb_di_lower nb_di_upper spillover_abundance
 #>   <chr>         <chr>    <int> <dbl>       <dbl>       <dbl>               <dbl>
-#> 1 Acanthurus n… pairw…      13 0.468      0.0671       0.499                 133
-#> 2 Scarus schle… pairw…      13 0.143      0.0462       0.718                  30
-#> 3 Siganus arge… pairw…      13 0.159      0.0450       0.561                  42
+#> 1 Acanthurus n… pairw…      13 0.468      0.0668       0.511                 133
+#> 2 Scarus schle… pairw…      13 0.143      0.0510       0.574                  30
+#> 3 Siganus arge… pairw…      13 0.159      0.0504       0.626                  42
 #> # ℹ 28 more variables: spillover_lower <dbl>, spillover_upper <dbl>,
 #> #   nb_dd <dbl>, nb_dd_lower <dbl>, nb_dd_upper <dbl>, dependent_at <dbl>,
 #> #   var_explained <dbl>, intercept_p <dbl>, absent <chr>, abandoned <chr>,
@@ -239,6 +245,7 @@ nb
 #> #   flag_di_extrapolation <lgl>, flag_dd_extrapolation <lgl>,
 #> #   flag_abandoned <lgl>, flag_reversal <lgl>, flag_poor_fit <lgl>, …
 #> 3 species flagged (not counting abandoned habitats or reversals); see summary()
+#> Abundances are per site (equal effort in every site and habitat).
 nb[c("species", "nb_di", "spillover_abundance", "nb_dd", "flags")]
 #> # A tibble: 3 × 5
 #>   species                nb_di spillover_abundance  nb_dd flags                 
@@ -246,4 +253,5 @@ nb[c("species", "nb_di", "spillover_abundance", "nb_dd", "flags")]
 #> 1 Acanthurus nigrofuscus 0.468                 133 0.365  reversal, poor_fit, u…
 #> 2 Scarus schlegeli       0.143                  30 0.399  abandoned, reversal, …
 #> 3 Siganus argenteus      0.159                  42 0.0102 abandoned, reversal, …
+#> Abundances are per site (equal effort in every site and habitat).
 ```

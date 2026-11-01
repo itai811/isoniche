@@ -157,9 +157,13 @@ convert them with <code><a href="../reference/community_to_long.html">community_
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">7</span> sp_c    north lagoon          0      1</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">8</span> sp_c    north reef            3      1</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">9</span> sp_c    south reef            9      1</span></span></code></pre></div>
-<p>Several samples from the same site and habitat are pooled; see
-<code><a href="../articles/data-preparation.html">vignette("data-preparation")</a></code> for sampling effort and other
-formats.</p>
+<p>Several samples from the same site and habitat are pooled, and their
+effort (here the number of samples) is summed into an
+<code>effort</code> column. If samples differ in effort, for example in
+transect area, give that column to <code><a href="../reference/community_to_long.html">community_to_long()</a></code> and
+pass it on as <code>effort =</code> to the functions below; set
+<code>reference_effort</code> to a natural unit such as one standard
+transect. See <code><a href="../articles/data-preparation.html">vignette("data-preparation")</a></code>.</p>
 </div>
 <div class="section level2">
 <h2 id="check-coverage">2. Check coverage<a class="anchor" aria-label="anchor" href="#check-coverage"></a>
@@ -213,18 +217,18 @@ but use 999 or more for publication):</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 12 × 35</span></span></span>
 <span><span class="co">#&gt;    species      method n_sites nb_di nb_di_lower nb_di_upper spillover_abundance</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Balistapus … pairw…      13 0.115      0.088<span style="text-decoration: underline;">5</span>       0.554                  36</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Chaetodon o… pairw…      13 0.335      0.173        0.509                  27</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Chaetodon u… pairw…      12 0.534      0.382        0.799                  14</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Ctenochaetu… pairw…      11 0.543      0.303        0.924                  11</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Dascyllus f… pairw…      13 0.211      0.061<span style="text-decoration: underline;">1</span>       0.510                  60</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Forcipiger … pairw…      13 0.687      0.055<span style="text-decoration: underline;">2</span>       0.877                   5</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Halichoeres… pairw…      13 0.692      0.408        0.780                  10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Heniochus c… pairw…      13 0.337      0.149        0.614                  14</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Parupeneus … pairw…      13 0.225      0.181        0.558                  89</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Sargocentro… pairw…      13 0.609      0.491        0.770                  13</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> Scarus schl… pairw…      13 0.143      0.050<span style="text-decoration: underline;">8</span>       0.518                  30</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> Zebrasoma s… pairw…      13 0.181      0.102        0.430                 150</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Balistapus … pairw…      13 0.115      0.093<span style="text-decoration: underline;">3</span>       0.547                  36</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Chaetodon o… pairw…      13 0.335      0.200        0.457                  27</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Chaetodon u… pairw…      12 0.534      0.338        0.784                  14</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Ctenochaetu… pairw…      11 0.543      0.332        0.957                  11</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Dascyllus f… pairw…      13 0.211      0.073<span style="text-decoration: underline;">0</span>       0.489                  60</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Forcipiger … pairw…      13 0.687      0.093<span style="text-decoration: underline;">0</span>       0.937                   5</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Halichoeres… pairw…      13 0.692      0.480        0.764                  10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Heniochus c… pairw…      13 0.337      0.133        0.596                  14</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Parupeneus … pairw…      13 0.225      0.174        0.551                  89</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Sargocentro… pairw…      13 0.609      0.508        0.787                  13</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> Scarus schl… pairw…      13 0.143      0.057<span style="text-decoration: underline;">3</span>       0.625                  30</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> Zebrasoma s… pairw…      13 0.181      0.117        0.396                 150</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 28 more variables: spillover_lower &lt;dbl&gt;, spillover_upper &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   nb_dd &lt;dbl&gt;, nb_dd_lower &lt;dbl&gt;, nb_dd_upper &lt;dbl&gt;, dependent_at &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   var_explained &lt;dbl&gt;, intercept_p &lt;dbl&gt;, absent &lt;chr&gt;, abandoned &lt;chr&gt;,</span></span></span>
@@ -232,7 +236,8 @@ but use 999 or more for publication):</p>
 <span><span class="co">#&gt; <span style="color: #949494;">#   flag_few_pair_sites &lt;lgl&gt;, flag_low_abundance &lt;lgl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   flag_di_extrapolation &lt;lgl&gt;, flag_dd_extrapolation &lt;lgl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   flag_abandoned &lt;lgl&gt;, flag_reversal &lt;lgl&gt;, flag_poor_fit &lt;lgl&gt;, …</span></span></span>
-<span><span class="co">#&gt; 5 species flagged (not counting abandoned habitats or reversals); see summary()</span></span></code></pre></div>
+<span><span class="co">#&gt; 7 species flagged (not counting abandoned habitats or reversals); see summary()</span></span>
+<span><span class="co">#&gt; Abundances are per site (equal effort in every site and habitat).</span></span></code></pre></div>
 <p>The result is a table with one row per species. The main columns:</p>
 <ul>
 <li>
@@ -256,31 +261,31 @@ abundance;</li>
 <span><span class="va">res</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="va">res</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span>, <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="va">res</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html" class="external-link">order</a></span><span class="op">(</span><span class="op">-</span><span class="va">res</span><span class="op">$</span><span class="va">nb_di</span><span class="op">)</span>, <span class="op">]</span></span>
 <span><span class="co">#&gt;                      species nb_di nb_di_lower nb_di_upper spillover_abundance</span></span>
-<span><span class="co">#&gt; 6    Forcipiger longirostris  0.69        0.06        0.88                   5</span></span>
-<span><span class="co">#&gt; 7     Halichoeres marginatus  0.69        0.41        0.78                  10</span></span>
-<span><span class="co">#&gt; 10   Sargocentron microstoma  0.61        0.49        0.77                  13</span></span>
-<span><span class="co">#&gt; 4     Ctenochaetus binotatus  0.54        0.30        0.92                  11</span></span>
-<span><span class="co">#&gt; 3       Chaetodon ulietensis  0.53        0.38        0.80                  14</span></span>
-<span><span class="co">#&gt; 8     Heniochus chrysostomus  0.34        0.15        0.61                  14</span></span>
-<span><span class="co">#&gt; 2     Chaetodon ornatissimus  0.33        0.17        0.51                  27</span></span>
-<span><span class="co">#&gt; 9  Parupeneus multifasciatus  0.23        0.18        0.56                  89</span></span>
-<span><span class="co">#&gt; 5      Dascyllus flavicaudus  0.21        0.06        0.51                  60</span></span>
-<span><span class="co">#&gt; 12          Zebrasoma scopas  0.18        0.10        0.43                 150</span></span>
-<span><span class="co">#&gt; 11          Scarus schlegeli  0.14        0.05        0.52                  30</span></span>
+<span><span class="co">#&gt; 6    Forcipiger longirostris  0.69        0.09        0.94                   5</span></span>
+<span><span class="co">#&gt; 7     Halichoeres marginatus  0.69        0.48        0.76                  10</span></span>
+<span><span class="co">#&gt; 10   Sargocentron microstoma  0.61        0.51        0.79                  13</span></span>
+<span><span class="co">#&gt; 4     Ctenochaetus binotatus  0.54        0.33        0.96                  11</span></span>
+<span><span class="co">#&gt; 3       Chaetodon ulietensis  0.53        0.34        0.78                  14</span></span>
+<span><span class="co">#&gt; 8     Heniochus chrysostomus  0.34        0.13        0.60                  14</span></span>
+<span><span class="co">#&gt; 2     Chaetodon ornatissimus  0.33        0.20        0.46                  27</span></span>
+<span><span class="co">#&gt; 9  Parupeneus multifasciatus  0.23        0.17        0.55                  89</span></span>
+<span><span class="co">#&gt; 5      Dascyllus flavicaudus  0.21        0.07        0.49                  60</span></span>
+<span><span class="co">#&gt; 12          Zebrasoma scopas  0.18        0.12        0.40                 150</span></span>
+<span><span class="co">#&gt; 11          Scarus schlegeli  0.14        0.06        0.62                  30</span></span>
 <span><span class="co">#&gt; 1       Balistapus undulatus  0.12        0.09        0.55                  36</span></span>
 <span><span class="co">#&gt;    nb_dd nb_dd_lower nb_dd_upper</span></span>
-<span><span class="co">#&gt; 6   0.08        0.00        0.55</span></span>
-<span><span class="co">#&gt; 7   0.62        0.00        0.86</span></span>
-<span><span class="co">#&gt; 10  0.00        0.00        0.35</span></span>
-<span><span class="co">#&gt; 4   0.11        0.00        0.34</span></span>
-<span><span class="co">#&gt; 3   0.48        0.00        0.50</span></span>
-<span><span class="co">#&gt; 8   0.11        0.00        0.41</span></span>
-<span><span class="co">#&gt; 2   0.64        0.31        0.88</span></span>
-<span><span class="co">#&gt; 9   0.28        0.03        0.51</span></span>
-<span><span class="co">#&gt; 5   0.01        0.00        0.07</span></span>
-<span><span class="co">#&gt; 12  0.22        0.00        0.48</span></span>
-<span><span class="co">#&gt; 11  0.40        0.24        0.48</span></span>
-<span><span class="co">#&gt; 1   0.40        0.02        0.55</span></span></code></pre></div>
+<span><span class="co">#&gt; 6   0.08        0.00        0.58</span></span>
+<span><span class="co">#&gt; 7   0.62        0.00        0.84</span></span>
+<span><span class="co">#&gt; 10  0.00        0.00        0.19</span></span>
+<span><span class="co">#&gt; 4   0.11        0.00        0.45</span></span>
+<span><span class="co">#&gt; 3   0.48        0.00        0.49</span></span>
+<span><span class="co">#&gt; 8   0.11        0.00        0.25</span></span>
+<span><span class="co">#&gt; 2   0.64        0.29        0.89</span></span>
+<span><span class="co">#&gt; 9   0.28        0.01        0.54</span></span>
+<span><span class="co">#&gt; 5   0.01        0.00        0.06</span></span>
+<span><span class="co">#&gt; 12  0.22        0.00        0.43</span></span>
+<span><span class="co">#&gt; 11  0.40        0.30        0.49</span></span>
+<span><span class="co">#&gt; 1   0.40        0.02        0.56</span></span></code></pre></div>
 <p>A species with high DI niche breadth uses several habitats even when
 rare: its isodar intercepts are small, so it has no strongly preferred
 habitat. A species with high DD niche breadth spreads evenly among
@@ -300,7 +305,7 @@ each:</p>
 <span><span class="co">#&gt; Niche breadth for 12 species</span></span>
 <span><span class="co">#&gt;   DD niche breadth at: asymptote; bootstrap replicates: 99</span></span>
 <span><span class="co">#&gt;   with DI and DD estimates: 12</span></span>
-<span><span class="co">#&gt;   without warning flags:    7</span></span>
+<span><span class="co">#&gt;   without warning flags:    5</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Estimates (quartiles):</span></span>
 <span><span class="co">#&gt;                       min    q25 median    q75     max</span></span>
@@ -309,8 +314,10 @@ each:</p>
 <span><span class="co">#&gt; nb_dd               0.000  0.100  0.249  0.424   0.637</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Flags raised (species):</span></span>
-<span><span class="co">#&gt;   unstable_bootstrap     5  many bootstrap replicates failed, or a confidence interval is very wide</span></span>
+<span><span class="co">#&gt;   unstable_bootstrap     7  many bootstrap replicates failed, or a confidence interval is very wide</span></span>
 <span><span class="co">#&gt;                             -&gt; increase n_boot; if still wide, the data cannot resolve niche breadth</span></span>
+<span><span class="co">#&gt;   intercept_noise        1  isodar intercepts do not differ from sampling noise</span></span>
+<span><span class="co">#&gt;                             -&gt; no evidence that niche breadth changes with abundance; report DD niche breadth</span></span>
 <span><span class="co">#&gt;   reversal              12  habitats change rank along the niche breadth curve</span></span>
 <span><span class="co">#&gt;                             -&gt; informational: compare species at a stated abundance (see iai_curve())</span></span>
 <span><span class="co">#&gt;   abandoned              6  a used habitat is abandoned at high density</span></span>
@@ -331,7 +338,7 @@ constrain it only loosely. More replicates narrow the intervals.</p>
 <code class="sourceCode R"><span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">nb</span><span class="op">)</span></span>
 <span><span class="va">clean</span> <span class="op">&lt;-</span> <span class="va">nb</span><span class="op">[</span><span class="va">nb</span><span class="op">$</span><span class="va">species</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">s</span><span class="op">$</span><span class="va">clean</span>, <span class="op">]</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">clean</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 7</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] 5</span></span></code></pre></div>
 <p>See <code><a href="../articles/diagnostics.html">vignette("diagnostics")</a></code> for each flag.</p>
 </div>
 <div class="section level2">

@@ -32,7 +32,7 @@ contributed equally.
 
 Granot, I., Dubiner, S. & Belmaker, J. (2026). isoniche:
 Isodar-Adjusted, Abundance-Independent Niche Breadth. R package version
-1.1.0. https://github.com/itai811/isoniche. Itai Granot and Shahar
+1.1.0. https://itai811.github.io/isoniche/. Itai Granot and Shahar
 Dubiner contributed equally.
 
     @Manual{,
@@ -40,5 +40,5 @@ Dubiner contributed equally.
       author = {Itai Granot and Shahar Dubiner and Jonathan Belmaker},
       year = {2026},
       note = {R package version 1.1.0. Itai Granot and Shahar Dubiner contributed equally.},
-      url = {https://github.com/itai811/isoniche},
+      url = {https://itai811.github.io/isoniche/},
     }

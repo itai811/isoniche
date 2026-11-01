@@ -172,11 +172,19 @@ in which abundances are expressed: "one individual" in the
 density-independent niche breadth, the spillover abundance and the x-axis
 of <code><a href="iai_curve.html">iai_curve()</a></code> all mean one individual per <code>reference_effort</code>.
 Density-independent niche breadth and spillover abundance therefore depend
-on this unit; slopes and density-dependent niche breadth do not.</p>
+on this unit; slopes and density-dependent niche breadth do not. The
+default depends on how samples happen to be pooled, so set
+<code>reference_effort</code> to a natural unit (for example, the area of one standard
+transect) and use the same value for every species you compare.</p>
+<p>In wide format, rows are used as given: unlike long format, a site with 0
+in every habitat is kept (it pulls the isodars toward the origin), so
+remove such rows if they mean the species was absent from the site.</p>
 <p><strong>Pairwise isodars</strong> (<code>dim = "pairwise"</code>) are fitted for every pair of
 habitats by total least squares (TLS), which is identical to major-axis
 regression in two dimensions. Each pair uses every site where both habitats
-were recorded (non-missing), so sites lacking some habitats still contribute.</p>
+were recorded (non-missing), so sites lacking some habitats still contribute.
+When many sites are incomplete, both pairwise isodars and the latent line
+(below) use all of them; fitting both is a useful check.</p>
 <p><strong>The n-dimensional isodar</strong> (<code>dim = "ndim"</code>) is a line. Under the ideal
 free distribution, equal fitness across \(n\) habitats imposes \(n-1\)
 equalities, so abundances across habitats change along a single line as
@@ -209,7 +217,10 @@ sites where the species was present in another habitat. A habitat with
 the fit, with a warning, because its zeros may reflect too little sampling
 rather than avoidance. A habitat used at low density and abandoned at high
 density is not absent; it is fitted, and <code><a href="iai.html">iai()</a></code> clips it to 0 at totals
-where the isodars predict negative abundance.</p>
+where the isodars predict negative abundance. With the default
+<code>absent_max_count = 0</code>, a single individual makes a habitat used, which
+can change the spillover abundance a lot; raise <code>absent_max_count</code> if a
+few stray individuals should not count.</p>
 <p>Absent habitats lower niche breadth, so species should be compared over the
 same set of habitats, namely the habitats available to them.</p>
     </div>
@@ -244,27 +255,19 @@ density-dependent habitat selection. <em>Evolutionary Ecology</em>, 1, 379–388
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> hab2     48.3     0.521</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> hab3     77.5     0.780</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># long format, many species</span></span></span>
-<span class="r-in"><span><span class="va">fits</span> <span class="op">&lt;-</span> <span class="fu">fit_isodars</span><span class="op">(</span><span class="va">moorea_fish</span>, species <span class="op">=</span> <span class="st">"species"</span>, site <span class="op">=</span> <span class="st">"site"</span>,</span></span>
+<span class="r-in"><span><span class="co"># long format, several species</span></span></span>
+<span class="r-in"><span><span class="va">fish</span> <span class="op">&lt;-</span> <span class="va">moorea_fish</span><span class="op">[</span><span class="va">moorea_fish</span><span class="op">$</span><span class="va">species</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Acanthurus nigrofuscus"</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"Scarus schlegeli"</span>, <span class="st">"Zebrasoma scopas"</span><span class="op">)</span>, <span class="op">]</span></span></span>
+<span class="r-in"><span><span class="va">fits</span> <span class="op">&lt;-</span> <span class="fu">fit_isodars</span><span class="op">(</span><span class="va">fish</span>, species <span class="op">=</span> <span class="st">"species"</span>, site <span class="op">=</span> <span class="st">"site"</span>,</span></span>
 <span class="r-in"><span>                    habitat <span class="op">=</span> <span class="st">"habitat"</span>, abundance <span class="op">=</span> <span class="st">"abundance"</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Isodars could not be fitted for 85 of 325 species; see $note.</span>
 <span class="r-in"><span><span class="va">fits</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Isodars (pairwise) for 325 species; habitats: barrier_reef, fringing_reef, outer_slope; reference effort: 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85 could not be fitted; see $note</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 325 × 6</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    species                   fit                counts   effort   n_sites note  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Abudefduf septemfasciatus <span style="color: #949494;">&lt;isdrs_pr [1 × 7]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span>      10 <span style="color: #949494;">""</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Abudefduf sexfasciatus    <span style="color: #949494;">&lt;isdrs_pr [3 × 7]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span>      11 <span style="color: #949494;">""</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Abudefduf sordidus        <span style="color: #949494;">&lt;isdrs_pr [1 × 7]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span>       9 <span style="color: #949494;">""</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Acanthurus achilles       <span style="color: #949494;">&lt;isdrs_pr [0 × 7]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span>       7 <span style="color: #949494;">""</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Acanthurus guttatus       <span style="color: #949494;">&lt;NULL&gt;</span>             <span style="color: #949494;">&lt;dbl[…]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span>       1 <span style="color: #949494;">"</span>unde…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Acanthurus leucopareius   <span style="color: #949494;">&lt;isdrs_pr [1 × 7]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span>       3 <span style="color: #949494;">"</span>unde…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Acanthurus lineatus       <span style="color: #949494;">&lt;isdrs_pr [3 × 7]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span>      10 <span style="color: #949494;">""</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Acanthurus mata           <span style="color: #949494;">&lt;NULL&gt;</span>             <span style="color: #949494;">&lt;dbl[…]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span>       1 <span style="color: #949494;">"</span>unde…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Acanthurus nigricans      <span style="color: #949494;">&lt;isdrs_pr [3 × 7]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span>      13 <span style="color: #949494;">""</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Acanthurus nigricauda     <span style="color: #949494;">&lt;isdrs_pr [3 × 7]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span>      11 <span style="color: #949494;">""</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 315 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Isodars (pairwise) for 3 species; habitats: barrier_reef, fringing_reef, outer_slope; reference effort: 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   species                fit                counts   effort   n_sites note </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Acanthurus nigrofuscus <span style="color: #949494;">&lt;isdrs_pr [3 × 7]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span>      13 <span style="color: #949494;">""</span>   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> Scarus schlegeli       <span style="color: #949494;">&lt;isdrs_pr [3 × 7]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span>      13 <span style="color: #949494;">""</span>   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> Zebrasoma scopas       <span style="color: #949494;">&lt;isdrs_pr [3 × 7]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span> <span style="color: #949494;">&lt;dbl[…]&gt;</span>      13 <span style="color: #949494;">""</span>   </span>
 <span class="r-in"><span><span class="va">fits</span><span class="op">$</span><span class="va">fit</span><span class="op">[[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">fits</span><span class="op">$</span><span class="va">species</span> <span class="op">==</span> <span class="st">"Scarus schlegeli"</span><span class="op">)</span><span class="op">]</span><span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   habitat_x     habitat_y    intercept    slope    sd n_sites flipped</span>

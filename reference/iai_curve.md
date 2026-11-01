@@ -62,18 +62,29 @@ A tibble of class `iai_curve` with `species` (if given),
 `total_abundance`, `relative_abundance` (total / \\T_0\\),
 `niche_breadth`, and `lower` and `upper` (bootstrap band; `NA` without
 bootstrap). Attributes: `"points"` (per species: `spillover_abundance`,
-`nb_di`, `nb_dd` at the asymptote), `"reversals"` (preference reversals
-within the range) and `"crossings"` (`species_1`, `species_2`,
-`total_abundance`, `niche_breadth`).
+`nb_di`, `nb_dd` at the asymptote, and `max_observed`, the largest site
+total in the data), `"reversals"` (preference reversals within the
+range) and `"crossings"` (`species_1`, `species_2`, `total_abundance`,
+`niche_breadth`).
 
 ## Details
 
 By default each species' curve runs from its spillover abundance \\T_0\\
 to \\1000 T_0\\ (see
-[`niche_breadth()`](https://itai811.github.io/isoniche/reference/niche_breadth.md)).
-`totals` sets a common range instead. Totals are in individuals per
-reference effort (see
+[`niche_breadth()`](https://itai811.github.io/isoniche/reference/niche_breadth.md)),
+usually far beyond the abundances observed; the plot draws the part
+beyond the largest observed site total as a thinner line. `totals` sets
+a common range instead; totals below a species' \\T_0\\ are allowed
+(some used habitat then holds less than one individual), so curves,
+reversals and crossings can lie below \\T_0\\. Totals are in individuals
+per reference effort (see
 [`fit_isodars()`](https://itai811.github.io/isoniche/reference/fit_isodars.md)).
+
+The bands are pointwise percentile intervals at each fixed total. They
+differ from the intervals of `nb_di` in
+[`niche_breadth()`](https://itai811.github.io/isoniche/reference/niche_breadth.md),
+where the spillover abundance is re-estimated in every bootstrap
+replicate; report those for density-independent niche breadth.
 
 Where the curves of two species cross, their ranking by niche breadth
 depends on the abundance at which they are compared. These rank

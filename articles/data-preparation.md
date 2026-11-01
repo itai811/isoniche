@@ -124,9 +124,18 @@ data.frame(reference_effort = c(1, 2),
 ```
 
 With `reference_effort = 2`, abundances are counted per two sampling
-units, so “one individual” in the least-favoured habitat is reached
-later along the isodars: the spillover abundance roughly doubles and DI
-niche breadth changes, while DD niche breadth is unchanged.
+units, so “one individual” in the least-favoured habitat is a different
+point along the isodars: the spillover abundance and DI niche breadth
+change (here the spillover abundance almost doubles, but the direction
+and size of the change depend on the isodars), while DD niche breadth is
+unchanged.
+
+The default `reference_effort`, the median effort of the pooled site x
+habitat cells, depends on how many samples happened to be pooled. Set it
+to a natural unit instead, for example the area of one standard
+transect, and use the same value for every species you compare. The unit
+is printed with the results of
+[`niche_breadth()`](https://itai811.github.io/isoniche/reference/niche_breadth.md).
 
 ## Replicates: sites or surveys
 
@@ -180,6 +189,12 @@ habitats (`absent = "outer_slope"`), in
 and
 [`fit_isodars()`](https://itai811.github.io/isoniche/reference/fit_isodars.md).
 
+With the default `absent_max_count = 0`, a single individual recorded in
+a habitat makes it used. That one record can move the spillover
+abundance a long way (the species must now reach one individual in that
+habitat), so if a few stray individuals should not count, raise
+`absent_max_count`.
+
 A habitat used at low abundance but predicted to be empty at high
 abundance is *not* absent: it counts for DI niche breadth and is listed
 in the `abandoned` column of
@@ -193,6 +208,10 @@ a pair were sampled. The n-dimensional isodar (`dim = "ndim"`) can use
 sites with at least two habitats through a one-factor model
 (`ndim_method = "latent"`, needs the **glmmTMB** package); with
 `ndim_method = "auto"` it is chosen whenever some sites are incomplete.
+Neither is preferred in general; when many sites are incomplete, fitting
+both and comparing them is a useful check. `n_sites` in the results
+counts the sites where the species was recorded; the latent fit uses
+those with at least two sampled habitats.
 
 ``` r
 
@@ -217,6 +236,7 @@ niche_breadth(inc, site = "site", habitat = "habitat",
 #>   method        n_sites nb_di nb_dd flags                     
 #>   <chr>           <int> <dbl> <dbl> <chr>                     
 #> 1 line (latent)      60 0.721 0.887 di_extrapolation, reversal
+#> Abundances are per site (equal effort in every site and habitat).
 ```
 
 ## Grouping nearby sites
@@ -298,6 +318,7 @@ niche_breadth(sim, hab_cols = c("hab1", "hab2", "hab3"), n_boot = 0,
 #>   nb_di nb_dd
 #>   <dbl> <dbl>
 #> 1 0.381 0.738
+#> Abundances are per site (equal effort in every site and habitat).
 ```
 
 The lower-level functions
