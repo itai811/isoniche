@@ -24,7 +24,7 @@ in full by Granot, Dubiner & Belmaker (2026).
 Under density-dependent habitat selection, individuals settle where their
 expected fitness is highest. As a habitat fills up, its quality declines, so
 later individuals settle in the next-best habitat (the ideal free
-distribution; Fretwell & Calver 1969). The densities in two habitats at
+distribution; Fretwell & Lucas 1969). The densities in two habitats at
 which fitness is equal form a line, the *isodar* (Morris 1987):
 
 $$N_2 = a + b N_1 .$$
@@ -196,9 +196,9 @@ Dornelas, M., Antão, L. H., Bates, A. E. et al. (2025). BioTIME 2.0:
 expanding and improving a database of biodiversity time series. *Global
 Ecology and Biogeography*, 34(5), e70003.
 
-Fretwell, S. D. & Calver, J. S. (1969). On territorial behavior and other
-factors influencing habitat distribution in birds. *Acta Biotheoretica*, 19,
-37–44.
+Fretwell, S. D. & Lucas, H. L. (1969). On territorial behavior and other
+factors influencing habitat distribution in birds. I. Theoretical
+development. *Acta Biotheoretica*, 19, 16–36.
 
 Granot, I., Dubiner, S. & Belmaker, J. (2026). Why abundance-based indices of
 niche breadth are biased, and what can be done to improve them. *Ecology
