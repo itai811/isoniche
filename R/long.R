@@ -9,9 +9,23 @@ check_col_arg <- function(x, name, data, required = TRUE) {
     stop("'", name, "' must be a single column name.", call. = FALSE)
   }
   if (!x %in% names(data)) {
-    stop("Column '", x, "' ('", name, "') not found in 'data'.", call. = FALSE)
+    stop("Column '", x, "' (argument '", name, "') not found in 'data'.",
+         call. = FALSE)
   }
   invisible(x)
+}
+
+# Warn when data seem to carry sampling effort that is not used
+warn_unused_effort <- function(data, effort) {
+  if (!is.null(effort)) return(invisible(NULL))
+  hint <- attr(data, "effort_column")
+  cand <- intersect(c(hint, "effort"), names(data))
+  if (length(cand) > 0) {
+    warning("'data' has an effort column ('", cand[1], "') but 'effort' was not ",
+            "given, so every row is treated as equal effort. Use effort = \"",
+            cand[1], "\" to analyse densities.", call. = FALSE)
+  }
+  invisible(NULL)
 }
 
 # Long data -> per-species site x habitat matrices of counts and effort.
@@ -26,6 +40,10 @@ prepare_long <- function(data, species = NULL, site, habitat, abundance,
   check_col_arg(habitat, "habitat", data)
   check_col_arg(abundance, "abundance", data)
   check_col_arg(effort, "effort", data, required = FALSE)
+  if (is.null(effort) && !is.null(reference_effort)) {
+    stop("'reference_effort' needs an 'effort' column: without one, every row ",
+         "has effort 1.", call. = FALSE)
+  }
   n <- nrow(data)
   if (n == 0) stop("'data' has no rows.", call. = FALSE)
   ab <- data[[abundance]]
@@ -78,7 +96,7 @@ prepare_long <- function(data, species = NULL, site, habitat, abundance,
     list(counts = C[keep, , drop = FALSE], effort = E[keep, , drop = FALSE])
   })
   list(species = out, habitats = habs, reference_effort = reference_effort,
-       species_given = !is.null(species))
+       species_given = !is.null(species), effort_given = !is.null(effort))
 }
 
 density_matrix <- function(C, E, reference_effort) C * reference_effort / E
@@ -132,6 +150,7 @@ new_isodar_fits <- function(prep, args) {
   attr(out, "habitats") <- prep$habitats
   attr(out, "reference_effort") <- prep$reference_effort
   attr(out, "species_given") <- prep$species_given
+  attr(out, "effort_given") <- isTRUE(prep$effort_given)
   attr(out, "args") <- args
   class(out) <- c("isodar_fits", class(out))
   out
@@ -144,6 +163,7 @@ fit_isodars_long <- function(data, species, site, habitat, abundance, effort,
     stop("'absent' must be \"auto\", \"none\" or a character vector of habitats.",
          call. = FALSE)
   }
+  warn_unused_effort(data, effort)
   prep <- prepare_long(data, species, site, habitat, abundance, effort,
                        reference_effort)
   if (is.character(args$absent) && !all(args$absent %in% c("auto", "none"))) {
@@ -171,7 +191,7 @@ wide_as_fits <- function(data, hab_cols, n_habitats, args) {
   E[!is.na(E)] <- 1
   prep <- list(species = list(list(counts = X, effort = E)),
                habitats = colnames(X), reference_effort = 1,
-               species_given = FALSE)
+               species_given = FALSE, effort_given = FALSE)
   names(prep$species) <- ""
   new_isodar_fits(prep, args)
 }

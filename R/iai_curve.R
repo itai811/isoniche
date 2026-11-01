@@ -8,9 +8,18 @@
 #'
 #' @details
 #' By default each species' curve runs from its spillover abundance
-#' \eqn{T_0} to \eqn{1000 T_0} (see [niche_breadth()]). `totals` sets a common
-#' range instead. Totals are in individuals per reference effort (see
-#' [fit_isodars()]).
+#' \eqn{T_0} to \eqn{1000 T_0} (see [niche_breadth()]), usually far beyond
+#' the abundances observed; the plot draws the part beyond the largest
+#' observed site total as a thinner line. `totals` sets a common range
+#' instead; totals below a species' \eqn{T_0} are allowed (some used habitat
+#' then holds less than one individual), so curves, reversals and crossings
+#' can lie below \eqn{T_0}. Totals are in individuals per reference effort
+#' (see [fit_isodars()]).
+#'
+#' The bands are pointwise percentile intervals at each fixed total. They
+#' differ from the intervals of `nb_di` in [niche_breadth()], where the
+#' spillover abundance is re-estimated in every bootstrap replicate; report
+#' those for density-independent niche breadth.
 #'
 #' Where the curves of two species cross, their ranking by niche breadth
 #' depends on the abundance at which they are compared. These rank reversals
@@ -31,7 +40,8 @@
 #'   `total_abundance`, `relative_abundance` (total / \eqn{T_0}),
 #'   `niche_breadth`, and `lower` and `upper` (bootstrap band; `NA` without
 #'   bootstrap). Attributes: `"points"` (per species: `spillover_abundance`,
-#'   `nb_di`, `nb_dd` at the asymptote), `"reversals"` (preference reversals
+#'   `nb_di`, `nb_dd` at the asymptote, and `max_observed`, the largest
+#'   site total in the data), `"reversals"` (preference reversals
 #'   within the range) and `"crossings"` (`species_1`, `species_2`,
 #'   `total_abundance`, `niche_breadth`).
 #' @seealso [plot.iai_curve()], [niche_breadth()]
@@ -78,7 +88,11 @@ iai_curve <- function(fit, totals = NULL, n_boot = 0, conf_level = 0.95,
     stop("'n_boot' must be a non-negative number.", call. = FALSE)
   }
   scaled <- isTRUE(as.logical(scaled))
-  if (!is.null(seed)) set.seed(seed)
+  if (!is.null(seed)) {
+    old_rng <- save_rng()
+    on.exit(restore_rng(old_rng), add = TRUE)
+    set.seed(seed)
+  }
   args <- attr(fits, "args")
   a <- (1 - conf_level) / 2
   curves <- points <- revs <- list()
@@ -98,9 +112,12 @@ iai_curve <- function(fit, totals = NULL, n_boot = 0, conf_level = 0.95,
     }
     nb <- nb_on(f)
     lower <- upper <- rep(NA_real_, length(grid))
-    if (n_boot > 0 && !is.null(fits$counts[[i]])) {
-      D <- density_matrix(fits$counts[[i]], fits$effort[[i]],
-                          attr(fits, "reference_effort"))
+    D <- if (!is.null(fits$counts[[i]])) {
+      density_matrix(fits$counts[[i]], fits$effort[[i]],
+                     attr(fits, "reference_effort"))
+    }
+    max_obs <- if (is.null(D)) NA_real_ else max(site_totals(D))
+    if (n_boot > 0 && !is.null(D)) {
       B <- matrix(NA_real_, n_boot, length(grid))
       for (b in seq_len(n_boot)) {
         fb <- boot_fit(D, f, args)
@@ -118,7 +135,7 @@ iai_curve <- function(fit, totals = NULL, n_boot = 0, conf_level = 0.95,
       species = sp, spillover_abundance = T0,
       nb_di = if (is.finite(T0)) scaled_nb(af$c + T0 * af$u, scaled) else NA_real_,
       nb_dd = scaled_nb(asymptote_allocation(f, w), scaled),
-      stringsAsFactors = FALSE)
+      max_observed = max_obs, stringsAsFactors = FALSE)
     rv <- find_reversals(f, w, min(grid), max(grid), scaled)
     if (nrow(rv) > 0) {
       revs[[length(revs) + 1]] <- data.frame(species = sp, rv,
@@ -143,6 +160,10 @@ iai_curve <- function(fit, totals = NULL, n_boot = 0, conf_level = 0.95,
   attr(out, "reversals") <- rv
   attr(out, "crossings") <- cr
   attr(out, "scaled") <- scaled
+  attr(out, "unit") <- if (!is.null(attr(fits, "reference_effort"))) {
+    list(effort_given = isTRUE(attr(fits, "effort_given")),
+         reference_effort = attr(fits, "reference_effort"))
+  }
   class(out) <- c("iai_curve", class(out))
   out
 }
@@ -183,6 +204,8 @@ curve_crossings <- function(curves) {
 #' bands (dotted), a point at each species' density-independent value (at its
 #' own spillover abundance), the asymptote (density-dependent value) as a
 #' short horizontal dash at the right, and preference reversals (crosses).
+#' Beyond the largest total observed at any site of a species, the curve is
+#' drawn as a thinner line: there it extrapolates the fitted isodars.
 #'
 #' @param x Output of [iai_curve()].
 #' @param species Optional species to plot (default: all).
@@ -230,26 +253,38 @@ plot.iai_curve <- function(x, species = NULL, x_axis = c("log_abundance", "relat
     range(c(x$niche_breadth[keep], x$lower[keep], x$upper[keep]), na.rm = TRUE)
   graphics::plot(NA, xlim = c(xr[1], dash[2]), ylim = ylim, log = "x",
                  xaxt = "n",
-                 xlab = if (x_axis == "log_abundance") "Total abundance" else
+                 xlab = if (x_axis == "log_abundance") curve_xlab(attr(x, "unit")) else
                    "Total abundance / spillover abundance",
                  ylab = "Niche breadth (IAI)", ...)
-  at <- 10^(floor(log10(xr[1])):ceiling(log10(dash[2])))
-  at <- sort(c(at, 2 * at, 5 * at))
+  decades <- 10^(floor(log10(xr[1])):ceiling(log10(dash[2])))
+  at <- sort(c(decades, 2 * decades, 5 * decades))
   at <- at[at >= xr[1] / 1.01 & at <= xr[2] * 1.01]
-  graphics::axis(1, at = at, labels = format(at, big.mark = ",", scientific = FALSE,
-                                             trim = TRUE, drop0trailing = TRUE))
+  # over a wide range, label only powers of 10 so that no label is dropped
+  lab <- if (log10(xr[2] / xr[1]) > 2.5) at %in% decades else rep(TRUE, length(at))
+  graphics::axis(1, at = at, labels = FALSE)
+  graphics::axis(1, at = at[lab], labels = format(at[lab], big.mark = ",",
+                 scientific = FALSE, trim = TRUE, drop0trailing = TRUE), tick = FALSE)
   if (x_axis == "log_abundance" && !is.null(abundances)) {
     graphics::abline(v = abundances, lty = 2, col = "grey50")
   }
   for (k in seq_along(all_sp)) {
     s <- all_sp[k]
     d <- x[sp_of(x) == s, ]
-    graphics::lines(d[[xvar]], d$niche_breadth, col = col[k], lwd = 2)
+    p <- pts[sp_of(pts) == s, ]
+    # thinner beyond the largest observed site total (extrapolation)
+    obs <- if ("max_observed" %in% names(p) && is.finite(p$max_observed)) {
+      d$total_abundance <= p$max_observed
+    } else rep(TRUE, nrow(d))
+    graphics::lines(d[[xvar]], d$niche_breadth, col = col[k], lwd = 1)
+    if (any(obs)) {
+      last <- max(which(obs))
+      seg <- seq_len(min(last + 1, nrow(d)))
+      graphics::lines(d[[xvar]][seg], d$niche_breadth[seg], col = col[k], lwd = 2.5)
+    }
     if (any(is.finite(d$lower))) {
       graphics::lines(d[[xvar]], d$lower, col = col[k], lty = 3)
       graphics::lines(d[[xvar]], d$upper, col = col[k], lty = 3)
     }
-    p <- pts[sp_of(pts) == s, ]
     px <- if (x_axis == "log_abundance") p$spillover_abundance else 1
     if (is.finite(px) && is.finite(p$nb_di)) {
       graphics::points(px, p$nb_di, pch = 19, col = col[k])
@@ -278,6 +313,41 @@ plot.iai_curve <- function(x, species = NULL, x_axis = c("log_abundance", "relat
     }
   }
   invisible(x)
+}
+
+#' Plot niche breadth against abundance
+#'
+#' Computes the niche breadth curves of a [niche_breadth()] result with
+#' [iai_curve()] and plots them with [plot.iai_curve()].
+#'
+#' @param x Output of [niche_breadth()].
+#' @param n_boot,seed Passed to [iai_curve()] (bootstrap bands; default none).
+#' @param ... Passed to [plot.iai_curve()], e.g. `species` or `x_axis`.
+#' @return The [iai_curve()] result, invisibly.
+#' @seealso [iai_curve()], [plot.iai_curve()]
+#' @examples
+#' three <- moorea_fish[moorea_fish$species %in% c("Acanthurus nigrofuscus",
+#'   "Scarus schlegeli", "Siganus argenteus"), ]
+#' nb <- niche_breadth(three, species = "species", site = "site",
+#'                     habitat = "habitat", abundance = "abundance",
+#'                     n_boot = 0, diagnostics = list(n_null = 0))
+#' plot(nb)
+#' @export
+plot.niche_breadth <- function(x, n_boot = 0, seed = NULL, ...) {
+  curve <- iai_curve(x, n_boot = n_boot, seed = seed)
+  plot(curve, ...)
+  invisible(curve)
+}
+
+# x-axis label from attribute "unit" of an iai_curve (NULL: unknown unit)
+curve_xlab <- function(unit) {
+  if (is.null(unit)) return("Total abundance")
+  if (isTRUE(unit$effort_given)) {
+    paste0("Total abundance (individuals per reference effort of ",
+           format(unit$reference_effort), ")")
+  } else {
+    "Total abundance (individuals per site)"
+  }
 }
 
 # Corner of the plot without curve or band points (for the legend);

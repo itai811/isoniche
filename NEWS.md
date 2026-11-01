@@ -37,32 +37,38 @@ These change results relative to 1.0.0.
     density-dependent niche breadth with site-bootstrap confidence intervals,
     the spillover abundance (the total at which the least-favoured used
     habitat reaches one individual), preference-reversal abundances,
-    abandoned habitats and diagnostic flags as columns, printed as one
-    summary line. Density-dependent niche breadth is by default the limit at
-    infinite abundance (`dependent_at = "asymptote"`), computed directly.
-    The flags include a test of whether isodar intercepts differ from
-    sampling noise (multinomial null model, as in the paper).
-  * `iai_curve()` and its `plot()` method give niche breadth as a function of
-    total abundance, with bootstrap bands, each species' density-independent
-    value and asymptote, preference reversals, and the totals at which two
-    species' curves cross.
-  * `check_coverage()` summarises sampling coverage per species and habitat;
-    `group_sites()` merges nearby sites (complete linkage on great-circle
-    distance, summing counts and efforts); `radius_sensitivity()` shows how
-    results change with the grouping radius.
-* `simulate_isodars()` simulates any number of habitats (`slopes`,
-  `intercepts`), optional missing habitats (`p_missing`) and long-format
-  output; the three-habitat default gives the same numbers as before.
-  * `community_to_long()` converts a community matrix (samples x species) and
-    a table of sample attributes into the long format, pooling samples from
-    the same site and habitat and summing their effort.
+    abandoned habitats and diagnostic flags as columns. Printing it gives
+    one summary line and the unit of abundance. Density-dependent niche
+    breadth is by default the limit at infinite abundance
+    (`dependent_at = "asymptote"`), computed directly. The flags include a
+    test of whether isodar intercepts differ from sampling noise
+    (multinomial null model, as in the paper). With `seed`, each species
+    gets its own random streams, and the user's random-number state is
+    restored afterwards.
   * `summary()` of a `niche_breadth()` result counts the species with
     estimates and without warning flags, gives quartiles of the estimates
     and, for each flag raised, how many species raised it, what it means and
     what to do about it.
-  * The legend of `plot(<iai_curve>)` goes to a corner free of curves and
-    bands, or above the plot, or where `legend` says (e.g.
-    `legend = "bottomright"`).
+  * `iai_curve()` and its `plot()` method give niche breadth as a function of
+    total abundance, with bootstrap bands, each species' density-independent
+    value and asymptote, preference reversals, and the totals at which two
+    species' curves cross. The curve is drawn thinner beyond the largest
+    observed site total, the x-axis gives the unit of abundance, and the
+    legend avoids the curves. `plot()` of a `niche_breadth()` result plots
+    its curves.
+  * `community_to_long()` converts a community matrix (samples x species) and
+    a table of sample attributes into the long format, pooling samples from
+    the same site and habitat and summing their effort.
+  * `check_coverage()` summarises sampling coverage per species and habitat;
+    `group_sites()` merges nearby sites (complete linkage on great-circle
+    distance, summing counts and efforts); `radius_sensitivity()` shows how
+    results change with the grouping radius.
+  * `fit_isodars()` and `niche_breadth()` warn when the data have an effort
+    column that is not used, and `reference_effort` without an `effort`
+    column is an error.
+* `simulate_isodars()` simulates any number of habitats (`slopes`,
+  `intercepts`), optional missing habitats (`p_missing`) and long-format
+  output; the three-habitat default gives the same numbers as before.
 * New data set `moorea_fish`: reef fishes of Moorea in three habitats (the
   paper's Table S2).
 * New vignettes: `vignette("isoniche")` (get started),
@@ -82,7 +88,6 @@ These change results relative to 1.0.0.
   species that use every habitat are unchanged.
 * Scaled niche breadth is kept within [0, 1] (rounding error could give
   values such as -1e-16).
-
 * New `pairwise_niche()` summarises pairwise isodars into niche breadth
   indices (paper, Appendix S1): the mean intercept and mean slope, and the
   inverse root-mean-square deviations of slopes from 1 and of intercepts from
@@ -98,7 +103,9 @@ These change results relative to 1.0.0.
 * `fit_isodars()` returns classed tibbles (`isodars_pairwise`, `isodar_line`).
 * `iai()` allocates abundance among habitats by weighted least squares on the
   pairwise isodar equations, constrained to the total; habitats predicted
-  negative are set to 0 and the rest are re-solved.
+  negative are set to 0 and the rest are re-solved. When the isodars do not
+  determine the allocation (for example, a habitat without records was
+  kept), `iai()` says so instead of failing with "singular matrix".
 * `isoderr(output = "CI")` returns percentile bootstrap intervals.
 * `iai()` gives an informative error when `abundances` contains `NA`,
   non-finite or negative values.

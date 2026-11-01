@@ -29,7 +29,7 @@ The values can be compared among species that differ in abundance.
 
 ```r
 # install.packages("remotes")
-remotes::install_github("itai811/isoniche")
+remotes::install_github("itai811/isoniche", build_vignettes = TRUE)
 ```
 
 ## What you need

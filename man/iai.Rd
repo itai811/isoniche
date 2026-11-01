@@ -57,7 +57,9 @@ pairwise isodar equations, \eqn{y - b x = a}, subject to summing to the
 total. This constrained least-squares problem is solved directly; habitats
 predicted to be negative are set to zero and the rest are solved again. For
 an n-dimensional isodar (a line), the allocation is the single point at
-which the line reaches the total; negative habitats are set to zero.
+which the line reaches the total; negative habitats are set to zero and
+the others rescaled in proportion to reach the total (so a clipped
+allocation is no longer on the line).
 
 \strong{Density-independent niche breadth} (\code{abundances = NULL}) is evaluated at
 the smallest total (searched over integers) at which every used habitat

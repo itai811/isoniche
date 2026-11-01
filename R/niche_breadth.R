@@ -27,14 +27,16 @@
 #' gives the value at that total, and `"max_observed"` the value at the
 #' largest site total in the data.
 #'
-#' **The curve between them.** While no habitat changes rank or is abandoned,
-#' the allocation is linear in \eqn{T}, so niche breadth follows
+#' **The curve between them.** If no two habitats change rank and no habitat
+#' is abandoned anywhere above \eqn{T_0} (no `reversal` or `abandoned` flag),
+#' niche breadth follows
 #' \deqn{NB(T) = NB_{DD} + (NB_{DI} - NB_{DD}) T_0 / T,}{NB(T) = NB_DD + (NB_DI - NB_DD) T0 / T,}
-#' and is halfway between the two values at \eqn{T = 2 T_0}. Where the
-#' predicted abundances of two habitats cross, the ranking of habitats
-#' changes and the curve can be non-monotonic; these preference-reversal
-#' abundances are returned in `reversals` (totals from \eqn{T_0} upward) and
-#' flagged. A habitat used at low density whose predicted abundance falls to
+#' and is halfway between the two values at \eqn{T = 2 T_0}. Otherwise it
+#' has this form only piecewise, with different constants between
+#' successive reversals. Where the predicted abundances of two habitats
+#' cross, the ranking of habitats changes and the curve can be
+#' non-monotonic; these preference-reversal abundances are returned in
+#' `reversals` (totals from \eqn{T_0} upward) and flagged. A habitat used at low density whose predicted abundance falls to
 #' 0 at high totals is listed in `abandoned` (it still counts for DI niche
 #' breadth). Use [iai_curve()] to compute and plot whole curves.
 #'
@@ -107,7 +109,10 @@
 #' @param weights Pairwise isodars only: `"1/var"` (default, as in the paper)
 #'   or `NULL`; see [iai()].
 #' @param diagnostics Named list of thresholds for the flags; see Details.
-#' @param seed Optional random-number seed (bootstrap and null model).
+#' @param seed Optional random-number seed (bootstrap and null model). Each
+#'   species then gets its own random streams, so its results do not depend on
+#'   `n_boot` or on the other species; your random-number state is restored
+#'   afterwards.
 #' @param max_search Largest total searched for the spillover abundance.
 #'
 #' @return A tibble of class `niche_breadth`, one row per species, with
@@ -159,12 +164,20 @@ niche_breadth <- function(fit_or_data, ..., dependent_at = "asymptote",
                    scaled = isTRUE(as.logical(scaled)), weights = weights,
                    diagnostics = nb_diagnostics(diagnostics),
                    max_search = max_search)
-  if (!is.null(seed)) set.seed(seed)
   ref <- attr(fits, "reference_effort")
   args <- attr(fits, "args")
+  # with a seed, each species gets its own streams for the bootstrap and the
+  # null model, so neither depends on n_boot or on the other species
+  seeds <- NULL
+  if (!is.null(seed)) {
+    old_rng <- save_rng()
+    on.exit(restore_rng(old_rng), add = TRUE)
+    set.seed(seed)
+    seeds <- sample.int(.Machine$integer.max, 2 * nrow(fits))
+  }
   rows <- lapply(seq_len(nrow(fits)), function(i) {
     nb_species(fits$fit[[i]], fits$counts[[i]], fits$effort[[i]], ref, args,
-               settings, fits$note[[i]])
+               settings, fits$note[[i]], seeds = seeds[2 * i - c(1, 0)])
   })
   col <- function(name, type) vapply(rows, `[[`, type, name)
   out <- tibble::tibble(
@@ -256,6 +269,7 @@ as_isodar_fits <- function(x, ..., reference_effort = NULL, absent = "auto",
          call. = FALSE)
   }
   if (!is.null(dots$habitat)) {
+    warn_unused_effort(x, dots$effort)
     return(suppressWarnings(do.call(fit_isodars, c(list(x), dots,
       list(reference_effort = reference_effort, absent = absent)))))
   }
@@ -272,7 +286,7 @@ as_isodar_fits <- function(x, ..., reference_effort = NULL, absent = "auto",
   wide_as_fits(x, dots$hab_cols, dots$n_habitats, args)
 }
 
-nb_species <- function(fit, C, E, ref, args, st, note) {
+nb_species <- function(fit, C, E, ref, args, st, note, seeds = NULL) {
   dg <- st$diagnostics
   flags <- stats::setNames(rep(FALSE, length(flag_names)), flag_names)
   r <- list(method = NA_character_, nb_di = NA_real_, nb_di_lower = NA_real_,
@@ -327,6 +341,7 @@ nb_species <- function(fit, C, E, ref, args, st, note) {
                                 st$scaled)
 
   if (st$n_boot > 0) {
+    if (!is.null(seeds)) set.seed(seeds[1])
     B <- matrix(NA_real_, st$n_boot, 3)
     for (b in seq_len(st$n_boot)) {
       fb <- boot_fit(D, fit, args)
@@ -381,6 +396,7 @@ nb_species <- function(fit, C, E, ref, args, st, note) {
   } else {
     pairwise_inconsistent(fit, dg$max_slope_ratio)
   }
+  if (!is.null(seeds)) set.seed(seeds[2])
   r$intercept_p <- intercept_null_p(C, E, ref, pw, dg$n_null)
   flags["intercept_noise"] <- is.finite(r$intercept_p) && r$intercept_p > dg$alpha
   flags["no_di"] <- is.na(T0)
@@ -469,7 +485,19 @@ print.niche_breadth <- function(x, ...) {
     cat(n, unit, " flagged (not counting abandoned habitats or reversals); ",
         "see summary()\n", sep = "")
   }
+  fits <- attr(x, "fits")
+  if (!is.null(fits)) cat(abundance_unit(fits), "\n", sep = "")
   invisible(x)
+}
+
+# The unit of abundance (spillover abundance, curve x-axis) in words
+abundance_unit <- function(fits) {
+  if (isTRUE(attr(fits, "effort_given"))) {
+    paste0("Abundances are per reference effort of ",
+           format(attr(fits, "reference_effort")), " in each habitat.")
+  } else {
+    "Abundances are per site (equal effort in every site and habitat)."
+  }
 }
 
 # What each flag means and what to do about it (used by summary())
@@ -503,7 +531,7 @@ flag_info <- data.frame(
     "informational: compare species at a stated abundance (see iai_curve())",
     "check the isodars (fit_isodars()); try the other method",
     "add sites that sample habitats together, or drop a habitat",
-    "DI and DD niche breadth cannot be told apart; report one value",
+    "no evidence that niche breadth changes with abundance; report DD niche breadth",
     "increase n_boot; if still wide, the data cannot resolve niche breadth",
     "sample more sites, or name absent habitats with 'absent'",
     "check the isodars; the least-favoured habitat may never fill",

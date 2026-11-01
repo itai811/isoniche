@@ -46,6 +46,7 @@ to improve them. \emph{Ecology Letters} (in revision).
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://itai811.github.io/isoniche/}
   \item \url{https://github.com/itai811/isoniche}
   \item Report bugs at \url{https://github.com/itai811/isoniche/issues}
 }
@@ -57,7 +58,7 @@ Useful links:
 Authors:
 \itemize{
   \item Shahar Dubiner \email{dubiner@mail.tau.ac.il} (\href{https://orcid.org/0000-0003-1771-0087}{ORCID}) (Contributed equally with Itai Granot)
-  \item Jonathan Belmaker
+  \item Jonathan Belmaker (\href{https://orcid.org/0000-0002-5618-7359}{ORCID})
 }
 
 }

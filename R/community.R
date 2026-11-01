@@ -34,7 +34,9 @@
 #'   (named as in `samples`), `abundance`, `effort` (named as in `samples`, or
 #'   `"effort"` = number of samples) and any `keep` columns, ready for
 #'   `niche_breadth(x, species = "species", site = ..., habitat = ...,
-#'   abundance = "abundance", effort = ...)`.
+#'   abundance = "abundance", effort = ...)`. Pass the effort column as
+#'   `effort`: without it, every pooled site x habitat counts as equal effort
+#'   (`fit_isodars()` and `niche_breadth()` warn when it is left out).
 #' @seealso [check_coverage()], [niche_breadth()], `vignette("data-preparation")`
 #' @examples
 #' comm <- matrix(c(5, 0, 2,
@@ -135,5 +137,8 @@ community_to_long <- function(comm, samples, site, habitat, effort = NULL,
   if (is.factor(samples[[habitat]])) out$habitat <- factor(out$habitat, levels = habs)
   names(out)[2:3] <- c(site, habitat)
   names(out)[5] <- if (is.null(effort)) "effort" else effort
-  tibble::as_tibble(out)
+  out <- tibble::as_tibble(out)
+  # lets fit_isodars() and niche_breadth() warn if the effort is not used
+  attr(out, "effort_column") <- names(out)[5]
+  out
 }

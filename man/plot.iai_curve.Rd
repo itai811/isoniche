@@ -48,6 +48,8 @@ Plots the curves from \code{\link[=iai_curve]{iai_curve()}}: one line per specie
 bands (dotted), a point at each species' density-independent value (at its
 own spillover abundance), the asymptote (density-dependent value) as a
 short horizontal dash at the right, and preference reversals (crosses).
+Beyond the largest total observed at any site of a species, the curve is
+drawn as a thinner line: there it extrapolates the fitted isodars.
 }
 \seealso{
 \code{\link[=iai_curve]{iai_curve()}}

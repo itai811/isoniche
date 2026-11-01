@@ -78,11 +78,16 @@ find_reversals <- function(fit, weights, lo, hi, scaled = TRUE) {
     for (b in (a + 1):length(used)) {
       i <- used[a]; j <- used[b]
       d <- X[i, ] - X[j, ]
-      for (k in which(d[-length(d)] * d[-1] < 0)) {
+      # habitats tied along the curve (e.g. symmetric isodars) do not swap
+      # rank: ignore sign changes that are only rounding error
+      nz <- which(abs(d) > 1e-9 * pmax(abs(X[i, ]), abs(X[j, ]), 1))
+      dn <- d[nz]
+      for (m in which(dn[-length(dn)] * dn[-1] < 0)) {
+        k <- nz[m]
         r <- stats::uniroot(function(t) {
           x <- f(t)
           x[i] - x[j]
-        }, grid[c(k, k + 1)], tol = 1e-8)$root
+        }, grid[c(k, nz[m + 1])], tol = 1e-8)$root
         first <- if (d[k] > 0) c(i, j) else c(j, i)
         out[[length(out) + 1]] <- data.frame(
           total_abundance = r, habitat_1 = habs[first[1]],
@@ -106,6 +111,23 @@ boot_fit <- function(D, fit, args) {
     as.data.frame(Db, optional = TRUE), hab_cols = colnames(D), dim = args$dim,
     flip_intercept = args$flip_intercept, ndim_method = nm,
     absent = attr(fit, "absent"))), error = function(e) NULL)
+}
+
+# Save and restore the user's random-number state around a seeded call
+save_rng <- function() {
+  if (exists(".Random.seed", envir = globalenv(), inherits = FALSE)) {
+    get(".Random.seed", envir = globalenv(), inherits = FALSE)
+  }
+}
+
+restore_rng <- function(state) {
+  if (is.null(state)) {
+    if (exists(".Random.seed", envir = globalenv(), inherits = FALSE)) {
+      rm(".Random.seed", envir = globalenv())
+    }
+  } else {
+    assign(".Random.seed", state, envir = globalenv())
+  }
 }
 
 # Total of each site (complete sites when there are any)

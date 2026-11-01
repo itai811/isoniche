@@ -48,7 +48,10 @@ or \code{NULL}; see \code{\link[=iai]{iai()}}.}
 
 \item{diagnostics}{Named list of thresholds for the flags; see Details.}
 
-\item{seed}{Optional random-number seed (bootstrap and null model).}
+\item{seed}{Optional random-number seed (bootstrap and null model). Each
+species then gets its own random streams, so its results do not depend on
+\code{n_boot} or on the other species; your random-number state is restored
+afterwards.}
 
 \item{max_search}{Largest total searched for the spillover abundance.}
 }
@@ -93,14 +96,16 @@ slopes) and intercepts no longer matter; it is computed directly. A number
 gives the value at that total, and \code{"max_observed"} the value at the
 largest site total in the data.
 
-\strong{The curve between them.} While no habitat changes rank or is abandoned,
-the allocation is linear in \eqn{T}, so niche breadth follows
+\strong{The curve between them.} If no two habitats change rank and no habitat
+is abandoned anywhere above \eqn{T_0} (no \code{reversal} or \code{abandoned} flag),
+niche breadth follows
 \deqn{NB(T) = NB_{DD} + (NB_{DI} - NB_{DD}) T_0 / T,}{NB(T) = NB_DD + (NB_DI - NB_DD) T0 / T,}
-and is halfway between the two values at \eqn{T = 2 T_0}. Where the
-predicted abundances of two habitats cross, the ranking of habitats
-changes and the curve can be non-monotonic; these preference-reversal
-abundances are returned in \code{reversals} (totals from \eqn{T_0} upward) and
-flagged. A habitat used at low density whose predicted abundance falls to
+and is halfway between the two values at \eqn{T = 2 T_0}. Otherwise it
+has this form only piecewise, with different constants between
+successive reversals. Where the predicted abundances of two habitats
+cross, the ranking of habitats changes and the curve can be
+non-monotonic; these preference-reversal abundances are returned in
+\code{reversals} (totals from \eqn{T_0} upward) and flagged. A habitat used at low density whose predicted abundance falls to
 0 at high totals is listed in \code{abandoned} (it still counts for DI niche
 breadth). Use \code{\link[=iai_curve]{iai_curve()}} to compute and plot whole curves.
 

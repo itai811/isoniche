@@ -136,11 +136,12 @@ site total (`dependent_at = "max_observed"`).
 
 ## The niche breadth curve
 
-Between $T_0$ and infinity, while no two habitats swap rank, the allocation
-is linear in $T$ and
+Above $T_0$, until a habitat is clipped to zero, the allocation is linear in
+$T$. If, in addition, no two habitats swap rank anywhere above $T_0$,
 $$NB(T) = NB_{DD} + (NB_{DI} - NB_{DD}) \frac{T_0}{T},$$
 so niche breadth is halfway between the two values at $T = 2T_0$. Where the
-predicted abundances of two habitats cross, the curve changes course; these
+predicted abundances of two habitats cross, the curve changes course (it
+keeps the form $A + B/T$, with new constants, between crossings); these
 *preference reversals* are reported, as are habitats used at low density and
 abandoned at high density:
 
@@ -194,7 +195,7 @@ Monographs*, 85, 437–455.
 
 Dornelas, M., Antão, L. H., Bates, A. E. et al. (2025). BioTIME 2.0:
 expanding and improving a database of biodiversity time series. *Global
-Ecology and Biogeography*, 34(5), e70003.
+Ecology and Biogeography*, 34(5), e70003. https://doi.org/10.1111/geb.70003
 
 Fretwell, S. D. & Lucas, H. L. (1969). On territorial behavior and other
 factors influencing habitat distribution in birds. I. Theoretical

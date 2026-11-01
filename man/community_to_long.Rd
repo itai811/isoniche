@@ -27,7 +27,9 @@ have one value per site.}
 A tibble with columns \code{species}, the site and habitat columns
 (named as in \code{samples}), \code{abundance}, \code{effort} (named as in \code{samples}, or
 \code{"effort"} = number of samples) and any \code{keep} columns, ready for
-\code{niche_breadth(x, species = "species", site = ..., habitat = ..., abundance = "abundance", effort = ...)}.
+\code{niche_breadth(x, species = "species", site = ..., habitat = ..., abundance = "abundance", effort = ...)}. Pass the effort column as
+\code{effort}: without it, every pooled site x habitat counts as equal effort
+(\code{fit_isodars()} and \code{niche_breadth()} warn when it is left out).
 }
 \description{
 Turns a community matrix (one row per sample, one column per species, as

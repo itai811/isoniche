@@ -15,19 +15,26 @@ bibentry(
   )
 )
 
+pkg_year <- if (!is.null(meta$`Date/Publication`)) {
+  substr(meta$`Date/Publication`, 1, 4)
+} else {
+  "2026"
+}
+
 bibentry(
   bibtype = "Manual",
   header = "To cite the package, please use:",
   title = "isoniche: Isodar-Adjusted, Abundance-Independent Niche Breadth",
   author = c(person("Itai", "Granot"), person("Shahar", "Dubiner"),
              person("Jonathan", "Belmaker")),
-  year = "2026",
-  note = "R package version 1.1.0. Itai Granot and Shahar Dubiner contributed equally.",
-  url = "https://github.com/itai811/isoniche",
-  textVersion = paste(
-    "Granot, I., Dubiner, S. & Belmaker, J. (2026). isoniche: Isodar-Adjusted,",
-    "Abundance-Independent Niche Breadth. R package version 1.1.0.",
-    "https://github.com/itai811/isoniche.",
+  year = pkg_year,
+  note = paste0("R package version ", meta$Version,
+                ". Itai Granot and Shahar Dubiner contributed equally."),
+  url = "https://itai811.github.io/isoniche/",
+  textVersion = paste0(
+    "Granot, I., Dubiner, S. & Belmaker, J. (", pkg_year, "). isoniche: ",
+    "Isodar-Adjusted, Abundance-Independent Niche Breadth. R package version ",
+    meta$Version, ". https://itai811.github.io/isoniche/. ",
     "Itai Granot and Shahar Dubiner contributed equally."
   )
 )

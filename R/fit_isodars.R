@@ -28,12 +28,21 @@
 #' density-independent niche breadth, the spillover abundance and the x-axis
 #' of [iai_curve()] all mean one individual per `reference_effort`.
 #' Density-independent niche breadth and spillover abundance therefore depend
-#' on this unit; slopes and density-dependent niche breadth do not.
+#' on this unit; slopes and density-dependent niche breadth do not. The
+#' default depends on how samples happen to be pooled, so set
+#' `reference_effort` to a natural unit (for example, the area of one standard
+#' transect) and use the same value for every species you compare.
+#'
+#' In wide format, rows are used as given: unlike long format, a site with 0
+#' in every habitat is kept (it pulls the isodars toward the origin), so
+#' remove such rows if they mean the species was absent from the site.
 #'
 #' **Pairwise isodars** (`dim = "pairwise"`) are fitted for every pair of
 #' habitats by total least squares (TLS), which is identical to major-axis
 #' regression in two dimensions. Each pair uses every site where both habitats
 #' were recorded (non-missing), so sites lacking some habitats still contribute.
+#' When many sites are incomplete, both pairwise isodars and the latent line
+#' (below) use all of them; fitting both is a useful check.
 #'
 #' **The n-dimensional isodar** (`dim = "ndim"`) is a line. Under the ideal
 #' free distribution, equal fitness across \eqn{n} habitats imposes \eqn{n-1}
@@ -69,7 +78,10 @@
 #' the fit, with a warning, because its zeros may reflect too little sampling
 #' rather than avoidance. A habitat used at low density and abandoned at high
 #' density is not absent; it is fitted, and [iai()] clips it to 0 at totals
-#' where the isodars predict negative abundance.
+#' where the isodars predict negative abundance. With the default
+#' `absent_max_count = 0`, a single individual makes a habitat used, which
+#' can change the spillover abundance a lot; raise `absent_max_count` if a
+#' few stray individuals should not count.
 #'
 #' Absent habitats lower niche breadth, so species should be compared over the
 #' same set of habitats, namely the habitats available to them.
@@ -123,8 +135,10 @@
 #' fit_isodars(sim, hab_cols = c("hab1", "hab2", "hab3"))
 #' fit_isodars(sim, hab_cols = c("hab1", "hab2", "hab3"), dim = "ndim")
 #'
-#' # long format, many species
-#' fits <- fit_isodars(moorea_fish, species = "species", site = "site",
+#' # long format, several species
+#' fish <- moorea_fish[moorea_fish$species %in% c("Acanthurus nigrofuscus",
+#'   "Scarus schlegeli", "Zebrasoma scopas"), ]
+#' fits <- fit_isodars(fish, species = "species", site = "site",
 #'                     habitat = "habitat", abundance = "abundance")
 #' fits
 #' fits$fit[[which(fits$species == "Scarus schlegeli")]]

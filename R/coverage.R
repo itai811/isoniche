@@ -96,6 +96,7 @@ group_sites <- function(data, site, lon, lat, radius_km, linkage = "complete",
   linkage <- match.arg(linkage, c("complete", "single"))
   check_col_arg(lon, "lon", data)
   check_col_arg(lat, "lat", data)
+  warn_unused_effort(data, effort)
   prep <- prepare_long(data, species, site, habitat, abundance, effort)
   habs <- prep$habitats
   # site coordinates

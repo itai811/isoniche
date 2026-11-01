@@ -75,8 +75,12 @@ Thresholds are arguments of `niche_breadth()`, set through `diagnostics`
 * **`no_di`**: no total abundance up to `max_search` puts an individual in
   every used habitat: the least-favoured habitat is predicted never to fill.
 * **`intercept_noise`**: the isodar intercepts do not differ from those
-  expected by sampling alone (see below). DI and DD niche breadth then
-  cannot be told apart; report a single value.
+  expected by sampling alone (see below). The data then give no evidence
+  that niche breadth changes with abundance: with zero intercepts, the
+  isodars pass through the origin and DI and DD niche breadth are equal.
+  Report a single value, DD niche breadth, which rests on the slopes only
+  and is the better estimated. With few sites the test has little power, so
+  this flag does not show that the intercepts are zero.
 
 ### Extrapolation
 

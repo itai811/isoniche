@@ -33,7 +33,12 @@ test_that("group_sites() merges sites within the radius and sums counts and effo
   expect_equal(ga$effort, 6)
   expect_equal(ga$n_sites, 3L)
   expect_equal(sum(g$abundance), sum(d$abundance))
+  # an effort column that is not used is pointed out
+  expect_warning(group_sites(d, site = "site", lon = "lon", lat = "lat",
+                             radius_km = 2, habitat = "habitat",
+                             abundance = "abundance"), "effort column")
   # radius 0 keeps every site; no effort column -> number of sites
+  d$effort <- NULL
   g0 <- group_sites(d, site = "site", lon = "lon", lat = "lat", radius_km = 0,
                     habitat = "habitat", abundance = "abundance")
   expect_equal(length(unique(g0$site)), 7)
@@ -55,6 +60,7 @@ test_that("group_sites() merges sites within the radius and sums counts and effo
 
 test_that("group_sites() takes a radius per species", {
   d <- geo_data()
+  d$effort <- NULL
   d <- rbind(transform(d, sp = "x"), transform(d, sp = "y"))
   g <- group_sites(d, site = "site", lon = "lon", lat = "lat",
                    radius_km = c(y = 0, x = 2), species = "sp",

@@ -12,7 +12,9 @@
 #' total. This constrained least-squares problem is solved directly; habitats
 #' predicted to be negative are set to zero and the rest are solved again. For
 #' an n-dimensional isodar (a line), the allocation is the single point at
-#' which the line reaches the total; negative habitats are set to zero.
+#' which the line reaches the total; negative habitats are set to zero and
+#' the others rescaled in proportion to reach the total (so a clipped
+#' allocation is no longer on the line).
 #'
 #' **Density-independent niche breadth** (`abundances = NULL`) is evaluated at
 #' the smallest total (searched over integers) at which every used habitat
@@ -169,7 +171,12 @@ solve_free <- function(sys, Total, free) {
   r <- crossprod(Af, sys$b * sys$w)
   M <- rbind(cbind(2 * Q, 1), c(rep(1, m), 0))
   s <- tryCatch(solve(M, c(2 * r, Total)), error = function(e) {
-    qr.solve(M, c(2 * r, Total))
+    tryCatch(qr.solve(M, c(2 * r, Total)), error = function(e2) {
+      stop("The pairwise isodars do not determine the allocation among ",
+           "habitats (singular system). This usually means a habitat with ",
+           "(almost) no records was kept: declare it absent with 'absent', ",
+           "or use dim = \"ndim\".", call. = FALSE)
+    })
   })
   s[seq_len(m)]
 }

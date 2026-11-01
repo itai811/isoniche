@@ -83,8 +83,12 @@ samples <- data.frame(site = c("north", "north", "south"),
 community_to_long(comm, samples, site = "site", habitat = "habitat")
 ```
 
-Several samples from the same site and habitat are pooled; see
-`vignette("data-preparation")` for sampling effort and other formats.
+Several samples from the same site and habitat are pooled, and their
+effort (here the number of samples) is summed into an `effort` column. If
+samples differ in effort, for example in transect area, give that column
+to `community_to_long()` and pass it on as `effort =` to the functions
+below; set `reference_effort` to a natural unit such as one standard
+transect. See `vignette("data-preparation")`.
 
 ## 2. Check coverage
 

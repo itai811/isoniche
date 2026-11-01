@@ -1,8 +1,9 @@
 ## Submission
 
-isoniche 1.1.0 rewrites the core of the package and fixes several bugs in
-1.0.0 (see NEWS.md). It accompanies Granot, Dubiner & Belmaker, Ecology
-Letters (in revision).
+isoniche 1.1.0 rewrites the core of the package, fixes several bugs in
+1.0.0 and adds functions for analysing many species from long-format or
+community-matrix data (see NEWS.md). It accompanies Granot, Dubiner &
+Belmaker, Ecology Letters (in revision).
 
 ## Maintainer change
 
@@ -13,8 +14,10 @@ remains an author.
 ## Test environments
 
 * local Windows 11, R 4.1.1
-* GitHub Actions (R-CMD-check)
-* win-builder, R-devel (2026-10-31 r90820 ucrt)
+* GitHub Actions: macOS (R release), Windows (R release), Ubuntu (R devel,
+  release and oldrel-1)
+* win-builder: R-devel, R-release and R-oldrelease
+* macOS builder (mac.r-project.org)
 
 ## R CMD check results
 
@@ -23,3 +26,7 @@ remains an author.
 * The NOTE reports the maintainer change and possibly misspelled words in
   DESCRIPTION: "isodar"/"isodars" (a standard ecological term; Morris 1987)
   and "IAI" (isodar-adjusted inequality, defined in the Description).
+
+## Reverse dependencies
+
+There are currently no reverse dependencies.

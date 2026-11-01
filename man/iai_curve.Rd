@@ -37,7 +37,8 @@ A tibble of class \code{iai_curve} with \code{species} (if given),
 \code{total_abundance}, \code{relative_abundance} (total / \eqn{T_0}),
 \code{niche_breadth}, and \code{lower} and \code{upper} (bootstrap band; \code{NA} without
 bootstrap). Attributes: \code{"points"} (per species: \code{spillover_abundance},
-\code{nb_di}, \code{nb_dd} at the asymptote), \code{"reversals"} (preference reversals
+\code{nb_di}, \code{nb_dd} at the asymptote, and \code{max_observed}, the largest
+site total in the data), \code{"reversals"} (preference reversals
 within the range) and \code{"crossings"} (\code{species_1}, \code{species_2},
 \code{total_abundance}, \code{niche_breadth}).
 }
@@ -50,9 +51,18 @@ curves of two species cross.
 }
 \details{
 By default each species' curve runs from its spillover abundance
-\eqn{T_0} to \eqn{1000 T_0} (see \code{\link[=niche_breadth]{niche_breadth()}}). \code{totals} sets a common
-range instead. Totals are in individuals per reference effort (see
-\code{\link[=fit_isodars]{fit_isodars()}}).
+\eqn{T_0} to \eqn{1000 T_0} (see \code{\link[=niche_breadth]{niche_breadth()}}), usually far beyond
+the abundances observed; the plot draws the part beyond the largest
+observed site total as a thinner line. \code{totals} sets a common range
+instead; totals below a species' \eqn{T_0} are allowed (some used habitat
+then holds less than one individual), so curves, reversals and crossings
+can lie below \eqn{T_0}. Totals are in individuals per reference effort
+(see \code{\link[=fit_isodars]{fit_isodars()}}).
+
+The bands are pointwise percentile intervals at each fixed total. They
+differ from the intervals of \code{nb_di} in \code{\link[=niche_breadth]{niche_breadth()}}, where the
+spillover abundance is re-estimated in every bootstrap replicate; report
+those for density-independent niche breadth.
 
 Where the curves of two species cross, their ranking by niche breadth
 depends on the abundance at which they are compared. These rank reversals

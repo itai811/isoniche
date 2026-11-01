@@ -28,7 +28,11 @@ isoderr <- function(data, hab_cols = NULL, n_habitats = NULL, dim = "pairwise",
                     ndim_method = "auto", absent = "auto", absent_max_count = 0,
                     absent_min_sites = 5) {
   output <- match.arg(output)
-  if (!is.null(seed)) set.seed(seed)
+  if (!is.null(seed)) {
+    old_rng <- save_rng()
+    on.exit(restore_rng(old_rng), add = TRUE)
+    set.seed(seed)
+  }
   X <- as.data.frame(habitat_matrix(data, hab_cols, n_habitats))
   habs <- names(X)
   one <- function(d, absent) {
