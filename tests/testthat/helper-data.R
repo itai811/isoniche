@@ -1,10 +1,23 @@
 moorea_habs <- c("barrier_reef", "fringing_reef", "outer_slope")
 
-# Three species from the paper's Table S2 (data-raw/moorea_fish.csv)
+# One species of moorea_fish (the paper's Table S2) in wide format
 moorea_species <- function(species) {
-  d <- utils::read.csv(test_path("fixtures", "moorea_ref.csv"))
-  d[d$Species == species, ]
+  d <- moorea_fish[moorea_fish$species == species, ]
+  sites <- unique(d$site)
+  out <- data.frame(Site = sites)
+  for (h in moorea_habs) {
+    dh <- d[d$habitat == h, ]
+    out[[h]] <- dh$abundance[match(sites, dh$site)]
+  }
+  out
 }
+
+moorea_long <- function(species) moorea_fish[moorea_fish$species %in% species, ]
+
+long_cols <- list(species = "species", site = "site", habitat = "habitat",
+                  abundance = "abundance")
+
+ref_species <- c("Acanthurus nigrofuscus", "Scarus schlegeli", "Siganus argenteus")
 
 # Line through four habitats with ~45% of habitat-by-site cells missing and
 # at least two habitats recorded at every site

@@ -1,0 +1,33 @@
+bibentry(
+  bibtype = "Article",
+  header = "To cite the method, please use:",
+  title = "Why abundance-based indices of niche breadth are biased, and what can be done to improve them",
+  author = c(person("Itai", "Granot"), person("Shahar", "Dubiner"),
+             person("Jonathan", "Belmaker")),
+  journal = "Ecology Letters",
+  year = "2026",
+  note = "In revision. Itai Granot and Shahar Dubiner contributed equally.",
+  textVersion = paste(
+    "Granot, I., Dubiner, S. & Belmaker, J. (2026).",
+    "Why abundance-based indices of niche breadth are biased, and what can",
+    "be done to improve them. Ecology Letters (in revision).",
+    "Itai Granot and Shahar Dubiner contributed equally."
+  )
+)
+
+bibentry(
+  bibtype = "Manual",
+  header = "To cite the package, please use:",
+  title = "isoniche: Isodar-Adjusted, Abundance-Independent Niche Breadth",
+  author = c(person("Itai", "Granot"), person("Shahar", "Dubiner"),
+             person("Jonathan", "Belmaker")),
+  year = "2026",
+  note = "R package version 1.1.0. Itai Granot and Shahar Dubiner contributed equally.",
+  url = "https://github.com/itai811/isoniche",
+  textVersion = paste(
+    "Granot, I., Dubiner, S. & Belmaker, J. (2026). isoniche: Isodar-Adjusted,",
+    "Abundance-Independent Niche Breadth. R package version 1.1.0.",
+    "https://github.com/itai811/isoniche.",
+    "Itai Granot and Shahar Dubiner contributed equally."
+  )
+)

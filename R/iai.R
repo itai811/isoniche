@@ -142,8 +142,8 @@ line_allocator <- function(fit) {
   f
 }
 
-# Constrained least-squares allocation from pairwise isodars
-pairwise_allocator <- function(isodars, weights = NULL) {
+# Pairwise isodar equations y - b x = a as a weighted linear system A x = b
+pairwise_system <- function(isodars, weights = NULL) {
   habs <- attr(isodars, "habitats")
   if (is.null(habs)) habs <- unique(c(isodars$habitat_x, isodars$habitat_y))
   H <- length(habs); K <- nrow(isodars)
@@ -152,29 +152,38 @@ pairwise_allocator <- function(isodars, weights = NULL) {
     A[k, isodars$habitat_y[k]] <- 1
     A[k, isodars$habitat_x[k]] <- -isodars$slope[k]
   }
-  b <- isodars$intercept
   w <- if (is.null(weights)) rep(1, K) else if (identical(weights, "1/var")) {
     1 / pmax(isodars$sd^2 * (1 + isodars$slope^2), 1e-12)
   } else if (is.numeric(weights) && length(weights) == K) weights else
     stop("'weights' must be NULL, \"1/var\" or one number per isodar.", call. = FALSE)
-  solve_free <- function(Total, free) {
-    Af <- A[, free, drop = FALSE]
-    m <- length(free)
-    Q <- crossprod(Af, Af * w)
-    r <- crossprod(Af, b * w)
-    M <- rbind(cbind(2 * Q, 1), c(rep(1, m), 0))
-    s <- tryCatch(solve(M, c(2 * r, Total)), error = function(e) {
-      qr.solve(M, c(2 * r, Total))
-    })
-    s[seq_len(m)]
-  }
   # absent habitats are fixed at 0
-  start <- which(!habs %in% attr(isodars, "absent"))
+  list(A = A, b = isodars$intercept, w = w, habs = habs,
+       start = which(!habs %in% attr(isodars, "absent")))
+}
+
+# Weighted least-squares solution over the free habitats, summing to Total
+solve_free <- function(sys, Total, free) {
+  Af <- sys$A[, free, drop = FALSE]
+  m <- length(free)
+  Q <- crossprod(Af, Af * sys$w)
+  r <- crossprod(Af, sys$b * sys$w)
+  M <- rbind(cbind(2 * Q, 1), c(rep(1, m), 0))
+  s <- tryCatch(solve(M, c(2 * r, Total)), error = function(e) {
+    qr.solve(M, c(2 * r, Total))
+  })
+  s[seq_len(m)]
+}
+
+# Constrained least-squares allocation from pairwise isodars
+pairwise_allocator <- function(isodars, weights = NULL) {
+  sys <- pairwise_system(isodars, weights)
+  habs <- sys$habs
+  H <- length(habs)
   f <- function(Total) {
-    free <- start
+    free <- sys$start
     x <- numeric(H)
     for (iter in seq_len(H)) {
-      xf <- solve_free(Total, free)
+      xf <- solve_free(sys, Total, free)
       if (all(xf >= 0) || length(free) == 1) { x[free] <- pmax(xf, 0); break }
       free <- free[xf >= 0]
       if (length(free) == 0) break

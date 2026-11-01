@@ -27,6 +27,35 @@ These change results relative to 1.0.0.
 
 ## New features
 
+* A new user-facing layer works on one or many species at once:
+  * `fit_isodars()` accepts long-format data (one row per species x site x
+    habitat, columns named by `species`, `site`, `habitat`, `abundance` and
+    optionally `effort`) and returns one fit per species (`isodar_fits`).
+    Counts are converted to densities per `reference_effort` (default: the
+    median effort). The wide-format interface is unchanged.
+  * `niche_breadth()` returns, per species, density-independent and
+    density-dependent niche breadth with site-bootstrap confidence intervals,
+    the spillover abundance (the total at which the least-favoured used
+    habitat reaches one individual), preference-reversal abundances,
+    abandoned habitats and diagnostic flags as columns, printed as one
+    summary line. Density-dependent niche breadth is by default the limit at
+    infinite abundance (`dependent_at = "asymptote"`), computed directly.
+    The flags include a test of whether isodar intercepts differ from
+    sampling noise (multinomial null model, as in the paper).
+  * `iai_curve()` and its `plot()` method give niche breadth as a function of
+    total abundance, with bootstrap bands, each species' density-independent
+    value and asymptote, preference reversals, and the totals at which two
+    species' curves cross.
+  * `check_coverage()` summarises sampling coverage per species and habitat;
+    `group_sites()` merges nearby sites (complete linkage on great-circle
+    distance, summing counts and efforts); `radius_sensitivity()` shows how
+    results change with the grouping radius.
+* `simulate_isodars()` simulates any number of habitats (`slopes`,
+  `intercepts`), optional missing habitats (`p_missing`) and long-format
+  output; the three-habitat default gives the same numbers as before.
+* New data set `moorea_fish`: reef fishes of Moorea in three habitats (the
+  paper's Table S2).
+* New vignette, `vignette("isoniche")`, and `citation("isoniche")`.
 * Habitats a species never uses are handled. `fit_isodars()` (and
   `isoderr()`) gain `absent = "auto"`, which declares a habitat absent when
   the species has no more than `absent_max_count` (default 0) records in it

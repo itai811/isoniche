@@ -38,6 +38,22 @@ install.packages("isoniche")
 ```r
 library(isoniche)
 
+# many species at once, long format (one row per species x site x habitat)
+three <- moorea_fish[moorea_fish$species %in% c("Acanthurus nigrofuscus",
+  "Scarus schlegeli", "Siganus argenteus"), ]
+nb <- niche_breadth(three, species = "species", site = "site",
+                    habitat = "habitat", abundance = "abundance",
+                    n_boot = 199, seed = 1)
+nb[c("species", "nb_di", "spillover_abundance", "nb_dd", "flags")]
+
+# niche breadth against abundance
+plot(iai_curve(nb, n_boot = 99, seed = 1))
+```
+
+See `vignette("isoniche")` for a worked example. The lower-level functions
+work on one species in wide format (one column per habitat):
+
+```r
 set.seed(1)
 sim <- simulate_isodars(1.5, 1.5, 5, 5, noise = 1, n = 30)
 habs <- c("hab1", "hab2", "hab3")

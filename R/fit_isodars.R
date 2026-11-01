@@ -1,10 +1,35 @@
 #' Fit isodars
 #'
 #' Fits isodars to abundances (or densities) recorded in two or more habitats
-#' at a set of sites (or other replicates, such as years), for a single
-#' species. Data are in wide format: one row per site, one column per habitat.
+#' at a set of sites (or other replicates, such as years). Data are either in
+#' wide format (one species; one row per site, one column per habitat) or in
+#' long format (one or many species; one row per species x site x habitat).
 #'
 #' @details
+#' **Input formats.** In wide format, give `hab_cols` (or `n_habitats`); the
+#' values are used as they are, and the result is a single fit. In long
+#' format, give the column names `site`, `habitat` and `abundance` (and
+#' optionally `species` and `effort`); the result is an `isodar_fits` table
+#' with one row per species, which [niche_breadth()] and [iai_curve()] take.
+#' Replicates may be sites or time steps (for example, years at one site); in
+#' long format they go in the `site` column. A site x habitat combination
+#' that appears for any species is taken as sampled, and a species without a
+#' row there has 0 individuals there; a habitat missing at a site simply has
+#' no rows. Sites where a species has no individuals in any habitat carry no
+#' information on its habitat selection and are dropped for that species.
+#'
+#' **Effort and densities.** Isodars relate densities. In long format,
+#' density = abundance / effort x `reference_effort`. Effort may be an area, a
+#' transect length (constant width) or a unitless relative effort, but must
+#' be the same kind of measure in every row; it must be the same for every
+#' row of a site x habitat combination. `reference_effort` (default: the
+#' median effort of sampled site x habitat combinations) is the sampling unit
+#' in which abundances are expressed: "one individual" in the
+#' density-independent niche breadth, the spillover abundance and the x-axis
+#' of [iai_curve()] all mean one individual per `reference_effort`.
+#' Density-independent niche breadth and spillover abundance therefore depend
+#' on this unit; slopes and density-dependent niche breadth do not.
+#'
 #' **Pairwise isodars** (`dim = "pairwise"`) are fitted for every pair of
 #' habitats by total least squares (TLS), which is identical to major-axis
 #' regression in two dimensions. Each pair uses every site where both habitats
@@ -37,7 +62,8 @@
 #' still counts it, as 0, in the inequality, so it lowers niche breadth. With
 #' `absent = "auto"` a habitat is declared absent if the species was recorded
 #' in it no more than `absent_max_count` times in total (in the units of
-#' `data`), and the habitat was sampled at no fewer than `absent_min_sites`
+#' wide `data`; as counts, before conversion to densities, in long format),
+#' and the habitat was sampled at no fewer than `absent_min_sites`
 #' sites where the species was present in another habitat. A habitat with
 #' (almost) no records but fewer such sites is *undersampled*: it is kept in
 #' the fit, with a warning, because its zeros may reflect too little sampling
@@ -48,10 +74,11 @@
 #' Absent habitats lower niche breadth, so species should be compared over the
 #' same set of habitats, namely the habitats available to them.
 #'
-#' @param data A data frame with one row per site and one numeric column per
-#'   habitat. `NA` marks a habitat that is absent from, or was not sampled at, a
-#'   site.
-#' @param hab_cols Character vector of habitat column names.
+#' @param data A data frame. Wide format: one row per site and one numeric
+#'   column per habitat; `NA` marks a habitat that is absent from, or was not
+#'   sampled at, a site. Long format: one row per species x site x habitat
+#'   (see Details).
+#' @param hab_cols Wide format: character vector of habitat column names.
 #' @param n_habitats Alternatively, the number of habitat columns, taken from
 #'   the start of `data`. One of `hab_cols` or `n_habitats` is required.
 #' @param dim `"pairwise"` or `"ndim"`.
@@ -64,6 +91,12 @@
 #'   (`character(0)` is the same as `"none"`).
 #' @param absent_max_count,absent_min_sites Thresholds for `absent = "auto"`;
 #'   see Details.
+#' @param species,site,habitat,abundance,effort Long format: names of the
+#'   columns holding species (optional; without it the data are one species),
+#'   site (or other replicate), habitat, abundance (counts) and sampling
+#'   effort (optional; without it every row has effort 1).
+#' @param reference_effort Long format: the sampling unit in which densities
+#'   are expressed (default: median effort); see Details.
 #'
 #' @return For `dim = "pairwise"`, a tibble of class `isodars_pairwise` with
 #'   one row per pair of used habitats: `habitat_x`, `habitat_y`, `intercept`,
@@ -75,22 +108,51 @@
 #'   `ndim_method`. Both have attributes `habitats` (all habitats), `absent`
 #'   and `undersampled`.
 #'
-#' @references Morris, D.W. (1988). Habitat-dependent population regulation
-#'   and community structure. *Evolutionary Ecology*, 2, 253–269.
-#' @seealso [iai()], [isoderr()]
+#'   In long format, a tibble of class `isodar_fits` with one row per species:
+#'   `species` (if given), `fit` (the fit as above, or `NULL` if it failed),
+#'   `counts` and `effort` (site x habitat matrices), `n_sites` and `note`
+#'   (warnings and errors from fitting). One summary warning is given if any
+#'   species could not be fitted.
+#'
+#' @references Morris, D.W. (1987). Spatial scale and the cost of
+#'   density-dependent habitat selection. *Evolutionary Ecology*, 1, 379–388.
+#' @seealso [niche_breadth()], [iai()], [isoderr()]
 #' @examples
 #' set.seed(1)
 #' sim <- simulate_isodars(1.5, 1.5, 5, 5, noise = 1, n = 30)
 #' fit_isodars(sim, hab_cols = c("hab1", "hab2", "hab3"))
 #' fit_isodars(sim, hab_cols = c("hab1", "hab2", "hab3"), dim = "ndim")
+#'
+#' # long format, many species
+#' fits <- fit_isodars(moorea_fish, species = "species", site = "site",
+#'                     habitat = "habitat", abundance = "abundance")
+#' fits
+#' fits$fit[[which(fits$species == "Scarus schlegeli")]]
 #' @export
 fit_isodars <- function(data, hab_cols = NULL, n_habitats = NULL,
                         dim = c("pairwise", "ndim"), flip_intercept = TRUE,
                         ndim_method = c("auto", "pca", "latent"),
                         absent = "auto", absent_max_count = 0,
-                        absent_min_sites = 5) {
+                        absent_min_sites = 5, species = NULL, site = NULL,
+                        habitat = NULL, abundance = NULL, effort = NULL,
+                        reference_effort = NULL) {
   dim <- match.arg(dim)
   ndim_method <- match.arg(ndim_method)
+  if (!is.null(habitat)) {
+    if (!is.null(hab_cols) || !is.null(n_habitats)) {
+      stop("Give either 'hab_cols' (wide format) or 'habitat' (long format), ",
+           "not both.", call. = FALSE)
+    }
+    args <- list(dim = dim, flip_intercept = flip_intercept,
+                 ndim_method = ndim_method, absent = absent,
+                 absent_max_count = absent_max_count,
+                 absent_min_sites = absent_min_sites)
+    return(fit_isodars_long(data, species, site, habitat, abundance, effort,
+                            reference_effort, args))
+  }
+  if (!is.null(species) || !is.null(site) || !is.null(abundance)) {
+    stop("Long format needs the 'habitat' column name.", call. = FALSE)
+  }
   X <- habitat_matrix(data, hab_cols, n_habitats)
   habs <- colnames(X)
   ab <- find_absent(X, absent, absent_max_count, absent_min_sites)

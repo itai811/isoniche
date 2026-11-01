@@ -1,0 +1,281 @@
+---
+title: "Abundance-independent niche breadth with isodars"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Abundance-independent niche breadth with isodars}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", fig.width = 7,
+                      fig.height = 4.5)
+has_glmmTMB <- requireNamespace("glmmTMB", quietly = TRUE)
+```
+
+This vignette follows Granot, Dubiner & Belmaker (2026). It shows why classic
+indices of habitat niche breadth depend on abundance, and how **isoniche**
+corrects for it with isodars, using reef fishes from Moorea.
+
+```{r setup}
+library(isoniche)
+```
+
+## Isodars
+
+Under density-dependent habitat selection, individuals settle where their
+expected fitness is highest. As a habitat fills up, its quality declines, so
+the next individuals settle in the next-best habitat (the ideal free
+distribution; Fretwell & Calver 1969). The densities in two habitats at which
+fitness is equal form a line, the *isodar* (Morris 1987):
+
+$$N_2 = a + b N_1 .$$
+
+The intercept $a$ measures a density-independent preference: habitat 2 is
+filled with $a$ individuals before habitat 1 receives any. The slope $b$
+measures how quickly habitat 2 fills compared with habitat 1 as total
+abundance rises. A species without habitat preference has $a = 0$ and
+$b = 1$.
+
+Isodars are estimated from replicates (sites, or years at one site) in which
+the species' densities in each habitat are known. Because both densities are
+measured with error, isodars are fitted by total least squares (major-axis
+regression), not by ordinary regression.
+
+## Why abundance-based indices are biased
+
+Whenever an intercept is non-zero, the share of individuals in each habitat
+changes with total abundance. A species that is rare spends most of its
+individuals in its preferred habitat and looks like a specialist; the same
+species, when abundant, spills into other habitats and looks like a
+generalist. A classic index, such as 1 - Gini of the habitat proportions,
+therefore partly measures abundance:
+
+```{r bias, fig.height = 3.5}
+set.seed(2)
+sim <- simulate_isodars(slope1 = 1, slope2 = 1, int1 = 8, int2 = 8, noise = 1,
+                        n = 60)
+classic <- apply(as.matrix(sim[1:3]), 1, function(x) {
+  x <- sort(x)
+  n <- length(x)
+  g <- 2 * sum(seq_len(n) * x) / (n * sum(x)) - (n + 1) / n
+  (1 - g - 1 / n) * n / (n - 1)
+})
+plot(sim$total_abundance, classic, log = "x", pch = 19,
+     xlab = "Total abundance at the site", ylab = "Classic niche breadth (1 - Gini)")
+```
+
+Every site comes from the same species with the same habitat preferences,
+yet niche breadth rises with abundance. Rarefaction (Cayuela et al. 2015)
+removes the effect of sampling but not this one, which is part of how the
+species uses habitats.
+
+## The data
+
+`moorea_fish` holds counts of 325 reef fish species in three habitats
+(barrier reef, fringing reef and outer slope) at 13 sites around Moorea
+(BioTIME 2.0; Dornelas et al. 2025). Data are in long format: one row per
+species x site x habitat.
+
+```{r data}
+head(moorea_fish)
+three <- c("Acanthurus nigrofuscus", "Scarus schlegeli", "Siganus argenteus")
+fish3 <- moorea_fish[moorea_fish$species %in% three, ]
+```
+
+Before fitting, `check_coverage()` shows how many sites sampled each habitat
+and whether each habitat would be treated as used, absent or undersampled:
+
+```{r coverage}
+cov <- check_coverage(moorea_fish, species = "species", site = "site",
+                      habitat = "habitat", abundance = "abundance")
+table(cov$status)
+cov[cov$species %in% three, ]
+```
+
+## Pairwise isodars and the n-dimensional isodar
+
+With $H$ habitats there are $H(H-1)/2$ pairwise isodars. They are fitted
+separately, each with every site at which both habitats were recorded:
+
+```{r pairwise}
+pw <- fit_isodars(fish3, species = "species", site = "site",
+                  habitat = "habitat", abundance = "abundance")
+pw$fit[[1]]
+```
+
+The n-dimensional isodar is a *line* through habitat space, not a plane.
+Equal fitness in $H$ habitats imposes $H - 1$ equalities, leaving one degree
+of freedom: as total abundance changes, densities in all habitats move
+together along one line. Its direction says how fast each habitat fills as
+abundance rises (the analogue of the slopes), and where it enters each
+habitat reflects density-independent preferences (the analogue of the
+intercepts). The line is the first principal axis of the site x habitat
+densities; `var_explained` measures how well a single line describes them.
+
+```{r line}
+ln <- fit_isodars(fish3, species = "species", site = "site",
+                  habitat = "habitat", abundance = "abundance", dim = "ndim")
+ln$fit[[3]]
+```
+
+## Density-independent and density-dependent niche breadth
+
+The *isodar-adjusted inequality* (IAI) allocates a chosen total abundance
+among habitats as the isodars predict and computes 1 - Gini of that
+allocation (scaled to 0-1). Two values summarise it:
+
+* **Density-independent (DI) niche breadth**, at the *spillover abundance*
+  $T_0$: the smallest total at which every used habitat holds at least one
+  individual. It reflects the intercepts.
+* **Density-dependent (DD) niche breadth**, as total abundance tends to
+  infinity, where only the slopes (the direction of the line) matter.
+
+```{r nb}
+nb <- niche_breadth(fish3, species = "species", site = "site",
+                    habitat = "habitat", abundance = "abundance",
+                    n_boot = 199, seed = 1)
+nb[c("species", "nb_di", "nb_di_lower", "nb_di_upper", "spillover_abundance",
+     "nb_dd", "nb_dd_lower", "nb_dd_upper")]
+```
+
+Pairwise isodars are combined by weighted least squares; by default each is
+weighted by its inverse variance, $1 / (sd^2 (1 + b^2))$, as in the paper
+(`weights = "1/var"`). Intervals come from resampling whole sites
+(`n_boot`).
+
+Between $T_0$ and infinity, while no two habitats swap rank,
+$$NB(T) = NB_{DD} + (NB_{DI} - NB_{DD}) \frac{T_0}{T},$$
+so niche breadth is halfway between the two values at $T = 2T_0$. Where the
+predicted abundances of two habitats cross, the curve changes course; these
+*preference reversals* are reported, as are habitats used at low density and
+abandoned at high density:
+
+```{r reversals}
+nb$abandoned
+nb$reversals[[1]]
+```
+
+## Niche breadth curves
+
+`iai_curve()` computes the whole curve, like a rarefaction curve for
+niche breadth. In the plot, the filled point is each species' DI value at
+its own spillover abundance, the dash on the right its DD value, crosses
+mark preference reversals and dotted lines the bootstrap band.
+
+```{r curve, fig.height = 5}
+curve <- iai_curve(ln, n_boot = 99, seed = 1)
+plot(curve, abundances = 1000, crossings = TRUE)
+```
+
+Species can swap rank: whether one is a broader generalist than another
+depends on the abundance at which they are compared. The crossings are
+returned as a table:
+
+```{r crossings}
+attr(curve, "crossings")
+```
+
+Plotting against abundance relative to $T_0$ puts all DI values at 1:
+
+```{r curve-relative, fig.height = 5}
+plot(curve, x_axis = "relative")
+```
+
+## Diagnostics
+
+`niche_breadth()` never stops on a problem species and does not print one
+warning per species. Each potential problem is a logical `flag_*` column,
+summarised in `flags`:
+
+```{r flags}
+all_nb <- niche_breadth(moorea_fish, species = "species", site = "site",
+                        habitat = "habitat", abundance = "abundance",
+                        n_boot = 0, seed = 1)
+all_nb
+sort(colSums(as.data.frame(all_nb[grep("^flag_", names(all_nb))])),
+     decreasing = TRUE)
+```
+
+Among them, `flag_intercept_noise` marks species whose intercepts do not
+differ from those produced by sampling alone (a multinomial null model, as
+in section 1.2.3 of the paper): for these species, DI and DD niche breadth
+cannot be told apart. Thresholds are set through `diagnostics`, for
+example `diagnostics = list(min_sites = 8)`.
+
+## Absent habitats
+
+A habitat in which a species was never recorded, although it was sampled at
+several sites where the species was present, is treated as *absent*: it is
+fixed at 0, excluded from the isodar fit and counted as 0 in the
+inequality, so it lowers niche breadth. With `absent = "auto"` a habitat is
+absent if the species was counted there no more than `absent_max_count`
+times (default 0) across at least `absent_min_sites` (default 5) such sites;
+with fewer sites the zeros may reflect undersampling, and the species is
+flagged instead. A species found in a single habitat has niche breadth 0.
+
+Because absent habitats lower niche breadth, species should be compared over
+the same set of habitats: the habitats available to them.
+
+## Incomplete sites
+
+Often not every habitat exists, or was sampled, at every site. Pairwise
+isodars use every site with both habitats of a pair. For the line,
+`ndim_method = "latent"` fits a one-factor model to every site with at least
+two habitats, so incomplete sites contribute (this needs **glmmTMB**):
+
+```{r latent, eval = has_glmmTMB}
+set.seed(1)
+inc <- simulate_isodars(slopes = c(1.5, 1, 0.8), intercepts = c(5, 0, 2),
+                        n = 80, p_missing = 0.3)
+fit_isodars(inc, hab_cols = c("hab1", "hab2", "hab3", "hab4"), dim = "ndim",
+            ndim_method = "latent")
+```
+
+When sites are small, nearby sites can be grouped with `group_sites()`
+(complete linkage, so every pair of sites in a group lies within the radius).
+The radius is not chosen automatically, because choosing it to improve the
+results would be circular; `radius_sensitivity()` shows how the number of
+units, their completeness and niche breadth change with it.
+
+## Effort and units
+
+Isodars relate *densities*. If sampling effort differs among sites or
+habitats (area, transect length, or a unitless relative effort), give it in
+an `effort` column: densities are abundance / effort, expressed per
+`reference_effort` (by default the median effort). "One individual" at the
+spillover abundance means one individual per reference effort, so DI niche
+breadth and the spillover abundance depend on this unit, whereas slopes and
+DD niche breadth do not. Replicates can be sites or time steps.
+
+## Indices from isodar parameters (Appendix S1)
+
+`pairwise_niche()` summarises the pairwise isodars directly: the mean
+intercept and slope, and the inverse root-mean-square deviations of slopes
+from 1 and of intercepts from 0. The intercept index is in abundance units,
+so it depends on effort.
+
+```{r appendix}
+pairwise_niche(pw$fit[[1]], weights = "1/var")
+```
+
+## References
+
+Cayuela, L., Gotelli, N. J. & Colwell, R. K. (2015). Ecological and
+biogeographic null hypotheses for comparing rarefaction curves. *Ecological
+Monographs*, 85, 437–455.
+
+Dornelas, M., Antão, L. H., Bates, A. E. et al. (2025). BioTIME 2.0:
+expanding and improving a database of biodiversity time series. *Global
+Ecology and Biogeography*, 34(5), e70003.
+
+Fretwell, S. D. & Calver, J. S. (1969). On territorial behavior and other
+factors influencing habitat distribution in birds. *Acta Biotheoretica*, 19,
+37–44.
+
+Granot, I., Dubiner, S. & Belmaker, J. (2026). Why abundance-based indices of
+niche breadth are biased, and what can be done to improve them. *Ecology
+Letters* (in revision). Itai Granot and Shahar Dubiner contributed equally.
+
+Morris, D. W. (1987). Spatial scale and the cost of density-dependent habitat
+selection. *Evolutionary Ecology*, 1, 379–388.

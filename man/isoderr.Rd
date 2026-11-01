@@ -25,11 +25,12 @@ isoderr(
 )
 }
 \arguments{
-\item{data}{A data frame with one row per site and one numeric column per
-habitat. \code{NA} marks a habitat that is absent from, or was not sampled at, a
-site.}
+\item{data}{A data frame. Wide format: one row per site and one numeric
+column per habitat; \code{NA} marks a habitat that is absent from, or was not
+sampled at, a site. Long format: one row per species x site x habitat
+(see Details).}
 
-\item{hab_cols}{Character vector of habitat column names.}
+\item{hab_cols}{Wide format: character vector of habitat column names.}
 
 \item{n_habitats}{Alternatively, the number of habitat columns, taken from
 the start of \code{data}. One of \code{hab_cols} or \code{n_habitats} is required.}
