@@ -66,6 +66,8 @@ plot(iai_curve(nb, n_boot = 99, seed = 1))
 
 ## Learn more
 
+Documentation website: <https://itai811.github.io/isoniche/>
+
 - [`vignette("isoniche")`](https://itai811.github.io/isoniche/articles/isoniche.md):
   get started, a complete analysis;
 - [`vignette("data-preparation")`](https://itai811.github.io/isoniche/articles/data-preparation.md):
