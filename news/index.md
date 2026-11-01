@@ -1,0 +1,160 @@
+# Changelog
+
+## isoniche 1.1.0
+
+New maintainer: Itai Granot. Author order is now Granot, Dubiner,
+Belmaker; Itai Granot and Shahar Dubiner contributed equally.
+
+### Bug fixes
+
+These change results relative to 1.0.0.
+
+- The n-dimensional isodar (`fit_isodars(dim = "ndim")`) is now a line
+  (the first principal axis), not a hyperplane (the smallest
+  eigenvector) combined with “closest to equal allocation”. The old
+  approach biased niche breadth toward generalism.
+- Inverse-variance weights (`weights = "1/var"`) were applied twice
+  (effectively 1 / sd^4). They are now 1 / (sd^2 (1 + slope^2)), applied
+  once.
+- `isoderr(output = "SE")` divided the bootstrap standard deviation by
+  `sqrt(n_boot)`. The bootstrap SD is itself the standard error, so “SD”
+  and “SE” now both return it.
+- [`fit_isodars()`](https://itai811.github.io/isoniche/reference/fit_isodars.md)
+  no longer recurses forever when an isodar has a negative slope and a
+  negative intercept.
+- Density-independent niche breadth (`iai(abundances = NULL)`) is now
+  evaluated at the first integer total with at least `min_occupancy`
+  (default 1) individual in every habitat. Previously the threshold was
+  \> 1e-9 individuals. If no total qualifies, one row of `NA` is
+  returned.
+- `hab_cols = NULL` silently used every column of `data`. Now `hab_cols`
+  (or `n_habitats`) is required.
+
+### New features
+
+- A new user-facing layer works on one or many species at once:
+
+  - [`fit_isodars()`](https://itai811.github.io/isoniche/reference/fit_isodars.md)
+    accepts long-format data (one row per species x site x habitat,
+    columns named by `species`, `site`, `habitat`, `abundance` and
+    optionally `effort`) and returns one fit per species
+    (`isodar_fits`). Counts are converted to densities per
+    `reference_effort` (default: the median effort). The wide-format
+    interface is unchanged.
+  - [`niche_breadth()`](https://itai811.github.io/isoniche/reference/niche_breadth.md)
+    returns, per species, density-independent and density-dependent
+    niche breadth with site-bootstrap confidence intervals, the
+    spillover abundance (the total at which the least-favoured used
+    habitat reaches one individual), preference-reversal abundances,
+    abandoned habitats and diagnostic flags as columns, printed as one
+    summary line. Density-dependent niche breadth is by default the
+    limit at infinite abundance (`dependent_at = "asymptote"`), computed
+    directly. The flags include a test of whether isodar intercepts
+    differ from sampling noise (multinomial null model, as in the
+    paper).
+  - [`iai_curve()`](https://itai811.github.io/isoniche/reference/iai_curve.md)
+    and its [`plot()`](https://rdrr.io/r/graphics/plot.default.html)
+    method give niche breadth as a function of total abundance, with
+    bootstrap bands, each species’ density-independent value and
+    asymptote, preference reversals, and the totals at which two
+    species’ curves cross.
+  - [`check_coverage()`](https://itai811.github.io/isoniche/reference/check_coverage.md)
+    summarises sampling coverage per species and habitat;
+    [`group_sites()`](https://itai811.github.io/isoniche/reference/group_sites.md)
+    merges nearby sites (complete linkage on great-circle distance,
+    summing counts and efforts);
+    [`radius_sensitivity()`](https://itai811.github.io/isoniche/reference/radius_sensitivity.md)
+    shows how results change with the grouping radius.
+
+- [`simulate_isodars()`](https://itai811.github.io/isoniche/reference/simulate_isodars.md)
+  simulates any number of habitats (`slopes`, `intercepts`), optional
+  missing habitats (`p_missing`) and long-format output; the
+  three-habitat default gives the same numbers as before.
+
+  - [`community_to_long()`](https://itai811.github.io/isoniche/reference/community_to_long.md)
+    converts a community matrix (samples x species) and a table of
+    sample attributes into the long format, pooling samples from the
+    same site and habitat and summing their effort.
+  - [`summary()`](https://rdrr.io/r/base/summary.html) of a
+    [`niche_breadth()`](https://itai811.github.io/isoniche/reference/niche_breadth.md)
+    result counts the species with estimates and without warning flags,
+    gives quartiles of the estimates and, for each flag raised, how many
+    species raised it, what it means and what to do about it.
+  - The legend of `plot(<iai_curve>)` goes to a corner free of curves
+    and bands, or above the plot, or where `legend` says (e.g.
+    `legend = "bottomright"`).
+
+- New data set `moorea_fish`: reef fishes of Moorea in three habitats
+  (the paper’s Table S2).
+
+- New vignettes:
+  [`vignette("isoniche")`](https://itai811.github.io/isoniche/articles/isoniche.md)
+  (get started),
+  [`vignette("data-preparation")`](https://itai811.github.io/isoniche/articles/data-preparation.md),
+  [`vignette("diagnostics")`](https://itai811.github.io/isoniche/articles/diagnostics.md)
+  and
+  [`vignette("method")`](https://itai811.github.io/isoniche/articles/method.md);
+  `citation("isoniche")`; a pkgdown website.
+
+- Habitats a species never uses are handled.
+  [`fit_isodars()`](https://itai811.github.io/isoniche/reference/fit_isodars.md)
+  (and
+  [`isoderr()`](https://itai811.github.io/isoniche/reference/isoderr.md))
+  gain `absent = "auto"`, which declares a habitat absent when the
+  species has no more than `absent_max_count` (default 0) records in it
+  across at least `absent_min_sites` (default 5) sites where it was
+  present in another habitat. Absent habitats are excluded from the
+  isodar fit, fixed at 0, and counted as 0 in the inequality, so they
+  lower niche breadth. Previously such habitats broke the fit and
+  [`iai()`](https://itai811.github.io/isoniche/reference/iai.md)
+  returned `NA`. Habitats with no records but fewer informative sites
+  give a warning and are kept. Use `absent = "none"` for the old
+  behaviour or name habitats directly. A species that uses a single
+  habitat has niche breadth 0.
+  [`isoderr()`](https://itai811.github.io/isoniche/reference/isoderr.md)
+  decides the absent set once, on the full data. Results for species
+  that use every habitat are unchanged.
+
+- Scaled niche breadth is kept within \[0, 1\] (rounding error could
+  give values such as -1e-16).
+
+- New
+  [`pairwise_niche()`](https://itai811.github.io/isoniche/reference/pairwise_niche.md)
+  summarises pairwise isodars into niche breadth indices (paper,
+  Appendix S1): the mean intercept and mean slope, and the inverse
+  root-mean-square deviations of slopes from 1 and of intercepts from 0,
+  with optional weights (`"1/var"` or numeric) and an option to measure
+  slope deviations on the log scale (`log_slope = TRUE`).
+
+- Pairwise isodars use every site where both habitats of a pair were
+  recorded, so sites that lack some habitats still contribute.
+
+- `fit_isodars(dim = "ndim", ndim_method = "latent")` estimates the line
+  from incomplete sites (every site with at least two habitats) as a
+  one-factor model fitted with glmmTMB, and checks that the habitats are
+  connected through shared sites. `ndim_method = "auto"` picks `"pca"`
+  when all sites are complete and `"latent"` otherwise.
+
+- [`fit_isodars()`](https://itai811.github.io/isoniche/reference/fit_isodars.md)
+  returns classed tibbles (`isodars_pairwise`, `isodar_line`).
+
+- [`iai()`](https://itai811.github.io/isoniche/reference/iai.md)
+  allocates abundance among habitats by weighted least squares on the
+  pairwise isodar equations, constrained to the total; habitats
+  predicted negative are set to 0 and the rest are re-solved.
+
+- `isoderr(output = "CI")` returns percentile bootstrap intervals.
+
+- [`iai()`](https://itai811.github.io/isoniche/reference/iai.md) gives
+  an informative error when `abundances` contains `NA`, non-finite or
+  negative values.
+
+- Unit tests cover the paper’s reference values, a simulation with a
+  known answer, each bug fix above, input validation and the latent
+  method.
+
+## isoniche 1.0.0
+
+CRAN release: 2026-08-25
+
+- First CRAN release (maintainer Shahar Dubiner).

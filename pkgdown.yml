@@ -1,0 +1,12 @@
+pandoc: 3.8.3
+pkgdown: 2.2.1
+pkgdown_sha: ~
+articles:
+  data-preparation: data-preparation.html
+  diagnostics: diagnostics.html
+  isoniche: isoniche.html
+  method: method.html
+last_built: 2026-11-01T12:21Z
+urls:
+  reference: https://itai811.github.io/isoniche/reference
+  article: https://itai811.github.io/isoniche/articles
