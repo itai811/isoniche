@@ -36,6 +36,7 @@ These change results relative to 1.0.0.
   Previously such habitats broke the fit and `iai()` returned `NA`. Habitats
   with no records but fewer informative sites give a warning and are kept.
   Use `absent = "none"` for the old behaviour or name habitats directly.
+  A species that uses a single habitat has niche breadth 0.
   `isoderr()` decides the absent set once, on the full data. Results for
   species that use every habitat are unchanged.
 * Scaled niche breadth is kept within [0, 1] (rounding error could give
