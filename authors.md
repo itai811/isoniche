@@ -2,7 +2,8 @@
 
 ## Authors
 
-- **Itai Granot**. Author, maintainer.  
+- **Itai Granot**. Author, maintainer.
+  [](https://orcid.org/0000-0002-2168-3440)  
   Contributed equally with Shahar Dubiner
 
 - **Shahar Dubiner**. Author.
