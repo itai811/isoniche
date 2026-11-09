@@ -1,8 +1,8 @@
 ## Resubmission
 
 This is a resubmission of isoniche 1.1.0, unchanged. The previous
-submission was cancelled because the old maintainer did not confirm the
-maintainer change within a week; Shahar Dubiner has now agreed to confirm it.
+submission timed out while waiting for the maintainer-change confirmation
+from the previous maintainer's address.
 
 ## Submission
 
